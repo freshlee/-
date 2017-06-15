@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/course/index",
+      "pages/demo/index",
+    "pages/video/index",
+    "pages/my/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "测试",
+    "navigationBarBackgroundColor": "#e30c26",
+    "backgroundColor": "#F2f2f2",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#9e9e9e",
+    "selectedColor": "#e30c26",
+    "borderStyle": "white",
+    "backgroundColor": "#F5F5F5",
+    "list": [
+      {
+        "pagePath": "pages/demo/index",
+        "iconPath": "images/home-icon2.png",
+        "selectedIconPath": "images/home-icon1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/course/index",
+        "iconPath": "images/shedule_logo.png",
+        "selectedIconPath": "images/cart-icon1.png",
+        "text": "课表"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "images/center-icon2.png",
+        "selectedIconPath": "images/center-icon1.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": true
+}

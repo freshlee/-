@@ -1,0 +1,73 @@
+<view class="body">
+<view class="header">
+<view class="banner">
+<swiper indicator-dots="true">
+  <block wx:for="{{bannerUrls}}">
+  <swiper-item>
+      <image src="{{item}}" style="height:{{myheight}}"/>
+    </swiper-item>
+    
+  </block>
+</swiper>
+</view>
+<view class="navigator">
+<navigator url="{{item.url}}" wx:for="{{title}}" ><view class="list" style="background:url({{item.thumb}});background-size:100%;background-repeat:no-repeat"><text>{{item.name}}</text></view></navigator>
+</view>
+<view class="adventure"></view>
+<view class="container"></view>
+<scroll-view class="ontop"></scroll-view>
+<view class="footer"></view>
+</view>
+<view class="firstCase">
+<view class="caseHead"><text class="title">精选付费课程</text> <text class="more">更多好课></text></view>
+<navigator url="../video/index">
+<view class="mainvideo">
+<video src="C:/Users/Administrator/Desktop/image/testvideo.mp4" poster=""></video>
+</view>
+</navigator>
+<view class="subvideo"><video src="src" ></video><text>vidioname</text><view> <view class="littleBall"></view> 观看人数</view></view>
+<view class="subvideo"><video src="src" ></video><text>vidioname</text><view> <view class="littleBall"></view> 观看人数</view></view>
+</view>
+
+<view class="secondCase">
+<view class="caseHead"><text class="title">品牌机构</text> <text class="more">更多机构></text></view>
+<view class="advertise">品牌机构广告</view>
+<view class="logoContainer">
+<view class="LOGO"></view>
+<view class="LOGO"></view>
+<view class="LOGO"></view>
+<view class="LOGO"></view>
+</view>
+</view>
+
+<view class="thirdCase">
+<view class="caseHead"><text class="title">品牌课程</text> <text class="more">更多课程></text></view>
+<view style="clear:both"></view>
+<scroll-view style="width:100%;white-space: nowrap" scroll-x>
+<view class="course" wx:for="{{courseData}}">
+<image src="{{item.url}}"></image>
+<text class="courseName">{{item.name}}</text>
+<text clase="coursePrice">￥{{item.price}}</text>
+</view>
+</scroll-view>
+</view>
+
+<view class="forthCase">
+<view class="caseHead"><text class="title">文章</text> <text class="more">阅览更多></text></view>
+<view style="clear:both"></view>
+
+<view class="article"  wx:for="{{articleData}}">
+<view class="section_left">
+<view class="article_title">{{item.title}}</view>
+<view class="article_content">{{item.content}}</view>
+<view class="article_subscript">{{item.subscript}}</view>
+</view>
+<view class="section_right">
+<view><image src="{{item.url}}"></image></view>
+</view>
+</view>
+</view>
+</view>
+
+
+

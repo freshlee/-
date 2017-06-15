@@ -1,0 +1,14 @@
+/* pages/course/index.wxss */
+.list .courseLogo{
+  width:147.2rpx;
+  height: 147.2rpx;
+  border-radius: 50%;
+  background: yellowgreen;
+}
+.container .list{
+  display: inline-block;
+  margin: 20rpx 52rpx;
+}
+.list text{
+  text-align: center;
+}

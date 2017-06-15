@@ -1,0 +1,74 @@
+
+  <view class="well null {{carts=='' ? 'on' : ''}}">
+      <view class="wells">
+            <view class="null-image"><image src="/images/null-icon.png"></image></view>
+          <view class="null-title">{{tipWords}}</view>
+          <view class="null-choose"><button type="button" bindtap="switchindex">去 挑 选</button></view>
+      </view>
+  </view>
+
+  <view class="well cart">
+          <view class="cart-list" wx:for="{{carts}}" data-title="{{item.title}}" data-url="{{item.url}}" data-id="{{item.id}}" bindtap="bindViewTap">
+              <view class="cart-list-icon">
+                  <icon wx:if="{{item.selected}}" type="success" size="28" color="red" bindtap="bindCheckbox" data-index="{{index}}"/>
+                  <icon wx:else type="circle" size="28" bindtap="bindCheckbox" data-index="{{index}}"/>
+              </view>
+              <navigator url="../details/index?id={{item.goodsid}}">
+              <view class="cart-list-l">
+                  <image src="{{item.thumb}}"></image>
+              </view>
+              </navigator>
+              <view class="cart-list-r">
+                  <view class="v1">
+                      <navigator url="../details/index?id={{item.goodsid}}">
+                      <view class="title">{{item.title}}</view>
+                      </navigator>
+                      <view class="img" bindtap="del" data-id="{{item.id}}">x</view>
+                  </view>
+                  <navigator url="../details/index?id={{item.goodsid}}">
+                  <view class="v2">
+                      <view wx:if="{{item.optiontitle}}">{{item.optiontitle}}</view>
+                  </view>
+                  </navigator>
+                  <view class="v3">
+                      <view class="goods-num">
+                          <view class="goods-num-l">￥{{item.marketprice}}</view>
+                              <view class="goods-num-r">
+                                  <view class="minus" data-index="{{index}}" bindtap="bindMinus">-</view>
+                                  <input type="text" bindchange="bindManual" value="{{item.total}}" bindconfirm="inputchange" data-index="{{index}}" />
+                                  <view class="adds" data-index="{{index}}" bindtap="bindPlus">+</view>
+                              </view>
+                          <view class="clearfix"></view>
+                      </view>
+                  </view>
+              </view>
+              <view clas="clearfix"></view>
+          </view>
+  </view>
+  <view style="width:100%; height:130rpx;"></view>
+  <view class="well cart-buttom" wx:if="{{carts!=''}}">
+        <view class="cart-buttom-l">
+            <icon wx:if="{{selectedAllStatus}}" size="28" type="success" color="red" bindtap="bindSelectAll"/>
+            <icon wx:else type="circle" size="28" bindtap="bindSelectAll"/>
+            <view class="all">全选</view>
+            <view class="cart-buttom-price">合计：<text>{{totals}}</text></view>
+        </view>
+        <view class="cart-buttom-r" bindtap="buy">结 算</view>
+  </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
