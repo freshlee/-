@@ -1,4 +1,5 @@
 /* pages/video/index.wxss */
+@import "../../wxParse/wxParse.wxss";
 .toolbar view{
   display: inline-block;
 }

@@ -1,4 +1,5 @@
 // pages/video/index.js
+var WxParse = require('../../wxParse/wxParse.js');
 var org;
 Page({
         
@@ -7,6 +8,7 @@ Page({
    */
   data: {
    length,
+
   },
 
   /**
@@ -49,6 +51,30 @@ Page({
     })
   },
   onLoad: function (options) {
+    var THIS=this;
+    var article;
+    wx.request({
+      url: 'http://192.168.1.5/index.php?c=edu&a=detail&op=getgoods&id=1647&openid=1', //仅为示例，并非真实的接口地址
+      data: {
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        article=res.data.dat.content;
+        console.log(article);
+      }
+    })
+    /** 
+    * WxParse.wxParse(bindName , type, data, target,imagePadding) 
+    * 1.bindName绑定的数据名(必填) 
+    * 2.type可以为html或者md(必填) 
+    * 3.data为传入的具体数据(必填) 
+    * 4.target为Page对象,一般为this(必填) 
+    * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选) 
+    */
+    var that = this;
+    WxParse.wxParse('article', 'html', article, that, 5);  
   
   },
   onStop:function(){
@@ -78,7 +104,7 @@ Page({
       });
       this.interact();
       }
-      console.log(org)
+      console.log (org)
 
   },
   onMove:function(e){

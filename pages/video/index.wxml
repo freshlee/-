@@ -1,4 +1,5 @@
 <!--pages/video/index.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
 <video src="src" style="width:100%"></video>
 <view class="toolbar">
 <view class="list" bindtap="section" style="border-bottom:{{border_section}}">章节</view>
@@ -17,7 +18,9 @@
 </view>
 <!--详情-->
 <view class="list window" id="detail" >
-<view class="introduce case">
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+
+<!--<view class="introduce case">
 <view class="title">课程须知</view>
 <view class="intContent">本课程是腾讯。。。。。。。</view>
 </view>
@@ -42,7 +45,7 @@
 <view class="content">还不错</view>
 </view>
 
-</view>
+</view>-->
 </view>
 <!--评论-->
 <view class="list window" id="comment"  style="background:blue">
@@ -56,3 +59,4 @@
 </view>
 <view class="list window" id="interact"  style="background:yellow" ></view>
 </scroll-view>
+

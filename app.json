@@ -1,10 +1,12 @@
 {
   "pages": [
-    "pages/course/index",
     "pages/demo/index",
     "pages/video/index",
     "pages/my/index",
-    "/pages/random/index"
+    "pages/course/index",
+    "pages/detail/advertise/index",
+    "pages/detail/video/index",
+    "pages/detail/course/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

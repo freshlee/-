@@ -4,7 +4,9 @@
 <swiper indicator-dots="true">
   <block wx:for="{{bannerUrls}}">
   <swiper-item>
-      <image src="{{item}}" style="height:{{myheight}}"/>
+      <navigator url="../video/index">
+          <image src="{{item}}" style="height:240rpx"/>
+      </navigator>
     </swiper-item>
     
   </block>
@@ -20,13 +22,14 @@
 </view>
 <view class="firstCase">
 <view class="caseHead"><text class="title">精选付费课程</text> <text class="more">更多好课></text></view>
-<navigator url="../video/index">
+<navigator url="{{video[0]}}">
 <view class="mainvideo">
 <video src="C:/Users/Administrator/Desktop/image/testvideo.mp4" poster=""></video>
 </view>
 </navigator>
-<view class="subvideo"><video src="src" ></video><text>vidioname</text><view> <view class="littleBall"></view> 观看人数</view></view>
-<view class="subvideo"><video src="src" ></video><text>vidioname</text><view> <view class="littleBall"></view> 观看人数</view></view>
+<view class="subvideo"> <navigator url="{{video[1]}}"><video style="width:330rpx;height:150rpx" src="src" ></video></navigator> <text>vidioname</text><view> <view class="littleBall"></view> 观看人数</view></view>
+
+<view class="subvideo"> <navigator url="{{video[2]}}"><video style="width:330rpx;height:150rpx" src="src" ></video></navigator> <text>vidioname</text><view> <view class="littleBall"></view> 观看人数</view></view>
 </view>
 
 <view class="secondCase">

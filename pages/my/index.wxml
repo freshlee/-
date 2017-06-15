@@ -1,108 +1,13 @@
-
-<view class="well userinfo" bindtap="bindViewTap">
-    <image class="banner" src="/images/center-banner.png"></image>
-    <view class="userinfo-avatar">
-        <image src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </view>
+<view class="body">
+<view class="user">
+<view class="user_info">
+<view class="user_protrait"> <image src="{{user_protrait}}"></image></view>
+<view class="name">{{userName}}</view>
 </view>
-<view class="well center">
-    <view class="wells">
-        <view class="center-head">
-             <view class="center-head-l">
-                    <text>查看订单</text>
-             </view>
-             <navigator url="../order/index?status=0">
-              <view class="center-head-r">
-                    <text>全部订单</text>
-                    <image src="/images/icon-arrowdown.png"></image>
-              </view>
-              </navigator>
-        </view>
-    </view>
-    <view class="clearfix"></view>
-    <view class="order">
-        <navigator url="../order/index?status=1">
-        <view class="order-stant">
-            <image src="/images/dfk.png"></image>
-            <text>待付款</text>
-            <view wx:if="{{status2!=0}}">{{status2}}</view>
-        </view>
-        </navigator>
-        <navigator url="../order/index?status=2">
-        <view class="order-stant">
-            <image src="/images/dsh.png"></image>
-            <text>待发货</text>
-            <view wx:if="{{status3!=0}}">{{status3}}</view>
-        </view>
-        </navigator>
-        <navigator url="../order/index?status=3">
-        <view class="order-stant">
-            <image src="/images/dfh.png"></image>
-            <text>待收货</text>
-            <view wx:if="{{status4!=0}}">{{status4}}</view>
-        </view>
-        </navigator>
-        <navigator url="../order/index?status=4">
-        <view class="order-stant">
-            <image src="/images/dpj.png"></image>
-            <text>待评价</text>
-            <view wx:if="{{status5!=0}}">{{status5}}</view>
-        </view>
-        </navigator>
-        <navigator url="../order/index?status=5">
-        <view class="order-stant">
-            <image src="/images/qbdd.png"></image>
-            <text>退换/售后</text>
-            <view wx:if="{{status6!=0}}">{{status6}}</view>
-        </view>
-        </navigator>
-    </view>
+<view class="user_interact">
+<view class="concert">关注</view>
+<view class="fans">粉丝</view>
+<view class="score">积分</view>
 </view>
-<view class="clearfix"></view>
-<view class="gap"></view>
-<view class="well center">
-    <view class="wells">
-        <navigator url="../extra/mycoupon/index">
-            <view class="center-head">
-                <view class="center-head-l">
-                        <image src="../../images/history.png"></image><text>历史记录</text>
-                </view>
-                <view class="center-head-r">
-                        <image src="/images/icon-arrowdown.png"></image>
-                </view>
-            </view>
-        </navigator>
-    </view>
 </view>
-<view class="well center">
-    <view class="wells">
-        <navigator url="../extra/collect/index">
-            <view class="center-head">
-                <view class="center-head-l">
-                        <image src="../../images/path_logo.png"></image><text>我的路径</text>
-                </view>
-                <view class="center-head-r">
-                        <image src="/images/icon-arrowdown.png"></image>
-                </view>
-            </view>
-        </navigator>
-    </view>
 </view>
-<view class="well center">
-    <view class="wells">
-        <navigator url="../address/index">
-            <view class="center-head">
-            
-                <view class="center-head-l">
-                        <image src="../../images/order_logo.png"></image><text>我的课表</text>
-                </view>
-                <view class="center-head-r">
-                        <image src="/images/icon-arrowdown.png"></image>
-                </view>
-            </view>
-        </navigator>
-    </view>
-</view>
-
-

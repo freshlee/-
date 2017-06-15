@@ -14,17 +14,26 @@ Page({
 onReady:function(){
   var THIS=this;
   wx.request({
-    url: 'http://192.168.1.6/index.php?c=edu&a=index&op=init', //仅为示例，并非真实的接口地址
+    url: 'http://192.168.1.5/index.php?c=edu&a=index&op=init', //仅为示例，并非真实的接口地址
     data: {
     },
     header: {
       'content-type': 'application/json'
     },
     success: function (res) {
+      var filter=[];
+      // console.log(res.data.list1);
+      var data = res.data.list1;
+      for(var i in res.data.list1){
+        var element = "../detail/video/index?doctype=" + data[i].doctype + "&id=" + data[i].id;
+        filter.push(element);
+      }
+      
       THIS.setData({
         title:res.data.nav,
+        video:filter,
       });
-      console.log(res);
+      console.log(THIS.data.video);
     }
   })
 }

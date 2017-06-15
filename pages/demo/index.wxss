@@ -180,6 +180,9 @@
 .section_right > view{
   height: 80rpx;
 }
+navigator image{
+  height: 240rpx;
+}
 
 
 
