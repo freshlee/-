@@ -66,7 +66,7 @@
         <navigator url="../extra/mycoupon/index">
             <view class="center-head">
                 <view class="center-head-l">
-                        <text>优惠劵</text>
+                        <image src="../../images/history.png"></image><text>历史记录</text>
                 </view>
                 <view class="center-head-r">
                         <image src="/images/icon-arrowdown.png"></image>
@@ -80,7 +80,7 @@
         <navigator url="../extra/collect/index">
             <view class="center-head">
                 <view class="center-head-l">
-                        <text>我的收藏</text>
+                        <image src="../../images/path_logo.png"></image><text>我的路径</text>
                 </view>
                 <view class="center-head-r">
                         <image src="/images/icon-arrowdown.png"></image>
@@ -95,7 +95,7 @@
             <view class="center-head">
             
                 <view class="center-head-l">
-                        <text>地址管理</text>
+                        <image src="../../images/order_logo.png"></image><text>我的课表</text>
                 </view>
                 <view class="center-head-r">
                         <image src="/images/icon-arrowdown.png"></image>
@@ -105,77 +105,4 @@
     </view>
 </view>
 
-<view class="well center"  wx:if="{{isbindmobile=='0'}}" bindtap="bindphone">
-    <view class="wells">
-        <view class="center-head">
-            <view class="center-head-l">
-                    <text>绑定手机</text>
-            </view>
-            <view class="center-head-r">
-                    <image src="/images/icon-arrowdown.png"></image>
-            </view>
-        </view>
-    </view>
-</view>
-<view class="well center"  wx:if="{{isbindmobile=='1'}}" bindtap="resetbind">
-    <view class="wells">
-            <view class="center-head">
-                <view class="center-head-l">
-                        <text>解绑手机</text>
-                </view>
-                <view class="center-head-r">
-                        <image src="/images/icon-arrowdown.png"></image>
-                </view>
-            </view>
-    </view>
-</view>
-<view class="well center" bindtap="apply">
-    <view class="wells">
-        <view class="center-head">
-            <view class="center-head-l">
-                    <text>申请店铺入驻</text>
-            </view>
-            <view class="center-head-r">
-                    <image src="/images/icon-arrowdown.png"></image>
-            </view>
-        </view>
-    </view>
-</view>
-<view class="well center" wx:if="{{merch_status!='-2'}}">
-    <view class="wells">
-        <view class="center-head">
-            <view class="center-head-l">
-                    <text wx:if="{{merch_status=='0'}}">店铺入驻申请中</text>
-                    <text wx:if="{{merch_status=='-1'}}">申请店铺入驻被驳回</text>
-                    <text wx:if="{{merch_status=='1'}}">店铺待入驻中</text>
-                    <text wx:if="{{merch_status=='2'}}">已入驻店铺</text>
-                    <text wx:if="{{merch_status=='3'}}">店铺入驻暂停中</text>
-                    <text wx:if="{{merch_status=='4'}}">店铺即将到期</text>
-            </view>
-        </view>
-    </view>
-</view>
 
-<view class="well center">
-    <view class="wells">
-        <navigator url="../help/index">
-            <view class="center-head">
-                <view class="center-head-l">
-                        <text>关于我们</text>
-                </view>
-                <view class="center-head-r">
-                        <image src="/images/icon-arrowdown.png"></image>
-                </view>
-            </view>
-        </navigator>
-    </view>
-</view>
-<view style="width:100%; height:40rpx;"></view>
-<view class="well coprity" wx:if="{{copyright!='undefined'}}">
-    <view>{{copyright}}</view>
-</view>
-<view class="server">
-    <contact-button type="default-light" size="20" session-from="weapp" >
-    </contact-button>
-    <text>客服</text>
-</view>
