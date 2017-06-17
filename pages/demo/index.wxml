@@ -53,10 +53,10 @@
 </view>
 
 <view class="forthCase">
-<view class="caseHead"><text class="title">文章</text> <text class="more">阅览更多></text></view>
+<view class="caseHead"><text class="title">文章</text> <text class="more" bindtap="moveToMore">阅览更多></text></view>
 <view style="clear:both"></view>
 
-<view class="article"  wx:for="{{articleData}}" bindtap="moveToArticle">
+<view class="article"  wx:for="{{articleData}}" data-id="item.id" bindtap="moveToArticle">
 <view class="section_left">
 <view class="article_title">{{item.title}}</view>
 <view class="article_content">{{item.content}}</view>

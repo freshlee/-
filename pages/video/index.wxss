@@ -1,90 +1,121 @@
-/* index.wxss */
+/* pages/video/index.wxss */
 @import "../../wxParse/wxParse.wxss";
-.body{
+.toolbar view{
+  display: inline-block;
+}
+view{
+  white-space: nowrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  
+}
+.contain  .window{
+  display: inline-block;
+  width:100%;
+  vertical-align: top;
+  padding: 80rpx;
   box-sizing: border-box;
-  width: 100%;
-  position: relative;
-  background: gainsboro;
+  
 }
-.case{
-  padding:20rpx 60rpx;
-  margin: 0 0 5rpx;
-  background: white;
-}
-.picture{
-  height: 200rpx;
-
-}
-.remark .title{
-  font-size: 40rpx;
-}
-.remark .li{
-  display: inline-block;
-  width: 20%;
-  padding: 10rpx;
-  background: gainsboro;
-  border-radius: 5%;
-  text-align: center;
-  margin: 30rpx 20rpx 0;
-}
-.panel{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-.panel view{
-  display: inline-block;
-  width: 50%;
-  text-align: center;
+.toolbar .list{
+  width:25%;
   height: 80rpx;
   line-height: 80rpx;
-  background: red;
-  box-sizing: border-box;
+  text-align: center;
+  font-size: 40rpx;
+}
+.window .ul{
+  font-size: 40rpx;
+}
+.window .li{
+  text-align: left;
+  font-size:30rpx;
+  text-indent: 2em;
+}
+#section .li{
+  margin: 20rpx 0;
+}
+#detail view{
+  white-space: pre-wrap;
+}
+#comment .case{
+  padding:50rpx 0;
+  border-bottom:1rpx solid lightgrey; 
+}
+#comment .title{
+  font-size: 40rpx;
+}
+#comment .intContent{
   font-size: 35rpx;
-  font-weight: bold;
+  text-indent: 2em;
 }
-.panel view:last-child{
-  background: orangered;
+#comment .teacher image{
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
 }
-.base{
-  border-bottom: 1px solid gainsboro;
+#comment .teacher > view{
+   display: inline-block;
 }
-.base view{
+#teacher .remark .header>view{
+  display: inline-block;
+  }
+.header:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.header{
+  margin-bottom: 30rpx;
+}
+.header .num{
+  float: left;
+  font-size: 30rpx
+} 
+.header .num text{
+  font-size: 40rpx
+} 
+.header .more{
+  float: right;
+}
+
+.user_info view{
+  display: inline-block;
+}
+.user_info image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.user .content{
+  padding-left:70rpx;
+}
+#interact .title{
+  font-size: 40rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.title_case{
+  padding:20rpx 0;
+  border-bottom:1rpx solid gainsboro;
+}
+.title_case .list{
+  display: inline-block;
+  width:50%;
+  vertical-align: middle;
+}
+.title_case .info{
+  height: 150rpx;
+  line-height: 37.5rpx;
+  padding-left:20rpx;
+}
+.title_case image{
+  height: 150rpx;
+}
+.title_case .priceattr{
+  line-height: 75rpx;
+  height: 75rpx;
   font-size:35rpx;
-  height: 50rpx;
-  line-height: 50rpx;
-  margin-bottom: 10rpx;
+  color:green;
 }
-.attr view{
-  font-size: 30rpx;
-  margin: 20rpx;
-}
-.free view{
-  width: 100%;
-  background: red;
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-  padding: 0 20rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  background: orangered;
-  box-sizing: border-box;
-  font-size: 35rpx;
-  font-weight: bold;
-
-}
-.strorage{
-  background: cadetblue;
-  position: fixed;
-  height: 80rpx;
-  line-height: 80rpx;
-  border-radius:5%;
-  width: 240rpx;
-  bottom:220rpx;
-  left: 50%;
-  margin-left:-120rpx;
-  text-align: center;
-  font-size: 40rpx;
-}
-/* index.wxss */

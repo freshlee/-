@@ -39,10 +39,10 @@ Page({
      console.log(this.data.cates);
   },
   chosetype: function (event) {
-    var type = event.currentTarget.dataset.type;
-    mytype = type;
+    var types = event.currentTarget.dataset.type;
+    mytype = types;
     this.setData({
-      types: type,
+      types: types,
     })
   },
   chosepay: function (event) {

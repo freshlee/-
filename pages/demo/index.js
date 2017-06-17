@@ -2,9 +2,15 @@ Page({
   data: {
 
   },
-moveToArticle:function(){
+moveToMore:function(){
   wx.navigateTo({
     url: '../filter/index?type=3',
+  })
+},
+moveToArticle:function(event){
+  var newurl = '../article/index?'+event.currentTarget.dataset.id;
+  wx.navigateTo({
+    url: newurl,
   })
 },
 onReady:function(){
@@ -45,7 +51,7 @@ onReady:function(){
       }
       console.log(subLogos);
       for (var i in list3) {
-        var element = "../advertise/index?doctype=" + list3[i].doctype + "&id=" + list3[i].id;
+        var element = "../course/index?doctype=" + list3[i].doctype + "&id=" + list3[i].id;
         var list3_thumb = list3[i].thumb;
         courses.push({ url: element, thumb: list3_thumb ,price:list3[i].productprice,name:list3[i].name});
       }

@@ -1,23 +1,19 @@
 {
   "pages": [
+    "pages/community/index",
+    "pages/shedule/index",
     "pages/demo/index",
-  "pages/checkout/index",
+    "pages/checkout/index",
     "pages/filter/index",
     "pages/paymenu/index",
-    "pages/community/index",
-    "pages/video/index",
     "pages/pay/index",
     "pages/article/read/index",
-    "pages/cart/index",
     "pages/my/index",
     "pages/article/index",
     "pages/course/index",
     "pages/advertise/index",
     "pages/video/index",
-    "pages/list/index",
-    "pages/article/index",
-    "pages/shedule/index",
-    "pages/video/index"
+    "pages/list/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -40,7 +36,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/cart/index",
+        "pagePath": "pages/shedule/index",
         "iconPath": "images/shedule_logo.png",
         "selectedIconPath": "images/cart-icon1.png",
         "text": "课表"

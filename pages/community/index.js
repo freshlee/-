@@ -5,14 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bannerUrls: [{ url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }, { url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }, { url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }]
+    bannerUrls: [{ url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }, { url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }, { url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }],
+      nav: [1, 2, 3],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+     
   },
 
   /**
