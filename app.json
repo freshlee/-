@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/demo/index",
+    "pages/filter/index",
+    "pages/paymenu/index",
     "pages/community/index",
     "pages/video/index",
-    "pages/demo/index",
-    "pages/paymenu/index",
     "pages/pay/index",
     "pages/article/read/index",
     "pages/cart/index",

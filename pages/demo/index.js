@@ -4,7 +4,7 @@ Page({
   },
 moveToArticle:function(){
   wx.navigateTo({
-    url: '../course/index',
+    url: '../filter/index?type=3',
   })
 },
 onReady:function(){

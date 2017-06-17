@@ -1,0 +1,86 @@
+/* index.wxss */
+.case{
+  padding: 0 60rpx;
+  margin: 5rpx 0;
+  background: white; 
+  position: relative;
+}
+.case .li{
+   display: inline-block;
+}
+.info{
+  position: relative;
+  height: 240rpx;
+  margin-left:50rpx;
+   width:200rpx;
+   left: 200rpx;
+}
+.info .name{
+  font-size:35rpx;
+}
+.info .attr{
+  font-size:30rpx;
+  margin-left:210rpx 0;
+}
+.picture{
+  position: absolute;
+  top: 0;
+}
+.picture image{
+  width:240rpx;
+  height: 240rpx;
+}
+
+.body{
+  background: gainsboro;
+}
+.property{
+  float: right;
+  margin-right: 30rpx;
+}
+.property view{
+  padding:10rpx 20rpx;
+  border: 2rpx solid red;
+  border-radius: 15%;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 5rpx 0;
+}
+.filter{
+  padding:40rpx 60rpx;
+}
+.filter .list{
+  margin:20rpx 0;
+}
+.filter .typename{
+  font-size:40rpx;
+  border-bottom: 1px solid grey;
+}
+.filter .type{
+  font-size:30rpx;
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  margin: 15rpx 15rpx;
+  border-radius: 10%;
+}
+.filter .typeon{
+  font-size:30rpx;
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  margin: 15rpx 15rpx;
+  border-radius: 10%;
+  background: red;
+}
+.panel{
+  font-size: 35rpx;
+  width: 60%;
+  margin: 0 20%;
+  box-sizing: border-box;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 5%;
+  background: red;
+}
