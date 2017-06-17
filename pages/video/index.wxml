@@ -27,7 +27,7 @@
 <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 </view>
 <view class="panel">
-<view class="classname">购买</view>
+<view class="classname" bindtap="purchase">购买</view>
 <view class="classname">加入购物车</view>
 </view>
 <view class="free" style="display:{{show==1?'block':'none'}}">

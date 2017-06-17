@@ -1,50 +1,49 @@
-// index.js
-var WxParse = require('../../wxParse/wxParse.js');
-var myId;
-var content;
+// pages/detail/index.js
+var id;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    myId = options.id;
-    var THIS = this;
-    var newUrl = "http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&id=" + myId + "&openid=1"
-    console.log(newUrl);
-    wx.request({
-      url: newUrl,
-      success: function (res) {
-        console.log(res);
-        var data = res.data.dat;
-        if (data.priceattr == 1) {
-          THIS.setData({
-            show: 1,
-          })
-        }
-        else {
-          THIS.setData({
-            show: 2,
-          })
-        }
-        console.log(THIS.data.show);
+  purchase:function(){
+    wx.requestPayment({
+      'timeStamp': '',
+      'nonceStr': '',
+      'package': '',
+      'signType': 'MD5',
+      'paySign': '',
+      'success': function (res) {
+      },
+      'fail': function (res) {
       }
     })
-     var article="sss";
-     var that = this; 
-     WxParse.wxParse('article', 'html', article, that, 5); 
+  },
+  onLoad: function (options) {
+     var THIS=this;
+      id=options.id;
+      var newurl = "http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&openid=1&id="+id;
+      wx.request({
+        url: newurl,
+        success:function(res){
+         THIS.setData({
+           
+         })
+        }
+      })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
   },
 
   /**

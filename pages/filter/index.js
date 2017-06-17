@@ -17,6 +17,19 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  //转跳页面
+  jump:function(event){
+    var id = event.currentTarget.dataset.id;
+    var type=event.currentTarget.dataset.nav;
+    if(type==1){mytype='video'}
+    else if (type == 3) { mytype = 'course' }
+    else { mytype = 'article' }
+    var newurl="../"+mytype+"/index?&id="+id;
+    console.log(newurl);
+     wx.navigateTo({
+       url: newurl,
+     })
+  },
   chosecate:function(event){
      var cate=event.currentTarget.dataset.cate;
      mycate=cate;

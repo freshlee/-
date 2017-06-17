@@ -26,7 +26,7 @@
 开始筛选
 </view>
 </view>
-<view class="case" wx:for="{{cases}}">
+<view class="case" wx:for="{{cases}}" data-id="{{item.id}}" data-nav="{{item.doctype}}" bindtap="jump">
 <view class="picture li"> <image src="{{item.thumb}}"></image> </view>
 <view class="info li">
 <view class="name list">{{item.title}}</view>

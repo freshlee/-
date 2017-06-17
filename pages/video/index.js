@@ -1,6 +1,7 @@
 // index.js
 var WxParse = require('../../wxParse/wxParse.js');
 var myId;
+var payUrl;
 var content;
 Page({
 
@@ -13,16 +14,22 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  purchase:function(){
+     wx.navigateTo({
+       url: payUrl,
+     })
+  },
   onLoad: function (options) {
     myId = options.id;
     var THIS = this;
-    var newUrl = "http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&id=" + myId + "&openid=1"
+    var newUrl = "http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&id=" + myId + "&openid=1";
     console.log(newUrl);
     wx.request({
       url: newUrl,
       success: function (res) {
         console.log(res.data);
         var data = res.data.dat;
+        payUrl="../checkout/index?id="+data.id;
         if (data.priceattr == 1) {
           THIS.setData({
             show: 1,

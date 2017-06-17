@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/demo/index",
+  "pages/checkout/index",
     "pages/filter/index",
     "pages/paymenu/index",
     "pages/community/index",
