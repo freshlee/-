@@ -1,0 +1,12 @@
+/* index.wxss */
+.nav .list{
+  display: inline-block;
+  width: 50%;
+}
+.nav view image{
+  height: 120rpx;
+  width: 120rpx;
+}
+.nav .list image,.nav .list view,{
+  text-align: center;
+}

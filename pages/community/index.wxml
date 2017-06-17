@@ -1,0 +1,32 @@
+<view class="banner">
+<swiper indicator-dots="true">
+  <block wx:for="{{bannerUrls}}">
+  <swiper-item>
+      <navigator url="{{item.url}}">
+          <image src="{{item.thumb}}" style="height:240rpx"/>
+      </navigator>
+    </swiper-item>
+    
+  </block>
+</swiper>
+</view>
+<view class="nav">
+<view class="list">
+<image src="C:/Users/Administrator/Desktop/image/banner2.jpg"></image>
+<view class="name">测试</view>
+</view>
+<view class="list">
+<image src="C:/Users/Administrator/Desktop/image/banner2.jpg"></image>
+<view class="name">测试</view>
+</view>
+<view class="list">
+<image src="C:/Users/Administrator/Desktop/image/banner2.jpg"></image>
+<view class="name">测试</view>
+</view>
+<view class="list">
+<image src="C:/Users/Administrator/Desktop/image/banner2.jpg"></image>
+<view class="name">测试</view>
+</view>
+
+</view>
+<view class="board"></view>

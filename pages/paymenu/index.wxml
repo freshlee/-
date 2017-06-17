@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="name case">铲平名字</view>
+<view class="price case">单价:100元</view>
+<view class="panel case">
+<view class="left" bindtap="del">-</view>
+<view class="window">{{num}}</view>
+<view class="right" bindtap="add">+</view>
+</view>
+<view class="totalPrice case">总价:{{total}}</view>
+<view class="go">
+<view class="classname"> 前往观看</view>
+</view>
