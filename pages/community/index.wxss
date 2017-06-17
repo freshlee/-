@@ -60,7 +60,7 @@
 }
 .content .catename{
   height: 30rpx;
-  padding:3rpx 40rpx;
+  padding:15rpx 40rpx;
   font-size:35rpx;
   font-weight:bold; 
 }
