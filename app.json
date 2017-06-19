@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/live/index",
     "pages/demo/index",
+    "pages/live/index",
     "pages/community/tip/index",
     "pages/video/index",
     "pages/course/index",
