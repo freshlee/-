@@ -1,25 +1,28 @@
 {
   "pages": [
-    "pages/community/index",
-    "pages/shedule/index",
+    "pages/live/index",
     "pages/demo/index",
-    "pages/checkout/index",
+    "pages/community/tip/index",
+    "pages/video/index",
+    "pages/course/index",
+    "pages/community/square/index",
+    "pages/article/index",
     "pages/filter/index",
+    "pages/community/home/index",
+    "pages/shedule/index",
+    "pages/checkout/index",
     "pages/paymenu/index",
     "pages/pay/index",
     "pages/article/read/index",
     "pages/my/index",
-    "pages/article/index",
-    "pages/course/index",
     "pages/advertise/index",
-    "pages/video/index",
     "pages/list/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "测试",
-    "navigationBarBackgroundColor": "#e30c26",
+    "navigationBarBackgroundColor": "rgb(7,103,200)",
     "backgroundColor": "#F2f2f2",
     "enablePullDownRefresh": false
   },
@@ -36,13 +39,19 @@
         "text": "首页"
       },
       {
+        "pagePath": "pages/live/index",
+        "iconPath": "images/home-icon2.png",
+        "selectedIconPath": "images/home-icon1.png",
+        "text": "直播"
+      },
+      {
         "pagePath": "pages/shedule/index",
         "iconPath": "images/shedule_logo.png",
         "selectedIconPath": "images/cart-icon1.png",
         "text": "课表"
       },
       {
-        "pagePath": "pages/community/index",
+        "pagePath": "pages/community/home/index",
         "iconPath": "images/shedule_logo.png",
         "selectedIconPath": "images/cart-icon1.png",
         "text": "社区"

@@ -1,18 +1,13 @@
-// index.js
-var WxParse = require('../../wxParse/wxParse.js');
+// pages/square/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   show:1,
+  
   },
-  toRead:function(){
-    wx.navigateTo({
-      url: './read/index',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -24,10 +19,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var THIS=this;
-    var article ="请输入富文本：测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试"
-    WxParse.wxParse('article', 'html', article, THIS, 5);
-
   
   },
 

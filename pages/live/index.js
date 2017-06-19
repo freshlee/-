@@ -1,18 +1,27 @@
 // index.js
-var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   show:1,
+    bannerUrls: [{ url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }, { url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }, { url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }],
+    status: 0,
   },
-  toRead:function(){
-    wx.navigateTo({
-      url: './read/index',
-    })
-  },
+ scroll:function(event){
+   var top=event.detail.scrollTop;
+   console.log(top);
+   if(top>=150){
+       this.setData({
+         status:1,
+       })
+   }
+   else{
+     this.setData({
+       status:0,
+     })  
+   }
+ },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -25,10 +34,13 @@ Page({
    */
   onReady: function () {
     var THIS=this;
-    var article ="请输入富文本：测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试"
-    WxParse.wxParse('article', 'html', article, THIS, 5);
-
-  
+    wx.getSystemInfo({
+      success: function(res) {
+         THIS.setData({
+           eqheight:res.screenHeight,
+         })
+      },
+    })
   },
 
   /**

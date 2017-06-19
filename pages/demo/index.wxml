@@ -1,7 +1,7 @@
 <view class="body">
 <view class="header">
 <view class="banner">
-<swiper indicator-dots="true">
+<swiper indicator-dots="true" interval="3" autoplay>
   <block wx:for="{{bannerUrls}}">
   <swiper-item>
       <navigator url="{{item.url}}">
@@ -34,7 +34,7 @@
 
 <view class="secondCase">
 <view class="caseHead"><text class="title">品牌机构</text> <navigator url="../filter/index"><text class="more"> 更多机构></text></navigator> </view>
-<navigator url="{{mainLogo.url}}"><view class="advertise image" style="background:url({{mainLogo.thumb}});background-size:100% 100%" >品牌机构广告</view></navigator>
+<navigator url="{{mainLogo.url}}"><view class="advertise image" style="background:url({{mainLogo.thumb}});background-size:100% 100%" ></view></navigator>
 <view class="logoContainer">
 <view class="LOGO" wx:for="{{subLogo}}" style="background:url({{item.thumb}});background-size:100% 100%"><navigator url="{{item.url}}" style="height:100%"><view style="width:100%;height:100%"></view></navigator></view>
 </view>

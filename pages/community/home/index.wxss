@@ -50,9 +50,13 @@
   margin: 25rpx 40rpx;
   border-bottom:1rpx solid gainsboro;
 }
+.content .case:last-of-type{
+  margin: 25rpx 40rpx;
+  border-bottom:none;
+}
 .case .title{
   padding:10rpx 0;
-  font-size:35rpx;
+  font-size:30rpx;
   font-weight:bold; 
 }
 .case .sum{

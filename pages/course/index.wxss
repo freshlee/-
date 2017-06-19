@@ -4,73 +4,73 @@
   box-sizing: border-box;
   width: 100%;
   position: relative;
-  background: gainsboro;
+  background: black;
 }
 .case{
   padding:20rpx 60rpx;
   margin: 0 0 5rpx;
-  background: white;
 }
 .picture{
-  height: 200rpx;
-
+  height: 400rpx;
 }
-.remark .title{
-  font-size: 40rpx;
+.info{
+  padding: 30rpx 30rpx;
 }
-.remark .li{
-  display: inline-block;
-  width: 20%;
-  padding: 10rpx;
-  background: gainsboro;
-  border-radius: 5%;
+.info .name{
+  color: white;
+  padding: 15rpx 0;
   text-align: center;
-  margin: 30rpx 20rpx 0;
+  font-size: 45rpx;
+  border-bottom: 0.5rpx solid gainsboro;
 }
-.panel{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-.panel view{
-  display: inline-block;
-  width: 50%;
+.info .subtitle{
+  padding: 10rpx 0;
   text-align: center;
-  height: 80rpx;
-  line-height: 80rpx;
-  background: red;
-  box-sizing: border-box;
+  color: white;
   font-size: 35rpx;
-  font-weight: bold;
 }
-.panel view:last-child{
-  background: orangered;
+.status{
+  padding: 0 30rpx;
 }
-.base{
-  border-bottom: 1px solid gainsboro;
+.status>view{
+  display: inline-block;
+  height: 100rpx;
 }
-.base view{
-  font-size:35rpx;
-  height: 50rpx;
+.status .price{
+  color: #FFD39B;
+  font-size: 45rpx;
+  vertical-align: middle;
   line-height: 50rpx;
-  margin-bottom: 10rpx;
 }
-.attr view{
-  font-size: 30rpx;
-  margin-bottom: 5rpx;
+.status .campaign{
+   float: right;
+   color: grey;
+   font-size: 32rpx;
+   vertical-align: middle;
+   line-height: 50rpx;
 }
-.free view{
-  width: 100%;
-  background: red;
+.intro{
+  padding: 30rpx 30rpx 250rpx;
+}
+.intro>view:first-of-type{
+  padding: 30rpx 0;
+  font-size: 35rpx;
+  color: white;
+    border-bottom: 0.5rpx solid gainsboro;
+}
+.button{
   position: fixed;
   bottom: 0;
+  height: 110rpx;
+  line-height: 110rpx;
+  font-size: 38rpx;
+  background: #FFD39B;
+  color: #8B2500;
+  width: 100%;
   text-align: center;
-  padding: 0 20rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  background: orangered;
-  box-sizing: border-box;
-  font-size: 35rpx;
-  font-weight: bold;
-
+}
+.content view,.content{
+  color: grey;
+  font-size: 30rpx;
+  line-height: 45rpx;
 }

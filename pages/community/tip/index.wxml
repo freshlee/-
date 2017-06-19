@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="header">有哪些还有这种操作的故事</view>
+<view class="user">
+<view class="picture"> <image src="../../../images/protrait.jpg"></image> </view>
+<view class="name">轮子哥</view>
+</view>
+<view class="content">他一米八大个，胡子拉碴的，但平时就是宅在宿舍电脑前玩游戏，偶尔还补补番什么的，其实这还好，但是他每次开黑都语音，语音就算了！</view>

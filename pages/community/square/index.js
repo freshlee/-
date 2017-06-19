@@ -1,9 +1,14 @@
-// pages/article/pay.js
+// index.js
 Page({
 
   /**
    * 页面的初始数据
    */
+  toTip:function(){
+    wx.navigateTo({
+      url: '../tip/index',
+    })
+  },
   data: {
   
   },
