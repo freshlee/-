@@ -37,10 +37,10 @@
 <view class="goods">
 <view class="good" wx:for="{{cases}}" data-id="{{item.id}}" data-nav="{{item.doctype}}" bindtap="jump">
 
-<view class="picture li"> <image src="../../images/510.jpg"></image> </view>
+<view class="picture li"> <image src="{{item.thumb}}"></image> </view>
 
 <view class="info li">
-<view class="name list">10天学会C语言</view>
+<view class="name list">{{item.title}}</view>
 <view class="property">
 <view class="classname">付费</view>
 </view>

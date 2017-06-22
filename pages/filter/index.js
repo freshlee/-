@@ -10,7 +10,7 @@ Page({
   data: {
     cases: [{ name: "名字", attr1: "测试" }, { name: "名字", attr1: "测试" }, { name: "名字", attr1: "测试" }, { name: "名字", attr1: "测试" }],
   cates:0,
-  type:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+  type: [{ id: 1, name: "前端" }, { id: 2, name: "UI设计" }, { id: 3, name: "后台开发" }],
   types:0,
   pays:0,
   trans_mycate:"全部",
@@ -69,32 +69,31 @@ Page({
     })
   },
   sure: function () {
-    console.log(this.data.type);
     var THIS = this;
     var newcate = mycate == undefined || mycate ==0 ? "" : '&pcate=' + mycate;
     var newtype = mytype == undefined || mytype ==0 ? "" : '&doctype=' + mytype;
     var newpay = mypay == undefined || mypay ==0 ? "" : '&priceattr=' + mypay;
-    var newurl = "http://192.168.1.16/index.php?c=edu&a=goods&op=query_goods" + newcate + newtype + newpay;
+    var newurl = "http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5" + newcate + newtype + newpay;
     console.log(newurl);
     this.setData({
       status: 'off'
     })
-    // wx.request({
-    //   url: newurl,
-    //   success: function (res) {
-    //     THIS.setData({
-    //       cases: res.data.dat.goods,
-    //     })
-    //     console.log(res.data);
-    //   }
-    // })
+    wx.request({
+      url: newurl,
+      success: function (res) {
+        console.log(res.data);
+        THIS.setData({
+          cases: res.data,
+        })
+      }
+    })
     
   },
   onLoad: function (options) {
     var newcate = mycate == undefined ? "" : '&pcate=' + mycate;
     var newtype = mytype == undefined ? "" : '&doctype=' + mytype;
     var newpay = mypay == undefined ? "" : '&priceattr=' + mypay;
-    var newurl = "http://192.168.1.16/index.php?c=edu&a=goods&op=query_goods"+newcate+newtype+newpay;
+    var newurl = "http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5"+newcate+newtype+newpay;
     var type = options.type;
     //初始化数据
     mytype=type;
@@ -118,23 +117,23 @@ Page({
     var Thetype=options.type;
     var THIS=this;
     console.log(newurl);
-    //  wx.request({
-    //    url: "http://192.168.1.16/index.php?c=edu&a=category&op=list",
-    //    success:function(res){
-    //        THIS.setData({
-    //          type:res.data,
-    //        })
-    //    }
-    //  })
-    //  wx.request({
-    //    url: newurl,
-    //    success: function (res) {
-    //      THIS.setData({
-    //        cases: res.data.dat.goods,
-    //      })
-    //      console.log(res.data);
-    //    }
-    //  })
+     wx.request({
+       url: "http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=query_cate&openid=5",
+       success:function(res){
+           THIS.setData({
+             type:res.data,
+           })
+       }
+     })
+     wx.request({
+       url: newurl,
+       success: function (res) {
+         console.log(res.data);
+         THIS.setData({
+           cases: res.data,
+         })
+       }
+     })
   },
 
   /**
