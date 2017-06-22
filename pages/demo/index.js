@@ -16,21 +16,22 @@ moveToArticle:function(event){
 onReady:function(){
   var THIS=this;
   wx.request({
-    url: 'http://192.168.1.16/index.php?c=edu&a=index&op=init', 
+    // url: 'http://192.168.1.16/index.php?c=edu&a=index&op=init',
+    url:'http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=query_home&openid=5', 
     data: {
     },
     header: {
       'content-type': 'application/json'
     },
     success: function (res) {
-      console.log(res.data)
+      console.log(res)
       var videos=[];
       var mainLogos;
       var subLogos=[];
       var courses=[];
       var article=[];
       var bannerUrl=[];
-      var banner=res.data.adv;
+      var banner=res.data.banner;
       var list1 = res.data.video_list;
       var list2 = res.data.adv;
       var list3 = res.data.course_list;

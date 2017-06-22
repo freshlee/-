@@ -1,5 +1,5 @@
 // pages/video/index.js
-var WxParse = require('../../wxParse/wxParse.js');
+var WxParse = require('../../../wxParse/wxParse.js');
 var org;
 Page({
 
@@ -41,20 +41,11 @@ Page({
       toView: "comment",
     })
   },
-  interact: function () {
-    this.setData({
-      border_section: "none",
-      border_detail: "none",
-      border_comment: "none",
-      border_interact: "4rpx solid rgb(7,103,200)",
-      toView: "interact",
-    })
-  },
   onLoad: function (options) {
     var THIS = this;
     var article;
-    var myid=options.id;
-    var newurl ="http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&openid=1&id"+myid;
+    var myid = options.id;
+    var newurl = "http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&openid=1&id" + myid;
     wx.request({
       url: 'http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&id=1647&openid=1',
       data: {
@@ -64,7 +55,7 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-         article=res.data.dat.content;
+        article = res.data.dat.content;
         console.log(article);
         WxParse.wxParse('article', 'html', article, THIS, 5);
       }
@@ -76,24 +67,29 @@ Page({
     var length = this.data.length;
     if (org <= length / 2) {
       THIS.setData({
+        toView: "section",
+      });
+      this.section();
+    }
+    else if (org >= length / 2 && org < length * 1.5) {
+      THIS.setData({
         toView: "detail",
       });
       this.detail();
     }
-    else if (org >= length / 2 && org < length * 1.5) {
+    else if (org >= length * 1.5 && org < length * 2.5) {
       THIS.setData({
         toView: "comment",
       });
       this.comment();
     }
-    else if (org >= length * 1.5 && org < length * 3) {
+    else if (org >= length * 2.5 && org <= length * 4) {
       THIS.setData({
         toView: "interact",
       });
       this.interact();
     }
-    console.log(org);
-    console.log(this.data.toView)
+    console.log(org)
 
   },
   onMove: function (e) {

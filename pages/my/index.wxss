@@ -1,40 +1,150 @@
+/* pages/video/index.wxss */
+@import "../../wxParse/wxParse.wxss";
+.body{
+  background: gainsboro;
+}
+.case{
+  padding:40rpx 20rpx;
+  margin-bottom:20rpx;
+  background: white;
+    box-shadow: 0 2rpx 5rpx #888888;
+}
+.toolbar view{
+  display: inline-block;
+}
+view{
+  white-space: nowrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  
+}
+.contain  .window{
+  display: inline-block;
+  width:100%;
+  vertical-align: top;
+  box-sizing: border-box;
+  
+}
+.toolbar{
+  border-bottom: 1rpx solid lightgrey;
+}
+.toolbar .list{
+  width:50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: white;
+}
 
-.well.userinfo { height: 299rpx; position: relative; }
-.well.userinfo .banner { width: 750rpx; height: 299rpx; }
-.userinfo-avatar { width: 100%; height:  299rpx;line-height: 299rpx; position: absolute;top: 0; left: 0; }
-.userinfo-avatar image { width: 130rpx; height: 130rpx; position: absolute; top: 80rpx; left:37rpx;  border: 4rpx solid #ffffff; border-radius: 140rpx; }
-.userinfo-avatar text { margin-left: 190rpx; color: #fff; }
-.center-head { width: 100%; height: 102rpx; line-height: 102rpx; border-bottom: 1rpx solid #ededed; position: relative; }
-.center-head .center-head-l { width: 75%; float: left; font-size: 30rpx; } 
-.center-head .center-head-l image { width: 31rpx; height: 38rpx; position: absolute; top: 32rpx; left: 0; }
-.center-head .center-head-l text { font-size: 30rpx; }
-.center-head .center-head-r { width: 25%; float: left; text-align: right; } 
-.center-head .center-head-r text { font-size: 26rpx; margin-right: 48rpx; color: #949494; }
-.center-head .center-head-r image { width: 32rpx; height: 32rpx; position: absolute; top: 36rpx; right: 0; }
-.well.center .order { width: 100%; } 
-.gap { background: #efeff4 !important; }
-.well.center .order .order-stant { width: 150rpx; height: 136rpx; float: left; text-align: center; position: relative; }
-.well.center .order .order-stant image { width: 48rpx; height: 46rpx; margin-top: 26rpx; }
-.well.center .order .order-stant text { width: 150rpx; display: block; margin-top: 10rpx; color: #908a8a }
-.well.center .order .order-stant view { height: 35rpx; line-height: 35rpx; padding: 0 10rpx; border-radius: 35rpx; background: #e30c26; color: #fff; position: absolute; top: 12rpx; right: 20rpx; font-size: 22rpx; }
+.header .protrait{
+  text-align: center;
+  padding: 50rpx 0  10rpx;
+}
+.header .protrait image{
+  width: 150rpx;
+  height:150rpx;
+  border-radius: 50%;
+}
+.header .username{
+  padding: 10rpx 10rpx;
+  text-align: center;
+  font-size: 35rpx;
+  color:white;
+}
+.intro{
+  background: white;
+}
+.info{
+  padding: 0rpx 0 20rpx;
+}
+.info>view{
+  display: inline-block;
+  width: 25%;
+  text-align: left;
+  padding:0rpx 30rpx 0 15rpx ; 
+}
+.info .title{
+  color: lightslategrey;
+}
+.info .account{
+  font-weight: 100;  
+  font-size:40rpx;
 
-.tuijian1 { width: 100%; padding-top: 30rpx; text-align: center;  background: #efeff4; font-size: 29rpx; color: #1b1b1b; }
-.tuijian2 { width: 100%; margin-top: 4rpx; text-align: center;  background: #efeff4; font-size: 25rpx; color: #ceced0; }
-.well.tuijian { height: 140rpx; background: #efeff4; }
-.tuijian-list { width: 100%; margin-top: 28rpx; border-bottom: 1rpx solid #efeff4; }
-.tuijian-list .wells { margin-bottom: 28rpx; }
-.tuijian-list-l { width: 180rpx; height: 180rpx; float: left; border: 1rpx solid #efeff4; }
-.tuijian-list-l image { width: 180rpx; height: 152rpx; }
-.tuijian-list-r { width: 490rpx; height: 180rpx; float: right; }
-.tuijian-list-r .v1 { font-size: 25rpx; margin-top: 16rpx; }
-.tuijian-list-r .v2 { font-size: 25rpx; color: #fd4a5f; margin-top: 20rpx; }
-
-
-
-
-
-
-
-
-
-
+}
+.interact{
+  padding: 0 15rpx;
+}
+.interact>view{
+  display: inline-block;
+  margin-right: 60rpx;
+  color: dimgray;
+}
+.menu{
+  padding:0rpx 30rpx;
+  background: white;
+  box-shadow: 0 2rpx 5rpx #888888;
+}
+.menu>view{
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.menu .list>view{
+  display: inline-block;
+  vertical-align: baseline;
+}
+/*LOGO色调BFBFBF*/
+.list image{
+  position: relative;
+  top:8rpx;
+  margin-right: 30rpx;
+  width: 35rpx;
+  height: 35rpx;
+}
+.list .text{
+  border-bottom: 1rpx solid lightgrey;
+  width: 96%;
+  font-size: 30rpx;
+  color: dimgray;
+}
+.goods image{
+  height: 200rpx;
+  width: 160rpx;
+}
+.temp{
+  padding: 10rpx 40rpx
+}
+.temp .top,.temp .bottom{
+  height: 60rpx;
+  line-height: 60rpx;
+  color: dimgray;
+}
+.temp .time{
+  display: inline-block;
+  float: right;
+}
+.content>view{
+  display: inline-block;
+}
+.community .word,.goods .word{
+  width: 70%;
+}
+.word .goodssum{
+    white-space: pre-wrap;
+  letter-spacing: 3rpx;
+}
+.word .goodsname{
+  font-size:30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-weight: bold;
+}
+/*互动模板*/
+.community image,.tips image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.community .word{
+  width: 100%;
+}

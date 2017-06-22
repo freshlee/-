@@ -2,43 +2,53 @@
 <import src="../../wxParse/wxParse.wxml"/> 
 <video src="src" style="width:100%;height:300rpx"></video>
 <view class="toolbar">
-<view class="list" bindtap="section" style="border-bottom:{{border_section}}">章节</view>
 <view class="list" bindtap="detail" style="border-bottom:{{border_detail}}">详情</view>
-<view class="list" bindtap="comment" style="border-bottom:{{border_comment}}">介绍</view>
+<view class="list" bindtap="comment" style="border-bottom:{{border_comment}}">评论</view>
 <view class="list" bindtap="interact" style="border-bottom:{{border_interact}}">相关课程</view>
 </view>
-<scroll-view class="contain" bindscroll="onMove" bindtouchend="onStop" scroll-into-view="{{toView}}" style="width:100%;white-space:nowrap;" scroll-with-animation scroll-x>
-<view class="list window" id="section"  >
-<view class="ul">课程标题</view>
-<view class="li">XXXXXXXXXXXXXXXXXXXX</view>
-<view class="li">XXXXXXXXXXXXXXXXXXXX</view>
-<view class="li">XXXXXXXXXXXXXXXXXXXX</view>
-<view class="li">XXXXXXXXXXXXXXXXXXXX</view>
-<view class="li">XXXXXXXXXXXXXXXXXXXX</view>
+<view class="courseinfo">
+<view class="coursename">陈正庚大学英语46级</view>
+<view class="detail">
+<view class="amount">报名人数</view>
+<view class="appr">59人评论</view>
 </view>
+<view class="priceattr">356</view>
+</view>
+<scroll-view class="contain" bindscroll="onMove" bindtouchend="onStop" scroll-into-view="{{toView}}" style="width:100%;white-space:nowrap;" scroll-with-animation scroll-x>
+
 <!--详情-->
 <view class="list window" id="detail" >
+
+<view class="teacher">
+<view class="border"></view>
+<view class="caseheader">
+<view class="protrait"> <image src="../../images/protrait.jpg"></image> </view>
+<view class="info">
+<view class="name">李阳</view>
+<view class="reputa">好评度</view>
+<view class="num">课程数</view>
+</view>
+</view>
+<view class="casefoot">李阳，1969年出生，疯狂英语创始人，全球著名英语口语教育专家，英语成功学励志导师，中国教育慈善家，全国新青年十大新锐人物，全国五百多所中学的名誉校长和英语顾问，北京奥运会志愿者英语口语培训总教练。</view>
+</view>
+
+<view class="introduction">
+<view>课程详情</view>
+</view>
+
 <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 
 </view>
 <!--评论-->
 <view class="list window" id="comment">
-<view class="introduce case">
-<view class="title">课程须知</view>
-<view class="intContent">本课程是腾讯。。。。。。。</view>
-</view>
-<view class="teacher case">
-<view class="protrait"> <image src="../../images/headprotrait.jpg"></image> </view>
-<view class="teacher_info">
-<view class="teachername">T-BAG</view>
-<view class="rank">全栈工程师</view>
-</view>
-</view>
+
 <view class="remark case">
 <view class="header">
 <view class="num">综合评分：<text>10</text></view>
 <view class="more">查看更多</view>
 </view>
+</view>
+
 <view class="user">
 <view class="user_info">
 <view class="user_protrait"><image src="../../images/headprotrait.jpg"></image> </view>
@@ -47,7 +57,17 @@
 </view>
 <view class="content">还不错</view>
 </view>
+
+<view class="user">
+<view class="user_info">
+<view class="user_protrait"><image src="../../images/headprotrait.jpg"></image> </view>
+<view class="user_name">我是用户</view>
+<view class="star"></view>
 </view>
+<view class="content">还不错</view>
+</view>
+
+
 </view>
 <view class="list window" id="interact"   >
 <view class="title">推荐的课程</view>

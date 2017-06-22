@@ -1,9 +1,11 @@
 {
-  "pages": [
+  "pages":[
     "pages/demo/index",
+    "pages/my/index",
+    "pages/live/show/index",
     "pages/live/index",
-    "pages/community/tip/index",
     "pages/video/index",
+    "pages/community/tip/index",
     "pages/course/index",
     "pages/community/square/index",
     "pages/article/index",
@@ -14,7 +16,6 @@
     "pages/paymenu/index",
     "pages/pay/index",
     "pages/article/read/index",
-    "pages/my/index",
     "pages/advertise/index",
     "pages/list/index"
   ],
@@ -52,8 +53,8 @@
       },
       {
         "pagePath": "pages/community/home/index",
-        "iconPath": "images/shedule_logo.png",
-        "selectedIconPath": "images/cart-icon1.png",
+        "iconPath": "images/社区.png",
+        "selectedIconPath": "images/社区2.png",
         "text": "社区"
       },
       {

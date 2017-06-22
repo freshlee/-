@@ -1,7 +1,7 @@
 <view class="body">
 <view class="header">
 <view class="banner">
-<swiper indicator-dots="true" interval="3" autoplay>
+<swiper indicator-dots="true" interval="3000" autoplay>
   <block wx:for="{{bannerUrls}}">
   <swiper-item>
       <navigator url="{{item.url}}">
@@ -13,7 +13,7 @@
 </swiper>
 </view>
 <view class="navigator">
-<navigator url="{{item.url}}" wx:for="{{title}}" ><view class="list" style="background:url({{item.thumb}});background-size:100%;background-repeat:no-repeat"><text>{{item.name}}</text></view></navigator>
+<navigator url="{{item.url}}" wx:for="{{title}}" ><view class="list" style="background:url({{item.thumb}});background-size:100% 100%;background-repeat:no-repeat"><text>{{item.name}}</text></view></navigator>
 </view>
 <view class="adventure"></view>
 <view class="container"></view>
