@@ -54,12 +54,12 @@ onReady:function(){
       for (var i in list3) {
         var element = "../course/index?doctype=" + list3[i].doctype + "&id=" + list3[i].id;
         var list3_thumb = list3[i].thumb;
-        courses.push({ url: element, thumb: list3_thumb ,price:list3[i].productprice,name:list3[i].name});
+        courses.push({ url: element, thumb: list3_thumb ,price:list3[i].price,name:list3[i].name});
       }
       for (var i in list4) {
         var element = "../course/index?doctype=" + list4[i].doctype + "&id=" + list4[i].id;
         var list4_thumb = list4[i].thumb;
-        article.push({ url: element, thumb: list4_thumb, title:list4[i].title, subscript: list4[i].labelname,content:list4[i].subtitle});
+        article.push({ url: element, thumb: list4_thumb, title:list4[i].articlename, subscript: list4[i].articlesubscript,content:list4[i].articlecontent});
       }
       console.log(article);
        

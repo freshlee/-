@@ -177,7 +177,7 @@
   width: 25%;
 }
 .section_right > view{
-  height: 80rpx;
+  height: 140rpx;
 }
 navigator image{
   height: 240rpx;
