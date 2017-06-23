@@ -1,4 +1,8 @@
 /* index.wxss */
+.body{
+  background: black;
+  opacity: 0.6;
+}
 .header{
   padding: 30rpx 30rpx 100rpx;
   background: rgb(7,103,200);
@@ -28,4 +32,110 @@
   padding: 30rpx;
   font-size: 30rpx;
   line-height: 50rpx;
+}
+.panel{
+  width: 100%;
+  position: absolute;
+  padding: 20rpx;
+  bottom:0;
+  background: gainsboro;
+  border-top:1rpx solid lightgrey; 
+}
+.panel .praise{
+  width:120rpx;
+  height: 60rpx;
+  border-radius: 5rpx;
+  background: rgb(7,103,200);
+}
+.panel image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.praise>view{
+   display: inline-block;
+}
+.praise .control>view{
+  height: 15rpx;
+  width:30rpx;
+  margin:0rpx 20rpx 0;
+}
+.praise .control .up{
+  margin:15rpx 20rpx 6rpx;
+  transform: rotate(180deg);
+}
+.praise .num{
+  color: white;
+  font-size: 28rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  vertical-align: top;
+  transform: translateX(-5rpx);
+}
+.body{
+
+  height: 250rpx;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.toast{
+     z-index: 99;
+  top: 400rpx;
+  width:600rpx;
+  height: 350rpx;
+  position: fixed;
+  left: 50%;
+  margin-left: -300rpx;
+  padding: 0 50rpx 80rpx;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 10rpx;
+}
+.toast .title{
+     padding: 30rpx 20rpx 50rpx;
+     font-size: 35rpx;
+     color: black;
+     font-weight: bold;      
+}
+.toast .agree,.toast .oposite{
+  display: inline-block;
+  width:50%;
+  box-sizing: border-box;
+  padding: 20rpx 90rpx;
+  text-align: center;
+  text-indent: -10rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  font-weight: bold; 
+}
+.toast .agree image{
+  transform: rotate(180deg);
+}
+.toast image{
+  width: 100rpx;
+  height: 70rpx;
+}
+.close{
+  display: none;
+}
+.fadeup{
+  opacity: 1;
+}
+.fadeout{
+  opacity: 0.3;
+}
+.panel>view{
+  vertical-align: top;
+  display: inline-block;
+  margin-right:80rpx; 
+  font-size: 20rpx;
+  height: 60rpx;
+}
+.panel>view:first-of-type{
+  margin-right: 350rpx;
+}
+.collect image,.comment image{
+  height: 40rpx;
+  width: 40rpx;
 }

@@ -5,9 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    statu:0,
+    praise:1,
   },
-
+  changestatu:function(){
+   this.setData({
+     statu:this.data.statu==1?0:1,
+   })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,7 +24,26 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    console.log(this.data.praise);
+    var THIS=this;
+    wx.getSystemInfo({
+      success: function(res) {
+         THIS.setData({
+           myheight:res.windowHeight,
+         })
+      },
+    })
   
+  },
+  agree:function(){
+    this.setData({
+      praise:1,
+    })
+  },
+  oposite: function () {
+    this.setData({
+      praise: 0,
+    })
   },
 
   /**
