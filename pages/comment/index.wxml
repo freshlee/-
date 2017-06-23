@@ -1,11 +1,12 @@
 <!--index.wxml-->
-<view class="case">
+<view class="case" wx:for="{{praiselist}}" wx:key="index">
 <view class="main">
-<view class="left"> <image src="src"></image> </view>
+<view class="left"> <image src="../../images/user_protrait.jpg"></image> </view>
 <view class="right">
 <view class="name">andrew先生</view>
 <view class="content">口才不够23333</view>
 </view>
 </view>
-<view class="bottom"></view>
+<view class="bottom"> <view class="date">06-20</view>
+<view class="praise" data-num="{{index}}" bindtap="praise"><image src="../../images/{{status[index]==1?'praiseon':'praiseoff'}}.png"></image> <text>{{item.praise}}</text></view> </view>
 </view>

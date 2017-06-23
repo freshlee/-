@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/demo/index",
     "pages/comment/index",
     "pages/video/index",
-    "pages/demo/index",
     "pages/my/index",
     "pages/course/index",
     "pages/article/index",

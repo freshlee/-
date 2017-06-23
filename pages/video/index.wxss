@@ -13,7 +13,7 @@ view{
   display: inline-block;
   width:100%;
   vertical-align: top;
-  padding: 0 80rpx;
+  padding: 0 30rpx;
   box-sizing: border-box;
   
 }

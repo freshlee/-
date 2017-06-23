@@ -47,7 +47,6 @@ Page({
        cates:cate,
        trans_mycate:trans.substr(0,2)+"..",
      })
-     console.log(this.data.cates);
   },
   chosetype: function (event) {
     var trans = event.currentTarget.dataset.trans;
@@ -57,6 +56,7 @@ Page({
       types: types,
       trans_mytype:trans.substr(0,2)+"..",
     })
+    console.log(mytype);
   },
   chosepay: function (event) {
     var trans = event.currentTarget.dataset.trans;
