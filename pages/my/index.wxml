@@ -2,7 +2,8 @@
 <import src="../../wxParse/wxParse.wxml"/> 
 
 <view class="header">
-<view class="header" style="background:url('../../images/mybackground.jpg'); background-size:100%">
+<view class="classname" style="position:absolute;width:100%;height:360rpx;z-index:-1"><image src="../../images/background.jpg"></image></view>
+<view class="header">
 <view class="protrait">
 <image src="{{myprotrait}}"></image>  
 </view>

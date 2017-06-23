@@ -11,7 +11,7 @@
 <view class="{{status=='on'?'filteron':'filteroff'}} case filter" >
 <view class="list">
 <view class="typename">类别</view>
-<view class="{{cates==item.id?'typeon':'type'}}" wx:for="{{type}}" bindtap="chosecate" data-cate="{{item.id}}"
+<view class="{{cates==item.id?'typeon':'type'}}" wx:for="{{goodstype}}" bindtap="chosecate" data-cate="{{item.id}}"
  data-trans="{{item.name}}">{{item.name}}</view>
 <view class="{{cates==0?'typeon':'type'}}"  bindtap="chosecate" data-cate="0" data-trans="全部"
 >全部</view>
@@ -35,14 +35,14 @@
 </view>
 </view>
 <view class="goods">
-<view class="good" wx:for="{{cases}}" data-id="{{item.id}}" data-nav="{{item.doctype}}" bindtap="jump">
+<view class="good" wx:for="{{cases}}" data-id="{{item.id}}" data-nav="{{item.type}}" bindtap="jump">
 
 <view class="picture li"> <image src="{{item.thumb}}"></image> </view>
 
 <view class="info li">
 <view class="name list">{{item.title}}</view>
 <view class="property">
-<view class="classname">付费</view>
+<view class="classname"> <template is="{{item.priceattr}}"></template> </view>
 </view>
 </view>
 
@@ -50,3 +50,12 @@
 </view>
 
 </view>
+<template name="1">
+<view class="free">免费</view>
+</template>
+<template name="2">
+<view class="VIP">VIP</view>
+</template>
+<template name="3">
+<view class="limit">限时收费</view>
+</template>

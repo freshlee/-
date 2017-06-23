@@ -1,23 +1,22 @@
 {
-  "pages":[
+  "pages": [
+    "pages/comment/index",
+    "pages/video/index",
     "pages/demo/index",
     "pages/my/index",
-    "pages/live/show/index",
-    "pages/live/index",
-    "pages/video/index",
-    "pages/community/tip/index",
     "pages/course/index",
-    "pages/community/square/index",
     "pages/article/index",
     "pages/filter/index",
-    "pages/community/home/index",
     "pages/shedule/index",
     "pages/checkout/index",
     "pages/paymenu/index",
-    "pages/pay/index",
     "pages/article/read/index",
     "pages/advertise/index",
-    "pages/list/index"
+    "pages/live/index",
+    "pages/live/show/index",
+    "pages/community/tip/index",
+    "pages/community/home/index",
+    "pages/community/square/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

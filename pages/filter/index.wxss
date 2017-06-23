@@ -155,3 +155,11 @@
   height: 60rpx;
   line-height: 60rpx; 
 }
+/*模板样式*/
+.free{
+  font-size: 35rpx
+}
+.VIP,.limit{
+  font-size:35rpx;
+  color:red;
+}

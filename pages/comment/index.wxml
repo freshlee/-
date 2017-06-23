@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="case">
+<view class="main">
+<view class="left"> <image src="src"></image> </view>
+<view class="right">
+<view class="name">andrew先生</view>
+<view class="content">口才不够23333</view>
+</view>
+</view>
+<view class="bottom"></view>
+</view>

@@ -7,8 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    length,
-    Logo: [{ text: "浏览记录", logo: '../../images/记录.png' }, { text: "我的帖子", logo: '../../images/帖子.png' }, { text: "我的回答", logo: '../../images/回答.png' }, { text: "我的课程", logo: '../../images/课程.png' },{text: "商家入驻", logo:'../../images/商家入驻.png'}],
+    Logo: [{ text: "浏览记录", logo: '../../images/record.png' }, { text: "我的帖子", logo: '../../images/mytip.png' }, { text: "我的回答", logo: '../../images/anwser.png' }, { text: "我的课程", logo: '../../images/mycourse.png' },{text: "商家入驻", logo:'../../images/join.png'}],
 
   },
 

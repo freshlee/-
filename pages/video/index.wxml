@@ -42,12 +42,12 @@
 <!--评论-->
 <view class="list window" id="comment">
 
-<view class="remark case">
+
 <view class="header">
 <view class="num">综合评分：<text>10</text></view>
 <view class="more">查看更多</view>
 </view>
-</view>
+
 
 <view class="user">
 <view class="user_info">
@@ -72,7 +72,9 @@
 <view class="list window" id="interact"   >
 <view class="title">推荐的课程</view>
 <view class="title_case">
-<view class="picture list"> <image src="C:/Users/Administrator/Desktop/image/Case3-02.png"></image> </view>
+<view class="picture list"> 
+<!--<image src="C:/Users/Administrator/Desktop/image/Case3-02.png"></image> -->
+</view>
 <view class="info list">
 <view class="classname">MK-linux运维</view>
 <view class="classname">openstack-slatstack学习</view>

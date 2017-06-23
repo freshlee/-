@@ -4,11 +4,6 @@ Page({
   /**
    * 页面的初始数据
    */
-  toTip:function(){
-    wx.navigateTo({
-      url: '../tip/index',
-    })
-  },
   data: {
   
   },
@@ -16,6 +11,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  toTip: function () {
+    wx.navigateTo({
+      url: '../tip/index',
+    })
+  },
   onLoad: function (options) {
   
   },

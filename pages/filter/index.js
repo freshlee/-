@@ -8,15 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cases: [{ name: "名字", attr1: "测试" }, { name: "名字", attr1: "测试" }, { name: "名字", attr1: "测试" }, { name: "名字", attr1: "测试" }],
+  backgroundurl:"../../images/background.jpg",
   cates:0,
-  type: [{ id: 1, name: "前端" }, { id: 2, name: "UI设计" }, { id: 3, name: "后台开发" }],
   types:0,
   pays:0,
   trans_mycate:"全部",
   trans_mytype : "全部",
   trans_mypay : "全部",
-  status:'off',
+  status:"off",
   },
   
   /**
@@ -25,15 +24,15 @@ Page({
   //转跳页面
   statusChange:function(){
      this.setData({
-       status:this.data.status=='on'?'off':'on',
+       status:this.data.status=="on"?"off":"on",
      })
   },
   jump:function(event){
     var id = event.currentTarget.dataset.id;
     var type=event.currentTarget.dataset.nav;
-    if(type==1){mytype='video'}
-    else if (type == 3) { mytype = 'course' }
-    else { mytype = 'article' }
+    if(type==1){mytype="video"}
+    else if (type == 3) { mytype = "course"}
+    else { mytype = "article" }
     var newurl="../"+mytype+"/index?&id="+id;
     console.log(newurl);
      wx.navigateTo({
@@ -46,7 +45,7 @@ Page({
      mycate=cate;
      this.setData({
        cates:cate,
-       trans_mycate:trans,
+       trans_mycate:trans.substr(0,2)+"..",
      })
      console.log(this.data.cates);
   },
@@ -56,7 +55,7 @@ Page({
     mytype = types;
     this.setData({
       types: types,
-      trans_mytype:trans,
+      trans_mytype:trans.substr(0,2)+"..",
     })
   },
   chosepay: function (event) {
@@ -64,54 +63,56 @@ Page({
     var pay = event.currentTarget.dataset.pay;
     mypay = pay;
     this.setData({
-      trans_mypay:trans,
+      trans_mypay:trans.substr(0,2)+"..",
       pays: pay,
     })
   },
   sure: function () {
     var THIS = this;
-    var newcate = mycate == undefined || mycate ==0 ? "" : '&pcate=' + mycate;
-    var newtype = mytype == undefined || mytype ==0 ? "" : '&doctype=' + mytype;
-    var newpay = mypay == undefined || mypay ==0 ? "" : '&priceattr=' + mypay;
+    var newcate = mycate == undefined || mycate ==0 ? "" : "&pcate=" + mycate;
+    var newtype = mytype == undefined || mytype ==0 ? "" : "&doctype=" + mytype;
+    var newpay = mypay == undefined || mypay ==0 ? "" : "&priceattr=" + mypay;
     var newurl = "http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5" + newcate + newtype + newpay;
     console.log(newurl);
     this.setData({
-      status: 'off'
+      status: "off"
     })
     wx.request({
       url: newurl,
       success: function (res) {
-        console.log(res.data);
+        res = res.data;
+        console.log(res);
         THIS.setData({
-          cases: res.data,
+          cases: res,
         })
       }
     })
     
   },
   onLoad: function (options) {
-    var newcate = mycate == undefined ? "" : '&pcate=' + mycate;
-    var newtype = mytype == undefined ? "" : '&doctype=' + mytype;
-    var newpay = mypay == undefined ? "" : '&priceattr=' + mypay;
-    var newurl = "http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5"+newcate+newtype+newpay;
-    var type = options.type;
     //初始化数据
-    mytype=type;
-    switch(type){
+    mytype = gettype;
+    switch (gettype) {
       case "1":
-      type="视频";
-      break;
+        gettype = "视频";
+        break;
       case "2":
-      type="课程";
-      break;
+        gettype = "课程";
+        break;
       case "3":
-      type="文章";
+        gettype = "文章";
     }
-    console.log(type);
+
+    console.log(gettype);
     this.setData({
-      types:mytype,
-      trans_mytype:type,
+      types: mytype,
+      trans_mytype: gettype,
     })
+    var newcate = mycate == undefined ? "" : "&pcate=" + mycate;
+    var newtype = mytype == undefined ? "" : "&doctype=" + mytype;
+    var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
+    var newurl = "http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5"+newcate+newtype+newpay;
+    var gettype = options.type;
     var cate = options.cate;
     var pay = options.pay;
     var Thetype=options.type;
@@ -120,17 +121,19 @@ Page({
      wx.request({
        url: "http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=query_cate&openid=5",
        success:function(res){
+         var res=res.data;
            THIS.setData({
-             type:res.data,
+             goodstype:res,
            })
        }
      })
      wx.request({
        url: newurl,
        success: function (res) {
-         console.log(res.data);
+         res = res.data;
+         console.log(res);
          THIS.setData({
-           cases: res.data,
+           cases: res,
          })
        }
      })
