@@ -36,23 +36,6 @@ Page({
 
   onLoad: function (options) {
     var THIS = this;
-    var article;
-    var myid = options.id;
-    var newurl = "http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&openid=1&id" + myid;
-    wx.request({
-      // url: 'http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&id=1647&openid=1',
-      data: {
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data);
-        article = res.data.dat.content;
-        console.log(article);
-        WxParse.wxParse('article', 'html', article, THIS, 5);
-      }
-    })
 
   },
   onStop: function () {

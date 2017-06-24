@@ -13,11 +13,6 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  more:function(){
-    wx.navigateTo({
-      url: '../comment/index',
-    })
-  },
   section: function () {
     this.setData({
       border_section: "4rpx solid rgb(7,103,200)",
@@ -26,6 +21,7 @@ Page({
       border_interact: "none",
       toView: "section",
     })
+    console.log(this.data.toView);
   },
   detail: function () {
     this.setData({
@@ -35,6 +31,7 @@ Page({
       border_interact: "none",
       toView: "detail",
     })
+    console.log(this.data.toView);
   },
   comment: function () {
     this.setData({
@@ -44,6 +41,7 @@ Page({
       border_interact: "none",
       toView: "comment",
     })
+    console.log(this.data.toView);
   },
   interact: function () {
     this.setData({
@@ -53,6 +51,7 @@ Page({
       border_interact: "4rpx solid rgb(7,103,200)",
       toView: "interact",
     })
+    console.log(this.data.toView);
   },
   onLoad: function (options) {
     var THIS = this;
@@ -77,7 +76,8 @@ Page({
   },
   onStop: function () {
     var THIS = this;
-    var length = this.data.length;
+    var length = this.data.lengths;
+
     if (org <= length / 2) {
       THIS.setData({
         toView: "detail",
@@ -113,7 +113,7 @@ Page({
     wx.getSystemInfo({
       success: function (res) {
         THIS.setData({
-          length: res.screenWidth,
+          lengths: res.screenWidth,
         })
       }
     })

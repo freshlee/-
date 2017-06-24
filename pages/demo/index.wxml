@@ -5,7 +5,7 @@
   <block wx:for="{{bannerUrls}}">
   <swiper-item>
       <navigator url="{{item.url}}">
-          <image src="{{item.thumb}}" style="height:240rpx"/>
+          <image src="{{item.thumb}}" style="height:300rpx"/>
       </navigator>
     </swiper-item>
     

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bannerUrls: [{ url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }, { url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }, { url: "./tips/index", thumb: "C:/Users/Administrator/Desktop/image/banner2.jpg" }],
+    bannerUrls: [{ url: "./tips/index" }, { url: "./tips/index" }, { url: "./tips/index" }],
     status: 0,
   },
  scroll:function(event){

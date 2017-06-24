@@ -13,7 +13,7 @@ Page({
    */
   toTip: function () {
     wx.navigateTo({
-      url: '../tip/index',
+      url: '../tip/index'
     })
   },
   onLoad: function (options) {

@@ -1,6 +1,6 @@
 <!--pages/video/index.wxml-->
 <import src="../../wxParse/wxParse.wxml"/> 
-<video src="src" style="width:100%;height:300rpx"></video>
+<video  style="width:100%;height:300rpx"></video>
 <view class="toolbar">
 <view class="list" bindtap="detail" style="border-bottom:{{border_detail}}">详情</view>
 <view class="list" bindtap="comment" style="border-bottom:{{border_comment}}">评论</view>
