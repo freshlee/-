@@ -1,55 +1,65 @@
 // pages/video/index.js
+var fundebug = require('../../fundebug.0.0.3.min.js');
+fundebug.apikey = 'c648da35f9c366ce97ca980df26b85e349ff34ee26c73dd5a2e9ca637526bf81';
+
 var WxParse = require('../../wxParse/wxParse.js');
 var org;
+var lengths;
+var nowpos;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+     status:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  section: function () {
-    this.setData({
-      border_section: "4rpx solid rgb(7,103,200)",
-      border_detail: "none",
-      border_comment: "none",
-      border_interact: "none",
-      toView: "section",
-    })
-    console.log(this.data.toView);
+  scroll:function(event){
+     var mytop=this;
+     var nowstatus;
+     console.log(mytop);
+     if(mytop>=190){
+       nowstatus =1
+     }
+     else{nowstatus=0}
+     this.setData({
+       status:nowstatus,
+     })
   },
   detail: function () {
+    nowpos=0;
     this.setData({
       border_section: "none",
       border_detail: "4rpx solid rgb(7,103,200)",
       border_comment: "none",
       border_interact: "none",
-      toView: "detail",
+      scrollLeft: 0,
     })
     console.log(this.data.toView);
   },
   comment: function () {
+    nowpos=lengths;
     this.setData({
       border_section: "none",
       border_detail: "none",
       border_comment: "4rpx solid rgb(7,103,200)",
       border_interact: "none",
-      toView: "comment",
+      scrollLeft: lengths,
     })
     console.log(this.data.toView);
   },
   interact: function () {
+    nowpos=lengths*2;
     this.setData({
       border_section: "none",
       border_detail: "none",
       border_comment: "none",
       border_interact: "4rpx solid rgb(7,103,200)",
-      toView: "interact",
+      scrollLeft: lengths*2,
     })
     console.log(this.data.toView);
   },
@@ -76,29 +86,30 @@ Page({
   },
   onStop: function () {
     var THIS = this;
-    var length = this.data.lengths;
-
-    if (org <= length / 2) {
-      THIS.setData({
-        toView: "detail",
-      });
-      this.detail();
+    var length = lengths;
+    if(org>nowpos){
+      if (org <= length / 10) {
+        this.detail();
+      }
+      else if (org >= length / 10 && org < length * 1.1) {
+        this.comment();
+      }
+      else if (org >= length * 1.1 && org < length * 3) {
+        this.interact();
+      }
+    } 
+    else{
+      if (org <= length*0.9) {
+        this.detail();
+      }
+      else if (org >= length*0.9 && org < length * 1.9) {
+        this.comment();
+      }
+      else if (org >= length * 1.9 && org < length * 3) {
+        this.interact();
+      }
     }
-    else if (org >= length / 2 && org < length * 1.5) {
-      THIS.setData({
-        toView: "comment",
-      });
-      this.comment();
-    }
-    else if (org >= length * 1.5 && org < length * 3) {
-      THIS.setData({
-        toView: "interact",
-      });
-      this.interact();
-    }
-    console.log(org);
-    console.log(this.data.toView)
-
+   
   },
   onMove: function (e) {
     org = e.detail.scrollLeft;
@@ -112,9 +123,10 @@ Page({
     var THIS = this;
     wx.getSystemInfo({
       success: function (res) {
-        THIS.setData({
-          lengths: res.screenWidth,
-        })
+          lengths= res.screenWidth;
+          THIS.setData({
+            myheight:res.screenHeight,
+          })
       }
     })
   },

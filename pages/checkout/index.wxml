@@ -5,11 +5,11 @@
 <view class="classname">授课形式</view>
 </view>
 <view class="message case">
-<view class="classname">收货信息</view>
-<view class="classname"></view>
+<view class="classname">个人信息</view>
+<view class="classname"><textarea placeholder="请输入您的真实地址" auto-height="true"/></view>
 </view>
 <view class="address case">
-<view class="classname">线下地址</view>
+<view class="classname">课程线下地址</view>
 <view class="classname"></view>
 </view>
 <view class="status case">

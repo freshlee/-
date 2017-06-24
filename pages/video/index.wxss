@@ -1,5 +1,16 @@
 /* pages/video/index.wxss */
 @import "../../wxParse/wxParse.wxss";
+.body{
+  position: relative;
+}
+.statuson{
+  position: fixed;
+  top: 200rpx;
+  right: 0;
+  width: 50%;
+  height: 190rpx;
+  z-index: 99;
+}
 .toolbar view{
   display: inline-block;
 }
@@ -8,6 +19,10 @@ view{
   word-break: break-all;
   word-wrap: break-word;
   
+}
+.contain{
+  width:100%;
+  white-space:nowrap;
 }
 .contain  .window{
   display: inline-block;
@@ -215,4 +230,16 @@ view{
   line-height: 80rpx;
   height: 80rpx;
   border-bottom:1rpx solid lightgrey; 
+}
+.purchase{
+  position:fixed;
+  bottom:0;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 35rpx;
+  text-align: center;
+  background: #0767C8;
+  width: 100%;
+  color: white;
+
 }

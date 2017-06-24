@@ -2,7 +2,7 @@
 <import src="../../wxParse/wxParse.wxml"/> 
 <view class="body">
 <view class="picture">
-<image src="C:/Users/Administrator/Desktop/image/banner2.jpg"></image>
+<image ></image>
 </view>
 <view class="info">
 <view class="name">七节心理学思维自修课</view>

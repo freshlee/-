@@ -65,6 +65,7 @@ view{
   padding:0rpx 30rpx 0 15rpx ; 
 }
 .info .title{
+  font-size: 30rpx;
   color: lightslategrey;
 }
 .info .account{
@@ -106,6 +107,9 @@ view{
   width: 96%;
   font-size: 30rpx;
   color: dimgray;
+}
+.list:last-of-type .text{
+  border: none;
 }
 .goods image{
   height: 200rpx;

@@ -48,5 +48,9 @@
   font-size: 40rpx;
   color:blanchedalmond;
   background: lightgreen;
- 
+}
+.message textarea{
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 25rpx;
 }
