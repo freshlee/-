@@ -3,6 +3,9 @@
 .body{
   position: relative;
 }
+swiper{
+  height: 400rpx;
+}
 .statuson{
   position: fixed;
   top: 200rpx;
@@ -15,7 +18,7 @@
   display: inline-block;
 }
 view{
-  white-space: nowrap;
+  white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
   
@@ -24,7 +27,7 @@ view{
   width:100%;
   white-space:nowrap;
 }
-.contain  .window{
+.window{
   display: inline-block;
   width:100%;
   vertical-align: top;
@@ -241,5 +244,7 @@ view{
   background: #0767C8;
   width: 100%;
   color: white;
-
+}
+.bechosen{
+ border-bottom: 4rpx solid rgb(7,103,200);
 }

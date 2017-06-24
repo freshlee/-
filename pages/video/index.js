@@ -18,48 +18,33 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  scroll:function(event){
-     var mytop=this;
-     var nowstatus;
-     console.log(mytop);
-     if(mytop>=190){
-       nowstatus =1
-     }
-     else{nowstatus=0}
+
+  onchange:function(event){
      this.setData({
-       status:nowstatus,
+       myindex:event.detail.current,
      })
   },
   detail: function () {
     nowpos=0;
     this.setData({
-      border_section: "none",
-      border_detail: "4rpx solid rgb(7,103,200)",
-      border_comment: "none",
-      border_interact: "none",
-      scrollLeft: 0,
+      myindex:0,
+      index:0,
     })
     console.log(this.data.toView);
   },
   comment: function () {
     nowpos=lengths;
     this.setData({
-      border_section: "none",
-      border_detail: "none",
-      border_comment: "4rpx solid rgb(7,103,200)",
-      border_interact: "none",
-      scrollLeft: lengths,
+      myindex: 1,
+      index: 1,
     })
     console.log(this.data.toView);
   },
   interact: function () {
     nowpos=lengths*2;
     this.setData({
-      border_section: "none",
-      border_detail: "none",
-      border_comment: "none",
-      border_interact: "4rpx solid rgb(7,103,200)",
-      scrollLeft: lengths*2,
+      myindex: 2,
+      index: 2,
     })
     console.log(this.data.toView);
   },
@@ -82,37 +67,6 @@ Page({
     //     WxParse.wxParse('article', 'html', article, THIS, 5);
     //   }
     // })
-
-  },
-  onStop: function () {
-    var THIS = this;
-    var length = lengths;
-    if(org>nowpos){
-      if (org <= length / 10) {
-        this.detail();
-      }
-      else if (org >= length / 10 && org < length * 1.1) {
-        this.comment();
-      }
-      else if (org >= length * 1.1 && org < length * 3) {
-        this.interact();
-      }
-    } 
-    else{
-      if (org <= length*0.9) {
-        this.detail();
-      }
-      else if (org >= length*0.9 && org < length * 1.9) {
-        this.comment();
-      }
-      else if (org >= length * 1.9 && org < length * 3) {
-        this.interact();
-      }
-    }
-   
-  },
-  onMove: function (e) {
-    org = e.detail.scrollLeft;
 
   },
 

@@ -1,19 +1,19 @@
 {
   "pages": [
+    "pages/course/index",
+    "pages/demo/index",
+    "pages/advertise/index",
     "pages/video/index",
     "pages/checkout/index",
-    "pages/demo/index",
     "pages/community/square/index",
     "pages/community/home/index",
     "pages/community/tip/index",
     "pages/comment/index",
     "pages/my/index",
     "pages/shedule/index",
-    "pages/course/index",
     "pages/article/index",
     "pages/filter/index",
     "pages/paymenu/index",
-    "pages/advertise/index",
     "pages/live/index",
     "pages/live/show/index",
     "pages/article/read/index"

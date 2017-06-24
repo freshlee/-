@@ -3,9 +3,9 @@
 <view class="body" bindtouchmove="scroll">
 <view class="video" style="height:190px"><video  style="width:100%;height:190px" class="{{status==1?'statuson':'statusoff'}}"></video></view>
 <view class="toolbar">
-<view class="list" bindtap="detail" style="border-bottom:{{border_detail}}">详情</view>
-<view class="list" bindtap="comment" style="border-bottom:{{border_comment}}">评论</view>
-<view class="list" bindtap="interact" style="border-bottom:{{border_interact}}">相关课程</view>
+<view class="list {{myindex==0?'bechosen':''}}" bindtap="detail" >详情</view>
+<view class="list {{myindex==1?'bechosen':''}}" bindtap="comment">评论</view>
+<view class="list {{myindex==2?'bechosen':''}}" bindtap="interact">相关课程</view>
 </view>
 <view class="courseinfo">
 <view class="coursename">陈正庚大学英语46级</view>
@@ -15,12 +15,14 @@
 </view>
 <view class="priceattr">￥356</view>
 </view>
-<scroll-view scroll-y style="height:400rpx" scroll-top="{{renewtop}}">
-<scroll-view class="contain" bindscroll="onMove" bindtouchend="onStop" scroll-left="{{scrollLeft}}"  scroll-with-animation scroll-x>
+
+<swiper current="{{index}}" bindchange="onchange">
 
 <!--详情-->
-<view class="list window" id="detail" >
-
+<block>
+<swiper-item>
+<scroll-view scroll-y style="height:400rpx" scroll-top="{{renewtop}}">
+<view class="list window" id="detail">
 <view class="teacher">
 <view class="border"></view>
 <view class="caseheader">
@@ -39,12 +41,15 @@
 </view>
 
 <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-
 </view>
+</scroll-view>
+</swiper-item>
+</block>
 <!--评论-->
+<block>
+<swiper-item>
+<scroll-view scroll-y style="height:400rpx" scroll-top="{{renewtop}}">
 <view class="list window" id="comment">
-
-
 <view class="header">
 <view class="num">综合评分：<text>10</text></view>
 <view class="more" bindtap="more">查看更多</view>
@@ -68,10 +73,14 @@
 </view>
 <view class="content">还不错</view>
 </view>
-
-
 </view>
-<view class="list window" id="interact"   >
+</scroll-view>
+</swiper-item>
+</block>
+<block>
+<swiper-item>
+<scroll-view scroll-y style="height:400rpx" scroll-top="{{renewtop}}">
+<view class="list window" id="interact">
 <view class="title">推荐的课程</view>
 <view class="title_case">
 <view class="picture list"> 
@@ -85,7 +94,9 @@
 </view>
 </view>
 </scroll-view>
-</scroll-view>
+</swiper-item>
+</block>
+</swiper>
 </view>
 
 
