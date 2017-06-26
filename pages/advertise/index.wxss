@@ -1,13 +1,19 @@
 /* index.wxss */
 @import "../../wxParse/wxParse.wxss";
+page{
+  background: gainsboro;
+}
+.nav{
+  background: white;
+}
 .nav>view{
   display: inline-block;
-  margin-right: 50rpx;
+  margin-right: 25px;
   width: 30%;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
-  font-size: 35rpx;
+  font-size: 17px;
   font-weight: bold;
 }
 .banner image{
@@ -35,4 +41,23 @@
 .bechosen{
  border-bottom: 4rpx solid rgb(7,103,200);
 }
+.intro{
+  padding: 0 30rpx 50rpx;
+  background: white;
+  margin-bottom: 20rpx;
+  box-shadow:0 2rpx 5rpx #888888;
+}
+.intro>view:first-of-type{
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+  color: black;
+  vertical-align: top;
+}
 
+
+.content view,.content{
+  color: black;
+  font-size: 25rpx;
+  line-height: 45rpx;
+}

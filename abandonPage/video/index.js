@@ -6,7 +6,6 @@ var WxParse = require('../../wxParse/wxParse.js');
 var org;
 var lengths;
 var nowpos;
-var box=[1,1,1];
 Page({
 
   /**
@@ -14,44 +13,16 @@ Page({
    */
   data: {
      status:0,
-     box:box,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
 
-  move:function(event){
-    if(event.detail.scrollTop>=190){
-      this.setData({
-        status:1,
-      })
-    }
-    else{
-      this.setData({
-        status:0,
-      })
-      
-    }
-  },
-  // drag:function(event){
-  //   this.setData({
-  //     boxLeft:event.touches[0].clientX-100,
-  //     boxTop: event.touches[0].clientY-55,
-  //   })
-  // },
-  // onchange:function(event){
-  //    this.setData({
-  //      myindex:event.detail.current,
-  //    })
-  // },
-  expension:function(event){
-    var casename=event.currentTarget.dataset.case;
-    box[casename] = box[casename]==1?0:1;
-    this.setData({
-      box:box,
-    })
-    console.log(this.data.box);
+  onchange:function(event){
+     this.setData({
+       myindex:event.detail.current,
+     })
   },
   detail: function () {
     nowpos=0;

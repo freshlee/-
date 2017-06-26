@@ -1,0 +1,250 @@
+/* pages/video/index.wxss */
+@import "../../wxParse/wxParse.wxss";
+.body{
+  position: relative;
+}
+swiper{
+  height: 400rpx;
+}
+.statuson{
+  position: fixed;
+  top: 200rpx;
+  right: 0;
+  width: 50%;
+  height: 190rpx;
+  z-index: 99;
+}
+.toolbar view{
+  display: inline-block;
+}
+view{
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  
+}
+.contain{
+  width:100%;
+  white-space:nowrap;
+}
+.window{
+  display: inline-block;
+  width:100%;
+  vertical-align: top;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  
+}
+.toolbar{
+  border-bottom: 1rpx solid lightgrey;
+}
+.toolbar .list{
+  width:33.33%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 40rpx;
+}
+.window .ul{
+  font-size: 40rpx;
+}
+.window .li{
+  text-align: left;
+  font-size:30rpx;
+  text-indent: 2em;
+}
+#section .li{
+  margin: 20rpx 0;
+}
+#detail view{
+  white-space: pre-wrap;
+}
+#comment .case{
+  padding:5rpx 0;
+  border-bottom:1rpx solid lightgrey; 
+}
+#comment .title{
+  font-size: 40rpx;
+}
+#comment .intContent{
+  font-size: 35rpx;
+  text-indent: 2em;
+}
+#comment .teacher image{
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+#comment .teacher > view{
+   display: inline-block;
+}
+#comment .remark .header>view{
+  display: inline-block;
+  }
+#comment .user{
+  margin:  0 0 10rpx;
+  padding-bottom:30rpx; 
+  border-bottom: 1rpx solid lightgrey;
+}
+.header:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.header{
+  margin-bottom:10rpx; 
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.header .num{
+  float: left;
+  font-size: 30rpx
+} 
+.header .num text{
+  font-size: 40rpx
+} 
+.header .more{
+  float: right;
+  line-height: 80rpx;
+  height: 80rpx;
+  color: grey;
+}
+
+.user_info view{
+  display: inline-block;
+  vertical-align: top;
+}
+.user_info .user_name{
+  margin-left: 30rpx;
+  font-size: 30rpx;
+  color: rgb(7,103,200);
+}
+.user_info image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.user .content{
+  padding-left:100rpx;
+  color: dimgrey; 
+}
+#interact .title{
+  font-size: 40rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.title_case{
+  padding:20rpx 0;
+  border-bottom:1rpx solid gainsboro;
+}
+.title_case .list{
+  display: inline-block;
+  width:50%;
+  vertical-align: middle;
+}
+.title_case .info{
+  height: 150rpx;
+  line-height: 37.5rpx;
+  padding-left:20rpx;
+}
+.title_case image{
+  height: 150rpx;
+}
+.title_case .priceattr{
+  line-height: 75rpx;
+  height: 75rpx;
+  font-size:35rpx;
+  color:green;
+}
+.courseinfo{
+  padding: 15rpx 30rpx;
+  box-shadow: 0 2rpx 3rpx #888888;
+}
+.courseinfo .coursename{
+  padding: 10rpx 0;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 40rpx;
+  letter-spacing: 2rpx;
+}
+.courseinfo .detail>view{
+  display: inline-block;
+  margin-right: 30rpx;
+  font-size: 32rpx;
+  color: dimgrey; 
+}
+.courseinfo .appr{
+   border-left: 1rpx solid lightgrey;
+   padding-left:30rpx; 
+}
+.courseinfo .priceattr{
+  font-size: 40rpx;
+  line-height: 70rpx;
+  height: 70rpx;
+  color: red;
+}
+.teacher{
+  position: relative;
+  padding: 10rpx 30rpx;
+}
+.teacher .border{
+  border: 1rpx solid lightgrey;
+  position: absolute;
+  margin-top:60rpx; 
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  left: 0;
+  top:0;
+}
+.teacher .caseheader image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.teacher .caseheader>view{
+  display: inline-block;
+  vertical-align: top;
+    background: white;
+}
+.teacher .caseheader{
+  padding: 10rpx 100rpx;
+}
+.teacher .caseheader .info{
+  padding:0 50rpx;
+}
+.caseheader .info>view{
+  color: dimgrey;
+  height: 35rpx;
+  line-height: 35rpx;
+}
+.caseheader .info .name{
+  font-size: 35rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: black;
+}
+.introduction{
+  margin-top: 100rpx;
+}
+.introduction>view:first-of-type{
+  font-size: 40rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  border-bottom:1rpx solid lightgrey; 
+}
+.purchase{
+  position:fixed;
+  bottom:0;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 35rpx;
+  text-align: center;
+  background: #0767C8;
+  width: 100%;
+  color: white;
+}
+.bechosen{
+ border-bottom: 4rpx solid rgb(7,103,200);
+}

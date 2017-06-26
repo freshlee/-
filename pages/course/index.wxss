@@ -4,7 +4,12 @@
   box-sizing: border-box;
   width: 100%;
   position: relative;
-  background: black;
+  background: gainsboro;
+}
+.line{
+  color: lightgrey;
+  line-height: 50rpx;
+  height: 35rpx;
 }
 .case{
   padding:20rpx 60rpx;
@@ -15,9 +20,10 @@
 }
 .info{
   padding: 30rpx 30rpx;
+  background: white;
 }
 .info .name{
-  color: white;
+  color: black;
   padding: 15rpx 0;
   text-align: center;
   font-size: 45rpx;
@@ -26,13 +32,17 @@
 .info .subtitle{
   padding: 10rpx 0;
   text-align: center;
-  color: white;
+  color: black;
   font-size: 35rpx;
 }
 .status{
   padding: 0 30rpx;
+  background: white;
+  margin-bottom: 20rpx;
+    box-shadow:0 2rpx 5rpx #888888;
 }
 .status>view{
+  padding-top:30rpx; 
   display: inline-block;
   height: 100rpx;
 }
@@ -50,14 +60,20 @@
    line-height: 50rpx;
 }
 .intro{
-  padding: 30rpx 30rpx 50rpx;
+  padding: 0 30rpx 50rpx;
+  background: white;
+  margin-bottom: 20rpx;
+  box-shadow:0 2rpx 5rpx #888888;
 }
 .intro>view:first-of-type{
+  text-align: center;
   padding: 30rpx 0;
   font-size: 35rpx;
-  color: white;
-    border-bottom: 0.5rpx solid gainsboro;
+  color: black;
+  border-bottom: 0.5rpx solid gainsboro;
+  vertical-align: top;
 }
+
 .button{
   position: fixed;
   bottom: 0;
@@ -75,41 +91,88 @@
   line-height: 45rpx;
 }
 .organise{
-  padding: 30rpx 30rpx 50rpx;
+  padding: 0 30rpx 50rpx;
+  background: white;
+  margin-bottom: 20rpx;
+  box-shadow:0 2rpx 5rpx #888888;
 }
 .organise>view:first-of-type{
+  text-align: center;
   padding: 30rpx 0;
   font-size: 35rpx;
-  color: white;
+  color: black;
   border-bottom: 0.5rpx solid gainsboro;
 }
+/*评论样式区//////////////////////////////////////////*/
+
 .comment{
   padding: 0rpx 30rpx;
+  background: white;
+}
+.commentheader{
+  border-bottom:1rpx solid lightgray;
+}
+.commentheader>view{
+  display: inline-block;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 30rpx;
+}
+.commentheader .more{
+  float: right;
+  color: dimgrey;
+}
+.list{
+  margin: 20rpx 0 0;
 }
 .list>view{
   display: inline-block;
   vertical-align: top;
 }
 .protrait image{
-  width: 120rpx;
-  height: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
   margin-right: 50rpx;
 }
 .list .box{
-  color: white;
+  width: 538rpx;
+  border-bottom:1rpx solid lightgrey; 
 }
 .top>view{
-  color:white;
+  color:black;
   display: inline-block;
   height: 50rpx;
   line-height: 50rpx;
+  vertical-align: top;
+}
+.top .name{
+  color: #0767C8;
+}
+.top .right{
+  color: dimgrey;
+  float: right;
+}
+.right>view{
+    margin-left: 20rpx;
+}
+.top image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: top;
+}
+.right>view{
+  display: inline-block;
+  vertical-align:top;
 }
 .middle{
   height: 60rpx;
   line-height: 60rpx;
+  color: dimgrey;
 }
 .bottom{
-  margin-top:50rpx;
-
+  margin-top:20rpx;
+  padding-bottom:20rpx;
 }
+
+/*评论样式区/////////////////////////////////////////*/

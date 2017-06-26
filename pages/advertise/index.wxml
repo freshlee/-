@@ -4,25 +4,41 @@
 <view class="base {{myindex==0?'bechosen':''}}" bindtap="base">机构介绍</view>
 <view class="address {{myindex==1?'bechosen':''}}" bindtap="address">机构地址</view>
 </view>
-<swiper current="{{index}}" style="height:{{myheight-131}}px" bindchange="onchange">
+<swiper current="{{index}}" style="height:{{myheight-105}}px" bindchange="onchange">
 <block>
 <swiper-item>
+
+<scroll-view scroll-y style="height:{{myheight-105}}px">
 <view class="classname">
 <view class="banner">
 <image src="../../images/organise.jpg"></image>
 </view>
-<view class="case">
-<view class="title">机构简介</view>
-<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-</view>
-<view class="case">
-<view class="title">师资力量</view>
-</view>
-<view class="case">
-<view class="title">课程介绍</view>
+
+<view class="intro">
+<view><text class="line">—</text> 课程简介 <text class="line">—</text></view>
+<view class="content">那些年，谁没迷过几个侦探？
+曾经想看又不敢看的动画片《鸭子侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛》。那些紧张又烧脑的情节，让人欲罢不能。
+本期周刊，知友</view>
 </view>
 
+<view class="intro">
+<view><text class="line">—</text> 师资介绍 <text class="line">—</text></view>
+<view class="content">那些年，谁没迷过几个侦探？
+曾经想看又不敢看的动画片《鸭子侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛》。那些紧张又烧脑的情节，让人欲罢不能。
+本期周刊，知友</view>
 </view>
+
+<view class="intro">
+<view><text class="line">—</text> 课程介绍 <text class="line">—</text></view>
+<view class="content">那些年，谁没迷过几个侦探？
+曾经想看又不敢看的动画片《鸭子侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛》。那些紧张又烧脑的情节，让人欲罢不能。
+本期周刊，知友</view>
+</view>
+
+
+</view>
+</scroll-view>
+
 </swiper-item>
 <swiper-item>
 <view class="classname">
