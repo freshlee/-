@@ -4,7 +4,28 @@
 <view class="picture"> <image src="../../../images/protrait.jpg"></image> </view>
 <view class="name">轮子哥</view>
 </view>
-<view class="content">他一米八大个，胡子拉碴的，但平时就是宅在宿舍电脑前玩游戏，偶尔还补补番什么的，其实这还好，但是他每次开黑都语音，语音就算了！</view>
+
+<view class="classname"></view>
+
+
+<swiper  style="width:100%;height:{{myheight-94}}px;margin-top:-114rpx" current="{{step}}" bindchange="{{status==1?'':'onchange'}}" duration="0">
+<block>
+<swiper-item wx:for="{{contents}}">
+<scroll-view scroll-y>
+<view class="content">{{item.content}}！</view>
+
+</scroll-view>
+</swiper-item>
+
+
+
+
+</block>
+</swiper>
+
+
+
+
 <view class="panel">
 <view class="praise" bindtap="changestatu">
 <view class="control">

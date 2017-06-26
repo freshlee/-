@@ -4,9 +4,9 @@
   opacity: 0.6;
 }
 .header{
-  padding: 30rpx 30rpx 100rpx;
+  padding: 15px 30rpx 50px;
   background: rgb(7,103,200);
-  font-size: 45rpx;
+  font-size: 22px;
 }
 .user{
   position: relative;
@@ -32,6 +32,9 @@
   padding: 30rpx;
   font-size: 30rpx;
   line-height: 50rpx;
+}
+.content{
+  padding-top: 114rpx;
 }
 .panel{
   width: 100%;
@@ -127,13 +130,15 @@
 }
 .panel>view{
   vertical-align: top;
-  display: inline-block;
-  margin-right:80rpx; 
+  display: inline-block; 
   font-size: 20rpx;
   height: 60rpx;
 }
 .panel>view:first-of-type{
-  margin-right: 350rpx;
+  margin-right: 420rpx;
+}
+.panel .collect{
+  margin-right:80rpx;
 }
 .collect image,.comment image{
   height: 40rpx;

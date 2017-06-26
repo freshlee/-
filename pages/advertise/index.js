@@ -49,6 +49,19 @@ Page({
       myindex: 1,
     })
   },
+  teacher: function () {
+    this.setData({
+      index: 2,
+      myindex: 2,
+    })
+  },
+  remark: function () {
+    this.setData({
+      index: 3,
+      myindex: 3,
+    })
+  },
+  
   onchange: function (event) {
     this.setData({
       myindex: event.detail.current,

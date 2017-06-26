@@ -19,7 +19,7 @@
 <view class="boxtop">
 <view class="name">李阳</view>
 <view class="reputation"> 好评度：<image src="../../images/star.png"  wx:for="{{[1,2,3,4,5]}}"/> </view>
-<view class="amount">课程数:35</view>
+<view class="amount">课程数:3500</view>
 </view>
 <view class="bottom {{box[0]==1?'extended':'compressed'}}">李阳，1969年出生，疯狂英语创始人，全球著名英语口语教育专家，英语成功学励志导师，中国教育慈善家，侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛</view>
 </view>

@@ -1,4 +1,8 @@
 // index.js
+var oldpos=0;
+var indexnow=0;
+var textdata=[];
+var newdata;
 Page({
 
   /**
@@ -7,6 +11,7 @@ Page({
   data: {
     statu:0,
     praise:1,
+    status:0,
   },
   changestatu:function(){
    this.setData({
@@ -16,6 +21,26 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  onchange:function(event){
+    var index=event.detail.current;
+    if(oldpos<index){
+          indexnow+=1;
+          index-=1;
+    }
+    else{
+       indexnow-=1;
+       index+=1;
+    }
+    newdata = textdata.slice(indexnow, indexnow + 3);
+    this.setData({
+      contents:newdata,
+      step:index,
+      status:1,
+    })
+    oldpos = event.detail.current;
+    console.log(this.data.status);
+    console.log(newdata);
+  },
   onLoad: function (options) {
   
   },
@@ -24,7 +49,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log(this.data.praise);
+    console.log(this.data.status);
     var THIS=this;
     wx.getSystemInfo({
       success: function(res) {
@@ -32,6 +57,11 @@ Page({
            myheight:res.windowHeight,
          })
       },
+    })
+    textdata=[{ content: 11111111 }, { content: 222222222 }, { content: 33333333 }, { content: 444444444 }, { content: 55555555 }, { content: 666666666 }, { content: 77777777 }];
+    newdata=textdata.slice(0,3);
+    this.setData({
+      contents:newdata,
     })
   
   },

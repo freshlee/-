@@ -1,27 +1,45 @@
 /* index.wxss */
 @import "../../wxParse/wxParse.wxss";
 page{
-  background: gainsboro;
+
 }
 .nav{
   background: white;
 }
 .nav>view{
   display: inline-block;
-  margin-right: 25px;
-  width: 30%;
+  width: 25%;
   height: 40px;
   line-height: 40px;
   text-align: center;
   font-size: 17px;
   font-weight: bold;
+  box-sizing: border-box;
+  border-bottom:2rpx solid lightgrey; 
 }
 .banner image{
-  height: 200rpx;
+  height: 150px;
+  display: block;
 }
-#mapbox{
-  padding: 0 40rpx;
+.sum{
+  padding: 20rpx;
 }
+.top{
+  margin-bottom:15rpx; 
+}
+.sum .bottom>view{
+   height: 70rpx;
+   line-height: 70rpx;
+}
+.bottom>view{
+  display: inline-block;
+}
+.bottom .right{
+  float: right;
+  font-size: 35rpx;
+  color: darkorange;
+}
+
 #mapbox{
   height: 400rpx;  
 }
@@ -39,7 +57,18 @@ page{
   color: #0767C8;
 }
 .bechosen{
- border-bottom: 4rpx solid rgb(7,103,200);
+ border-top: 4rpx solid rgb(7,103,200);
+ border-bottom:none !important;
+}
+.borderboth{
+border-left: 2rpx solid lightgrey;
+border-right: 2rpx solid lightgrey;
+}
+.borderleft{
+border-left: 2rpx solid lightgrey;
+}
+.borderright{
+border-right: 2rpx solid lightgrey;
 }
 .intro{
   padding: 0 30rpx 50rpx;
@@ -54,8 +83,6 @@ page{
   color: black;
   vertical-align: top;
 }
-
-
 .content view,.content{
   color: black;
   font-size: 25rpx;

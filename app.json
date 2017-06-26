@@ -1,13 +1,13 @@
 {
   "pages": [
+    "pages/community/tip/index",
+    "pages/advertise/index",
     "pages/video/index",
     "pages/demo/index",
-    "pages/advertise/index",
     "pages/course/index",
     "pages/checkout/index",
     "pages/community/square/index",
     "pages/community/home/index",
-    "pages/community/tip/index",
     "pages/comment/index",
     "pages/my/index",
     "pages/shedule/index",
