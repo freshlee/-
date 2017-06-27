@@ -1,0 +1,59 @@
+/* index.wxss */
+page{
+  padding: 30rpx;
+  background: #f4f4f4;
+  box-sizing: border-box;
+}
+.protrait image{
+  width:150rpx;
+  height:150rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.case{
+  position: relative;
+  padding: 20rpx;
+  border-radius: 15rpx;
+  background: white;
+  width:100%;
+  box-sizing: border-box;
+  margin-bottom:20rpx;
+}
+.case .box{
+  width:400rpx;
+  white-space: pre-wrap;
+}
+.box .middle{
+  line-height: 30rpx;
+  height: 60rpx;
+  overflow: hidden;
+}
+.case>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.case .top{
+  font-size:30rpx;
+}
+.case .bottom{
+  position: absolute;
+  bottom:0;
+  margin-bottom:20rpx; 
+}
+.bottom .subscript{
+  border:1rpx solid #0767C8;
+  padding:3rpx 15rpx;
+  border-radius: 5rpx;
+  color: #0767C8;
+}
+.arrow{
+  height: 150rpx;
+  line-height: 150rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+.arrow image{
+  width:20rpx;
+  height:10rpx;
+  transform: rotate(-90deg);
+}

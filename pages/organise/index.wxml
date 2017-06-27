@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="classname"></view>
+<view class="case" wx:for="{{[1,2,3,4,5]}}">
+<view class="protrait"> <image src="../../images/protrait.jpg"></image> </view>
+<view class="box">
+<view class="top">机构名称</view>
+<view class="middle">机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍</view>
+<view class="bottom"> <view class="subscript">标签</view> </view>
+</view>
+<view class="arrow">
+<image src="../../images/arrow_down.png"></image>
+</view>
+</view>

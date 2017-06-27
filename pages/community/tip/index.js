@@ -3,6 +3,7 @@ var oldpos=0;
 var indexnow=0;
 var textdata=[];
 var newdata;
+var uploaddata;
 Page({
 
   /**
@@ -22,45 +23,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onchange:function(event){
-    var index=event.detail.current;
-    var oldindex=indexnow;
-    if(index==2){
-            indexnow += 1;
-            index = 1;
+    if (event.detail.current ==textdata.length-2){
+      this.addpage();
     }
-    else if(index == 0){
-      if(indexnow!=0){
-        indexnow -= 1;
-        index = 1
-      }
-    }
-    else{
-      if(oldpos==0){
-        index=1;
-      }
-      else{
-        indexnow=1;
-        index=0;
-      }
-    }
-    if(indexnow+2<=textdata.length&&indexnow>=0){
-      newdata = textdata.slice(indexnow, indexnow + 3);
-    }
-    else{
-      indexnow=oldindex;
-    }
-
-    this.setData({
-      contents:newdata,
-      step:index,
-      status:1,
-    })
-    oldpos = event.detail.current;
-    console.log(indexnow);
-    console.log(newdata);
-    this.setData({
-      status: 0,
-    })
+  },
+  addpage:function(){
+    var THIS=this;
+    textdata=textdata.concat(uploaddata);
+    setTimeout(function(){
+      THIS.setData({
+        contents: textdata,
+      })
+    },1000)
   },
   onLoad: function (options) {
   
@@ -80,9 +54,10 @@ Page({
       },
     })
     textdata=[{ content: 11111111 }, { content: 222222222 }, { content: 33333333 }, { content: 444444444 }, { content: 55555555 }, { content: 666666666 }, { content: 77777777 }];
-    newdata=textdata.slice(0,3);
+    uploaddata = [{ content: 88888888 }, { content: 99999999 }, { content: 1010101010 }, { content: 11111111 }, { content: 12121212 }, { content: 1313131313 }, { content: 14141414 }];
+
     this.setData({
-      contents:newdata,
+      contents:textdata,
     })
   
   },
