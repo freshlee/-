@@ -1,5 +1,5 @@
 // pages/video/index.js
-var WxParse = require('../../wxParse/wxParse.js');
+var WxParse = require('../../../wxParse/wxParse.js');
 var org;
 Page({
 
@@ -7,13 +7,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    Logo: [{ text: "浏览记录", logo: '../../images/record.png' }, { text: "我的帖子", logo: '../../images/mytip.png' }, { text: "我的回答", logo: '../../images/anwser.png' }, { text: "我的课程", logo: '../../images/mycourse.png' },{text: "商家入驻", logo:'../../images/join.png'}],
+    Logo: [{ text: "浏览记录", logo: '../../../images/record.png', url: "../record/index" } , { text: "我的帖子", logo: '../../../images/mytip.png' }, { text: "我的回答", logo: '../../../images/anwser.png' }, { text: "我的课程", logo: '../../../images/mycourse.png' },{text: "商家入驻", logo:'../../../images/join.png',url:"../join/index"}],
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  jump:function(event){
+    var url = event.currentTarget.dataset.des;
+    wx.navigateTo({
+      url: url,
+    })
+  },
 
   detail: function () {
     this.setData({

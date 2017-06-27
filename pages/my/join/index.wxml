@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="form">
+<view class="case">
+<view class="title">姓名</view>
+<view class="input"> <input placeholder="请输入姓名"/></view>
+</view>
+
+<view class="case">
+<view class="title">手机</view>
+<view class="input" > <input placeholder="请输入手机"/> </view>
+<view class="vertify" bindtap="vertify">获取验证码</view>
+</view>
+
+<view class="case">
+<view class="title">QQ</view>
+<view class="input"> <input placeholder="请输入QQ"/></view>
+</view>
+
+<view class="case">
+<view class="title">E-mail</view>
+<view class="input"> <input placeholder="请输入E-mail"/></view>
+</view>
+
+<view class="case">
+<view class="title">地址</view>
+<view class="input"> <input placeholder="请输入地址" value="{{address}}"/> </view>
+<view class="gainaddress" bindtap="address"> <image src="../../../images/getaddress.png"></image> </view>
+</view>
+
+</view>
+
+<view class="message">
+<textarea  placeholder="请输入留言内容"/>
+</view>
+
+<view class="submit">
+<button>申请入驻</button>
+</view>

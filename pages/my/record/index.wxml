@@ -1,0 +1,12 @@
+<!--pages/my/hpme/index.wxml-->
+<view class="container">
+<view class="case" wx:for="{{3}}">
+<view class="ball">2017/6/27</view>
+<view class="picture"> <image src="../../../images/course.png"></image> </view>
+<view class="box">
+<view class="top">观看了课程</view>
+<view class="bottom">评分- <image src="../../../images/star.png" wx:for="{{3}}"></image> </view>
+</view>
+</view>
+
+</view>

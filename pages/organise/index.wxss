@@ -36,9 +36,7 @@ page{
   font-size:30rpx;
 }
 .case .bottom{
-  position: absolute;
-  bottom:0;
-  margin-bottom:20rpx; 
+  margin-top:10rpx; 
 }
 .bottom .subscript{
   border:1rpx solid #0767C8;
@@ -50,10 +48,13 @@ page{
   height: 150rpx;
   line-height: 150rpx;
   float: right;
-  margin-right: 20rpx;
 }
 .arrow image{
   width:20rpx;
   height:10rpx;
   transform: rotate(-90deg);
+}
+.bottom>view{
+  display: inline-block;
+  margin-right: 10rpx;
 }

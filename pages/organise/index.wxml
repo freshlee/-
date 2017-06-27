@@ -5,7 +5,7 @@
 <view class="box">
 <view class="top">机构名称</view>
 <view class="middle">机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍</view>
-<view class="bottom"> <view class="subscript">标签</view> </view>
+<view class="bottom"> <view class="subscript" wx:for="{{[1,1,1]}}">标签</view> </view>
 </view>
 <view class="arrow">
 <image src="../../images/arrow_down.png"></image>

@@ -1,0 +1,11 @@
+<!--index.wxml-->
+
+<view class="case" wx:for="{{3}}">
+<view class="picture"> <image src="../../../images/course.png"></image> </view>
+<view class="box">
+<view class="top">帖子名称</view>
+<view class="sum">概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述概述</view>
+<view class="bottom">回帖315  <view class="time">2017/6/27</view> </view>
+</view>
+</view>
+

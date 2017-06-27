@@ -1,7 +1,7 @@
 /* pages/video/index.wxss */
-@import "../../wxParse/wxParse.wxss";
+@import "../../../wxParse/wxParse.wxss";
 .body{
-  background: gainsboro;
+  background: #f4f4f4;
 }
 .case{
   padding:40rpx 20rpx;
@@ -111,38 +111,8 @@ view{
 .list:last-of-type .text{
   border: none;
 }
-.goods image{
-  height: 200rpx;
-  width: 160rpx;
-}
-.temp{
-  padding: 10rpx 40rpx
-}
-.temp .top,.temp .bottom{
-  height: 60rpx;
-  line-height: 60rpx;
-  color: dimgray;
-}
-.temp .time{
-  display: inline-block;
-  float: right;
-}
-.content>view{
-  display: inline-block;
-}
-.community .word,.goods .word{
-  width: 70%;
-}
-.word .goodssum{
-    white-space: pre-wrap;
-  letter-spacing: 3rpx;
-}
-.word .goodsname{
-  font-size:30rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  font-weight: bold;
-}
+
+
 /*互动模板*/
 .community image,.tips image{
   width: 80rpx;
@@ -151,4 +121,11 @@ view{
 }
 .community .word{
   width: 100%;
+}
+#myprotrait{
+    -webkit-filter: blur(15px);
+     -moz-filter: blur(15px);
+     -o-filter: blur(15px);
+     -ms-filter: blur(15px);
+     filter: blur(15px); 
 }
