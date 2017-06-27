@@ -8,7 +8,7 @@
 <view class="classname"></view>
 
 
-<swiper  style="width:100%;height:{{myheight-94}}px;margin-top:-114rpx" current="{{step}}" bindchange="{{status==1?'':'onchange'}}" duration="0">
+<swiper  style="width:100%;height:{{myheight-94}}px;margin-top:-114rpx" current="{{step}}" bindchange="{{status==1?'':'onchange'}}" duration="{{status==1?'0':'0'}}">
 <block>
 <swiper-item wx:for="{{contents}}">
 <scroll-view scroll-y>

@@ -23,23 +23,44 @@ Page({
    */
   onchange:function(event){
     var index=event.detail.current;
-    if(oldpos<index){
-          indexnow+=1;
-          index-=1;
+    var oldindex=indexnow;
+    if(index==2){
+            indexnow += 1;
+            index = 1;
+    }
+    else if(index == 0){
+      if(indexnow!=0){
+        indexnow -= 1;
+        index = 1
+      }
     }
     else{
-       indexnow-=1;
-       index+=1;
+      if(oldpos==0){
+        index=1;
+      }
+      else{
+        indexnow=1;
+        index=0;
+      }
     }
-    newdata = textdata.slice(indexnow, indexnow + 3);
+    if(indexnow+2<=textdata.length&&indexnow>=0){
+      newdata = textdata.slice(indexnow, indexnow + 3);
+    }
+    else{
+      indexnow=oldindex;
+    }
+
     this.setData({
       contents:newdata,
       step:index,
       status:1,
     })
     oldpos = event.detail.current;
-    console.log(this.data.status);
+    console.log(indexnow);
     console.log(newdata);
+    this.setData({
+      status: 0,
+    })
   },
   onLoad: function (options) {
   
