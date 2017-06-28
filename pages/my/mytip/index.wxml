@@ -1,5 +1,15 @@
 <!--index.wxml-->
 
+
+
+<view class="nav">
+<view class="base {{myindex==0?'bechosen':''}}" bindtap="base">视频课程</view>
+<view class="address {{myindex==1?'bechosen':''}}" bindtap="address">线下课程</view>
+
+</view>
+<swiper style="height:{{myheight-40}}px" current="{{myindex}}" bindchange="onmove">
+<block>
+<swiper-item>
 <view class="case" wx:for="{{3}}">
 <view class="picture"> <image src="../../../images/course.png"></image> </view>
 <view class="box">
@@ -8,4 +18,10 @@
 <view class="bottom">回帖315  <view class="time">2017/6/27</view> </view>
 </view>
 </view>
+
+</swiper-item>
+<swiper-item>
+</swiper-item>
+</block>
+</swiper>
 

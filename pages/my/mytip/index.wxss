@@ -1,6 +1,6 @@
 /* index.wxss */
 page{
-  padding:0 20rpx;
+
 }
 .bottom image{
   width:20rpx;
@@ -42,4 +42,20 @@ page{
 }
 .bottom .time,.bottom{
   color: dimgray;
+}
+.nav{
+  background: white;
+}
+.nav>view{
+  display: inline-block;
+  width: 25%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.bechosen{
+ border-bottom: 4rpx solid rgb(7,103,200) !important;
 }

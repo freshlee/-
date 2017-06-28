@@ -75,6 +75,7 @@ onReady:function(){
       });
     }
   })
-}
+},
+
 })
 

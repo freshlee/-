@@ -44,6 +44,6 @@ page{
   position: relative;
   left: -71rpx;
   top: 30rpx;
-  text-indent: -3.3rem;
+  text-indent: -3.8rem;
   color:slategrey;
 }

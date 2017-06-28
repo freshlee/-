@@ -25,6 +25,18 @@ Page({
       }
     })
   },
+  getcordinate:function(){
+    var THIS = this;
+    wx.chooseAddress({
+      success: function (res) {
+        var address = res.provinceName + " " + res.cityName + " " + res.detailInfo;
+        THIS.setData({
+          address: address,
+        })
+        console.log(THIS.data.address);
+      }
+    })
+  },
   onLoad: function (options) {
      var THIS=this;
       id=options.id;

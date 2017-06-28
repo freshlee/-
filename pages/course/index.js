@@ -40,7 +40,11 @@ Page({
      var that = this; 
      WxParse.wxParse('article', 'html', article, that, 5); 
   },
-
+  purchase:function(){
+    wx.navigateTo({
+      url: '../checkout/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

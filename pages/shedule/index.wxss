@@ -1,6 +1,26 @@
-.body{
+page{
   background: white;
 }
+
+
+.nav{
+  background: white;
+}
+.nav>view{
+  display: inline-block;
+  width: 25%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.bechosen{
+ border-bottom: 4rpx solid rgb(7,103,200) !important;
+}
+
+
 .case{
   padding:0 60rpx;
   margin:5rpx 0;
@@ -40,3 +60,5 @@ view{
   font-size:35rpx;
   color:green;
 }
+
+

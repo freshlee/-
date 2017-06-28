@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+  myindex:0,
   },
 
   /**
@@ -19,7 +19,38 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    var THIS=this;
+   wx.getSystemInfo({
+     success: function(res) {
+          THIS.setData({
+            myheight:res.screenHeight,
+          })
+     },
+   })
+  },
+  base: function () {
+    this.setData({
+      index: 0,
+      myindex: 0,
+    })
+  },
+  address: function () {
+    this.setData({
+      index: 1,
+      myindex: 1,
+    })
+  },
+  teacher: function () {
+    this.setData({
+      index: 2,
+      myindex: 2,
+    })
+  },
+  remark: function () {
+    this.setData({
+      index: 3,
+      myindex: 3,
+    })
   },
 
   /**

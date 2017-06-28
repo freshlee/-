@@ -1,0 +1,57 @@
+/* index.wxss */
+page{
+  padding: 20rpx;
+  background: gainsboro;
+  width: 100%;
+  box-sizing: border-box;
+}
+.box{
+  border-radius: 25rpx;
+  background: white;
+}
+.case{
+  border-bottom:1rpx solid gainsboro;
+  margin-bottom:15rpx;
+}
+.case>view{
+  display: inline-block;
+  font-size:30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  vertical-align: top;
+}
+.case .title{
+  width:100rpx;
+  padding-left: 25rpx;
+}
+.content input{
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.pickdata{
+  width: 300rpx;
+}
+.picker{
+  color: dimgray;
+}
+.boxname{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  padding-left:20rpx;
+}
+.address{
+  float: right;
+}
+.address image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 120rpx;
+}
+.sure{
+  margin-top:80rpx;
+}
+.sure button{
+  color: white;
+  background: #0767C8;
+}

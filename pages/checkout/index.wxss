@@ -54,3 +54,33 @@
   line-height: 70rpx;
   font-size: 25rpx;
 }
+.userinfo .list{
+  font-size:28rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+}
+.userinfo .list .title{
+  width:160rpx;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 30rpx;
+}
+.userinfo .list input{
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  vertical-align: top;
+  width:400rpx;
+}
+#getcordinate{
+  float: right;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+#getcordinate image{
+  margin-right: 10rpx;
+  width:50rpx;
+  height: 50rpx;
+  position: relative;
+  top:15rpx;
+}

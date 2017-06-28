@@ -25,7 +25,7 @@
   background: white;
   z-index: 199;
   transition-property:top;
-  transition-duration: 1s; 
+  transition-duration: 0.5s; 
 }
 .show{
   box-sizing: border-box;
@@ -36,7 +36,7 @@
   text-align: center;
   font-weight: bold;
   transition-property:all;
-  transition-duration: 1s; 
+  transition-duration: 0.5s; 
 }
 .show image{
   width: 30rpx;
@@ -62,13 +62,13 @@
   transform: scaleY(0);
   overflow: hidden;
  transition-property:transform;
-  transition-duration: 1s; 
+  transition-duration: 0.5s; 
 }
 .filteron{
   transform-origin:50% 0; 
   transform: scaleY(1);
   transition-property:transform;
-  transition-duration: 1s; 
+  transition-duration: 0.5s; 
     padding:40rpx 60rpx;
       top:70rpx;
       overflow: hidden;

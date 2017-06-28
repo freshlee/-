@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    Logo: [{ text: "浏览记录", logo: '../../../images/record.png', url: "../record/index" } , { text: "我的帖子", logo: '../../../images/mytip.png',url:"../mytip/index" }, { text: "我的回答", logo: '../../../images/anwser.png' }, { text: "我的收藏", logo: '../../../images/mycourse.png' },{text: "商家入驻", logo:'../../../images/join.png',url:"../join/index"}],
+    Logo: [{text:'个人资料',logo:'../../../images/person.png',url:'../info/index'},{ text: "浏览记录", logo: '../../../images/record.png', url: "../record/index" } , { text: "我的帖子", logo: '../../../images/mytip.png',url:"../mytip/index" }, { text: "我的回答", logo: '../../../images/anwser.png' }, { text: "我的收藏", logo: '../../../images/mycourse.png' },{text: "商家入驻", logo:'../../../images/join.png',url:"../join/index"}],
 
   },
 
@@ -87,7 +87,7 @@ Page({
         console.log('用户数据调取失败');
       },
       success: function (res) {
-        console.log("test");
+        console.log(res);
         var userInfo = res.userInfo
         var nickName = userInfo.nickName
         var avatarUrl = userInfo.avatarUrl

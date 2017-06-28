@@ -1,8 +1,15 @@
 <!--index.wxml-->
-<view class="body">
+<view class="nav">
+<view class="base {{myindex==0?'bechosen':''}}" bindtap="base">视频课程</view>
+<view class="address {{myindex==1?'bechosen':''}}" bindtap="address">线下课程</view>
+
+</view>
+<swiper style="height:{{myheight-40}}px" current="{{myindex}}">
+<block>
+<swiper-item>
 <view class="case">
 <view class="title_case">
-<view class="picture list"> <image src="C:/Users/Administrator/Desktop/image/Case3-02.png"></image> </view>
+<view class="picture list"> <image src="../../images/video.jpg"></image> </view>
 <view class="info list">
 <view class="classname">MK-linux运维</view>
 <view class="classname">openstack-slatstack学习</view>
@@ -10,4 +17,12 @@
 </view>
 </view>
 </view>
-</view>
+
+</swiper-item>
+<swiper-item>
+</swiper-item>
+</block>
+</swiper>
+
+
+
