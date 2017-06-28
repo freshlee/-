@@ -39,7 +39,7 @@
   padding: 0 30rpx;
   background: white;
   margin-bottom: 20rpx;
-    box-shadow:0 2rpx 5rpx #888888;
+
 }
 .status>view{
   padding-top:30rpx; 
@@ -63,7 +63,6 @@
   padding: 0 30rpx 50rpx;
   background: white;
   margin-bottom: 20rpx;
-  box-shadow:0 2rpx 5rpx #888888;
 }
 .intro>view:first-of-type{
   text-align: center;
@@ -94,7 +93,6 @@
   padding: 0 30rpx 50rpx;
   background: white;
   margin-bottom: 20rpx;
-  box-shadow:0 2rpx 5rpx #888888;
 }
 .organise>view:first-of-type{
   text-align: center;

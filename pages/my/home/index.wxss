@@ -1,13 +1,12 @@
 /* pages/video/index.wxss */
 @import "../../../wxParse/wxParse.wxss";
-.body{
+page{
   background: #f4f4f4;
 }
 .case{
-  padding:40rpx 20rpx;
+  padding:10rpx 20rpx;
   margin-bottom:20rpx;
   background: white;
-    box-shadow: 0 2rpx 5rpx #888888;
 }
 .toolbar view{
   display: inline-block;
@@ -39,12 +38,12 @@ view{
 
 .header .protrait{
   text-align: center;
-  padding: 50rpx 0  10rpx;
 }
 .header .protrait image{
   width: 150rpx;
   height:150rpx;
   border-radius: 50%;
+  border:5rpx solid #f4f4f4;
 }
 .header .username{
   padding: 10rpx 10rpx;
@@ -56,21 +55,27 @@ view{
   background: white;
 }
 .info{
-  padding: 0rpx 0 20rpx;
 }
 .info>view{
+  margin-top:25rpx;
   display: inline-block;
-  width: 25%;
-  text-align: left;
-  padding:0rpx 30rpx 0 15rpx ; 
+  width: 33.33%;
+  text-align: center;
+  border-left:1rpx solid gainsboro;
+  height: 65rpx;
+}
+.info>view:first-of-type{
+  border:none;
 }
 .info .title{
   font-size: 30rpx;
-  color: lightslategrey;
+  position: relative;
+  top: -20rpx;
 }
-.info .account{
-  font-weight: 100;  
-  font-size:40rpx;
+.info .account{ 
+  font-size:45rpx;
+  position: relative;
+  top: -20rpx;
 
 }
 .interact{
@@ -84,7 +89,6 @@ view{
 .menu{
   padding:0rpx 30rpx;
   background: white;
-  box-shadow: 0 2rpx 5rpx #888888;
 }
 .menu>view{
   height: 90rpx;
@@ -123,9 +127,29 @@ view{
   width: 100%;
 }
 #myprotrait{
-    -webkit-filter: blur(15px);
-     -moz-filter: blur(15px);
-     -o-filter: blur(15px);
-     -ms-filter: blur(15px);
-     filter: blur(15px); 
+  filter: blur(10px);
+  width: 120%;
+  position: relative;
+  left: -20rpx;
+  top:-20rpx;
+}
+.container{
+  padding: 70rpx 50rpx 20rpx;
+}
+.container>view{
+  display: inline-block;
+  width:33.33%;
+  vertical-align: middle;
+  text-align: center;
+  color: white;
+  font-size:30rpx;
+}
+.container .num{
+   font-size: 35rpx;
+}
+.container .username{
+  display: block;
+  text-align: center;
+  width: 100%;
+  text-indent: -0.5em;
 }

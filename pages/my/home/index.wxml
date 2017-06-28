@@ -2,21 +2,21 @@
 <import src="../../../wxParse/wxParse.wxml"/> 
 
 <view class="header">
-<view class="classname" style="position:absolute;width:100%;height:360rpx;z-index:-1"><image src="{{myprotrait}}" id="myprotrait"></image></view>
-<view class="header">
+<view class="classname" style="position:absolute;width:100%;height:370rpx;z-index:-1"><image src="{{myprotrait}}" id="myprotrait"></image></view>
+<view class="container">
+<view class="concert"> <view class="num">23</view> 关注</view>
 <view class="protrait">
 <image src="{{myprotrait}}"></image>  
 </view>
+<view class="fans"><view class="num">33</view>粉丝</view>
 <view class="username">{{username}}</view>
 
-<view class="toolbar">
-<view class="list" bindtap="detail" style="border-bottom:{{border_detail}}">个人主页</view>
-<view class="list" bindtap="comment" style="border-bottom:{{border_comment}}">详细信息</view>
-</view>
+
     
 </view>
 </view>
-<scroll-view class="contain" bindscroll="onMove" bindtouchend="onStop" scroll-into-view="{{toView}}" style="width:100%;white-space:nowrap;" scroll-with-animation scroll-x>
+
+
 
 <!--详情-->
 <view class="list window" id="detail" >
@@ -24,22 +24,17 @@
 <view class="intro case">
 <view class="info">
 <view>
-<view class="title">收藏的课程</view>
 <view class="account">66</view>
+<view class="title">收藏</view>
 </view>
 <view>
-<view class="title">关注的人</view>
 <view class="account">3</view>
+<view class="title">历史</view>
 </view>
 <view>
-<view class="title">粉丝</view>
 <view class="account">50</view>
+<view class="title">被赞</view>
 </view>
-</view>
-<view class="interact">
-<view class="post">发帖：72</view>
-<view class="answer">回答：152</view>
-<view class="praise">收到赞：152</view>
 </view>
 
 <!--列表开始-->
@@ -61,7 +56,7 @@
 
 </view>
 
-</scroll-view>
+
 
 
 

@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/demo/index",
+    "pages/comment/index",
     "pages/my/home/index",
+    "pages/community/tip/index",
     "pages/my/mytip/index",
     "pages/my/record/index",
-    "pages/community/tip/index",
-    "pages/demo/index",
     "pages/my/join/index",
     "pages/organise/index",
     "pages/advertise/index",
@@ -13,7 +14,6 @@
     "pages/checkout/index",
     "pages/community/square/index",
     "pages/community/home/index",
-    "pages/comment/index",
     "pages/shedule/index",
     "pages/article/index",
     "pages/filter/index",
@@ -37,22 +37,16 @@
     "backgroundColor": "#F5F5F5",
     "list": [
       {
-        "pagePath": "pages/live/index",
-        "iconPath": "images/live.png",
-        "selectedIconPath": "images/choselive.png",
-        "text": "直播"
+        "pagePath": "pages/demo/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/chosehome.png",
+        "text": "首页"
       },
       {
         "pagePath": "pages/shedule/index",
         "iconPath": "images/schedule.png",
         "selectedIconPath": "images/choseschedule.png",
         "text": "课表"
-      },
-      {
-        "pagePath": "pages/demo/index",
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/chosehome.png",
-        "text": "首页"
       },
       {
         "pagePath": "pages/community/home/index",

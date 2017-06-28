@@ -56,7 +56,7 @@
 <view class="comment">
 <view class="commentheader">
 <view class="maintitle">最新评论</view>
-<view class="more">59个评论></view>
+ <view class="more" bindtap="more">59个评论></view>
 </view>
 <view class="list" wx:for="[1,2]">
 <view class="protrait"> <image src="../../images/protrait.jpg"></image> </view>

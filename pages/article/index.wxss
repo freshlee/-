@@ -118,7 +118,6 @@
   padding:0 30rpx;
   margin-bottom: 20rpx;
   background-color:white;
-  box-shadow: 0rpx 3rpx 2rpx #888888;
 }
 .case:last-of-type{
   margin: 0;

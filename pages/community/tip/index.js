@@ -34,7 +34,7 @@ Page({
       THIS.setData({
         contents: textdata,
       })
-    },0)
+    },1000)
   },
   onLoad: function (options) {
   

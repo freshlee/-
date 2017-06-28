@@ -20,7 +20,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-
+  more:function(){
+    wx.navigateTo({
+      url: '../comment/index',
+    })
+  },
   move:function(event){
     if(event.detail.scrollTop>=190){
       this.setData({
