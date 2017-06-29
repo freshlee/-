@@ -11,22 +11,24 @@ page{
 }
 .case{
   border-bottom:1rpx solid gainsboro;
-  margin-bottom:15rpx;
 }
 .case>view{
   display: inline-block;
   font-size:30rpx;
-  height: 70rpx;
-  line-height: 70rpx;
+  height: 100rpx;
+  line-height: 100rpx;
   vertical-align: top;
 }
 .case .title{
   width:100rpx;
   padding-left: 25rpx;
 }
+.content{
+  width:400rpx;
+}
 .content input{
-  height: 70rpx;
-  line-height: 70rpx;
+  height: 100rpx;
+  line-height: 100rpx;
 }
 .pickdata{
   width: 300rpx;
@@ -35,8 +37,8 @@ page{
   color: dimgray;
 }
 .boxname{
-  height: 100rpx;
-  line-height: 100rpx;
+  height: 70rpx;
+  line-height: 70rpx;
   font-size: 30rpx;
   padding-left:20rpx;
 }
@@ -47,6 +49,8 @@ page{
   width: 50rpx;
   height: 50rpx;
   margin-right: 120rpx;
+  position: relative;
+  top: 10rpx;
 }
 .sure{
   margin-top:80rpx;

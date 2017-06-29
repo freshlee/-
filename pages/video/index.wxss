@@ -135,6 +135,7 @@ view{
   color: black;
   font-size: 25rpx;
   line-height: 45rpx;
+  text-align: left;
 }
 .organise{
   padding: 0 30rpx 0rpx;

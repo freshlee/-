@@ -3,13 +3,13 @@
 <view class="box">
 <view class="case">
 <view class="title">名字：</view>
-<view class="content"> <input placeholder="请输姓名"/> </view>
+<view class="content"> <input placeholder="请输姓名" value="{{username}}"/> </view>
 </view>
 
 <view class="case">
 <view class="title">性别：</view>
 <view class="content"> 
-<radio-group>  
+<radio-group bindchange="genderchange">  
 <label>男 <radio value="male" checked="false" /></label>
 <label>女 <radio value="female" checked="false" /></label>  
 
@@ -31,7 +31,7 @@
 
 <view class="case">
 <view class="title">年龄：</view>
-<view class="content"> <input placeholder="请输入年龄"/> </view>
+<view class="content"> <input placeholder="请输入年龄" value="{{age}}"/> </view>
 </view>
 
 
@@ -41,17 +41,17 @@
 
 <view class="case">
 <view class="title">手机：</view>
-<view class="content"> <input placeholder="请输手机"/> </view>
+<view class="content"> <input placeholder="请输手机" value="{{num}}"/> </view>
 </view>
 
 <view class="case">
 <view class="title">邮箱：</view>
-<view class="content"> <input placeholder="请输邮箱"/> </view>
+<view class="content"> <input placeholder="请输邮箱" value="{{email}}"/> </view>
 </view>
 
 <view class="case">
 <view class="title">QQ：</view>
-<view class="content"> <input placeholder="请输QQ"/> </view>
+<view class="content"> <input placeholder="请输QQ" value="{{qq}}"/> </view>
 </view>
 
 <view class="case">

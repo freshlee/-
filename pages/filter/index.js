@@ -16,12 +16,33 @@ Page({
   trans_mytype : "全部",
   trans_mypay : "全部",
   status:"off",
+  index:0,
+  inputstatus:0,
   },
   
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  //转跳页面
+
+//搜索
+  dosearch:function(){
+    this.setData({
+      status: this.data.status == "on" ? "off" : "on",
+    }) 
+  },
+  //搜索栏动态控制方法
+  input:function(){
+    this.setData({
+      inputstatus:this.data.inputstatus==0?1:0,
+    })
+  },
+  //
+  move: function (event) {
+    var index = event.currentTarget.dataset.index;
+    this.setData({
+      index: index,
+    })
+    if(index==1){
+      this.statusChange();
+    }
+  },
   statusChange:function(){
      this.setData({
        status:this.data.status=="on"?"off":"on",

@@ -23,20 +23,69 @@
 <swiper-item>
 
 <scroll-view scroll-y style="height:{{myheight-255}}px">
-<view class="classname">
 
-</view>
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+
+<view id="mapbox"><map id="map" longitude="113.324520" latitude="23.099994" scale="16" controls="{{controls}}"  markers="{{markers}}"  polyline="{{polyline}}"  show-location style="width: 100%; height: 400rpx;"/></view>
 </scroll-view>
 
 </swiper-item>
+
 <swiper-item>
-<view class="classname">
-<view id="mapbox"><map id="map" longitude="113.324520" latitude="23.099994" scale="16" controls="{{controls}}"  markers="{{markers}}"  polyline="{{polyline}}"  show-location style="width: 100%; height: 400rpx;"/></view>
+<scroll-view scroll-y style="height:{{myheight-255}}px">
+
+<view class="course">
+<view class="list"> <image src="../../../images/video.jpg"></image>  <view class="title">线下课程标题</view> <view class="price">￥88</view> </view>
+
+<view class="list"> <image src="../../../images/video02.jpg"></image> <view class="title">线下课程标题</view> <view class="price">￥256</view> </view>
+
+<view class="list"> <image src="../../../images/video03.jpg"></image> <view class="title">线下课程标题</view> <view class="price">￥783</view>  </view>
 
 </view>
+
+</scroll-view>
 </swiper-item>
-<swiper-item></swiper-item>
-<swiper-item></swiper-item>
+
+<swiper-item>
+
+<view class="teacher">
+<view class="teacherprotrait"> <image src="../../images/protrait.jpg"/> </view>
+<view class="box">
+<view class="boxtop">
+<view class="name">李阳</view>
+<view class="reputation"> 好评度：<image src="../../images/star.png"  wx:for="{{[1,2,3,4,5]}}"/> </view>
+<view class="amount">课程数:3500</view>
+</view>
+<view class="bottom {{box[0]==1?'extended':'compressed'}}">李阳，1969年出生，疯狂英语创始人，全球著名英语口语教育专家，英语成功学励志导师，中国教育慈善家，侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛</view>
+</view>
+</view>
+
+</swiper-item>
+<swiper-item>
+
+<view class="comment">
+<view class="commentheader">
+<view class="maintitle">最新评论</view>
+ <view class="more" bindtap="more">59个评论></view>
+</view>
+<view class="list" wx:for="[1,2]">
+<view class="protrait"> <image src="../../images/protrait.jpg"></image> </view>
+<view class="box">
+<view class="top">
+<view class="name">用户名</view>
+<view class="right">
+<view class="praise"> <image src="../../images/praiseoff.png"/> 3</view>
+<view class="num"> <image src="../../images/comment.png"/> 0 </view>
+</view>
+
+</view>
+<view class="middle">2017-07-27 14-20-40</view>
+<view class="bottom">讲师很专业，内容很不错</view>
+</view>
+</view>
+</view>
+
+</swiper-item>
 </block>
 </swiper>
 

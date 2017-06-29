@@ -1,14 +1,21 @@
 <!--index.wxml-->
 <view class="body">
 
+<view class="toolbar">
+<view class="{{index==0?'chosen':''}} favor" bindtap="move" data-index="0">热门</view>
+<view class="{{index==1?'chosen':''}} cate" bindtap="move" data-index="1">筛选</view>
+</view>
+<view class="frame"></view>
+
 <view class="meter">
 <view class="signal">类别: <text class="typeon">{{trans_mycate}}</text></view>
 <view class="signal">收费: <text class="typeon">{{trans_mypay}}</text> </view>
 <view class="signal">类型: <text class="typeon">{{trans_mytype}}</text> </view>
-<view class="{{status=='on'?'hidden':'show'}}" bindtap="statusChange">筛选 <image src="../../images/arrow_bottom.jpg"></image> </view>
 </view>
-
+<view class="{{status=='on'?'curtain':'noncurtain'}}"  bindtap="statusChange"></view>
 <view class="{{status=='on'?'filteron':'filteroff'}} case filter" >
+<view class="container">
+<view class="searchbox {{inputstatus==1?'inputon':''}}" > <image src="../../images/search.png"></image> <input placeholder="搜索"  bindfocus="input" bindblur="input" bindconfirm="dosearch" value="{{search}}" class="{{inputstatus==1?'doinput':''}}"/> </view>
 <view class="list">
 <view class="typename">类别</view>
 <view class="{{cates==item.id?'typeon':'type'}}" wx:for="{{goodstype}}" bindtap="chosecate" data-cate="{{item.id}}"
@@ -32,6 +39,7 @@
 </view>
 <view class="panel" bindtap="sure">
 开始筛选
+</view>
 </view>
 </view>
 <view class="goods">

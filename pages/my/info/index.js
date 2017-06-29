@@ -3,6 +3,7 @@ const date = new Date()
 const years = []
 const months = []
 const days = []
+var birth =[]
 
 for (let i = 1990; i <= date.getFullYear(); i++) {
   years.push(i)
@@ -37,31 +38,36 @@ Page({
   onLoad: function (options) {
   
   },
+  genderchange(e){
+    this.setData({
+      gender: e.detail.value, 
+    })
+    console.log(this.data.gender);
+  },
   bindChange: function (e) {
-    const val = e.detail.value
+    const val = e.detail.value;
+    birth=e.detail.value;
     this.setData({
       year: this.data.years[val[0]],
       month: this.data.months[val[1]],
-      day: this.data.days[val[2]]
+      day: this.data.days[val[2]],
     })
   },
   bindTimeChange: function (e) {
+    var newdate=e.detail.value.split("-");
+    var today = new Date(newdate[1] + " " + newdate[2] + "," + newdate[0]);
+    var birthday = new Date();
+    var diff = -(today.getTime() - birthday.getTime())/1000/3600/24/365;
+    var yearold = Math.floor(diff);
     this.setData({
-      time: e.detail.value
+      time: e.detail.value,
+      age: yearold,
     })
   },
   getaddress: function () {
     var THIS = this;
     wx.chooseAddress({
       success: function (res) {
-        console.log(res.userName)
-        console.log(res.postalCode)
-        console.log(res.provinceName)
-        console.log(res.cityName)
-        console.log(res.countyName)
-        console.log(res.detailInfo)
-        console.log(res.nationalCode)
-        console.log(res.telNumber)
         var address = res.provinceName + " " + res.cityName + " " + res.detailInfo;
         THIS.setData({
           address: address,
@@ -70,7 +76,15 @@ Page({
       }
     })
   },
-
+  check:function(){
+    var name =this.data.username;
+    var gender=this.data.gender;
+    var birth=this.data.time;
+    var age=this.data.age;
+    var num=this.data.num;
+    var email=this.data.email;
+    var qq =this.data.qq;
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -108,7 +108,7 @@ view{
 }
 .list .text{
   border-bottom: 1rpx solid lightgrey;
-  width: 96%;
+  width: 95%;
   font-size: 30rpx;
   color: dimgray;
 }

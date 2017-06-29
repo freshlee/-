@@ -17,7 +17,7 @@ onReady:function(){
   var THIS=this;
   wx.request({
     // url: 'http://192.168.1.16/index.php?c=edu&a=index&op=init',
-    url:'http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=query_home&openid=5', 
+    url:'http://192.168.1.3/api/index.php?c=book&a=videovad&acid=2&op=query_videovad&openid=5', 
     data: {
     },
     header: {
@@ -37,6 +37,10 @@ onReady:function(){
       var list3 = res.data.course_list;
       var list4 = res.data.article_list;
       for (var i in banner) {
+        var link=banner[i].link;
+        var mark=/id=\d{2,5}/
+        var reslink=link.match(mark);
+        console.log(reslink);
         bannerUrl.push({ url: banner[i].link, thumb: banner[i].thumb });
       }
       for(var i in list1){
@@ -52,12 +56,12 @@ onReady:function(){
       }
       console.log(subLogos);
       for (var i in list3) {
-        var element = "../course/index?doctype=" + list3[i].doctype + "&id=" + list3[i].id;
+        var element = "../course/index?id=" + list3[i].id;
         var list3_thumb = list3[i].thumb;
         courses.push({ url: element, thumb: list3_thumb ,price:list3[i].price,name:list3[i].name});
       }
       for (var i in list4) {
-        var element = "../course/index?doctype=" + list4[i].doctype + "&id=" + list4[i].id;
+        var element = "../course/index?id=" + list4[i].id;
         var list4_thumb = list4[i].thumb;
         article.push({ url: element, thumb: list4_thumb, title:list4[i].articlename, subscript: list4[i].articlesubscript,content:list4[i].articlecontent});
       }
