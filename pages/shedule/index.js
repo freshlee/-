@@ -1,6 +1,8 @@
 // index.js
 var orgY;
 var orgtop;
+var who=[];
+var final=[];
 Page({
 
   /**
@@ -8,7 +10,7 @@ Page({
    */
   data: {
   myindex:0,
-  thetop:-40,
+  thetop:-110,
   status:1,
   },
 
@@ -57,24 +59,40 @@ Page({
     })
   },
   start:function(e){
+      var whose=e.currentTarget.dataset.index;
       orgY=e.touches[0].pageY;
       console.log(e);
       orgtop=this.data.thetop;
       this.setData({
         status: 1,
+        who:whose,
       })
   },
   moving:function(e){
+    var whose = e.currentTarget.dataset.index;
     var nowY = e.touches[0].pageY;
     var top=nowY-orgY;
+    if (top + orgtop <= -110 || top + orgtop>0){return false}
+    final[whose] = top + orgtop;
     this.setData({
       thetop:top+orgtop,
+      final:final,
     })
     console.log(top - this.data.thetop);
-    if(top>=20){
+    if(top>=40){
+      final[whose]=0;
       this.setData({
         status:0,
         thetop:0,
+        final: final,
+      })
+    }
+    else if (top <= -40) {
+      final[whose]=-110;
+      this.setData({
+        status: 0,
+        thetop: -110,
+        final: final,
       })
     }
   },

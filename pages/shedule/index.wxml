@@ -6,7 +6,7 @@
 </view>
 <swiper style="height:{{myheight-155}}px" current="{{myindex}}">
 <block>
-<!--<swiper-item>
+<swiper-item>
 <view class="case">
 <view class="title_case">
 <view class="picture list"> <image src="../../images/video.jpg"></image> </view>
@@ -18,11 +18,13 @@
 </view>
 </view>
 
-</swiper-item>-->
-<swiper-item>
+</swiper-item>
+<swiper-item >
+<scroll-view scroll-y style="height:{{myheight-155}}px">
+
 <view class="coursebody">
 
-<view class="coursecase">
+<view class="coursecase" wx:for="{{[1,2,3]}}">
 
 <view class="header">
 
@@ -37,17 +39,21 @@
 
 </view>
 
-<view class="bottom compress" catchtouchstart="start" style="margin-top:{{thetop}}px" catchtouchmove="{{status==1?'moving':''}}">
+<view class="bottom compress" catchtouchstart="start" style="margin-top:{{who==index?thetop:(final[index]?final[index]:-110)}}px" catchtouchmove="{{who==index&&status==1?'moving':''}}" data-index="{{index}}">
 
-<view class="detail">课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍</view>
-
+<view class="detail">课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍
+<view class="hint"></view>
 </view>
 
 </view>
 
+</view>
+
 
 </view>
 
+
+</scroll-view>
 
 </swiper-item>
 </block>

@@ -67,7 +67,9 @@ view{
   padding:0 40rpx 0;
   margin: 20rpx 0; 
   background: white;
-  border-radius: 20rpx
+  border-radius: 20rpx;
+  overflow: hidden;
+  
 }
 .header{
   z-index: 99;
@@ -101,7 +103,7 @@ view{
 }
 .compress{
   position:relative;
-  height: 150rpx;
+  height: 300rpx;
   border-radius: 20rpx;
   transition-property:margin-top; 
   transition-duration: 1s;
