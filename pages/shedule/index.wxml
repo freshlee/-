@@ -4,9 +4,9 @@
 <view class="address {{myindex==1?'bechosen':''}}" bindtap="address">线下课程</view>
 
 </view>
-<swiper style="height:{{myheight-40}}px" current="{{myindex}}">
+<swiper style="height:{{myheight-155}}px" current="{{myindex}}">
 <block>
-<swiper-item>
+<!--<swiper-item>
 <view class="case">
 <view class="title_case">
 <view class="picture list"> <image src="../../images/video.jpg"></image> </view>
@@ -18,8 +18,37 @@
 </view>
 </view>
 
-</swiper-item>
+</swiper-item>-->
 <swiper-item>
+<view class="coursebody">
+
+<view class="coursecase">
+
+<view class="header">
+
+<view class="protrait"> <image src="../../images/video.jpg"></image> </view>
+
+<view class="info">
+<view class="name">名称</view>
+<view class="address">地点</view>
+<view class="status">状态</view>
+
+</view>
+
+</view>
+
+<view class="bottom compress" catchtouchstart="start" style="margin-top:{{thetop}}px" catchtouchmove="{{status==1?'moving':''}}">
+
+<view class="detail">课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍</view>
+
+</view>
+
+</view>
+
+
+</view>
+
+
 </swiper-item>
 </block>
 </swiper>

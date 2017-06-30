@@ -38,17 +38,6 @@ Page({
       
     }
   },
-  // drag:function(event){
-  //   this.setData({
-  //     boxLeft:event.touches[0].clientX-100,
-  //     boxTop: event.touches[0].clientY-55,
-  //   })
-  // },
-  // onchange:function(event){
-  //    this.setData({
-  //      myindex:event.detail.current,
-  //    })
-  // },
   expension:function(event){
     var casename=event.currentTarget.dataset.case;
     box[casename] = box[casename]==1?0:1;
@@ -85,27 +74,31 @@ Page({
     var THIS = this;
     var article;
     var myid=options.id;
-    var newurl ="http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&openid=1&id"+myid;
-    // wx.request({
-    //   url: 'http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&id=1647&openid=1',
-    //   data: {
-    //   },
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   success: function (res) {
-    //     console.log(res.data);
-    //      article=res.data.dat.content;
-    //     console.log(article);
-    //     WxParse.wxParse('article', 'html', article, THIS, 5);
-    //   }
-    // })
+    var newurl ="http://192.168.1.3/api/index.php?c=book&a=videoshop&op=query_videoshopid&shopid=1647";
+    wx.request({
+      url: newurl,
+      data: {
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res);
+        var data=res.data.dat.SHOPID[0];
+         article=data.content;
+        console.log(article);
+        WxParse.wxParse('article', 'html', article, THIS, 5);
+        THIS.setData({
+          price:data.marketprice,
+          title:data.title,
+          
+        })
+        console.log(THIS.data.price);
+      }
+    })
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
     var THIS = this;
     wx.getSystemInfo({

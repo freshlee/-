@@ -58,6 +58,7 @@
   color: black;
   line-height: 50rpx;
   font-size: 22rpx;
+  text-align: left;
 }
 view{
   white-space: pre-wrap;
@@ -262,14 +263,14 @@ video{
   height: 15rpx;
 }
 .extended{
-  text-align: center;
+  text-align:left;
   width: 100%;
   line-height: 50rpx;
   height: 145rpx ;
   overflow: hidden;
 }
 .compressed{
-  text-align: center;
+  text-align: left;
     line-height: 50rpx;
 }
 .arrowon{

@@ -233,3 +233,14 @@ border-right: 2rpx solid lightgrey;
   margin-top:10rpx;
   font-size: 22rpx;
 }
+.banner .protrait{
+  position: absolute;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background: yellow;
+  left: 50%;
+  margin-left: -90rpx;
+  top: 60rpx;
+  border:10rpx solid white;
+}

@@ -3,15 +3,15 @@
 <scroll-view scroll-y style="height:{{myheight}}px" catchscroll="move">
 <view class="body">
 <view class="video" style="height:190px">
-<view class="{{status==1?'statuson':''}} cover"></view>
-<video class="{{status==1?'statuson':''}}" catchtouchmove="drag" style="right:0;bottom:80rpx;"></video>
+<!--<view class="{{status==1?'statuson':''}} cover"></view>-->
+<video class="{{status==1?'statuson':''}}" catchtouchmove="drag" style="right:0;bottom:80rpx;" src="C:/Users/Administrator/Desktop/123.mp4"></video>
 </view>
 <view class="courseinfo">
 <view class="left">
-<view class="coursename">陈正庚大学英语46级</view>
+<view class="coursename">{{title}}</view>
 <view class="detail">报名人数</view>
 </view>
-<view class="priceattr">￥356</view>
+<view class="priceattr">￥{{price}}</view>
 
 <view class="teacher">
 <view class="teacherprotrait"> <image src="../../images/protrait.jpg"/> </view>
@@ -24,15 +24,14 @@
 <view class="bottom {{box[0]==1?'extended':'compressed'}}">李阳，1969年出生，疯狂英语创始人，全球著名英语口语教育专家，英语成功学励志导师，中国教育慈善家，侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛</view>
 </view>
 </view>
+
 <view class="extend {{box[0]==0?'arrowon':''}}" bindtap="expension" data-case="0"> <image src="../../images/arrow_down.png"></image> </view>
 </view>
 
 
 <view class="intro">
 <view><text class="line">—</text> 课程简介 <text class="line">—</text></view>
-<view class="content {{box[1]==1?'extended':'compressed'}}">那些年，谁没迷过几个侦探？
-曾经想看又不敢看的动画片《鸭子侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛》。那些紧张又烧脑的情节，让人欲罢不能。
-本期周刊，知友</view>
+<view class="content {{box[1]==1?'extended':'compressed'}}">那些年，谁没迷过几个侦探？曾经想看又不敢看的动画片《鸭子侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛》。那些紧张又烧脑的情节，让人欲罢不能。本期周刊，知友</view>
 <view class="extend {{box[1]==0?'arrowon':''}}" bindtap="expension" data-case="1"> <image src="../../images/arrow_down.png"></image> </view>
 </view>
 <view class="organise">

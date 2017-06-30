@@ -1,2 +1,6 @@
 <!--index.wxml-->
 <text>index.wxml</text>
+<view class="case">
+<view class="casename">
+</view>
+</view>

@@ -1,28 +1,28 @@
 {
   "pages": [
+    "pages/shedule/index",
     "pages/demo/index",
+    "pages/video/index",
+    "pages/my/mytip/index",
     "pages/advertise/index",
     "pages/organise/index",
     "pages/my/collect/index",
     "pages/my/info/index",
     "pages/filter/index",
-    "pages/my/mytip/index",
-    "pages/shedule/index",
     "pages/my/home/index",
     "pages/checkout/index",
     "pages/comment/index",
     "pages/community/tip/index",
     "pages/my/record/index",
     "pages/my/join/index",
-    "pages/video/index",
     "pages/course/index",
     "pages/community/square/index",
     "pages/community/home/index",
     "pages/article/index",
+    "pages/article/read/index",
     "pages/paymenu/index",
     "pages/live/index",
-    "pages/live/show/index",
-    "pages/article/read/index"
+    "pages/live/show/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

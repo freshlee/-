@@ -1,16 +1,11 @@
 <!--index.wxml-->
 <import src="../../wxParse/wxParse.wxml"/> 
 <view class="banner">
+<view class="protrait"></view>
 <image src="../../images/organise.jpg"></image>
 </view>
 
-<view class="sum">
-<view class="top">新东放培训，专注挖掘机50年。挖掘机哪家强，山东新东方</view>
-<view class="bottom">
-<view class="left">报名人数 999</view>
-<view class="right"><text>￥</text>356</view>
-</view>
-</view>
+
 
 <view class="nav">
 <view class="base {{myindex==0?'bechosen borderright':''}}" bindtap="base">简介</view>
@@ -22,7 +17,7 @@
 <block>
 <swiper-item>
 
-<scroll-view scroll-y style="height:{{myheight-255}}px">
+<scroll-view scroll-y style="height:{{myheight-150}}px">
 
 <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 
@@ -32,7 +27,7 @@
 </swiper-item>
 
 <swiper-item>
-<scroll-view scroll-y style="height:{{myheight-255}}px">
+<scroll-view scroll-y style="height:{{myheight-150}}px">
 
 <view class="course">
 <view class="list"> <image src="../../../images/video.jpg"></image>  <view class="title">线下课程标题</view> <view class="price">￥88</view> </view>
@@ -47,7 +42,7 @@
 </swiper-item>
 
 <swiper-item>
-
+<scroll-view scroll-y style="height:{{myheight-150}}px">
 <view class="teacher">
 <view class="teacherprotrait"> <image src="../../images/protrait.jpg"/> </view>
 <view class="box">
@@ -59,10 +54,10 @@
 <view class="bottom {{box[0]==1?'extended':'compressed'}}">李阳，1969年出生，疯狂英语创始人，全球著名英语口语教育专家，英语成功学励志导师，中国教育慈善家，侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛</view>
 </view>
 </view>
-
+</scroll-view>
 </swiper-item>
 <swiper-item>
-
+<scroll-view scroll-y style="height:{{myheight-150}}px">
 <view class="comment">
 <view class="commentheader">
 <view class="maintitle">最新评论</view>
@@ -84,7 +79,7 @@
 </view>
 </view>
 </view>
-
+</scroll-view>
 </swiper-item>
 </block>
 </swiper>

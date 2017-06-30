@@ -15,9 +15,10 @@ moveToArticle:function(event){
 },
 onReady:function(){
   var THIS=this;
+
+  //商品接口
   wx.request({
-    // url: 'http://192.168.1.16/index.php?c=edu&a=index&op=init',
-    url:'http://192.168.1.3/api/index.php?c=book&a=videovad&acid=2&op=query_videovad&openid=5', 
+    url: 'http://192.168.1.3/api/index.php?c=book&a=videoshop&op=query_videoshop',
     data: {
     },
     header: {
@@ -31,54 +32,74 @@ onReady:function(){
       var courses=[];
       var article=[];
       var bannerUrl=[];
-      var banner=res.data.banner;
-      var list1 = res.data.video_list;
-      var list2 = res.data.adv;
-      var list3 = res.data.course_list;
-      var list4 = res.data.article_list;
-      for (var i in banner) {
-        var link=banner[i].link;
-        var mark=/id=\d{2,5}/
-        var reslink=link.match(mark);
-        console.log(reslink);
-        bannerUrl.push({ url: banner[i].link, thumb: banner[i].thumb });
-      }
+      var list1 = res.data.dat.type1;
+      var list3 = res.data.dat.type2;
+      var list4 = res.data.dat.type3;
       for(var i in list1){
         var element = "../video/index?doctype=" + list1[i].doctype + "&id=" + list1[i].id;
         var list1_thumb=list1[i].thumb;
         videos.push({url:element,thumb:list1_thumb});
       }
-      //组装list2
-      for (var i in list2) {
-        if (i == 0){mainLogos={url: list2[i].link, thumb: list2[i].thumb };continue;}
-        else if (i <= 4) { subLogos.push({ url: list2[i].link, thumb: list2[i].thumb });}
-        else {break;}
-      }
       console.log(subLogos);
       for (var i in list3) {
         var element = "../course/index?id=" + list3[i].id;
         var list3_thumb = list3[i].thumb;
-        courses.push({ url: element, thumb: list3_thumb ,price:list3[i].price,name:list3[i].name});
+        courses.push({ url: element, thumb: list3_thumb ,price:list3[i].marketprice,name:list3[i].name});
       }
       for (var i in list4) {
         var element = "../course/index?id=" + list4[i].id;
         var list4_thumb = list4[i].thumb;
-        article.push({ url: element, thumb: list4_thumb, title:list4[i].articlename, subscript: list4[i].articlesubscript,content:list4[i].articlecontent});
+        article.push({ url: element, thumb: list4_thumb, title:list4[i].articlename, subscript: list4[i].articlesubscript,content:list4[i].content});
       }
       console.log(article);
        
       THIS.setData({
-        title:res.data.nav,
         video:videos,
-        mainLogo:mainLogos,
-        subLogo:subLogos,
         courseData:courses,
-        articleData:article,
-        bannerUrls:bannerUrl,
-        
+        articleData:article,    
       });
     }
   })
+
+//展示接口
+  wx.request({
+    url: 'http://192.168.1.3/api/index.php?c=book&a=videovad&op=query_videovad', 
+    data: {
+    },
+    header: {
+      'content-type': 'application/json'
+    },
+    success: function (res) {
+      console.log(res)
+      var videos = [];
+      var mainLogos;
+      var subLogos = [];
+      var courses = [];
+      var article = [];
+      var bannerUrl = [];
+      var banner = res.data.dat.BANNER;
+      var list2 = res.data.adv;
+      for (var i in banner) {
+        var link = banner[i].link;
+        var mark = /id=\d{2,5}/
+        var reslink = link.match(mark);
+        console.log(reslink);
+        bannerUrl.push({ url: banner[i].link, thumb: banner[i].thumb });
+      }
+      for (var i in list2) {
+        if (i == 0) { mainLogos = { url: list2[i].link, thumb: list2[i].thumb }; continue; }
+        else if (i <= 4) { subLogos.push({ url: list2[i].link, thumb: list2[i].thumb }); }
+        else { break; }
+      }
+
+      THIS.setData({
+        title: res.data.nav,
+        bannerUrls: bannerUrl,
+
+      });
+    }
+  })
+
 },
 
 })

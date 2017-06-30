@@ -1,5 +1,5 @@
 page{
-  background: white;
+  background:#f4f4f4;
 }
 
 
@@ -60,5 +60,51 @@ view{
   font-size:35rpx;
   color:green;
 }
-
+.coursebody{
+  padding:0 20rpx; 
+}
+.coursecase{
+  padding:0 40rpx 0;
+  margin: 20rpx 0; 
+  background: white;
+  border-radius: 20rpx
+}
+.header{
+  z-index: 99;
+  position: relative;
+  background: white;
+}
+.header>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.protrait{
+  margin-right: 80rpx;
+  padding: 30rpx 0 0;
+}
+.protrait image{
+  width: 250rpx;
+  height: 150rpx;
+}
+.info{
+  margin-top:30rpx;
+}
+.info>view{
+  line-height: 50rpx;
+}
+.bottom{
+  line-height: 35rpx;
+  background: greenyellow;
+}
+.bottom>view{
+  white-space: pre-wrap;
+}
+.compress{
+  position:relative;
+  height: 150rpx;
+  border-radius: 20rpx;
+  transition-property:margin-top; 
+  transition-duration: 1s;
+  will-change: transition;
+}
 

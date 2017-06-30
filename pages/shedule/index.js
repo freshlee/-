@@ -1,4 +1,6 @@
 // index.js
+var orgY;
+var orgtop;
 Page({
 
   /**
@@ -6,6 +8,8 @@ Page({
    */
   data: {
   myindex:0,
+  thetop:-40,
+  status:1,
   },
 
   /**
@@ -51,6 +55,28 @@ Page({
       index: 3,
       myindex: 3,
     })
+  },
+  start:function(e){
+      orgY=e.touches[0].pageY;
+      console.log(e);
+      orgtop=this.data.thetop;
+      this.setData({
+        status: 1,
+      })
+  },
+  moving:function(e){
+    var nowY = e.touches[0].pageY;
+    var top=nowY-orgY;
+    this.setData({
+      thetop:top+orgtop,
+    })
+    console.log(top - this.data.thetop);
+    if(top>=20){
+      this.setData({
+        status:0,
+        thetop:0,
+      })
+    }
   },
 
   /**
