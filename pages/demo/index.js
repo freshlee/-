@@ -1,3 +1,4 @@
+var openid;
 Page({
   data: {
 
@@ -13,19 +14,24 @@ moveToArticle:function(event){
     url: newurl,
   })
 },
+// recorrect:function(des,oldip,newip){
+//   for(var key in des){
+//     mark=/oldip/
+//     des[key].thumb = des[key].thumb.replace(mark,"")
+//   }
+// },
 onReady:function(){
   var THIS=this;
 
   //商品接口
   wx.request({
-    url: 'http://192.168.1.3/api/index.php?c=book&a=videoshop&op=query_videoshop',
+    url: 'http://192.168.1.213/api/index.php?c=book&a=videoshop&op=query_videoshop',
     data: {
     },
     header: {
       'content-type': 'application/json'
     },
     success: function (res) {
-      console.log(res)
       var videos=[];
       var mainLogos;
       var subLogos=[];
@@ -40,7 +46,6 @@ onReady:function(){
         var list1_thumb=list1[i].thumb;
         videos.push({url:element,thumb:list1_thumb});
       }
-      console.log(subLogos);
       for (var i in list3) {
         var element = "../course/index?id=" + list3[i].id;
         var list3_thumb = list3[i].thumb;
@@ -51,7 +56,6 @@ onReady:function(){
         var list4_thumb = list4[i].thumb;
         article.push({ url: element, thumb: list4_thumb, title:list4[i].articlename, subscript: list4[i].articlesubscript,content:list4[i].content});
       }
-      console.log(article);
        
       THIS.setData({
         video:videos,
@@ -63,14 +67,14 @@ onReady:function(){
 
 //展示接口
   wx.request({
-    url: 'http://192.168.1.3/api/index.php?c=book&a=videovad&op=query_videovad', 
+    url: 'http://192.168.1.213/api/index.php?c=book&a=videovad&op=query_videovad', 
     data: {
     },
     header: {
       'content-type': 'application/json'
     },
     success: function (res) {
-      console.log(res)
+      console.log(res);
       var videos = [];
       var mainLogos;
       var subLogos = [];
@@ -83,7 +87,6 @@ onReady:function(){
         var link = banner[i].link;
         var mark = /id=\d{2,5}/
         var reslink = link.match(mark);
-        console.log(reslink);
         bannerUrl.push({ url: banner[i].link, thumb: banner[i].thumb });
       }
       for (var i in list2) {
@@ -99,7 +102,46 @@ onReady:function(){
       });
     }
   })
+  wx.login({
+     success:function(res){
+       wx.request({
+         url: 'https://api.cnmmsc.org/takeout.php?c=takeout&a=login&op=getopenid',
+         data: {
+           code: res.code,
+           acid: 499,
+         },
+         header: {
+           'content-type': 'application/json'
+         },
+         success:function(response){
+           openid=response.data.openid;
+           wx.getUserInfo({
+             success: function (res) {
+               var info = res.userInfo;
+               wx.request({
+                 url: 'http://192.168.1.213/api/index.php?c=book&a=login&op=register',
+                 data: {
+                   'openid': openid,
+                   'avatarUrl': info.avatarUrl,
+                   'name': info.nickName,
+                   'gender': info.gender,
+                   'province': info.province,
+                   'city': info.city,
+                   'acid':2,
+                 },
+                 success: function (res) {
+                   console.log(res);
+                 }
+               })
+             },
+           })
+         },
+       })
 
+     },
+  })
+  //获取用户信息
+  
 },
 
 })

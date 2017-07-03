@@ -7,15 +7,22 @@
 </view>
 <view class="frame"></view>
 
-<view class="meter">
+<!--<view class="meter">
 <view class="signal">类别: <text class="typeon">{{trans_mycate}}</text></view>
 <view class="signal">收费: <text class="typeon">{{trans_mypay}}</text> </view>
 <view class="signal">类型: <text class="typeon">{{trans_mytype}}</text> </view>
-</view>
+</view>-->
 <view class="{{status=='on'?'curtain':'noncurtain'}}"  bindtap="statusChange"></view>
 <view class="{{status=='on'?'filteron':'filteroff'}} case filter" >
+
+<!--筛选功能栏-->
 <view class="container">
+<!--搜索框-->
 <view class="searchbox {{inputstatus==1?'inputon':''}}" > <image src="../../images/search.png"></image> <input placeholder="搜索"  bindfocus="input" bindblur="input" bindconfirm="dosearch" value="{{search}}" class="{{inputstatus==1?'doinput':''}}"/> </view>
+<!--搜索框-->
+
+<!--筛选类别-->
+
 <view class="list">
 <view class="typename">类别</view>
 <view class="{{cates==item.id?'typeon':'type'}}" wx:for="{{goodstype}}" bindtap="chosecate" data-cate="{{item.id}}"
@@ -23,6 +30,8 @@
 <view class="{{cates==0?'typeon':'type'}}"  bindtap="chosecate" data-cate="0" data-trans="全部"
 >全部</view>
 </view>
+
+<!--筛选收费类型-->
 <view class="list">
 <view class="typename" >收费</view>
 <view class="{{pays==1?'typeon':'type'}}" bindtap="chosepay"  data-pay="1" data-trans="免费">免费</view>
@@ -30,6 +39,7 @@
 <view class="{{pays==3?'typeon':'type'}}" bindtap="chosepay"  data-pay="3" data-trans="收费限时">收费限时</view>
 <view class="{{pays==0?'typeon':'type'}}" bindtap="chosepay"  data-pay="0" data-trans="全部">全部</view>
 </view>
+<!--筛选类型-->
 <view class="list">
 <view class="typename">类型</view>
 <view class="{{types==1?'typeon':'type'}}" bindtap="chosetype" data-type="1" data-trans="视频">视频</view>
@@ -42,6 +52,7 @@
 </view>
 </view>
 </view>
+<!--商品展示区-->
 <view class="goods">
 <view class="good" wx:for="{{cases}}" data-id="{{item.id}}" data-nav="{{item.type}}" bindtap="jump">
 

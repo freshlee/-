@@ -93,7 +93,7 @@ Page({
     var newcate = mycate == undefined || mycate ==0 ? "" : "&pcate=" + mycate;
     var newtype = mytype == undefined || mytype ==0 ? "" : "&doctype=" + mytype;
     var newpay = mypay == undefined || mypay ==0 ? "" : "&priceattr=" + mypay;
-    var newurl = "http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5" + newcate + newtype + newpay;
+    var newurl = "http://www.myapi.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5" + newcate + newtype + newpay;
     console.log(newurl);
     this.setData({
       status: "off"
@@ -132,7 +132,7 @@ Page({
     var newcate = mycate == undefined ? "" : "&pcate=" + mycate;
     var newtype = mytype == undefined ? "" : "&doctype=" + mytype;
     var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
-    var newurl = "http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5"+newcate+newtype+newpay;
+    var newurl = "http://www.myapi.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5"+newcate+newtype+newpay;
     var gettype = options.type;
     var cate = options.cate;
     var pay = options.pay;
@@ -140,7 +140,7 @@ Page({
     var THIS=this;
     console.log(newurl);
      wx.request({
-       url: "http://www.api.com/index.php?c=book&a=getgoods&acid=2&op=query_cate&openid=5",
+       url: "http://www.myapi.com/index.php?c=book&a=getgoods&acid=2&op=query_cate&openid=5",
        success:function(res){
          var res=res.data;
            THIS.setData({

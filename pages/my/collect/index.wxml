@@ -1,6 +1,10 @@
 <!--index.wxml-->
-<text>index.wxml</text>
-<view class="case">
-<view class="casename">
+
+<view class="case" wx:for="{{3}}">
+<view class="picture"> <image src="../../../images/banner02.jpg"></image>
+</view>
+<view class="box">
+<view class="coursename">很长的课程名</view>
+<view class="content">课程描述</view>
 </view>
 </view>

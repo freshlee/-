@@ -12,12 +12,12 @@
 </swiper>
 </view>
 <view class="nav">
-<view class="list" wx:for="nav">
+<view class="list" wx:for="{{nav}}">
 <view>
 <view class="header">
-<image src="C:/Users/Administrator/Desktop/image/Case3-02.png"></image></view>
+<image src="{{item.thumb}}"></image></view>
 </view>
-<view class="name">测试</view>
+<view class="name">{{item.name}}</view>
 </view>
 
 </view>

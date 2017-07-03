@@ -79,6 +79,5 @@
 </scroll-view>
  
 
-
-<view class="purchase">立即购买</view>
+<navigator url="../checkout/index"><view class="purchase">立即购买</view></navigator>
 

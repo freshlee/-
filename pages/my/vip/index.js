@@ -5,36 +5,46 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    status:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  show:function(){
+    this.setData({
+      status:1,
+    })
+  },
   onLoad: function (options) {
-     
+  
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  var THIS=this;
-  wx.request({
-    url: 'http://192.168.1.213/api/index.php?c=book&a=commsns&op=snsvad',
-    success:function(res){
-        var data =res.data.dat;
-        console.log(res);
-          for(var key in data.SNSVAD){
-            var mark=/www.ht.com/;
-            data.SNSVAD[key].thumb = data.SNSVAD[key].thumb.replace(mark,"192.168.1.213/ht");
-          }
-          console.log(data);
-          THIS.setData({
-            bannerUrls:data.SNSVAD,
-            nav:data.CATEGORY,
-          })
-    },
+  var time=new Date();
+  var quantum=time.getHours();
+  var now;
+  console.log(quantum);
+  if(quantum<6){
+     now=0;
+  }
+  else if(quantum<12){
+    now=1;
+  }
+  else if (quantum < 14){
+    now=2;
+  }
+  else if (quantum < 18) {
+    now = 3;
+  }
+  else{
+    now = 4;
+  }
+  this.setData({
+    timestatus:now,
   })
   },
 

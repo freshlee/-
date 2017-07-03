@@ -1,14 +1,21 @@
 /* index.wxss */
+page{
+  width: 100%;
+}
 .body{
   background: black;
   opacity: 0.6;
+  width: 100%;
 }
 .header{
   padding: 15px 30rpx 50px;
   background: rgb(7,103,200);
   font-size: 22px;
+  box-sizing: border-box;
+  width: 100%;
 }
 .user{
+  display: inline-block;
   position: relative;
   width: 700rpx;
   left: 27rpx;
@@ -43,6 +50,7 @@
   bottom:0;
   background: gainsboro;
   border-top:1rpx solid lightgrey; 
+  box-sizing: border-box;
 }
 .panel .praise{
   width:120rpx;

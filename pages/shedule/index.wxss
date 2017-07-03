@@ -103,7 +103,7 @@ view{
 }
 .compress{
   position:relative;
-  height: 300rpx;
+  height: 380rpx;
   border-radius: 20rpx;
   transition-property:margin-top; 
   transition-duration: 1s;

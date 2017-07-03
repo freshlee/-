@@ -1,30 +1,31 @@
 <view class="body">
+<view class="title">课程名称</view>
 <view class="info case">
-<view class="classname">课程名称</view>
 <view class="classname">课程类型</view>
 <view class="classname">授课形式</view>
 </view>
+<view class="title">课程所在地址</view>
 <view class="message case">
-<view class="classname">课程所在地址</view>
 <view class="classname"></view>
 </view>
+<view class="title">个人信息  </view>
 <view class="userinfo case">
-<view class="classname">个人信息  </view>
 <view class="list"><view class="title">真实姓名</view> <input placeholder="请输入真实姓名" /></view>
-<view class="list"> <view class="title">课程地址 </view> <view  id="getcordinate" bindtap="getcordinate"> <image src="../../images/getaddress.png" ></image> </view> <input  placeholder="请输入线下课程地址" value="{{address}}"/></view>
+<view class="list"> <view class="title">所在地址 </view> <view  id="getcordinate" bindtap="getcordinate"> <image src="../../images/getaddress.png" ></image> </view> <input  placeholder="请输入您所在地址" value="{{address}}"/></view>
 <view class="list"><view class="title">电话号码 </view> <input placeholder="请输入联系电话" /></view>
 <view class="list"><view class="title">QQ</view> <input placeholder="请输入常用QQ" /></view>
 </view>
 
+<view class="title">金额</view>
 <view class="status case">
-<view class="total">订单总额
+<view class="total">
 <view class="num">应付 <text>800元</text> </view>
 </view>
 <view class="vochour">优惠
-<view class="num">- <text>800元</text> </view>
+<view class="num">- <text>20元</text> </view>
 </view>
 <view class="final">实付金额
-<view class="num">实付 <text>800元</text> </view>
+<view class="num">实付 <text>780元</text> </view>
 </view>
 </view>
 </view>

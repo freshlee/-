@@ -16,6 +16,10 @@ Page({
       url: '../tip/index'
     })
   },
+  write:function(){
+    this.setData({status:0
+    })
+  },
   onLoad: function (options) {
   
   },
@@ -24,7 +28,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    var THIS=this;
+  wx.getSystemInfo({
+    success: function(res) {
+      THIS.setData({
+        myheight:res.screenHeight,
+      })
+    },
+  })
   },
 
   /**

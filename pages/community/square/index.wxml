@@ -41,4 +41,11 @@
 </view>
 </view>
 
+<view class="suspend" bindtap="wirte"><image src="../../../images/pen.png"></image></view>
+
+<!--<view class="writeboard" style="height:{{myheight}}px">
+<textarea placeholder="说点什么吧"/>
+<view class="tool">工具栏</view>
+</view>-->
+
 </view>
