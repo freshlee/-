@@ -5,12 +5,87 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    hidden1:0,
+    hidden2:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  jump:function(event){
+    var where=event.currentTarget.dataset.case;
+      wx.navigateTo({
+        url: '../model/index?id='+where,
+      })
+  },
+  changechosen:function(chosen){
+    //请求新的帖子
+    var THIS=this;
+    this.setData({
+      hidden2: 0,   
+    })
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=boardlist&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&mid=25769',
+      data: {
+        cid: chosen,
+      },
+      success: function (res) {
+        console.log(res.data.dat);
+        var data = res.data.dat;
+        THIS.setData({
+          board: data.list,
+          hidden2: 1,
+        })
+      },
+      fail: function () {
+        THIS.setData({
+          hidden2: 1,
+        })
+        wx.showToast({
+          title: '加载失败',
+        })
+      }
+    })   
+  },
+  change:function(event){
+    var chosennow=event.currentTarget.dataset.index;
+    this.setData({
+      indexnow:chosennow,
+    })
+    this.changechosen(chosennow);
+
+  },
+  all:function(event){
+    this.setData({
+      hidden2:0,
+    })
+    //改变按钮
+    var chosennow = event.currentTarget.dataset.index;
+    this.setData({
+      indexnow: chosennow,
+    })
+    console.log(chosennow);
+    var THIS=this;
+    //获得所有帖子
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=boardlist&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&mid=25769',
+      success:function(res){
+        var data = res.data.dat;
+        THIS.setData({
+          board: data.list,
+          hidden2: 1,
+        })
+      },
+      fail:function(){
+        THIS.setData({
+          hidden2: 1,
+        })
+        wx.showToast({
+          title: '加载失败',
+        })
+      }
+    })
+  },
   toTip: function () {
     wx.navigateTo({
       url: '../tip/index'
@@ -21,7 +96,31 @@ Page({
     })
   },
   onLoad: function (options) {
-  
+    var cid=options.cid;
+    var THIS=this;
+    //左侧状态栏请求
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=lists&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&mid=25769&id=7',
+      success: function (res) {
+        console.log(res.data.dat);
+        var data = res.data.dat;
+        THIS.setData({
+          catelist: data.category,
+          indexnow:cid,
+          hidden1: 1,
+        })
+      },
+        fail: function () {
+        THIS.setData({
+          hidden2: 1,
+        })
+        wx.showToast({
+          title: '加载失败',
+        })
+      }
+    })
+    //board请求
+   this.changechosen(cid);
   },
 
   /**

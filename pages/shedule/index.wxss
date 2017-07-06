@@ -8,7 +8,7 @@ page{
 }
 .nav>view{
   display: inline-block;
-  width: 25%;
+  width: 33.33%;
   height: 40px;
   line-height: 40px;
   text-align: center;
@@ -23,7 +23,8 @@ page{
 
 .case{
   padding:0 60rpx;
-  margin:5rpx 0;
+  margin:20rpx 0;
+  background: white;
 }
 view{
   white-space: nowrap;
@@ -39,11 +40,10 @@ view{
 }
 .title_case{
   padding:20rpx 0;
-  border-bottom:1rpx solid gainsboro;
 }
 .title_case .list{
   display: inline-block;
-  width:50%;
+  width:42%;
   vertical-align: middle;
 }
 .title_case .info{
@@ -61,13 +61,13 @@ view{
   color:green;
 }
 .coursebody{
-  padding:0 20rpx; 
+
 }
 .coursecase{
   padding:0 40rpx 0;
   margin: 20rpx 0; 
   background: white;
-  border-radius: 20rpx;
+  border-radius: 5rpx;
   overflow: hidden;
   
 }
@@ -81,22 +81,22 @@ view{
   vertical-align: top;
 }
 .protrait{
-  margin-right: 80rpx;
+  margin-right: 50rpx;
   padding: 30rpx 0 0;
 }
 .protrait image{
-  width: 250rpx;
-  height: 150rpx;
+  width: 280rpx;
+  height: 180rpx;
 }
-.info{
+.header .info{
   margin-top:30rpx;
 }
-.info>view{
-  line-height: 50rpx;
+.coursecase .info>view{
+  line-height: 60rpx;
 }
 .bottom{
-  line-height: 35rpx;
-  background: greenyellow;
+  line-height: 40rpx;
+  padding:20rpx 0 40rpx; 
 }
 .bottom>view{
   white-space: pre-wrap;
@@ -108,5 +108,37 @@ view{
   transition-property:margin-top; 
   transition-duration: 1s;
   will-change: transition;
+}
+
+/*线上文章样式*/
+.articlecase{
+  background: white;
+  margin:20rpx 0;
+  padding: 20rpx 0;
+}
+.articlecase>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.articlecase .pic image{
+  width: 240rpx;
+  height: 240rpx;
+  margin:0 30rpx;
+}
+.articlecase .info .detailinfo{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: dimgray;
+}
+.articlecase .info  .name{
+  font-size: 37rpx;
+  color: black;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.articlecase .info .price{
+  font-size: 40rpx;
+  color: orange;
+  line-height: 90rpx;
 }
 

@@ -132,7 +132,7 @@ Page({
     var newcate = mycate == undefined ? "" : "&pcate=" + mycate;
     var newtype = mytype == undefined ? "" : "&doctype=" + mytype;
     var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
-    var newurl = "http://www.myapi.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5"+newcate+newtype+newpay;
+    var newurl = "http://192.168.1.213/api/index.php?c=book&a=category&op=tp&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0"+newcate+newtype+newpay;
     var gettype = options.type;
     var cate = options.cate;
     var pay = options.pay;

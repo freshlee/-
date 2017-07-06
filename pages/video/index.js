@@ -7,6 +7,7 @@ var org;
 var lengths;
 var nowpos;
 var box=[1,1,1];
+var myid;
 Page({
 
   /**
@@ -22,7 +23,7 @@ Page({
    */
   more:function(){
     wx.navigateTo({
-      url: '../comment/index',
+      url: '../goodscomment/list/index?id='+myid,
     })
   },
   move:function(event){
@@ -73,8 +74,12 @@ Page({
   onLoad: function (options) {
     var THIS = this;
     var article;
-    var myid=options.id;
-    var newurl ="http://192.168.1.3/api/index.php?c=book&a=videoshop&op=query_videoshopid&shopid=1647";
+    myid=options.id;
+    this.setData({
+      myid:myid,
+    })
+    //获取商品信息
+    var newurl ="http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid="+myid;
     wx.request({
       url: newurl,
       data: {
@@ -83,17 +88,35 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res);
-        var data=res.data.dat.SHOPID[0];
-         article=data.content;
-        console.log(article);
-        WxParse.wxParse('article', 'html', article, THIS, 5);
+        console.log(res.data);
+        var data=res.data.dat;
+        //  article=data.content;
+        // WxParse.wxParse('article', 'html', article, THIS, 5);
         THIS.setData({
-          price:data.marketprice,
-          title:data.title,
-          
+          goods:data.goods, 
+          hidden:true,   
         })
-        console.log(THIS.data.price);
+      },
+      fail:function(){
+        THIS.setData({
+          hidden: true,
+        })
+        wx.showToast({
+          title: '加载失败',
+        })
+      }
+    })
+//获取评论接口
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&orderid=7317&goodsid='+myid,
+      success:function(res){
+        var data=res.data.dat
+        THIS.setData({
+          commentnum:data.order_count,
+          commentlist:data.order,
+          reputation:data.level_avg,
+        })
+        console.log(res);
       }
     })
 

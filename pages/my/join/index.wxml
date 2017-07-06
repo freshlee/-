@@ -34,5 +34,5 @@
 </view>
 
 <view class="submit">
-<button>申请入驻</button>
+<view class="panel">确认</view>
 </view>

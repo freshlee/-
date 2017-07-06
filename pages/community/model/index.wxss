@@ -1,0 +1,267 @@
+/* index.wxss */
+
+.case{
+  padding:0 30rpx;
+  border-bottom: 2rpx solid #f4f4f4;
+  background-color:white;
+}
+.case:last-of-type{
+  margin: 0;
+  box-shadow: none;
+}
+.header{
+  padding-bottom: 40rpx;
+  border-bottom:2rpx solid #f4f4f4;
+}
+.header>view{
+  padding:20rpx 0;
+}
+.title{
+  font-size:45rpx;
+  border-bottom: 2rpx solid gainsboro;
+}
+.header .browser{
+  display: inline-block;
+  vertical-align: middle;
+  width: 20%;
+  margin-right: 20rpx;
+  color: grey;
+  font-size:30rpx;
+  margin-top:30rpx;
+}
+.header .amount{
+  display: inline-block;
+  vertical-align: middle;
+  width: 20%;
+  margin-right: 20rpx;
+  color: grey;
+  font-size:30rpx;
+  margin-top:30rpx;
+}
+.header .concert{
+  display: inline-block;
+  vertical-align: bottom;
+  width: 20%;
+  float: right;
+  text-align: center;
+  padding: 20rpx 30rpx;
+  background: #0767C8;
+  border-radius: 5rpx;
+  color: white;
+}
+
+.tip .user{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: dimgrey;
+  font-weight: bold;
+}
+.tip .user text{
+  color: dimgray;
+  font-size: 25rpx;
+  font-weight: normal;
+}
+.tip .interact>view{
+  display: inline-block;
+  color: grey;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.info image{
+  height: 30rpx;
+  width: 40rpx;
+}
+
+.suspend image{
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+  transform: scale(0.6);
+}
+.writeboard{
+  width: 100%;
+  position: fixed;
+  bottom:0;
+  left: 0;
+  background:#f4f4f4;
+  padding: 20rpx;
+  box-sizing: border-box;
+  transition-property:height;
+  transition-duration: 0.5s; 
+}
+#back{
+  background: mediumseagreen;
+}
+.writeboard button{
+  width: 40%;
+}
+.writeboard input{
+  font-size: 28rpx;
+  display: inline-block;
+  width:80%;
+}
+#addpic{
+  width: 50rpx;
+  height: 50rpx;
+}
+.tool image{
+  width:60rpx;
+  height: 60rpx;
+}
+
+/*面板样式*/
+.panel{
+  height: 100rpx;
+  width: 100%;
+  padding: 20rpx 0;
+  bottom:0;
+  box-sizing: border-box;
+}
+.panel .praise{
+  width:120rpx;
+  height: 60rpx;
+  border-radius: 5rpx;
+  background: rgb(7,103,200);
+}
+.panel image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.collect image,.comment image{
+  display: inline-block;
+}
+.praise>view{
+   display: inline-block;
+}
+.praise .control>view{
+  height: 30rpx;
+  width:30rpx;
+  margin:0rpx 20rpx 0;
+}
+.praise .control .up{
+  margin:15rpx 20rpx 6rpx;
+}
+.praise .num{
+  color: white;
+  font-size: 28rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  vertical-align: top;
+  transform: translateX(-5rpx);
+}
+.toast{
+     z-index: 99;
+  top: 400rpx;
+  width:600rpx;
+  height: 350rpx;
+  position: fixed;
+  left: 50%;
+  margin-left: -300rpx;
+  padding: 0 50rpx 80rpx;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 10rpx;
+}
+.toast .title{
+     padding: 30rpx 20rpx 50rpx;
+     font-size: 35rpx;
+     color: black;
+     font-weight: bold;      
+}
+.toast .agree,.toast .oposite{
+  display: inline-block;
+  width:50%;
+  box-sizing: border-box;
+  padding: 20rpx 90rpx;
+  text-align: center;
+  text-indent: -10rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  font-weight: bold; 
+}
+.toast .agree image{
+  transform: rotate(180deg);
+}
+.toast image{
+  width: 100rpx;
+  height: 70rpx;
+}
+.close{
+  display: none;
+}
+
+.panel>view{
+  margin-left: 20rpx;
+  vertical-align: top;
+  display: inline-block; 
+  font-size: 20rpx;
+  height: 60rpx;
+}
+
+.panel::after{
+  content: "";
+  display: block;
+  clear: bothl;
+}
+.collect ,.comment{
+  float: right;
+}
+
+.collect image,.comment image{
+  height: 40rpx;
+  width: 40rpx;
+  vertical-align: middle;
+}
+.collect text,.comment text{
+  vertical-align: middle;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-left: 20rpx;
+}
+.body{
+  padding-bottom:250rpx;
+}
+.framebody{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: black;
+  opacity: 0.1;
+}
+.fadeup{
+  opacity: 1;
+}
+.fadeout{
+  opacity: 0.3;
+}
+.show{
+  box-sizing: border-box;
+}
+.writeboard image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 10rpx;
+  padding: 20rpx;
+}
+.writeboard input{
+  width: 85%;
+  border-bottom: 2rpx solid gainsboro;
+  padding: 20rpx 0;
+}
+.writeboard button{
+  background: #0767C8;
+  color: white;
+}
+.top image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.user .time{
+  float: right;
+}
+.info image{
+  margin-right:10rpx; 
+}

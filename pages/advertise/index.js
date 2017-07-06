@@ -55,12 +55,7 @@ Page({
       myindex: 2,
     })
   },
-  remark: function () {
-    this.setData({
-      index: 3,
-      myindex: 3,
-    })
-  },
+
   
   onchange: function (event) {
     this.setData({

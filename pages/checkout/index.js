@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+     hidden:true,
   },
 
   /**
@@ -37,16 +37,35 @@ Page({
       }
     })
   },
+  purchase:function(){
+    var THIS=this;
+    //生成订单
+    wx.navigateTo({
+      url: '../booklist/index?coursename=' + THIS.data.goods.title + "&goodsid=" + id + "&doctype=" + THIS.data.doctype,
+    })
+  },
   onLoad: function (options) {
      var THIS=this;
       id=options.id;
-      var newurl = "http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&openid=1&id="+id;
+      //获取数据
       wx.request({
-        url: newurl,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' + id,
         success:function(res){
-         THIS.setData({
-           
-         })
+          var data=res.data.dat;
+          THIS.setData({
+            goods:data.goods,
+            doctype:data.goods.type,
+            hidden:true,
+          })
+          console.log(THIS.data.goods)
+        },
+        fail:function(){
+          THIS.setData({
+            hidden: true,
+          })
+          wx.showToast({
+            title: '加载失败',
+          })
         }
       })
   },

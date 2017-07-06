@@ -1,32 +1,36 @@
 <view class="body">
-<view class="title">课程名称</view>
 <view class="info case">
-<view class="classname">课程类型</view>
-<view class="classname">授课形式</view>
-</view>
-<view class="title">课程所在地址</view>
-<view class="message case">
-<view class="classname"></view>
-</view>
-<view class="title">个人信息  </view>
-<view class="userinfo case">
-<view class="list"><view class="title">真实姓名</view> <input placeholder="请输入真实姓名" /></view>
-<view class="list"> <view class="title">所在地址 </view> <view  id="getcordinate" bindtap="getcordinate"> <image src="../../images/getaddress.png" ></image> </view> <input  placeholder="请输入您所在地址" value="{{address}}"/></view>
-<view class="list"><view class="title">电话号码 </view> <input placeholder="请输入联系电话" /></view>
-<view class="list"><view class="title">QQ</view> <input placeholder="请输入常用QQ" /></view>
+
+<!--形式模板-->
+<template name="type1" ><text style="font-size:35rpx">线上视频</text></template>
+<template name="type2" ><text style="font-size:35rpx">线下课程</text></template>
+<template name="type3" ><text style="font-size:35rpx">线上文章</text></template>
+
+<view class="coursename">课程信息</view>
+<view class="coursetype">课程名称：{{goods.title}}</view>
+<view class="classname">授课形式：<template is="{{'type'+goods.type}}"></template> </view>
+<view class="classname">课程所在地址</view>
 </view>
 
-<view class="title">金额</view>
-<view class="status case">
-<view class="total">
-<view class="num">应付 <text>800元</text> </view>
+
+<view class="userinfo case">
+<view class="userinfotitle">个人信息  </view>
+<view class="list realname"><view class="title">真实姓名</view> <input placeholder="请输入真实姓名" /></view>
+<view class="list"><view class="title">电话号码 </view> <input placeholder="请输入联系电话" /></view>
+<view class="list"> <view class="title">所在地址 </view> <view  id="getcordinate" bindtap="getcordinate"> <image src="../../images/getaddress.png" ></image> </view> <input  placeholder="请输入您所在地址" value="{{address}}"/></view>
 </view>
-<view class="vochour">优惠
+
+<view class="status case">
+<view class="total">订单总额
+<view class="num"> <text>800元</text> </view>
+</view>
+<view class="vochour">订单优惠
 <view class="num">- <text>20元</text> </view>
 </view>
 <view class="final">实付金额
-<view class="num">实付 <text>780元</text> </view>
+<view class="num"> <text>780元</text> </view>
 </view>
 </view>
 </view>
-<view class="panel" bindtap="purchase" >使用微信支付</view>
+<view class="panel" bindtap="purchase" >进行支付</view>
+<loading hidden="{{hidden}}">加载中 </loading>

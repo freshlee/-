@@ -1,8 +1,13 @@
 <!--index.wxml-->
 <view class="toolbar">
 <view class="{{index==0?'chosen':''}} favor" bindtap="move" data-index="0">热门</view>
-<view class="{{index==1?'chosen':''}} cate" bindtap="move" data-index="1">筛选</view>
+<view class="{{index==1?'chosen':''}} cate" bindtap="move" data-index="1">附近的机构</view>
 </view>
+
+<swiper scroll-y style="height:{{myheight-150}}px" current="{{index}}">
+<block>
+<swiper-item>
+
 <view class="body">
 <view class="classname"></view>
 <view class="case" wx:for="{{[1,2,3,4,5]}}">
@@ -17,3 +22,11 @@
 </view>
 </view>
 </view>
+
+
+
+</swiper-item>
+<swiper-item>
+</swiper-item>
+</block>
+</swiper>

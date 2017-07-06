@@ -3,6 +3,7 @@
 .body{
   position: relative;
   background: gainsboro;
+  padding-bottom:60rpx; 
 }
 .line{
   color: lightgrey;
@@ -88,6 +89,10 @@ view{
 .left .detail{
   font-size:30rpx;
   color: dimgray;
+}
+.detail image{
+  width: 30rpx;
+  height: 30rpx;
 }
 .courseinfo .priceattr{
   float: right;
@@ -219,8 +224,8 @@ view{
   color: dimgrey;
 }
 .bottom{
-  margin-top:10rpx;
-  font-size: 22rpx;
+  padding:15rpx 0;
+  font-size: 28rpx;
 }
 
 /*评论样式区/////////////////////////////////////////*/
@@ -272,6 +277,7 @@ video{
 .compressed{
   text-align: left;
     line-height: 50rpx;
+    padding-bottom: 150rpx;
 }
 .arrowon{
   transform: rotate(180deg);

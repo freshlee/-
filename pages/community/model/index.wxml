@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="body" bindtap="back">
+<view class="header case">
+<view class="title">{{board.title}}</view>
+<view class="describe">{{board.desc}}</view>
+<view class="info">
+<view class="browser"> <image src="../../../images/browser_logo.jpg"></image>{{board.needfollow}}</view>
+<view class="amount"> <image src="../../../images/message_log.jpg"></image> {{listnum}}</view>
+<view class="concert"> 关注 </view>
+</view>
+</view>
+
+
+<view class="case tip" wx:for="{{list}}">
+<view class="user">{{item.nickname}}  <text class="time">{{item.createtime}}</text> </view>
+<view class="content">{{item.content}}</view>
+
+<!--评论板块-->
+<view class="panel">
+
+<view class="comment" bindtap="tocomment" data-des="{{item.id}}"><image src="../../../images/comment.png"></image>  <text>({{item.postcount}}) </text> </view>
+<view class="collect" bindtap="agree" data-index="{{item.id}}"><image src="../../../images/praiseoff.png"></image>  <text>{{item.goodcount}}</text> </view>
+
+
+
+</view>
+
+
+</view>
+
+
+</view>
+
+
+
+<view class="writeboard">
+
+
+<image src="{{item}}" wx:for="{{logo}}" data-index="{{index}}" bindtap="del"/> 
+<input  placeholder="说点什么吧"  name="content"  bindfocus="write" fixed="true" auto-height="true"  bindconfirm="submit"  />
+
+<image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>
+
+</view>
+
+
+
+
+
+
+<loading hidden="{{hidden}}"></loading>
+<loading hidden="{{submiting}}">上传中...</loading>

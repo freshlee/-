@@ -1,51 +1,27 @@
 <!--index.wxml-->
-<view class="body">
-<view class="header case">
-<view class="script"></view>
-<view class="title">有哪些[挂体育这种操作]的故事?</view>
-<view class="describe">相关问题:你在游戏中遇到过哪些“居然还有这种操作的”的故事</view>
-<view class="info">
-<view class="browser"> <image src="../../../images/browser_logo.jpg"></image> 93938</view>
-<view class="amount"> <image src="../../../images/message_log.jpg"></image> 38</view>
-<view class="concert"> 关注 </view>
+<view class="left part" style="height:{{myheight}}px">
+<view class="list {{0==indexnow?'chosen':''}}" bindtap="all" data-index="0">全部话题</view>
+
+<view class="list {{item.id==indexnow?'chosen':''}}" wx:for="{{catelist}}" bindtap="change" data-index="{{item.id}}">{{item.name}}</view>
 </view>
-<view class="panel"></view>
+<view class="right part">
+
+<view class="list" wx:for="{{board}}">
+
+<view class="picture"> <image src="{{item.logo}}"></image> </view>
+
+<view class="info" data-case="{{item.id}}" bindtap="jump">
+<view class="name">{{item.title}}</view>
+<text class="model">话题数{{item.postcount}}</text>
+<text class="concert">关注数{{item.followcount}}</text>
 </view>
 
-<view class="gap"> 5475个帖子</view>
-
-<view class="case tip" bindtap="toTip">
-<view class="user">轮子哥</view>
-<view class="content">原著小说中曾经提到这么一个细节,李达康在任林城市委书记的时候，林城由于煤炭采掘，造成大量的塌陷区，李达康为了综合利用这些塌陷区，防止圈占大量农田搞开发区造成浪费，向自己的老上司”。</view>
-<view class="interact">
-<view class="praise">13K赞同</view>-
-<view class="comment">1.K评论</view>
-</view>
+<view class="arrow">
+<image src="../../../images/arrow_down.png"></image>
 </view>
 
-<view class="case tip">
-<view class="user">轮子哥</view>
-<view class="content">原著小说中曾经提到这么一个细节,李达康在任林城市委书记的时候，林城由于煤炭采掘，造成大量的塌陷区，李达康为了综合利用这些塌陷区，防止圈占大量农田搞开发区造成浪费，向自己的老上司”。</view>
-<view class="interact">
-<view class="praise">13K赞同</view>-
-<view class="comment">1.K评论</view>
-</view>
 </view>
 
-<view class="case tip">
-<view class="user">轮子哥</view>
-<view class="content">原著小说中曾经提到这么一个细节,李达康在任林城市委书记的时候，林城由于煤炭采掘，造成大量的塌陷区，李达康为了综合利用这些塌陷区，防止圈占大量农田搞开发区造成浪费，向自己的老上司”。</view>
-<view class="interact">
-<view class="praise">13K赞同</view>-
-<view class="comment">1.K评论</view>
-</view>
 </view>
 
-<view class="suspend" bindtap="wirte"><image src="../../../images/pen.png"></image></view>
-
-<!--<view class="writeboard" style="height:{{myheight}}px">
-<textarea placeholder="说点什么吧"/>
-<view class="tool">工具栏</view>
-</view>-->
-
-</view>
+<loading hidden="{{hidden1==1&&hidden2==1?true:false}}">加载中...</loading>

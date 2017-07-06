@@ -62,4 +62,4 @@
 
 </view>
 
-<view class="sure"> <button>确认</button> </view>
+<view class="panel">确认</view>

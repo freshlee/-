@@ -3,6 +3,7 @@ var newlist=new Array;
 var pid;
 var bid;
 var newurl;
+var myid;
 Page({
   /**
    * 页面的初始数据
@@ -33,17 +34,16 @@ Page({
       hidden: false,
     })
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&pid='+des,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid='+myid,
       success:function(){
         var that=THIS;
         wx.request({
           url: newurl,
           success: function (res) {
             that.setData({
-              praiselist: res.data.dat.list,
+              praiselist: res.data.dat.order,
               hidden:true,
             })
-            console.log(that.data.praiselist)
           },
           fail:function(){
             that.setData({
@@ -75,9 +75,11 @@ Page({
   onLoad: function (options) {
     console.log(options);
     var THIS=this;
-     pid = options.pid;
-     bid = options.bid;
-    newurl = 'http://192.168.1.213/api/index.php?c=book&a=Post&op=getlist&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&pid='+pid+"&bid="+bid;
+     myid = options.id;
+     this.setData({
+       myid:myid,
+     })
+     newurl='http://192.168.1.213/api/index.php?c=book&a=comment&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' + myid,
     console.log(newurl);
     this.getcomment();
   },
@@ -88,44 +90,13 @@ Page({
       success: function (res) {
         console.log(res);
         THIS.setData({
-          praiselist: res.data.dat.list,
+          praiselist: res.data.dat.order,
         })
-      }
-    })
-  },
-  submit: function (e) {
-    var THIS = this;
-    var data = e.detail.value;
-    if (data >= 200 || data <= 5) {
-      wx.showToast({
-        title: '内容在5~200个之间',
-      })
-      return false;
-    }
-    this.setData({
-      submiting: false,
-      content:data,
-    })
-    wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=reply&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&pid='+pid+"&bid="+bid,
-      data: {content:THIS.data.content},
-      success: function (res) {
-        THIS.setData({
-          write: 0,
-          submiting: true,
-        })
-        wx.showToast({
-          title: '上传成功',
-        })
-        THIS.getcomment();
       },
-      fail: function () {
+      fail:function(){
         THIS.setData({
-          submiting: true,
-        })
-        wx.showToast({
-          title: '上传失败',
-        })
+          hidden: true,
+        }) 
       }
     })
   },

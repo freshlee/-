@@ -11,6 +11,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  jump:function(e){
+    var cid=e.currentTarget.dataset.des;
+    var url="../square/index?cid="+cid;
+    wx.navigateTo({
+      url: url,
+    })
+  },
   onLoad: function (options) {
      
   },
@@ -21,7 +28,7 @@ Page({
   onReady: function () {
   var THIS=this;
   wx.request({
-    url: 'http://192.168.1.213/api/index.php?c=book&a=commsns&op=snsvad',
+    url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=snsvad',
     success:function(res){
         var data =res.data.dat;
         console.log(res);
@@ -35,6 +42,16 @@ Page({
             nav:data.CATEGORY,
           })
     },
+  })
+  wx.request({
+    url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=boardlist&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&mid=25769',
+    success:function(res){
+    var data=res.data.dat;
+    console.log(data);
+    THIS.setData({
+      tiplist:data.list,
+    })
+    }
   })
   },
 

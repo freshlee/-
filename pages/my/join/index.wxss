@@ -1,6 +1,6 @@
 /* index.wxss */
 page{
-  background: gainsboro;
+  background: #f4f4f4;
   padding:20rpx 0;
 }
 .form{
@@ -9,7 +9,7 @@ page{
 .case{
   padding:20rpx  20rpx 20rpx 0;
   margin-left: 20rpx;
-  border-bottom:1rpx solid gainsboro;
+  border-bottom:1rpx solid #f4f4f4;
   background: white;
 }
 .case>view{
@@ -55,4 +55,15 @@ page{
 .submit button{
   color: white;
   background:#0767C8; 
+}
+.panel{
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  width:100%;
+  font-size: 40rpx;
+  color:blanchedalmond;
+  background: #0767C8;
 }

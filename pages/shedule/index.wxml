@@ -1,13 +1,15 @@
 <!--index.wxml-->
 <view class="nav">
-<view class="base {{myindex==0?'bechosen':''}}" bindtap="base">视频课程</view>
-<view class="address {{myindex==1?'bechosen':''}}" bindtap="address">线下课程</view>
+<view class="{{myindex==0?'bechosen':''}}" bindtap="video">视频课程</view>
+<view class="{{myindex==1?'bechosen':''}}" bindtap="course">线下课程</view>
+<view class="{{myindex==2?'bechosen':''}}" bindtap="article">线上文章</view>
 
 </view>
+<!--线上视频-->
 <swiper style="height:{{myheight-155}}px" current="{{myindex}}">
 <block>
 <swiper-item>
-<view class="case">
+<view class="case" wx:for="{{3}}">
 <view class="title_case">
 <view class="picture list"> <image src="../../images/video.jpg"></image> </view>
 <view class="info list">
@@ -17,7 +19,7 @@
 </view>
 </view>
 </view>
-
+<!--线下课程-->
 </swiper-item>
 <swiper-item >
 <scroll-view scroll-y style="height:{{myheight-155}}px">
@@ -39,7 +41,7 @@
 
 </view>
 
-<view class="bottom compress" catchtouchstart="start" style="margin-top:{{who==index?thetop:(final[index]?final[index]:-110)}}px" catchtouchmove="{{who==index&&status==1?'moving':''}}" data-index="{{index}}">
+<view class="bottom"  >
 
 <view class="detail">课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍课程介绍
 <view class="hint"></view>
@@ -54,8 +56,26 @@
 
 
 </scroll-view>
-
 </swiper-item>
+<!--线上文章-->
+<swiper-item>
+<scroll-view scroll-y style="height:{{myheight-155}}px">
+
+<view class="articlecase">
+<view class="pic"> <image src="../../images/video.jpg"></image> </view>
+<view class="info">
+<view class="name">书名</view>
+<view class="detailinfo">所属机构</view>
+<view class="detailinfo">作者</view>
+<view class="price">免费</view>
+</view>
+</view>
+
+
+</scroll-view>
+</swiper-item>
+
+
 </block>
 </swiper>
 

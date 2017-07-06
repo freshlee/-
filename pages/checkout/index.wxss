@@ -1,17 +1,16 @@
 .body{
-  padding: 0 20rpx 70rpx;
   box-sizing: border-box;
   background: #f4f4f4;
+  padding-bottom: 80rpx;
 }
 .case{
   padding: 0 20rpx;
-  margin: 20rpx 0;
+  margin: 0 0 20rpx;
   background: white;
-  border-radius: 15rpx;
 }
-.case view{
-  height: 80rpx;
-  line-height: 80rpx;
+.case>view{
+  height: 100rpx;
+  line-height: 100rpx;
   font-size: 35rpx;
 }
 
@@ -22,7 +21,6 @@
 }
 .total .num text{
   font-size: 40rpx;
-  color:red;
 }
 .vochour{
   font-size:30rpx;
@@ -30,11 +28,10 @@
 
 .vochour .num text{
   font-size: 30rpx;
-  color:red;
 }
 .final .num text{
-  font-size: 30rpx;
-  color:red;
+  font-size: 40rpx;
+  color:orange;
 }
 .final{
   font-size:30rpx;
@@ -43,12 +40,12 @@
   position: fixed;
   bottom: 0;
   text-align: center;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 100rpx;
+  line-height: 100rpx;
   width:100%;
   font-size: 40rpx;
   color:blanchedalmond;
-  background: lightgreen;
+  background: #0767C8;
 }
 .message textarea{
   height: 70rpx;
@@ -56,22 +53,23 @@
   font-size: 25rpx;
 }
 .userinfo .list{
-  font-size:28rpx;
-  line-height: 80rpx;
-  height: 80rpx;
+  font-size:35rpx;
+  line-height: 100rpx;
+  height: 100rpx;
 }
 .userinfo .list .title{
   width:160rpx;
   display: inline-block;
   vertical-align: top;
-  font-size: 30rpx;
+  font-size: 35rpx;
 }
 .userinfo .list input{
   display: inline-block;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 100rpx;
+  line-height: 100rpx;
   vertical-align: top;
   width:400rpx;
+  font-size: 30rpx;
 }
 #getcordinate{
   float: right;
@@ -86,7 +84,10 @@
   top:15rpx;
 }
 .title{
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 100rpx;
+  line-height: 100rpx;
   font-size: 35rpx
+}
+.coursename, .coursetype , .userinfotitle, .vochour, .realname{
+  border-bottom: 2rpx solid #f4f4f4;
 }

@@ -22,86 +22,6 @@ moveToArticle:function(event){
 // },
 onReady:function(){
   var THIS=this;
-
-  //商品接口
-  wx.request({
-    url: 'http://192.168.1.213/api/index.php?c=book&a=videoshop&op=query_videoshop',
-    data: {
-    },
-    header: {
-      'content-type': 'application/json'
-    },
-    success: function (res) {
-      var videos=[];
-      var mainLogos;
-      var subLogos=[];
-      var courses=[];
-      var article=[];
-      var bannerUrl=[];
-      var list1 = res.data.dat.type1;
-      var list3 = res.data.dat.type2;
-      var list4 = res.data.dat.type3;
-      for(var i in list1){
-        var element = "../video/index?doctype=" + list1[i].doctype + "&id=" + list1[i].id;
-        var list1_thumb=list1[i].thumb;
-        videos.push({url:element,thumb:list1_thumb});
-      }
-      for (var i in list3) {
-        var element = "../course/index?id=" + list3[i].id;
-        var list3_thumb = list3[i].thumb;
-        courses.push({ url: element, thumb: list3_thumb ,price:list3[i].marketprice,name:list3[i].name});
-      }
-      for (var i in list4) {
-        var element = "../course/index?id=" + list4[i].id;
-        var list4_thumb = list4[i].thumb;
-        article.push({ url: element, thumb: list4_thumb, title:list4[i].articlename, subscript: list4[i].articlesubscript,content:list4[i].content});
-      }
-       
-      THIS.setData({
-        video:videos,
-        courseData:courses,
-        articleData:article,    
-      });
-    }
-  })
-
-//展示接口
-  wx.request({
-    url: 'http://192.168.1.213/api/index.php?c=book&a=videovad&op=query_videovad', 
-    data: {
-    },
-    header: {
-      'content-type': 'application/json'
-    },
-    success: function (res) {
-      console.log(res);
-      var videos = [];
-      var mainLogos;
-      var subLogos = [];
-      var courses = [];
-      var article = [];
-      var bannerUrl = [];
-      var banner = res.data.dat.BANNER;
-      var list2 = res.data.adv;
-      for (var i in banner) {
-        var link = banner[i].link;
-        var mark = /id=\d{2,5}/
-        var reslink = link.match(mark);
-        bannerUrl.push({ url: banner[i].link, thumb: banner[i].thumb });
-      }
-      for (var i in list2) {
-        if (i == 0) { mainLogos = { url: list2[i].link, thumb: list2[i].thumb }; continue; }
-        else if (i <= 4) { subLogos.push({ url: list2[i].link, thumb: list2[i].thumb }); }
-        else { break; }
-      }
-
-      THIS.setData({
-        title: res.data.nav,
-        bannerUrls: bannerUrl,
-
-      });
-    }
-  })
   wx.login({
      success:function(res){
        wx.request({
@@ -129,9 +49,7 @@ onReady:function(){
                    'city': info.city,
                    'acid':2,
                  },
-                 success: function (res) {
-                   console.log(res);
-                 }
+
                })
              },
            })
@@ -143,6 +61,94 @@ onReady:function(){
   //获取用户信息
   
 },
+ onLoad:function(){
+   var THIS=this;
+   //商品接口
+   wx.request({
+     url: 'http://192.168.1.213/api/index.php?c=book&a=videoshop&op=query_videoshop&uniacid=2',
+     data: {
+     },
+     header: {
+       'content-type': 'application/json'
+     },
+     success: function (res) {
+       console.log(res);
+       var videos = [];
+       var mainLogos;
+       var subLogos = [];
+       var courses = [];
+       var article = [];
+       var bannerUrl = [];
+       var list1 = res.data.dat.type1;
+       var list3 = res.data.dat.type2;
+       var list4 = res.data.dat.type3;
+       for (var i in list1) {
+         var element = "../video/index?doctype=" + list1[i].doctype + "&id=" + list1[i].id;
+         var list1_thumb = list1[i].thumb;
+         videos.push({ url: element, thumb: list1_thumb,title: list1[i].title});
+       }
+       for (var i in list3) {
+         var element = "../course/index?id=" + list3[i].id;
+         var list3_thumb = list3[i].thumb;
+         courses.push({ url: element, thumb: list3_thumb, price: list3[i].marketprice, name: list3[i].name });
+       }
+       for (var i in list4) {
+         var element = "../course/index?id=" + list4[i].id;
+         var list4_thumb = list4[i].thumb;
+         article.push({ url: element, thumb: list4_thumb, title: list4[i].articlename, subscript: list4[i].articlesubscript, content: list4[i].content });
+       }
+
+       THIS.setData({
+         video: videos,
+         courseData: courses,
+         articleData: article,
+       });
+     }
+   })
+
+   //展示接口
+   wx.request({
+     url: 'http://192.168.1.213/api/index.php?c=book&a=videovad&op=videovad_nav&uniacid=2',
+     data: {
+     },
+     header: {
+       'content-type': 'application/json'
+     },
+     success: function (res) {
+       console.log(res);
+       var videos = [];
+       var mainLogos;
+       var subLogos = [];
+       var courses = [];
+       var article = [];
+       var bannerUrl = [];
+       var navs = [];
+       var banner = res.data.dat.BANNER;
+       var list2 = res.data.adv;
+       var nav = res.data.dat.NAV;
+       for (var i in banner) {
+         var link = banner[i].link;
+         var mark = /id=\d{2,5}/
+         var reslink = link.match(mark);
+         bannerUrl.push({ url: banner[i].link, thumb: banner[i].thumb });
+       }
+       for (var i in list2) {
+         if (i == 0) { mainLogos = { url: list2[i].link, thumb: list2[i].thumb }; continue; }
+         else if (i <= 4) { subLogos.push({ url: list2[i].link, thumb: list2[i].thumb }); }
+         else { break; }
+       }
+       for (var key in nav) {
+         navs.push({ url: "../filter/index?cate=" + nav[key].id, thumb: nav[key].icon, name: nav[key].navname })
+       }
+
+       THIS.setData({
+         title: navs,
+         bannerUrls: bannerUrl,
+
+       });
+     }
+   })
+ },
 
 })
 

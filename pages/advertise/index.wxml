@@ -11,7 +11,6 @@
 <view class="base {{myindex==0?'bechosen borderright':''}}" bindtap="base">简介</view>
 <view class="address {{myindex==1?'bechosen borderboth':''}}" bindtap="address">课程</view>
 <view class="address {{myindex==2?'bechosen borderboth':''}}" bindtap="teacher">讲师</view>
-<view class="address {{myindex==3?'bechosen borderleft':''}}" bindtap="remark">评价</view>
 </view>
 <swiper current="{{index}}" style="height:{{myheight-255}}px" bindchange="onchange">
 <block>
@@ -56,7 +55,7 @@
 </view>
 </scroll-view>
 </swiper-item>
-<swiper-item>
+<!--<swiper-item>
 <scroll-view scroll-y style="height:{{myheight-150}}px">
 <view class="comment">
 <view class="commentheader">
@@ -80,7 +79,7 @@
 </view>
 </view>
 </scroll-view>
-</swiper-item>
+</swiper-item>-->
 </block>
 </swiper>
 

@@ -145,5 +145,76 @@
   box-sizing: border-box;
   font-size: 40rpx;
   font-weight: bold;
-
+}
+/*评论样式*/
+.comment{
+  padding: 0rpx 30rpx;
+  background: white;
+}
+.commentheader{
+  border-bottom:1rpx solid lightgray;
+}
+.commentheader>view{
+  display: inline-block;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+}
+.commentheader .more{
+  float: right;
+  color: dimgrey;
+  font-size: 25rpx;
+}
+.comment .list{
+  margin: 20rpx 0 0;
+}
+.comment .list>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.comment .protrait image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 50rpx;
+}
+.comment .list .box{
+  width: 538rpx;
+  border-bottom:1rpx solid lightgrey; 
+}
+.comment .top>view{
+  color:black;
+  display: inline-block;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: top;
+}
+.comment .top .name{
+  color: #0767C8;
+}
+.comment .top .right{
+  color: dimgrey;
+  float: right;
+}
+.comment .right>view{
+    margin-left: 20rpx;
+}
+.comment .top image{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: top;
+  transform: translateY(5rpx)
+}
+.comment .right>view{
+  display: inline-block;
+  vertical-align:top;
+}
+.comment .middle{
+  height: 40rpx;
+  line-height: 40rpx;
+  color: dimgrey;
+}
+.comment .bottom{
+  padding:15rpx 0 ;
+  font-size: 22rpx;
 }

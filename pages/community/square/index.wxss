@@ -1,106 +1,70 @@
 /* index.wxss */
-.body{
-  background: gainsboro;
-}
-.case{
-  padding:0 30rpx;
-  margin-bottom: 20rpx;
-  background-color:white;
-  box-shadow: 0rpx 3rpx 2rpx #888888;
-}
-.case:last-of-type{
-  margin: 0;
-  box-shadow: none;
-}
-.header>view{
-  padding:20rpx 0;
-}
-.title{
-  font-size:45rpx;
-}
-.header .browser{
-  display: inline-block;
-  vertical-align: middle;
-  width: 20%;
-  margin-right: 20rpx;
-  color: grey;
-  font-size:30rpx;
-
+page{
 
 }
-.header .amount{
+.part{
   display: inline-block;
-  vertical-align: middle;
-  width: 20%;
-  margin-right: 20rpx;
-  color: grey;
-  font-size:30rpx;
+  vertical-align: top;
 }
-.header .concert{
-    display: inline-block;
-    vertical-align: middle;
-  width: 20%;
-  margin-right: 20rpx;
-  float: right;
-  text-align: center;
-  padding: 10rpx 30rpx;
-  background: mediumseagreen;
-  border-radius: 5rpx;
-  color: white;
+.left{
+  width: 28%;
+  box-sizing: border-box;
+  background: #f4f4f4;
 }
-.gap{
-  margin:-20rpx 30rpx 0;
-  padding: 20rpx 30rpx;
-  font-size: 30rpx;
-  color: grey;
-  height: 60rpx;
-  line-height: 60rpx;
-}
-.tip .user{
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 30rpx;
-  color: dimgrey;
-  font-weight: bold;
-}
-.tip .interact>view{
-  display: inline-block;
-  color: grey;
-  height: 80rpx;
-  line-height: 80rpx;
-}
-.info image{
-  height: 30rpx;
-  width: 40rpx;
-}
-.suspend{
-  position: fixed;
-  right: 80rpx;
-  bottom:150rpx;
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 50%;
-  background-color: darkorange;
-}
-.suspend image{
-  width: 100%;
-  height: 100%;
-  transform-origin: 50% 50%;
-  transform: scale(0.6);
-}
-.writeboard{
-  width: 100%;
-  position: fixed;
-  top:0;
-  left: 0;
-  height: 500rpx;
-  background: white;
+.right{
+  width: 72%;
+  box-sizing: border-box;
   padding: 20rpx;
 }
-.writeboard textarea{
-  font-size: 27rpx
+.left>.list{
+ color: dimgray;
+ line-height: 70rpx;
+ font-size: 30rpx;
+ text-align: center;
 }
-.tool{
-  position: fixed;
-  bottom:0;
+.right .list{
+ padding-bottom:15rpx; 
+ border-bottom: 1rpx solid #f4f4f4;
+  background-color: white;
+  overflow: hidden;
+  margin-bottom:15rpx;
+}
+.right .list>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.right .list .info{
+  padding-top:10rpx; 
+  margin-left: 20rpx;
+}
+.right .picture image{
+  width:120rpx;
+  height: 120rpx;
+  display: block;
+  border-radius: 15rpx;
+}
+.right .info .name{
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+.right .info .model,.right .info .concert{
+ line-height:40rpx;
+ font-size: 27rpx;
+}
+.right .info .concert{
+  margin-left: 50rpx;
+}
+.arrow{
+  line-height: 120rpx;
+  float: right;
+  margin-right:20rpx; 
+}
+.arrow image{
+  width: 20rpx;
+  height: 10rpx;
+  transform: rotate(-90deg);
+}
+.chosen{
+
+  background:linear-gradient(90deg, RGBA(7,103,200,0.7) ,RGBA(7,103,200,0) 100% );
 }

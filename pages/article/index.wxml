@@ -26,10 +26,10 @@
 
 <view class="content case">
 <template is="wxParse" data="{{wxParseData:article.nodes}}"/></view>
+
 <!--推荐-->
-<view class="recomandBox case ">
+<!--<view class="recomandBox case ">
 <view class="title">相关的课程</view>
-<!--模块-->
 <view class="recomand">
 <view class="title_case">
 <view class="picture list"> <image src="C:/Users/Administrator/Desktop/image/Case3-02.png"></image> </view>
@@ -39,10 +39,31 @@
 <view class="priceattr">免费</view>
 </view>
 </view>
+</view>
+</view>-->
 
+<!--评论板块-->
+<view class="comment">
+<view class="commentheader">
+<view class="maintitle">最新评论</view>
+ <view class="more" bindtap="more">59个评论></view>
+</view>
+<view class="list" wx:for="[1,2]">
+<view class="protrait"> <image src="../../images/protrait.jpg"></image> </view>
+<view class="box">
+<view class="top">
+<view class="name">用户名</view>
+<view class="right">
+<view class="praise"> <image src="../../images/praiseoff.png"/> 3</view>
+<view class="num"> <image src="../../images/comment.png"/> 0 </view>
+</view>
+</view>
+<view class="middle">2017-07-27 14-20-40</view>
+<view class="bottom">讲师很专业，内容很不错</view>
+</view>
+</view>
 </view>
 
-</view>
 
 
 </view>
