@@ -1,33 +1,41 @@
 page{
-  background:#f4f4f4;
+
 }
 
-
+#body1{
+  padding: 0 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
 .nav{
   background: white;
+  border-bottom: 6rpx solid #f4f4f4;
 }
 .nav>view{
   display: inline-block;
-  width: 33.33%;
-  height: 40px;
-  line-height: 40px;
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
   text-align: center;
-  font-size: 17px;
-  font-weight: bold;
+  font-size: 30rpx;
   box-sizing: border-box;
+  color: #454545;
 }
 .bechosen{
  border-bottom: 4rpx solid rgb(7,103,200) !important;
+ color: rgb(7,103,200) !important;
 }
 
 
 .case{
-  padding:0 60rpx;
-  margin:20rpx 0;
+  display: inline-block;
+  padding:0 10rpx;
+  margin:20rpx 0 0;
   background: white;
+  box-sizing: border-box;
+  width: 50%;
 }
 view{
-  white-space: nowrap;
   word-break: break-all;
   word-wrap: break-word;
   
@@ -39,24 +47,22 @@ view{
   line-height: 60rpx;
 }
 .title_case{
-  padding:20rpx 0;
+  box-sizing: border-box;
 }
-.title_case .list{
-  display: inline-block;
-  width:42%;
-  vertical-align: middle;
-}
+
 .title_case .info{
-  height: 150rpx;
   line-height: 37.5rpx;
-  padding-left:20rpx;
+}
+.info .coursename{
+  font-size: 30rpx;
+  text-align: left;
 }
 .title_case image{
-  height: 150rpx;
+  height: 190rpx;
 }
 .title_case .priceattr{
-  line-height: 75rpx;
-  height: 75rpx;
+  line-height: 50rpx;
+  height: 50rpx;
   font-size:35rpx;
   color:green;
 }
@@ -64,12 +70,11 @@ view{
 
 }
 .coursecase{
-  padding:0 40rpx 0;
-  margin: 20rpx 0; 
+  padding:0 40rpx 20rpx;
   background: white;
   border-radius: 5rpx;
   overflow: hidden;
-  
+  border-bottom:1rpx solid #f4f4f4; 
 }
 .header{
   z-index: 99;
@@ -81,7 +86,7 @@ view{
   vertical-align: top;
 }
 .protrait{
-  margin-right: 50rpx;
+  margin-right: 30rpx;
   padding: 30rpx 0 0;
 }
 .protrait image{
@@ -93,13 +98,17 @@ view{
 }
 .coursecase .info>view{
   line-height: 60rpx;
+  font-size: 30rpx;
+  position: relative;
+  top: -10rpx;
 }
-.bottom{
-  line-height: 40rpx;
-  padding:20rpx 0 40rpx; 
-}
+
 .bottom>view{
   white-space: pre-wrap;
+}
+.bottom .detail{
+  font-size: 27rpx;
+  line-height: 45rpx;
 }
 .compress{
   position:relative;
@@ -111,34 +120,38 @@ view{
 }
 
 /*线上文章样式*/
-.articlecase{
-  background: white;
-  margin:20rpx 0;
-  padding: 20rpx 0;
+.article:after{
+  content:"";
+  clear: both;
+  display: block;
 }
-.articlecase>view{
-  display: inline-block;
-  vertical-align: top;
+.article{
+  margin-bottom:10rpx; 
 }
-.articlecase .pic image{
-  width: 240rpx;
-  height: 240rpx;
-  margin:0 30rpx;
+.article > .section_left{
+  float:right;
+  width: 68%;
 }
-.articlecase .info .detailinfo{
-  font-size: 28rpx;
-  line-height: 40rpx;
-  color: dimgray;
+.article > .section_left  view{
+  text-align: left;
+  word-wrap: break-word;
 }
-.articlecase .info  .name{
-  font-size: 37rpx;
-  color: black;
-  height: 60rpx;
-  line-height: 60rpx;
+.article_title{
+  font-weight: bold;
 }
-.articlecase .info .price{
-  font-size: 40rpx;
-  color: orange;
-  line-height: 90rpx;
+.article_content{
+  color: grey;
+  line-height: 35rpx;
+  height: 70rpx;
+  overflow: hidden;
+}
+.article_subscript{
+  color:grey;
+  margin-top:15rpx;
+}
+
+.article > .section_right{
+  float:left;
+  width: 25%;
 }
 

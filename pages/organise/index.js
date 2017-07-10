@@ -7,6 +7,12 @@ Page({
   data: {
     index:0,
   },
+  jump:function(event){
+    var index=event.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: '../advertise/index?id='+index,
+    })
+  },
   move:function(event){
    var index=event.currentTarget.dataset.index;
    this.setData({
@@ -17,7 +23,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var THIS=this;
+  wx.request({
+    url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+    success:function(res){
+      console.log(res);
+      var data=res.data.dat;
+      THIS.setData({
+        list_all: data.user,
+      })
+    }
+  })
   },
 
   /**

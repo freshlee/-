@@ -24,6 +24,7 @@ page{
   border-radius: 15rpx;
   text-indent: 1em;
   font-size: 28rpx;
+  width: 100%;
  }
 .bottom image{
   width: 60rpx;

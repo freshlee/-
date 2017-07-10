@@ -9,7 +9,7 @@
 <view class="morning">  <template is="{{'time'+timestatus}}"></template>  </view>
 <view class="deadline">到期时间</view>
 </view>
-<view class="board_right" bindtap="show">续费</view>
+<view class="board_right" bindtap="show" style="display:{{status==1?'none':'block'}}">续费</view>
 </view>
 
 
@@ -17,26 +17,39 @@
 
 <view class="panel">
 
-<view class="controller">
-<view class="del">-</view>
-<view class="interface"> <view class="window">30</view> </view>
-<view class="add">+</view>
+
+<view class="menu">
+
+
+<view class="list {{time==1?'chosen':''}}" bindtap="charge" data-type="1" data-money="{{viplist[0].ordermoney}}"> <view class="left" >{{viplist[0].ordermoney}} </view> <view class="right">一周</view> </view>
+<view class="list {{time==2?'chosen':''}}" bindtap="charge" data-type="2" data-money="{{viplist[1].ordermoney}}" > <view class="left">{{viplist[1].ordermoney}}  </view> <view class="right">一月</view> </view>
+<view class="list {{time==3?'chosen':''}}" bindtap="charge" data-type="3" data-money="{{viplist[2].ordermoney}}"> <view class="left" >{{viplist[2].ordermoney}}  </view> <view class="right">半年</view> </view>
 </view>
+
+
+
+
+
+
+
 </view>
-<view class="bottom"> <view class="cal">应付 <text>250</text>  元</view> <view class="pay">GO</view></view>
 
 </view>
 
 <view class="show">
 <view class="title">VIP专享免费课程</view>
-<view class="case">
+<view class="case" wx:for="{{list}}">
 <view class="title_case">
-<view class="picture list"> <image src="../../../images/video.jpg"></image> </view>
+<view class="picture list"> <image src="{{item.thumb}}"></image> </view>
 <view class="info list">
-<view class="classname">MK-linux运维</view>
-<view class="classname">openstack-slatstack学习</view>
+<view class="classname">{{item.title}}</view>
 </view>
 </view>
 </view>
 
+</view>
+
+<view class="bottom"> 
+<view class="cal">总计 <text>{{money}}</text>  元</view> 
+<view class="pay" bindtap="purchase" >确认支付</view>
 </view>

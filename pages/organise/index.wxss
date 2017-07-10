@@ -7,8 +7,8 @@ page{
   padding: 0 30rpx;
 }
 .protrait image{
-  width:150rpx;
-  height:150rpx;
+  width:180rpx;
+  height:180rpx;
   border-radius: 10rpx;
   margin-right: 20rpx;
 }
@@ -26,8 +26,8 @@ page{
   white-space: pre-wrap;
 }
 .box .middle{
-  line-height: 30rpx;
-  height: 60rpx;
+  line-height: 40rpx;
+  height: 80rpx;
   overflow: hidden;
 }
 .case>view{
@@ -35,7 +35,8 @@ page{
   vertical-align: top;
 }
 .case .top{
-  font-size:30rpx;
+  font-size:35rpx;
+  line-height: 50rps;
 }
 .case .bottom{
   margin-top:10rpx; 
@@ -73,4 +74,16 @@ page{
 }
 .chosen{
   border-bottom:5rpx solid #0767C8;
+}
+#address{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  display: block !important;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+#address image{
+  width:30rpx;
+  height: 40rpx;
+  vertical-align: top;
 }

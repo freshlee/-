@@ -11,13 +11,60 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  purchase:function(){
+    var timetype=this.data.time;
+    var time
+    var now =new Date();
+    switch(timetype){
+      case "1" : time=now.getTime + 24*60*60*7 ;
+      case "2": time = now.getTime + 24 * 60 * 60 * 30 
+      case "3": time = now.getTime + 24 * 60 * 60 * 30 * 6  
+    }
+    console.log(time);
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=payvip&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&times='+time,
+      success: function (res) {
+        console.log(res);
+      }
+    })
+  },
+  charge:function(e){
+    var time=e.currentTarget.dataset.type;
+    var money = e.currentTarget.dataset.money;
+    this.setData({
+      time:time,
+      money:money,
+    })
+  },
   show:function(){
     this.setData({
       status:1,
     })
   },
   onLoad: function (options) {
-  
+    var THIS=this;
+     wx.request({
+       url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=vip&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+       success:function(res){
+         for(var key in res.data.dat.level){
+           res.data.dat.level[key].ordermoney = parseInt(res.data.dat.level[key].ordermoney);
+         }
+         console.log(res);
+        THIS.setData({
+          viplist:res.data.dat.level,
+        })
+       }
+     })
+     //VIP课程
+     wx.request({
+       url: 'http://192.168.1.213/api/index.php?c=book&a=category&op=filter&uniacid=2&priceattr=2',
+       success:function(res){
+         console.log(res);
+         THIS.setData({
+           list:res.data
+         })
+       }
+     })
   },
 
   /**

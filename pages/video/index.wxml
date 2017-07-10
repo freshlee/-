@@ -6,42 +6,45 @@
 <!--<view class="{{status==1?'statuson':''}} cover"></view>-->
 <!--<video class="{{status==1?'statuson':''}}" catchtouchmove="drag" style="right:0;bottom:80rpx;" src="{{goods.url}}"></video>-->
 </view>
-<view class="courseinfo">
+<view class="courseinfo {{teacher.length>=0?(box[0]==1?'tacherextended':'teachercompressed'):''}}">
 <view class="left">
 <view class="coursename">{{goods.title}}</view>
 <view class="detail">评分<image src="../../images/star.png"  wx:for="{{reputaion}}"/> </view>
 </view>
-<view class="priceattr">￥{{goods.marketprice}}</view>
-
-<view class="teacher">
-<view class="teacherprotrait"> <image src="../../images/protrait.jpg"/> </view>
+<view class="priceattr">￥{{goods.marketprice}}
+<view class="concern" bindtap="{{favor==1?'concern':'disconcern'}}">{{favor==1?'关注':'取消关注'}}</view>
+</view>
+<!--教师信息-->
+<view class="teacher" wx:for="{{teacher}}">
+<view class="teacherprotrait"> <image src="{{item.thumb+item.icon}}"/> </view>
 <view class="box">
 <view class="boxtop">
-<view class="name">{{goods.teachername}}</view>
+<view class="name">{{item.videoname}}</view>
 <view class="reputation"> 好评度：<image src="../../images/star.png"  wx:for="{{goods.reputation}}"/> </view>
 <view class="amount">课程数:{{goods.coursenum}}</view>
 </view>
-<view class="bottom {{box[0]==1?'extended':'compressed'}}">{{goods.teacherintroduce}}</view>
+<view class="bottom">{{item.content}}</view>
 </view>
 </view>
-
-<view class="extend {{box[0]==0?'arrowon':''}}" bindtap="expension" data-case="0"> 
+<view class="teacher_arrow {{box[0]==0?'arrowon':''}}" bindtap="expension" data-case="0" style="display:{{teacher.length>=0?(box[0]==1?'block':'none'):'none'}}"> 
 <image src="../../images/arrow_down.png" style="display:{{box[0]==1?'inline-block':'none'}}"></image> </view>
 </view>
 
-
+<!--课程介绍-->
 <view class="intro">
 <view><text class="line">—</text> 课程简介 <text class="line">—</text></view>
-<view class="content {{box[1]==1?'extended':'compressed'}}">{{goods.courseintroduce}}</view>
-<view class="extend {{box[1]==0?'arrowon':''}}" bindtap="expension" data-case="1"> 
-<image src="../../images/arrow_down.png" style="display:{{box[1]==1?'inline-block':'none'}}"></image> </view>
+<view class="content {{content.length>=90?(box[1]==1?'extended':'compressed'):''}}">
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+<view class="extend {{box[1]==0?'arrowon':''}}" bindtap="expension" data-case="1" style="display:{{content.length>=90?(box[1]==1?'inline-block':'none'):'none'}}"> 
+<image src="../../images/arrow_down.png" style="display:{{content.length>=90?(box[1]==1?'inline-block':'none'):''}}"></image> </view>
 </view>
 <view class="organise">
 
 
 <view>  <text class="line">—</text> 机构简介 <text class="line">—</text></view>
-<view class="content {{box[2]==1?'extended':'compressed'}}">{{goods.organiseintroduce}}</view>
-<view class="extend {{box[2]==0?'arrowon':''}}" bindtap="expension" data-case="2"> 
+<view class="content {{content.length>=90?(box[2]==1?'extended':'compressed'):''}}">{{organise}}</view>
+<view class="extend {{box[2]==0?'arrowon':''}}" bindtap="expension" data-case="2" style="display:{{content.length>=90?(box[2]==1?'inline-block':'none'):'none'}}"> 
 <image src="../../images/arrow_down.png" style="display:{{box[2]==1?'inline-block':'none'}}"></image> </view>
 </view>
 
@@ -58,7 +61,7 @@
 <view class="comment">
 <view class="commentheader">
 <view class="maintitle">最新评论</view>
- <view class="more" bindtap="more">{{commentnum?commentnum+'个评论':'暂无评论，去添加评论'}}></view>
+ <view class="more" bindtap="{{commentnum?'more':''}}">{{commentnum?commentnum+'个评论>':'暂无评论'}}</view>
 </view>
 
 <view class="list" wx:for="{{commentlist}}">
@@ -67,10 +70,8 @@
 <view class="top">
 <view class="name">{{item.nickname}}</view>
 <view class="right">
-<view class="praise"> <image src="../../images/praiseoff.png"/> {{item.praise}}</view>
-
+<!--<view class="praise"> <image src="../../images/praiseoff.png"/> {{item.praise}}</view>-->
 </view>
-
 </view>
 <view class="middle">{{item.time}}</view>
 <view class="bottom">{{item.content}}</view>

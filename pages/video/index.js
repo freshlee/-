@@ -8,6 +8,9 @@ var lengths;
 var nowpos;
 var box=[1,1,1];
 var myid;
+var merchid;
+var concernstatus;
+var originstatus;
 Page({
 
   /**
@@ -15,12 +18,25 @@ Page({
    */
   data: {
      status:0,
-     box:box,
+     content:"测试测试测试测测试测试测试测测试测试测试测测试测试测试测测试测试测试测测试测试测试测测试测试测试测测试测试测试测测试测试测试测测试测试"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  concern:function(){
+     concernstatus=0;
+     this.setData({
+       favor: 0,
+     })
+     console.log(this.data.favor);
+  },
+  disconcern: function () {
+    concernstatus = 1;
+    this.setData({
+      favor: 1,
+    })
+  },
   more:function(){
     wx.navigateTo({
       url: '../goodscomment/list/index?id='+myid,
@@ -75,8 +91,10 @@ Page({
     var THIS = this;
     var article;
     myid=options.id;
+    concernstatus=undefined;
     this.setData({
       myid:myid,
+      box:box,
     })
     //获取商品信息
     var newurl ="http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid="+myid;
@@ -90,11 +108,22 @@ Page({
       success: function (res) {
         console.log(res.data);
         var data=res.data.dat;
-        //  article=data.content;
-        // WxParse.wxParse('article', 'html', article, THIS, 5);
+        merchid=data.goods.merchid;
+        var article=data.goods.content;
+        WxParse.wxParse('article', 'html', article, THIS, 5);
         THIS.setData({
           goods:data.goods, 
           hidden:true,   
+        })
+        //获取机构信息
+        wx.request({
+          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&uid=' + merchid,
+          success: function (res) {
+            console.log(res);
+            THIS.setData({
+              organise: res.data.dat.zz.description,
+            })
+          }
         })
       },
       fail:function(){
@@ -116,9 +145,34 @@ Page({
           commentlist:data.order,
           reputation:data.level_avg,
         })
-        console.log(res);
       }
     })
+  //获取机构接口
+    wx.request({
+      url: '',
+    })
+    //获取教师信息
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=spt&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' +myid,
+      success:function(res){
+        var data=res.data.dat;
+        THIS.setData({
+          teacher:data.teacher,
+        })
+      },
+    })
+    //获取关注状态
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=gz&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid='+myid,
+      success:function(res){
+        console.log(res);
+        THIS.setData({
+          favor:res.data.dat.isfavorite,
+        })
+        originstatus = res.data.dat.isfavorite;
+      }
+    })
+
 
   },
 
@@ -152,7 +206,21 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    //关注
 
+    if (concernstatus ===undefined){}
+    else{
+      if (concernstatus == 0 && originstatus==1){
+        wx.request({
+          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=toggle&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' + myid + "&isfavorite=1",
+        })
+      }
+      else if (concernstatus == 1&&originstatus==0){
+        wx.request({
+          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=toggle&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' + myid + "&isfavorite=0",
+        }) 
+      }
+    }
   },
 
   /**

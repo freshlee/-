@@ -13,6 +13,16 @@ Page({
     myindex: 0,
     hidden:true,
   },
+  cancel:function(e){
+    var THIS=this;
+    var orderid=e.currentTarget.dataset.orderid;
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=cancel&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&orderid='+orderid,
+      success:function(res){
+       THIS.renew();
+      },
+    })
+  },
   pay:function(e){
     var ordersn = e.currentTarget.dataset.index;
     var title = e.currentTarget.dataset.title;
@@ -56,34 +66,40 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var THIS=this;
+  renew:function(){
+    var THIS = this;
     this.setData({
-      hidde:false,
+      hidde: false,
     })
     wx.request({
       url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
-      success:function(res){
-        var data = res.data.dat.order_list;
-        var all = [].concat(data);
-        console.log(all);
-        console.log(data);
-        for(var key in data){
-          if(data[key].status==0){
-            waitinglist.push(data[key]);
-          }
-          else{
-            finishlist.push(data[key]);       
-          }
-        }
+      success: function (res) {
+        console.log(res);
+        var data = res.data.dat;
+        var all=data.order_list;
+        var waitinglist = data.order_list0;
+        var finishlist = data.order_list3;
+        // for (var key in data) {
+        //   if (data[key].status == 0) {
+        //     waitinglist.push(data[key]);
+        //   }
+        //   else {
+        //     finishlist.push(data[key]);
+        //   }
+        // }
         THIS.setData({
-          all: data,
+          all: all,
           waitinglist: waitinglist,
           finishlist: finishlist,
-          hidde: true,
+          hidden: true,
         })
       },
     })
+
+  },
+  onLoad: function (options) {
+    var THIS=this;
+    this.renew();
     wx.getSystemInfo({
       success: function(res) {
         THIS.setData({

@@ -12,6 +12,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var THIS=this;
+
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=footstep&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+      success:function(res){
+        var test = /\d{4}-\d{2}-\d{2}/
+        var data = res.data.dat.list
+        for(var key in data){
+          data[key].createtime = data[key].createtime.match(test);
+        }
+        console.log(res);
+        THIS.setData({
+          record:data,
+        })
+      }
+    })
   
   },
 

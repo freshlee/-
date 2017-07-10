@@ -3,13 +3,21 @@ Page({
   data: {
 
   },
+getLocalTime:function (nS) {     
+  var timestamp = nS;
+  var d = new Date(timestamp * 1000);    //根据时间戳生成的时间对象
+  var date = (d.getFullYear()) + "年" +
+    (d.getMonth() + 1) + "月" +
+    (d.getDate()) + "日";
+    return date;  
+  }, 
 moveToMore:function(){
   wx.navigateTo({
     url: '../filter/index?type=3',
   })
 },
 moveToArticle:function(event){
-  var newurl = '../article/index?'+event.currentTarget.dataset.id;
+  var newurl = '../article/index?id='+event.currentTarget.dataset.id;
   wx.navigateTo({
     url: newurl,
   })
@@ -21,7 +29,10 @@ moveToArticle:function(event){
 //   }
 // },
 onReady:function(){
+  var hehe = getApp().globalData.userInfo;  
+  console.log(hehe);  
   var THIS=this;
+  //获取用户信息，生成OPENID
   wx.login({
      success:function(res){
        wx.request({
@@ -90,12 +101,13 @@ onReady:function(){
        for (var i in list3) {
          var element = "../course/index?id=" + list3[i].id;
          var list3_thumb = list3[i].thumb;
-         courses.push({ url: element, thumb: list3_thumb, price: list3[i].marketprice, name: list3[i].name });
+         courses.push({ url: element, thumb: list3_thumb, price: list3[i].marketprice, name: list3[i].title });
        }
        for (var i in list4) {
          var element = "../course/index?id=" + list4[i].id;
          var list4_thumb = list4[i].thumb;
-         article.push({ url: element, thumb: list4_thumb, title: list4[i].articlename, subscript: list4[i].articlesubscript, content: list4[i].content });
+         var time = THIS.getLocalTime(list4[i].createtime);
+         article.push({ url: element, thumb: list4_thumb, title: list4[i].title, subscript: list4[i].articlesubscript, content: list4[i].content,time:time,id:list4[i].id });
        }
 
        THIS.setData({
@@ -146,6 +158,23 @@ onReady:function(){
          bannerUrls: bannerUrl,
 
        });
+     }
+   })
+   //机构接口
+   wx.request({
+     url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=sy&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+     success:function(res){
+       console.log(res);
+       var data=res.data.dat.sy;
+       for(var key in data){
+         data[key].url="../advertise/index?id="+data[key].id;
+       }
+       var main_organise = data[0];
+       var new_organise = data.slice(1, data.length);
+       THIS.setData({
+         organise: new_organise,
+         mainorganise: main_organise,
+       })
      }
    })
  },

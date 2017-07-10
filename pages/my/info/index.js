@@ -36,7 +36,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var THIS=this;
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=selectuser&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+      success:function(res){
+        console.log(res);
+        var data=res.data.dat.member;
+        THIS.setData({
+          username:data.realname,
+          sex: data.sex,
+          num: data.mobile,
+          email: data.email,
+          qq: data.qq,
+          age: data.age,
+          time: data.birthyear + "-" + data.birthmonth + "-"+data.birthday
+        })
+      }
+    })
   
+  },
+  submit:function(e){
+    var THIS=this;
+     wx.request({
+       url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=userinfo&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0' + "&lat=" + THIS.data.lat + "&lng=" + THIS.data.lng + "&birthyear=" + THIS.data.year + "&birthmonth=" + THIS.data.month + "&birthday=" + THIS.data.day,
+       data:e.detail.value,
+       success:function(res){
+         console.log(res);
+       var data=res.data.dat
+       }
+     })
   },
   genderchange(e){
     this.setData({
@@ -66,14 +94,15 @@ Page({
   },
   getaddress: function () {
     var THIS = this;
-    wx.chooseAddress({
-      success: function (res) {
-        var address = res.provinceName + " " + res.cityName + " " + res.detailInfo;
+    wx.chooseLocation({
+      success: function(res) {
+        console.log(res);
         THIS.setData({
-          address: address,
+          address: res.address,
+          lat:res.latitude,
+          lng:res.longitude,
         })
-        console.log(THIS.data.address);
-      }
+      },
     })
   },
   check:function(){

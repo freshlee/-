@@ -35,7 +35,6 @@ padding-bottom: 100rpx;
   border-bottom:1rpx solid gainsboro;
 }
 .bottom>view{
-  display: inline-block;
     height: 40rpx;
     line-height: 60rpx;
     vertical-align: top;
@@ -48,7 +47,7 @@ padding-bottom: 100rpx;
   height: 40rpx;
 }
 .bottom .praise{
-  float: right;
+  margin-top: 20rpx;
 }
 .praise text{
   font-size: 30rpx;

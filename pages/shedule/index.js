@@ -17,8 +17,50 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  jump:function(e){
+    var id=e.currentTarget.dataset.index;
+    //获取商品具体信息
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid='+id,
+      success:function(res){
+        console.log(res);
+      var doctype=res.data.dat.goods.type;
+      var typename;
+      console.log(doctype)
+      switch(doctype){
+        case "1": typename = "video";
+        case "2": typename = "course";
+        case "3": typename = "article";
+      }
+      wx.navigateTo({
+        url: '../' + typename + "/index?id="+id,
+      })
+      }
+    })
+  },
   onLoad: function (options) {
-  
+    var THIS=this;
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=gzlist&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+      success:function(res){
+        console.log(res);
+      THIS.setData({
+        collection:res.data.dat.list,
+      })
+      }
+    })
+    //已经购买课程
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+      success:function(res){
+        var data=res.data.dat;
+        console.log(res);
+        var finishlist = data.order_list3;
+        THIS.setData({
+          finishlist:finishlist,
+        })
+      }
+    })
   },
 
   /**
@@ -84,6 +126,8 @@ Page({
    */
   onUnload: function () {
   
+
+
   },
 
   /**

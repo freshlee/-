@@ -18,6 +18,7 @@ Page({
   status:"off",
   index:0,
   inputstatus:0,
+  hidden:true,
   },
   
 
@@ -50,11 +51,12 @@ Page({
   },
   jump:function(event){
     var id = event.currentTarget.dataset.id;
-    var type=event.currentTarget.dataset.nav;
-    if(type==1){mytype="video"}
-    else if (type == 3) { mytype = "course"}
-    else { mytype = "article" }
-    var newurl="../"+mytype+"/index?&id="+id;
+    var jumptype=event.currentTarget.dataset.nav;
+    var typename;
+    if(jumptype==1){typename="video"}
+    else if (jumptype == 3) { typename = "course"}
+    else { typename = "article" }
+    var newurl="../"+typename+"/index?&id="+id;
     console.log(newurl);
      wx.navigateTo({
        url: newurl,
@@ -89,11 +91,14 @@ Page({
     })
   },
   sure: function () {
+    this.setData({
+      hidden:false
+    })
     var THIS = this;
     var newcate = mycate == undefined || mycate ==0 ? "" : "&pcate=" + mycate;
     var newtype = mytype == undefined || mytype ==0 ? "" : "&doctype=" + mytype;
     var newpay = mypay == undefined || mypay ==0 ? "" : "&priceattr=" + mypay;
-    var newurl = "http://www.myapi.com/index.php?c=book&a=getgoods&acid=2&op=filter&openid=5" + newcate + newtype + newpay;
+    var newurl = "http://192.168.1.213/api/index.php?c=book&a=category&op=filter&uniacid=2" + newcate + newtype + newpay;
     console.log(newurl);
     this.setData({
       status: "off"
@@ -105,6 +110,12 @@ Page({
         console.log(res);
         THIS.setData({
           cases: res,
+          hidden:true,
+        })
+      },
+      fail:function(){
+        THIS.setData({
+          hidden: true,
         })
       }
     })
@@ -112,7 +123,10 @@ Page({
   },
   onLoad: function (options) {
     //初始化数据
-    mytype = gettype;
+    this.setData({
+      hidden:false,
+    })
+    mytype = options.type;
     switch (gettype) {
       case "1":
         gettype = "视频";
@@ -123,8 +137,6 @@ Page({
       case "3":
         gettype = "文章";
     }
-
-    console.log(gettype);
     this.setData({
       types: mytype,
       trans_mytype: gettype,
@@ -132,22 +144,25 @@ Page({
     var newcate = mycate == undefined ? "" : "&pcate=" + mycate;
     var newtype = mytype == undefined ? "" : "&doctype=" + mytype;
     var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
-    var newurl = "http://192.168.1.213/api/index.php?c=book&a=category&op=tp&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0"+newcate+newtype+newpay;
+    var newurl = "http://192.168.1.213/api/index.php?c=book&a=category&op=filter&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0"+newcate+newtype+newpay;
     var gettype = options.type;
     var cate = options.cate;
     var pay = options.pay;
     var Thetype=options.type;
     var THIS=this;
     console.log(newurl);
+    //获取分类
      wx.request({
-       url: "http://www.myapi.com/index.php?c=book&a=getgoods&acid=2&op=query_cate&openid=5",
+       url: "http://192.168.1.213/api/index.php?c=book&a=category&op=query_cate&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0",
        success:function(res){
-         var res=res.data;
+         console.log(res);
+         var data=res.data;
            THIS.setData({
-             goodstype:res,
+             goodstype:data,
            })
        }
      })
+     //获取商品
      wx.request({
        url: newurl,
        success: function (res) {
@@ -155,9 +170,16 @@ Page({
          console.log(res);
          THIS.setData({
            cases: res,
+           hidden:true,
+         })
+       },
+       fail:function(){
+         THIS.setData({
+           hidden: true,
          })
        }
      })
+      
   },
 
   /**

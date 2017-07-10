@@ -1,28 +1,15 @@
 // index.js
+var myid;
 var WxParse = require('../../wxParse/wxParse.js');
+var lat;
+var lng;
+var tel;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    markers: [{
-      iconPath: "../../images/location.png",
-      id: 0,
-      latitude: 23.099994,
-      longitude: 113.324520,
-      width: 50,
-      height: 50
-    }],
-    polyline: [{
-      points: [{
-        longitude: 113.324520,
-        latitude: 23.099994
-      }],
-      color: "#FF0000DD",
-      width: 2,
-      dottedLine: true
-    }],
     index: 0,
     myindex: 0,
   },
@@ -30,7 +17,56 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  call:function(){
+    wx.makePhoneCall({
+      phoneNumber: tel,
+    })
+  },
+  getloacation:function(){
+    wx.openLocation({
+      latitude: lat,
+      longitude: lng,
+    })
+  },
   onLoad: function (options) {
+    var THIS=this;
+    myid=options.id;
+    //获取基础信息
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&uid='+myid,
+      success:function(res){
+        //标记坐标
+        var data=res.data.dat.jg
+        lat=data.lat;
+        lng=data.lng;
+        tel=data.tel
+        console.log(res);
+        THIS.setData({
+          base:data,
+        })
+      }
+    })
+    //获取教师信息
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=teacher&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&uid=' + myid,
+      success:function(res){
+         console.log(res);
+         THIS.setData({
+           teacher: res.data.dat.teacher,
+         })
+      }
+    })
+    //获取课程信息
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=shop&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&uid=' + myid,
+      success: function (res) {
+        console.log(res);
+        THIS.setData({
+          shop: res.data.dat.shop,
+        })
+      }
+    })
+
   
   },
 

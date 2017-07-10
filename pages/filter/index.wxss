@@ -191,6 +191,7 @@ page {
 	margin: 5rpx 7rpx;
 	width: 48%;
 	display: inline-block;
+  vertical-align: top;
 }
 
 .picture {
@@ -235,6 +236,7 @@ page {
 .toolbar {
 	position: fixed;
 	width: 100%;
+  z-index: 99;
 }
 
 .frame {
@@ -256,6 +258,7 @@ page {
 
 .chosen {
 	border-bottom: 5rpx solid #0767C8;
+  color:#0767C8 !important;
 }
 
 .cate {

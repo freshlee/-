@@ -1,25 +1,27 @@
 <!--index.wxml-->
 <view class="toolbar">
-<view class="{{index==0?'chosen':''}} favor" bindtap="move" data-index="0">热门</view>
+<view class="{{index==0?'chosen':''}} favor" bindtap="move" data-index="0">所有机构</view>
 <view class="{{index==1?'chosen':''}} cate" bindtap="move" data-index="1">附近的机构</view>
 </view>
 
-<swiper scroll-y style="height:{{myheight-150}}px" current="{{index}}">
+<swiper scroll-y style="height:{{myheight-90}}px" current="{{index}}">
 <block>
 <swiper-item>
 
 <view class="body">
 <view class="classname"></view>
-<view class="case" wx:for="{{[1,2,3,4,5]}}">
-<view class="protrait"> <image src="../../images/protrait.jpg"></image> </view>
+<view class="case" wx:for="{{list_all}}" data-index="{{item.accountid}}" bindtap="jump">
+<view class="protrait"> <image src="{{item.logo}}"></image> </view>
 <view class="box">
-<view class="top">机构名称</view>
-<view class="middle">机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍机构介绍介绍</view>
-<view class="bottom"> <view class="subscript" wx:for="{{[1,1,1]}}">标签</view> </view>
+<view class="top">{{item.merchname}}</view>
+<view class="middle">{{item.desc}}</view>
+<view class="bottom"> <view class="subscript">{{item.salecate}}</view> </view>
 </view>
 <view class="arrow">
 <image src="../../images/arrow_down.png"></image>
 </view>
+<view id="address"> <image src="../../images/address.png"></image> {{item.address}}</view>
+
 </view>
 </view>
 

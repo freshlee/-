@@ -12,7 +12,8 @@
 
 .teacher{
   border-top:1rpx solid lightgrey;
-  padding: 30rpx 0 0; 
+  padding: 30rpx 0 0;
+  margin-top: 15rpx; 
 }
 .teacherprotrait image{
   width: 120rpx;
@@ -51,10 +52,10 @@
   width: 25rpx;
   height: 25rpx;
 }
-.teacher .boxtop .amount{
+/*.teacher .boxtop .amount{
   float:right;
   margin-top:7rpx; 
-}
+}*/
 .teacher .bottom{
   color: black;
   line-height: 50rpx;
@@ -73,9 +74,10 @@ view{
 }
 
 .courseinfo{
-  padding: 15rpx 30rpx 0;
+  padding: 15rpx 30rpx 10rpx;
   background: white;
   margin-bottom:10rpx; 
+  position: relative;
 }
 .courseinfo>view{
   display: inline-block;
@@ -89,16 +91,31 @@ view{
 .left .detail{
   font-size:30rpx;
   color: dimgray;
+  margin-top: 10rpx;
 }
 .detail image{
   width: 30rpx;
   height: 30rpx;
 }
+
 .courseinfo .priceattr{
   float: right;
-  line-height: 119rpx;
+  line-height: 60rpx;
   font-size: 45rpx;
   color: darkorange;
+  text-align: right;
+}
+.courseinfo .concern{
+  margin-top: 10rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  float: right;
+  padding: 0 35rpx;
+  color: white;
+  background: #0767C8;
+  box-sizing: border-box;
+  border-radius: 5rpx;
+  font-size: 30rpx;
 }
 
 .purchase{
@@ -142,6 +159,9 @@ view{
   font-size: 25rpx;
   line-height: 45rpx;
   text-align: left;
+}
+.content{
+  padding-bottom: 25rpx;
 }
 .organise{
   padding: 0 30rpx 0rpx;
@@ -235,6 +255,9 @@ view{
   height: 150rpx;
   margin-right: 20rpx;
 }
+.protrait{
+  margin-top:10rpx;
+}
 video{
   width:100%;
   height:190px;
@@ -256,28 +279,55 @@ video{
   right: 0;
 }
 .extend{
-  display: block !important;
   width: 100%;
   text-align: center;
   opacity: 0.99;
   height: 60rpx;
-  line-height: 60rpx;
 }
 .extend image{
   width: 30rpx;
   height: 15rpx;
 }
+.teacher_arrow{
+  width: 100%;
+  text-align: center;
+  opacity: 0.99;
+  height: 60rpx;
+  position: absolute;
+  bottom: 0;
+  background: white;
+}
+.teacher_arrow image{
+  width: 30rpx;
+  height: 15rpx;
+}
+.tacherextended{
+  text-align:left;
+  width: 100%;
+  line-height: 50rpx;
+  overflow: hidden;
+  height: 330rpx;
+  position: relative;
+  box-sizing: border-box;
+}
 .extended{
   text-align:left;
   width: 100%;
   line-height: 50rpx;
-  height: 145rpx ;
   overflow: hidden;
+  height: 200rpx;
+  position: relative;
+  box-sizing: border-box;
+
+}
+.teachercompressed{
+  text-align: left;
+  line-height: 50rpx;
 }
 .compressed{
   text-align: left;
-    line-height: 50rpx;
-    padding-bottom: 150rpx;
+  line-height: 50rpx;
+  padding-bottom: 62rpx;
 }
 .arrowon{
   transform: rotate(180deg);

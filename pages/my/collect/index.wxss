@@ -54,6 +54,7 @@ page{
 
 .nav{
   background: white;
+  border: 2rpx solid #f4f4f4;
 }
 .nav>view{
   display: inline-block;
@@ -63,9 +64,11 @@ page{
   text-align: center;
   font-size: 30rpx;
   box-sizing: border-box;
+  color: #454545;
 }
 .bechosen{
  border-bottom: 6rpx solid rgb(7,103,200);
+ color: #0767C8 !important;
 }
 
 

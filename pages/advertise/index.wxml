@@ -1,26 +1,27 @@
 <!--index.wxml-->
 <import src="../../wxParse/wxParse.wxml"/> 
 <view class="banner">
-<view class="protrait"></view>
-<image src="../../images/organise.jpg"></image>
+<view class="protrait"> <image src="{{base.logo}}"></image> <view class="organisename">{{base.merchname}}</view></view>
+<image src="{{base.logo}}" id="cover"></image>
 </view>
 
 
 
 <view class="nav">
-<view class="base {{myindex==0?'bechosen borderright':''}}" bindtap="base">简介</view>
-<view class="address {{myindex==1?'bechosen borderboth':''}}" bindtap="address">课程</view>
-<view class="address {{myindex==2?'bechosen borderboth':''}}" bindtap="teacher">讲师</view>
+<view class="base {{myindex==0?'bechosen':''}}" bindtap="base">简介</view>
+<view class="address {{myindex==1?'bechosen':''}}" bindtap="address">课程</view>
+<view class="address {{myindex==2?'bechosen':''}}" bindtap="teacher">讲师</view>
 </view>
 <swiper current="{{index}}" style="height:{{myheight-255}}px" bindchange="onchange">
 <block>
 <swiper-item>
 
 <scroll-view scroll-y style="height:{{myheight-150}}px">
+<view class="describe">
+{{base.desc}}
+</view>
 
-<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-
-<view id="mapbox"><map id="map" longitude="113.324520" latitude="23.099994" scale="16" controls="{{controls}}"  markers="{{markers}}"  polyline="{{polyline}}"  show-location style="width: 100%; height: 400rpx;"/></view>
+<!--<view id="mapbox"><map id="map" longitude="{{base.lng}}" latitude="{{base.lat}}" scale="16" controls="{{controls}}"  markers="{{markers}}"  polyline="{{polyline}}"  show-location style="width: 100%; height: 400rpx;"/></view>-->
 </scroll-view>
 
 </swiper-item>
@@ -29,11 +30,8 @@
 <scroll-view scroll-y style="height:{{myheight-150}}px">
 
 <view class="course">
-<view class="list"> <image src="../../../images/video.jpg"></image>  <view class="title">线下课程标题</view> <view class="price">￥88</view> </view>
+<view class="list" wx:for="{{shop}}"> <image src="{{item.thumb}}"></image>  <view class="title">{{item.title}}</view> <view class="price">￥88</view> </view>
 
-<view class="list"> <image src="../../../images/video02.jpg"></image> <view class="title">线下课程标题</view> <view class="price">￥256</view> </view>
-
-<view class="list"> <image src="../../../images/video03.jpg"></image> <view class="title">线下课程标题</view> <view class="price">￥783</view>  </view>
 
 </view>
 
@@ -82,4 +80,9 @@
 </swiper-item>-->
 </block>
 </swiper>
+
+<view class="footer">
+<view class="address" bindtap="getloacation">查看位置</view>
+<view class="dail" bindtap="call">拨打电话</view>
+</view>
 

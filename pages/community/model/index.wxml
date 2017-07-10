@@ -12,7 +12,7 @@
 
 
 <view class="case tip" wx:for="{{list}}">
-<view class="user">{{item.nickname}}  <text class="time">{{item.createtime}}</text> </view>
+<view class="user"> <image src="{{item.avatar}}"></image> {{item.nickname}}  <text class="time">{{item.createtime}}</text> </view>
 <view class="content">{{item.content}}</view>
 
 <!--评论板块-->

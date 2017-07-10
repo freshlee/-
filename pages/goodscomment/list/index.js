@@ -25,35 +25,6 @@ Page({
       write: 0,
     })
   },
-  praise:function(event){
-    var THIS=this;
-    var des = event.currentTarget.dataset.index;
-    var index = event.currentTarget.dataset.num;
-    this.setData({
-      status:newlist,
-      hidden: false,
-    })
-    wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid='+myid,
-      success:function(){
-        var that=THIS;
-        wx.request({
-          url: newurl,
-          success: function (res) {
-            that.setData({
-              praiselist: res.data.dat.order,
-              hidden:true,
-            })
-          },
-          fail:function(){
-            that.setData({
-              hidden: true,
-            }) 
-          }
-        })
-      }
-    })
-  },
 
   tocomment: function (e) {
 
@@ -88,9 +59,12 @@ Page({
     wx.request({
       url: newurl,
       success: function (res) {
-        console.log(res);
+        var data = res.data.dat.order;
+        for(var key in data){
+          data[key].level = parseInt(data[key].level); 
+        }
         THIS.setData({
-          praiselist: res.data.dat.order,
+          praiselist: data,
         })
       },
       fail:function(){

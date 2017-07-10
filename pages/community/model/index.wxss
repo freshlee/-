@@ -1,9 +1,13 @@
 /* index.wxss */
 
 .case{
-  padding:0 30rpx;
+  padding:20rpx 30rpx 0;
   border-bottom: 2rpx solid #f4f4f4;
   background-color:white;
+}
+.case .content{
+  padding-left: 80rpx;
+  box-sizing: border-box;
 }
 .case:last-of-type{
   margin: 0;
@@ -61,6 +65,11 @@
   color: dimgray;
   font-size: 25rpx;
   font-weight: normal;
+}
+.user image{
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
 }
 .tip .interact>view{
   display: inline-block;
@@ -261,6 +270,8 @@
 }
 .user .time{
   float: right;
+  position: relative;
+  top: -20rpx;
 }
 .info image{
   margin-right:10rpx; 

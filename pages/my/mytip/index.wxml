@@ -1,11 +1,27 @@
 <!--index.wxml-->
-<view class="case" wx:for="{{3}}">
+
+<view class="separate">关注的板块</view>
+<view class="line"> </view>
+
+<view class="model">
+<view class="box" wx:for="{{boards}}" data-index="{{item.id}}" bindtap="jumptomodel"><image src="{{item.logo}}"></image>
+<view class="boardname">{{item.title}}</view>
+</view>
+</view>
+
+
+
+<view class="separate">我的回复</view>
+<view class="line"></view>
+
+<view class="response" wx:for="{{replys}}" data-index="{{item.id}}" bindtap="jumptoreply">
 <view class="top">
-<view class="title">新闻名字</view>
-<view class="time">2016/6/27</view>
+<view class="title">回复：{{item.content}}</view>
 </view>
-<view class="middle">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-<view class="bottom">回复</view>
+<view class="middle">话题：{{item.parenttitle}}</view>
 </view>
+<view class="more" bindtap="more">{{warm==1?'已经到最后':'查看更多'}}</view>
+
+
 
 

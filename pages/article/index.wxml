@@ -5,14 +5,14 @@
 <view class="header case">
 <view class="picture list"> <image src="../../images/书.jpg" style="height:300rpx;width:220rpx"></image> </view>
 <view class="info list">
-<view class="name">商业的本质</view>
+<view class="name">{{goods.title}}</view>
 <view class="li">作者：杰克 韦尔奇等</view>
 <view class="li price">29.4</view>
 <view class="li">类型:商业</view>
 <view class="li">字数:约1.5万字</view>
 </view>
 <view class="panel">
-<view class="purchase">收藏</view>
+<view class="purchase" bindtap="concern" bindtap="{{favor==1?'concern':'disconcern'}}">{{favor==1?'关注':'取消关注'}}</view>
 <view class="try" bindtap="toRead">阅读</view>
 </view>
 <!--<view class="operate">
@@ -46,24 +46,24 @@
 <view class="comment">
 <view class="commentheader">
 <view class="maintitle">最新评论</view>
- <view class="more" bindtap="more">59个评论></view>
+ <view class="more" bindtap="{{commentnum?'more':''}}">{{commentnum?commentnum+'个评论>':'暂无评论'}}</view>
 </view>
-<view class="list" wx:for="[1,2]">
+
+<view class="list" wx:for="{{commentlist}}">
 <view class="protrait"> <image src="../../images/protrait.jpg"></image> </view>
 <view class="box">
 <view class="top">
-<view class="name">用户名</view>
+<view class="name">{{item.nickname}}</view>
 <view class="right">
-<view class="praise"> <image src="../../images/praiseoff.png"/> 3</view>
-<view class="num"> <image src="../../images/comment.png"/> 0 </view>
 </view>
 </view>
-<view class="middle">2017-07-27 14-20-40</view>
-<view class="bottom">讲师很专业，内容很不错</view>
+<view class="middle">{{item.time}}</view>
+<view class="bottom">{{item.content}}</view>
 </view>
 </view>
 </view>
 
-
-
 </view>
+
+
+<loading hidden="{{hidden}}"></loading>

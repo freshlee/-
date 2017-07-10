@@ -2,46 +2,46 @@
 <import src="../../wxParse/wxParse.wxml"/> 
 <view class="body">
 <view class="picture">
-<image ></image>
+<image src="{{goods.thumb}}"></image>
 </view>
 <view class="info">
-<view class="name">七节心理学思维自修课</view>
-<view class="subtitle">李松伟带你走进心理学世界</view>
+<view class="name">{{goods.title}}</view>
 </view>
 <view class="status">
-<view class="price">￥199</view>
-<view class="campaign">3402人已经购买</view>
+<view class="price">￥{{goods.marketprice}}</view>
+<view class="campaign">
+<view class="num">3402人已经购买</view>
+<view class="concern" bindtap="{{favor==1?'concern':'disconcern'}}">{{favor==1?'关注':'取消关注'}}</view>
+</view>
 </view>
 <view class="intro">
 <view><text class="line">—</text> 课程简介 <text class="line">—</text></view>
-<view class="content">那些年，谁没迷过几个侦探？
-曾经想看又不敢看的动画片《鸭子侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛》。那些紧张又烧脑的情节，让人欲罢不能。
-本期周刊，知友</view>
+<view class="content">
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/></view>
 </view>
 <view class="organise">
 <view>  <text class="line">—</text> 机构简介 <text class="line">—</text></view>
-<view class="content">那些年，谁没迷过几个侦探？
-曾经想看又不敢看的动画片《鸭子侦探》，曾经被《名侦探柯南》里《诅咒的假面在冷笑》吓得缩成一团，曾经拉上小伙伴才敢看的《金田一少年事件簿》，曾经与大学室友一起追过的《神探夏洛克》和《大侦探波洛》。那些紧张又烧脑的情节，让人欲罢不能。
-本期周刊，知友</view>
+<view class="content">{{organise}}</view>
 </view>
 <view class="comment">
 <view class="commentheader">
 <view class="maintitle">最新评论</view>
-<view class="more">59个评论></view>
+ <view class="more" bindtap="{{commentnum?'more':''}}">{{commentnum?commentnum+'个评论>':'暂无评论'}}</view>
 </view>
-<view class="list" wx:for="[1,2]">
+
+<view class="list" wx:for="{{commentlist}}">
 <view class="protrait"> <image src="../../images/protrait.jpg"></image> </view>
 <view class="box">
 <view class="top">
-<view class="name">用户名</view>
+<view class="name">{{item.nickname}}</view>
 <view class="right">
-<view class="praise"> <image src="../../images/praiseoff.png"/> 3</view>
-<view class="num"> <image src="../../images/comment.png"/> 0 </view>
+<!--<view class="praise"> <image src="../../images/praiseoff.png"/> {{item.praise}}</view>-->
+
 </view>
 
 </view>
-<view class="middle">2017-07-27 14-20-40</view>
-<view class="bottom">讲师很专业，内容很不错</view>
+<view class="middle">{{item.time}}</view>
+<view class="bottom">{{item.content}}</view>
 </view>
 </view>
 </view>

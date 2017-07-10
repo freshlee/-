@@ -78,3 +78,6 @@
 <template name="3">
 <view class="limit">限时收费</view>
 </template>
+
+<loading hidden="{{hidden}}">加载中...</loading>
+

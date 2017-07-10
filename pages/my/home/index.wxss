@@ -48,7 +48,7 @@ view{
 .header .username{
   padding: 10rpx 10rpx;
   text-align: center;
-  font-size: 35rpx;
+  font-size: 50rpx;
   color:white;
 }
 .intro{

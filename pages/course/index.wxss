@@ -4,7 +4,8 @@
   box-sizing: border-box;
   width: 100%;
   position: relative;
-  background: gainsboro;
+  background: #f4f4f4;
+  padding-bottom:80rpx; 
 }
 .line{
   color: lightgrey;
@@ -19,7 +20,7 @@
   height: 400rpx;
 }
 .info{
-  padding: 30rpx 30rpx;
+  padding: 30rpx 30rpx 10rpx15;
   background: white;
 }
 .info .name{
@@ -27,7 +28,7 @@
   padding: 15rpx 0;
   text-align: center;
   font-size: 45rpx;
-  border-bottom: 0.5rpx solid gainsboro;
+  border-bottom: 0.5rpx solid #f4f4f4;
 }
 .info .subtitle{
   padding: 10rpx 0;
@@ -42,22 +43,24 @@
 
 }
 .status>view{
-  padding-top:30rpx; 
   display: inline-block;
-  height: 100rpx;
 }
 .status .price{
   color: #FFD39B;
   font-size: 45rpx;
   vertical-align: middle;
-  line-height: 50rpx;
+  line-height: 180rpx;
 }
 .status .campaign{
    float: right;
-   color: grey;
-   font-size: 32rpx;
    vertical-align: middle;
-   line-height: 50rpx;
+   position: relative;
+}
+.status .campaign .num{
+   line-height: 80rpx;
+   height: 80rpx;
+   color: grey;
+   font-size: 30rpx;
 }
 .intro{
   padding: 0 30rpx 50rpx;
@@ -69,7 +72,6 @@
   padding: 30rpx 0;
   font-size: 35rpx;
   color: black;
-  border-bottom: 0.5rpx solid gainsboro;
   vertical-align: top;
 }
 
@@ -88,6 +90,7 @@
   color: grey;
   font-size: 30rpx;
   line-height: 45rpx;
+  word-break: break-all;
 }
 .organise{
   padding: 0 30rpx 50rpx;
@@ -99,13 +102,15 @@
   padding: 30rpx 0;
   font-size: 35rpx;
   color: black;
-  border-bottom: 0.5rpx solid gainsboro;
 }
 /*评论样式区//////////////////////////////////////////*/
 
 .comment{
   padding: 0rpx 30rpx;
   background: white;
+}
+.protrait{
+  margin-top:10rpx;
 }
 .commentheader{
   border-bottom:1rpx solid lightgray;
@@ -174,3 +179,17 @@
 }
 
 /*评论样式区/////////////////////////////////////////*/
+
+.concern{
+  display: block;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  padding: 5rpx 15rpx;
+  background: #0767C8;
+  color: white;
+  text-align: center;
+  float: right;
+  font-size: 30rpx;
+}

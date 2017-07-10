@@ -9,6 +9,7 @@ page{
 }
 .case{
   border-bottom:1rpx solid #f4f4f4;
+  color:#565656;
 }
 .case:last-of-type{
   border-bottom:none;
@@ -38,10 +39,11 @@ page{
   color: dimgray;
 }
 .boxname{
-  height: 70rpx;
-  line-height: 70rpx;
-  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 35rpx;
   padding-left:20rpx;
+  color: #565656;
 }
 .address{
   float: right;
@@ -49,9 +51,9 @@ page{
 .address image{
   width: 50rpx;
   height: 50rpx;
-  margin-right: 120rpx;
+  margin-right: 40rpx;
   position: relative;
-  top: 10rpx;
+  top: 12rpx;
 }
 .sure{
   margin-top:80rpx;
@@ -61,13 +63,15 @@ page{
   background: #0767C8;
 }
 .panel{
+  border-radius: 0;
+  font-weight: bold;
   position: fixed;
   bottom: 0;
+  color: white;
   text-align: center;
   height: 100rpx;
   line-height: 100rpx;
   width:100%;
   font-size: 40rpx;
-  color:blanchedalmond;
   background: #0767C8;
 }

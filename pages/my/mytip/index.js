@@ -1,9 +1,51 @@
 // index.js
+var page=0;
+var psize;
+var total;
+var max=3;
 Page({
 
   /**
    * 页面的初始数据
    */
+  more:function(){
+    var THIS=this;
+    if(page<max){
+      wx.request({
+        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=getposts&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&page=' + page,
+        success: function (res) {
+          psize = res.data.dat.pagesize;
+          total = res.data.dat.total;
+          console.log(res);
+          THIS.setData({
+            replys: THIS.data.replys.concat(res.data.dat.list),
+          })
+          max = Math.ceil(total / psize);
+        }
+      })
+    }
+    else{
+        THIS.setData({
+        warm:1,
+      })
+    }
+    page += 1;
+    console.log(psize);
+  },
+  jumptomodel:function(e){
+    var id=e.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: '../../community/square/index?id=' + id,
+    })
+  },
+  getLocalTime: function (nS) {
+    var timestamp = nS;
+    var d = new Date(timestamp * 1000);    //根据时间戳生成的时间对象
+    var date = (d.getFullYear()) + "年" +
+      (d.getMonth() + 1) + "月" +
+      (d.getDate()) + "日";
+    return date;
+  }, 
   data: {
   myindex:0,
   },
@@ -43,6 +85,23 @@ Page({
           myheight: res.screenHeight,
         })
       },
+    })
+    //获取帖子
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=main&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+      success:function(res){
+        var data=res.data.dat;
+        for(var key in data.posts){
+          data.posts[key].createtime = THIS.getLocalTime(data.posts[key].createtime)
+        }
+        console.log(res);
+        THIS.setData({
+          boards: data.boards,
+          posts:data.posts,
+          replys:data.replys,
+
+        })
+      }
     })
   },
 

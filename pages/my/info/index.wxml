@@ -1,15 +1,16 @@
 <!--index.wxml-->
+<form bindsubmit="submit">
 <view class="boxname">基本信息</view>
 <view class="box">
 <view class="case">
 <view class="title">名字：</view>
-<view class="content"> <input placeholder="请输姓名" value="{{username}}"/> </view>
+<view class="content"> <input name="realname" placeholder="请输姓名" value="{{username}}"/> </view>
 </view>
 
 <view class="case">
 <view class="title">性别：</view>
 <view class="content"> 
-<radio-group bindchange="genderchange">  
+<radio-group bindchange="genderchange" name="sex" value="{{sex}}">  
 <label>男 <radio value="male" checked="false" /></label>
 <label>女 <radio value="female" checked="false" /></label>  
 
@@ -22,7 +23,7 @@
 <view class="pickdata">
   <picker mode="date" value="{{time}}" start="1992-9-7" end="2017-6-28" bindchange="bindTimeChange">
     <view class="picker">
-       <text wx:if="{{!time}}">微触选择日期</text> {{time}}
+       <text wx:if="{{!time}}" style="font-size:35rpx">选择日期</text> {{time}}
     </view>
   </picker> 
 </view> 
@@ -31,7 +32,7 @@
 
 <view class="case">
 <view class="title">年龄：</view>
-<view class="content"> <input placeholder="请输入年龄" value="{{age}}"/> </view>
+<view class="content"> <input placeholder="请输入年龄" value="{{age}}" name="age"/> </view>
 </view>
 
 
@@ -41,25 +42,28 @@
 
 <view class="case">
 <view class="title">手机：</view>
-<view class="content"> <input placeholder="请输手机" value="{{num}}"/> </view>
+<view class="content"> <input placeholder="请输手机" value="{{num}}" name="mobile"/> </view>
 </view>
 
 <view class="case">
 <view class="title">邮箱：</view>
-<view class="content"> <input placeholder="请输邮箱" value="{{email}}"/> </view>
+<view class="content"> <input placeholder="请输邮箱" value="{{email}}" name="email"/> </view>
 </view>
 
 <view class="case">
 <view class="title">QQ：</view>
-<view class="content"> <input placeholder="请输QQ" value="{{qq}}"/> </view>
+<view class="content"> <input placeholder="请输QQ" value="{{qq}}" name="qq"/> </view>
 </view>
 
 <view class="case">
 <view class="title">地址：</view>
 <view class="address" bindtap="getaddress"> <image src="../../../images/getaddress.png"></image> </view>
-<view class="content"> <input placeholder="请输地址" value="{{address}}"/> </view>
+<view class="content"> <input placeholder="请输地址" value="{{address}}" /> </view>
 </view>
 
 </view>
+<button class="panel" form-type="submit">确认</button>
+</form>
 
-<view class="panel">确认</view>
+
+

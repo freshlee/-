@@ -4,7 +4,7 @@
   box-sizing: border-box;
   width: 100%;
   position: relative;
-  background: gainsboro;
+  background: #f4f4f4;
 }
 .header>.list{
   display: inline-block;
@@ -147,6 +147,9 @@
   font-weight: bold;
 }
 /*评论样式*/
+.protrait{
+  margin-top:10rpx;
+}
 .comment{
   padding: 0rpx 30rpx;
   background: white;
