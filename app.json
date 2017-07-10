@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/my/info/index",
-      "pages/demo/index",
-    "pages/my/vip/index",
     "pages/my/mytip/index",
+    "pages/demo/index",
+    "pages/my/info/index",
+    "pages/my/vip/index",
     "pages/my/record/index",
     "pages/shedule/index",
     "pages/course/index", 

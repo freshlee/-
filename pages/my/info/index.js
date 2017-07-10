@@ -35,34 +35,51 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var THIS=this;
+  renew:function(){
+    var THIS = this;
     wx.request({
       url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=selectuser&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
-      success:function(res){
+      success: function (res) {
         console.log(res);
-        var data=res.data.dat.member;
+        var data = res.data.dat.member;
         THIS.setData({
-          username:data.realname,
+          username: data.realname,
           sex: data.sex,
           num: data.mobile,
           email: data.email,
           qq: data.qq,
           age: data.age,
-          time: data.birthyear + "-" + data.birthmonth + "-"+data.birthday
+          time: data.birthyear + "-" + data.birthmonth + "-" + data.birthday
         })
       }
     })
+  },
+  onLoad: function (options) {
+    this.setData({
+      hidden: true,
+    })
+    this.renew();
   
   },
   submit:function(e){
+    this.setData({
+      hidden:false,
+    })
+    var times=this.data.time.split("-");
+    var year=times[0]
+    var month = times[1]
+    var day = times[2]
     var THIS=this;
      wx.request({
-       url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=userinfo&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0' + "&lat=" + THIS.data.lat + "&lng=" + THIS.data.lng + "&birthyear=" + THIS.data.year + "&birthmonth=" + THIS.data.month + "&birthday=" + THIS.data.day,
+       url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=userinfo&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0' + "&lat=" + THIS.data.lat + "&lng=" + THIS.data.lng + "&birthyear=" + year + "&birthmonth=" + month + "&birthday=" + day,
        data:e.detail.value,
        success:function(res){
          console.log(res);
        var data=res.data.dat
+         THIS.setData({
+           hidden: true,
+         })
+         THIS.renew();
        }
      })
   },

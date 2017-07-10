@@ -10,9 +10,9 @@
 <view class="case">
 <view class="title">性别：</view>
 <view class="content"> 
-<radio-group bindchange="genderchange" name="sex" value="{{sex}}">  
-<label>男 <radio value="male" checked="false" /></label>
-<label>女 <radio value="female" checked="false" /></label>  
+<radio-group bindchange="genderchange" name="sex">  
+<label>男 <radio value="male" checked="{{sex=='male'?'true':'false'}}" /></label>
+<label>女 <radio value="female" checked="{{sex=='female'?'true':'false'}}" /></label>  
 
 </radio-group> </view>
 </view>
@@ -64,6 +64,7 @@
 </view>
 <button class="panel" form-type="submit">确认</button>
 </form>
+<loading hidden="{{hidden}}"></loading>
 
 
 

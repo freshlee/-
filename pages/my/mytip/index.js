@@ -32,10 +32,16 @@ Page({
     page += 1;
     console.log(psize);
   },
+  jumptoreply: function (e) {
+    var id = e.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: '../../comment/index?id=' + id,
+    })
+  },
   jumptomodel:function(e){
     var id=e.currentTarget.dataset.index;
     wx.navigateTo({
-      url: '../../community/square/index?id=' + id,
+      url: '../../community/model/index?id=' + id,
     })
   },
   getLocalTime: function (nS) {
