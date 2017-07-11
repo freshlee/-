@@ -1,4 +1,6 @@
-// pages/my/hpme/index.js
+// pages/my/hpme/index.js]
+var openid = getApp().globalData.openid;
+
 Page({
 
   /**
@@ -15,7 +17,7 @@ Page({
     var THIS=this;
 
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=footstep&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=footstep&uniacid=2&openid=' + getApp().globalData.openid,
       success:function(res){
         var test = /\d{4}-\d{2}-\d{2}/
         var data = res.data.dat.list

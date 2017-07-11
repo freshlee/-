@@ -1,26 +1,83 @@
 // index.js
-var page=0;
+var page=2;
 var psize;
 var total;
 var max=3;
+var openid = getApp().globalData.openid;
+
 Page({
 
   /**
    * 页面的初始数据
    */
+  data: {
+    myindex: 0,
+    hidden:true,
+  },
+  del:function(e){
+    //确认
+    var THIS=this;
+    var id=e.currentTarget.dataset.id;
+    var index = e.currentTarget.dataset.index;
+    wx.showActionSheet({
+      itemList: ['确认删除'],
+      success:function(res){
+        if(res.tapIndex===0){
+          THIS.setData({
+            hidden: false,
+          })
+          wx.request({
+            url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=deletereply&uniacid=2&bid=' + id + "&openid=" + getApp().globalData.openid,
+            success:function(res){
+            var newlist = THIS.data.replys;
+            newlist.splice(index,1);
+            THIS.setData({
+              replys:newlist,
+              hidden:true
+            })
+            },
+            fail:function(){
+              THIS.setData({
+                hidden: true
+              })
+            },
+          })
+        }
+      }
+    })
+  },
   more:function(){
     var THIS=this;
-    if(page<max){
+    if(page<=max){
+      THIS.setData({
+        hidden: false,
+      })
       wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=getposts&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&page=' + page,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=getreplys&uniacid=2&openid=' + getApp().globalData.openid+'&page=' + page,
         success: function (res) {
+          THIS.setData({
+            hidden:true
+          })
           psize = res.data.dat.pagesize;
           total = res.data.dat.total;
           console.log(res);
-          THIS.setData({
-            replys: THIS.data.replys.concat(res.data.dat.list),
-          })
+          if(page==1){
+            THIS.setData({
+              replys: res.data.dat.list,
+            })
+          }
+          else{
+            THIS.setData({
+              replys: THIS.data.replys.concat(res.data.dat.list),
+            })   
+          }
+          page += 1;
           max = Math.ceil(total / psize);
+        },
+        fail:function(){
+          THIS.setData({
+            hidden: false
+          })
         }
       })
     }
@@ -29,13 +86,13 @@ Page({
         warm:1,
       })
     }
-    page += 1;
     console.log(psize);
   },
   jumptoreply: function (e) {
-    var id = e.currentTarget.dataset.index;
+    var pid = e.currentTarget.dataset.pid;
+    var bid = e.currentTarget.dataset.bid;
     wx.navigateTo({
-      url: '../../comment/index?id=' + id,
+      url: '../../comment/index?pid=' + pid+"&bid="+bid,
     })
   },
   jumptomodel:function(e){
@@ -52,9 +109,6 @@ Page({
       (d.getDate()) + "日";
     return date;
   }, 
-  data: {
-  myindex:0,
-  },
   base: function () {
     this.setData({
       index: 0,
@@ -93,8 +147,11 @@ Page({
       },
     })
     //获取帖子
+    THIS.setData({
+       hidden:false,
+    })
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=main&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=main&uniacid=2&openid=' + getApp().globalData.openid,
       success:function(res){
         var data=res.data.dat;
         for(var key in data.posts){
@@ -103,9 +160,21 @@ Page({
         console.log(res);
         THIS.setData({
           boards: data.boards,
-          posts:data.posts,
-          replys:data.replys,
-
+          hidden:true,
+        })
+      },
+      fail:function(){
+        THIS.setData({
+          hidden: true,
+        }) 
+      }
+    })
+    //初次获取帖子信息
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=getreplys&uniacid=2&openid=' + getApp().globalData.openid+'&page=1',
+      success:function(res){
+        THIS.setData({
+          replys: res.data.dat.list,
         })
       }
     })

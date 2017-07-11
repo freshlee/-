@@ -1,4 +1,4 @@
-var openid;
+var openid = getApp().globalData.openid;
 Page({
   data: {
 
@@ -162,7 +162,7 @@ onReady:function(){
    })
    //机构接口
    wx.request({
-     url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=sy&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+     url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=sy&uniacid=2&openid='+openid,
      success:function(res){
        console.log(res);
        var data=res.data.dat.sy;

@@ -1,5 +1,6 @@
 // pages/detail/index.js
 var id;
+var openid = getApp().globalData.openid;
 Page({
 
   /**

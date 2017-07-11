@@ -6,7 +6,7 @@
 <view class="info">
 <view class="browser"> <image src="../../../images/browser_logo.jpg"></image>{{board.needfollow}}</view>
 <view class="amount"> <image src="../../../images/message_log.jpg"></image> {{listnum}}</view>
-<view class="concert"> 关注 </view>
+<view class="concert" bindtap="concern"> {{isconcern==1?'取消关注':'关注'}} </view>
 </view>
 </view>
 
@@ -18,6 +18,7 @@
 <!--评论板块-->
 <view class="panel">
 
+<view class="comment {{permission?'':'hide'}}" bindtap="del" data-des="{{item.id}}"><image src="../../../images/del.png"></image>  <text style="color:#0767C8" bindtap="delcomment" data-index="{{index}}" data-pid="{{item.id}}">删除 </text> </view>
 <view class="comment" bindtap="tocomment" data-des="{{item.id}}"><image src="../../../images/comment.png"></image>  <text>({{item.postcount}}) </text> </view>
 <view class="collect" bindtap="agree" data-index="{{item.id}}"><image src="../../../images/praiseoff.png"></image>  <text>{{item.goodcount}}</text> </view>
 

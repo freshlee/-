@@ -1,4 +1,5 @@
 // index.js
+var openid = getApp().globalData.openid;
 var myid;
 var WxParse = require('../../wxParse/wxParse.js');
 var lat;
@@ -33,7 +34,7 @@ Page({
     myid=options.id;
     //获取基础信息
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&uid='+myid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=2&uid='+myid+"&openid="+openid,
       success:function(res){
         //标记坐标
         var data=res.data.dat.jg
@@ -48,7 +49,7 @@ Page({
     })
     //获取教师信息
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=teacher&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&uid=' + myid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=teacher&uniacid=2&uid=' + myid + "&openid=" + openid,
       success:function(res){
          console.log(res);
          THIS.setData({

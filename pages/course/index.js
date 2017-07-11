@@ -5,6 +5,7 @@ var content;
 var merchid;
 var concernstatus;
 var originstatus;
+var openid = getApp().globalData.openid;
 Page({
 
   /**

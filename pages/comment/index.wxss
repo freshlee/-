@@ -19,6 +19,8 @@ padding-bottom: 100rpx;
 .main .right{
   padding-top:30rpx;
   line-height: 50rpx;
+  width: 500rpx;
+  white-space: pre-wrap;
 }
 .right .name{
   font-weight: bold;
@@ -49,6 +51,7 @@ padding-bottom: 100rpx;
 }
 .bottom .praise{
   float: right;
+  margin-left: 30rpx;
 }
 .praise text{
   font-size: 30rpx;
@@ -81,7 +84,7 @@ padding-bottom: 100rpx;
   bottom:0;
   left: 0;
   background:#f4f4f4;
-  padding: 20rpx;
+  padding: 10rpx 20rpx;
   box-sizing: border-box;
   transition-property:height;
   transition-duration: 0.5s; 
@@ -111,4 +114,9 @@ padding-bottom: 100rpx;
   height: 80rpx;
   margin-right: 10rpx;
   padding: 20rpx;
+}
+.reply{
+  color: #0767C8 !important;
+  margin-left: 20rpx;
+  float: right;
 }

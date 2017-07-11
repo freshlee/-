@@ -3,6 +3,9 @@ var newlist=new Array;
 var pid;
 var bid;
 var newurl;
+var rpid;
+var openid = getApp().globalData.openid;
+// var openid = getApp().data.globalData;
 Page({
   /**
    * 页面的初始数据
@@ -11,6 +14,37 @@ Page({
     write: 0,
     hidden: true,
     submiting: true,
+    openid: getApp().globalData.openid,
+  },
+  del:function(e){
+    this.setData({
+      hidden:false,
+    })
+    var THIS=this;
+    console.log(getApp().globalData.openid);
+    console.log(openid);
+    var id = e.currentTarget.dataset.id;
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=deletereply&uniacid=2&openid=' + getApp().globalData.openid+'&bid='+id,
+      success:function(){
+        THIS.getcomment();
+        THIS.setData({
+          hidden: true,
+        })
+      },
+      fail:function(){
+        THIS.getcomment();
+        THIS.setData({
+          hidden: true,
+        })
+      }
+    })
+  },
+  reply:function(e){
+    rpid= e.currentTarget.dataset.id;
+    this.setData({
+      focus:true
+    }) 
   },
   //输入操作
   inputing: function (e) {
@@ -33,7 +67,7 @@ Page({
       hidden: false,
     })
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&pid='+des,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=2&pid=' + des + '&openid=' + getApp().globalData.openid,
       success:function(){
         var that=THIS;
         wx.request({
@@ -73,12 +107,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
     var THIS=this;
      pid = options.pid;
      bid = options.bid;
-    newurl = 'http://192.168.1.213/api/index.php?c=book&a=Post&op=getlist&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&pid='+pid+"&bid="+bid;
-    console.log(newurl);
+     newurl = 'http://192.168.1.213/api/index.php?c=book&a=Post&op=getlist&uniacid=2&openid=' + getApp().globalData.openid+'&pid='+pid+"&bid="+bid;
     this.getcomment();
   },
   getcomment:function(){
@@ -107,7 +139,7 @@ Page({
       content:data,
     })
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=reply&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&pid='+pid+"&bid="+bid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=reply&uniacid=2&openid=' + getApp().globalData.openid+'&pid='+pid+"&bid="+bid+"&rpid="+rpid,
       data: {content:THIS.data.content},
       success: function (res) {
         THIS.setData({

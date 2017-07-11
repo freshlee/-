@@ -1,4 +1,6 @@
 // index.js
+var openid = getApp().globalData.openid;
+
 Page({
 
   /**
@@ -13,16 +15,16 @@ Page({
    */
   purchase:function(){
     var timetype=this.data.time;
-    var time
-    var now =new Date();
+    var time = new Date();
     switch(timetype){
-      case "1" : time=now.getTime + 24*60*60*7 ;
-      case "2": time = now.getTime + 24 * 60 * 60 * 30 
-      case "3": time = now.getTime + 24 * 60 * 60 * 30 * 6  
+      case "1" : time.setDate(time.getDate()+7);
+      case "2": time.setMonth(time.getMonth()+1);
+      case "3": time.setFullYear(time.getFullYear()+0.5); 
     }
     console.log(time);
+    var timestamp = Date.parse(time);
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=payvip&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&times='+time,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=payvip&uniacid=2&openid=' + getApp().globalData.openid+'&times=' + timestamp,
       success: function (res) {
         console.log(res);
       }
@@ -44,7 +46,7 @@ Page({
   onLoad: function (options) {
     var THIS=this;
      wx.request({
-       url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=vip&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+       url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=vip&uniacid=2&openid=' + getApp().globalData.openid,
        success:function(res){
          for(var key in res.data.dat.level){
            res.data.dat.level[key].ordermoney = parseInt(res.data.dat.level[key].ordermoney);

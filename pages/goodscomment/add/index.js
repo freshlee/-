@@ -2,6 +2,7 @@
 var pic=[];
 var myid;
 var orderid;
+var openid = getApp().globalData.openid;
 Page({
 
   /**

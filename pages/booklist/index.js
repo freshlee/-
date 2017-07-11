@@ -1,5 +1,6 @@
 // index.js
 var doctype;
+var openid = getApp().globalData.openid;
 Page({
 
   /**

@@ -1,4 +1,7 @@
 // index.js
+var openid = getApp().globalData.openid;
+var lng;
+var lat;
 Page({
 
   /**
@@ -25,7 +28,7 @@ Page({
   onLoad: function (options) {
     var THIS=this;
   wx.request({
-    url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+    url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=list&uniacid=2&openid=' + getApp().globalData.openid,
     success:function(res){
       console.log(res);
       var data=res.data.dat;
@@ -33,6 +36,28 @@ Page({
         list_all: data.user,
       })
     }
+  })
+  //附近的机构
+  wx.getLocation({
+    success: function(res) {
+      console.log(res);
+      lng=res.longitude;
+      lat=res.latitude;
+      wx.request({
+        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=dw&uniacid=2&openid=' + getApp().globalData.openid,
+        data: {
+          lat: lat,
+          lng: lng,
+        },
+        success: function (res) {
+          var data=res.data.dat.address
+          console.log(res);
+          THIS.setData({
+            list_near:data,
+          })
+        }
+      })
+    },
   })
   },
 

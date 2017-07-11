@@ -1,5 +1,6 @@
 // index.js
 var newlist=new Array;
+var openid = getApp().globalData.openid;
 var pid;
 var bid;
 var newurl;

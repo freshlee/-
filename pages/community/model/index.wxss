@@ -230,7 +230,7 @@
   margin-left: 20rpx;
 }
 .body{
-  padding-bottom:250rpx;
+  padding-bottom:120rpx;
 }
 .framebody{
   position: fixed;
@@ -275,4 +275,7 @@
 }
 .info image{
   margin-right:10rpx; 
+}
+.hide{
+  display: none !important;
 }

@@ -97,7 +97,7 @@ Page({
       box:box,
     })
     //获取商品信息
-    var newurl ="http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid="+myid;
+    var newurl = "http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=2&openid=" + getApp().globalData.openid+"&goodsid="+myid;
     wx.request({
       url: newurl,
       data: {
@@ -117,7 +117,7 @@ Page({
         })
         //获取机构信息
         wx.request({
-          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&uid=' + merchid,
+          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=2&openid=' + getApp().globalData.openid+'&uid=' + merchid,
           success: function (res) {
             console.log(res);
             THIS.setData({
@@ -137,7 +137,7 @@ Page({
     })
 //获取评论接口
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&orderid=7317&goodsid='+myid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=list&uniacid=2&openid=' + getApp().globalData.openid+'&orderid=7317&goodsid='+myid,
       success:function(res){
         var data=res.data.dat
         THIS.setData({
@@ -153,7 +153,7 @@ Page({
     })
     //获取教师信息
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=spt&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' +myid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=spt&uniacid=2&openid=' + getApp().globalData.openid+'&goodsid=' +myid,
       success:function(res){
         var data=res.data.dat;
         THIS.setData({
@@ -163,7 +163,7 @@ Page({
     })
     //获取关注状态
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=gz&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid='+myid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=gz&uniacid=2&openid=' + getApp().globalData.openid+'&goodsid='+myid,
       success:function(res){
         console.log(res);
         THIS.setData({
@@ -212,12 +212,12 @@ Page({
     else{
       if (concernstatus == 0 && originstatus==1){
         wx.request({
-          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=toggle&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' + myid + "&isfavorite=1",
+          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=toggle&uniacid=2&openid='+getApp().globalData.openid+'&goodsid=' + myid + "&isfavorite=1",
         })
       }
       else if (concernstatus == 1&&originstatus==0){
         wx.request({
-          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=toggle&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' + myid + "&isfavorite=0",
+          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=toggle&uniacid=2&openid=' + getApp().globalData.openid+'&goodsid=' + myid + "&isfavorite=0",
         }) 
       }
     }

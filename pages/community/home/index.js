@@ -1,4 +1,5 @@
 // index.js
+var openid = getApp().globalData.openid;
 Page({
 
   /**
@@ -19,7 +20,6 @@ Page({
     })
   },
   onLoad: function (options) {
-     
   },
 
   /**
@@ -44,7 +44,7 @@ Page({
     },
   })
   wx.request({
-    url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=boardlist&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&mid=25769',
+    url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=boardlist&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769',
     success:function(res){
     var data=res.data.dat;
     console.log(data);

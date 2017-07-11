@@ -2,6 +2,7 @@
 var orgY;
 var orgtop;
 var who=[];
+var openid = getApp().globalData.openid;
 var final=[];
 Page({
 
@@ -21,7 +22,7 @@ Page({
     var id=e.currentTarget.dataset.index;
     //获取商品具体信息
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid='+id,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=2&goodsid=' + id + "&openid=" + getApp().globalData.openid,
       success:function(res){
         console.log(res);
       var doctype=res.data.dat.goods.type;
@@ -41,7 +42,7 @@ Page({
   onLoad: function (options) {
     var THIS=this;
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=gzlist&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=gzlist&uniacid=2&openid=' + getApp().globalData.openid,
       success:function(res){
         console.log(res);
       THIS.setData({
@@ -51,7 +52,7 @@ Page({
     })
     //已经购买课程
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=list&uniacid=2&openid=' + getApp().globalData.openid,
       success:function(res){
         var data=res.data.dat;
         console.log(res);

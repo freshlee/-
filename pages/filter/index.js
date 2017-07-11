@@ -1,5 +1,6 @@
 // index.js
 //请注意 页面数据和访问后台数据分开储存了；
+var openid = getApp().globalData.openid;
 var mycate=undefined;
 var mytype=undefined;
 var mypay=undefined;

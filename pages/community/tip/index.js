@@ -4,6 +4,7 @@ var indexnow=0;
 var textdata=[];
 var newdata;
 var uploaddata;
+var openid = getApp().globalData.openid;
 Page({
 
   /**

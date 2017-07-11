@@ -1,4 +1,6 @@
 // pages/square/index.js
+var openid = getApp().globalData.openid;
+
 Page({
 
   /**

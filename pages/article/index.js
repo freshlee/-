@@ -3,6 +3,7 @@ var myid;
 var WxParse = require('../../wxParse/wxParse.js');
 var concernstatus;
 var originstatus;
+var openid = getApp().globalData.openid;
 Page({
 
   /**

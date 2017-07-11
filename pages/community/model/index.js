@@ -1,9 +1,11 @@
 // index.js
+var openid = getApp().globalData.openid;
 var praises=[];
 var postid;
 var logo=[];
 var pic=[];
 var bid;
+var permission;
 Page({
 
   /**
@@ -20,7 +22,27 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-
+ //关注
+ concern:function(){
+   this.setData({
+     isconcern:!this.data.isconcern,
+   })
+ },
+ //删除评论
+ delcomment:function(e){
+   var pid = e.currentTarget.dataset.pid;
+   var index = e.currentTarget.dataset.index;
+   wx.request({
+     url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=2&openid=' + getApp().globalData.openid+'&id=12&bid='+bid+"&pid="+pid,
+     success:function(res){
+       var newlist=THIS.data.list;
+       newlist.splice(index, 1);
+       THIS.setData({
+         list:newlist
+       })
+     }
+   })
+ },
   //删除图片
   del:function(e){
     var index= e.currentTarget.dataset.index;
@@ -52,7 +74,7 @@ Page({
   dochange:function(bid,pid){
     var THIS=this;
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&id=12&bid=' + bid + "&pid=" + pid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=2&openid=' + getApp().globalData.openid+'&id=12&bid=' + bid + "&pid=" + pid,
       success: function (res) {
         THIS.setData({
           shit:res.data.dat.good,
@@ -80,7 +102,7 @@ Page({
       submiting: false,
     })
      wx.request({
-       url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=submit&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&images=' + logo[0]+"&bid="+bid,
+       url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=submit&uniacid=2&openid=' + getApp().globalData.openid+'&images=' + logo[0]+"&bid="+bid,
        data:{
          content:THIS.data.content,
        },
@@ -112,7 +134,7 @@ Page({
     var THIS=this;
     this.dochange(postid, indexnow);
       wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&mid=25769&bid=' + postid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + postid,
         success: function (res) {
           console.log(res);
           var data = res.data.dat;
@@ -138,7 +160,7 @@ Page({
   getcomment:function(){
     var THIS = this;
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&mid=25769&bid=' + bid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
       success: function (res) {
         console.log(res)
         var data = res.data.dat;
@@ -162,6 +184,16 @@ Page({
     postid=options.id;
     bid = options.id;
     console.log(options);
+    //判断是不是版主
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=banzhu&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
+      success: function (res) {
+       permission=res.data.dat;
+       THIS.setData({
+         permission:permission,
+       })
+      }
+    }) 
     this.setData({
       hidden: false,
     })
@@ -169,7 +201,7 @@ Page({
     this.getcomment();
     //头部数据
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=main&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&mid=25769&id=' + bid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=main&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769&id=' + bid,
       success: function (res) {
         console.log(res)
         var data=res.data.dat;
@@ -185,6 +217,17 @@ Page({
         wx.showToast({
           title: '加载失败',
         })
+      }
+    })
+    //获取关注状态
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=sfgz&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
+      success:function(res){
+        THIS.setData({
+            concern:res.data.dat,
+            isconcern: res.data.dat,
+        })
+        console.log(THIS.data.isconcern)
       }
     })
 
@@ -204,7 +247,7 @@ Page({
            pic: pic,
          })
          wx.uploadFile({
-           url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=submit&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&bid=12&pid=21',
+           url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=submit&uniacid=2&openid=' + getApp().globalData.openid+'&bid=12&pid=21',
            filePath: logo[0],
            name: 'images',
          })
@@ -240,7 +283,16 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    var THIS=this;
+    var old = this.data.concern;
+    var latest = this.data.isconcern;
+    if(old!=latest){
+      wx.request({
+        url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=follow&uniacid=2&openid=' + getApp().globalData.openid  + "&bid=" + bid,
+        success: function () {
+        }
+      })
+    } 
   },
 
   /**

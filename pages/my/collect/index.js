@@ -1,4 +1,5 @@
 // index.js
+var openid = getApp().globalData.openid;
 var alllist;
 var finishlist=[];
 var waitinglist=[];

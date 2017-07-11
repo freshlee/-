@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/my/mytip/index",
     "pages/demo/index",
+    "pages/my/mytip/index",
     "pages/my/info/index",
     "pages/my/vip/index",
     "pages/my/record/index",
@@ -12,9 +12,9 @@
     "pages/checkout/index",
     "pages/goodscomment/add/index",
     "pages/goodscomment/list/index",
+    "pages/community/model/index",
     "pages/article/index",
     "pages/comment/index",
-    "pages/community/model/index",
     "pages/booklist/index",
     "pages/community/home/index",
     "pages/community/square/index",

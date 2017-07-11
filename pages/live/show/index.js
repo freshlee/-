@@ -1,5 +1,6 @@
 // pages/video/index.js
 var WxParse = require('../../../wxParse/wxParse.js');
+var openid = getApp().globalData.openid;
 var org;
 Page({
 

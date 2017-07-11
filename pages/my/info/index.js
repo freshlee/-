@@ -3,7 +3,9 @@ const date = new Date()
 const years = []
 const months = []
 const days = []
-var birth =[]
+var birth =[];
+var openid = getApp().globalData.openid;
+
 
 for (let i = 1990; i <= date.getFullYear(); i++) {
   years.push(i)

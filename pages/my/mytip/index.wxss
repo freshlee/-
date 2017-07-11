@@ -11,15 +11,6 @@ page{
   border-radius: 15rpx;
   margin-bottom:20rpx ;
 }
-.top{
-  border-bottom:2rpx solid gainsboro;
-}
-.top>view{
-  height: 60rpx;
-  line-height:60rpx; 
-  display: inline-block;
-  vertical-align: middle;
-}
 .top .title{
   font-size: 30rpx;
 }
@@ -33,6 +24,8 @@ page{
   line-height: 35rpx;
   height: 70rpx;
   color: dimgray;
+  font-size: 30rpx;
+  border-bottom:2rpx solid gainsboro;
 }
 .bottom{
   text-align: right;
@@ -48,20 +41,20 @@ page{
   border-radius: 15rpx;
   margin-bottom:20rpx ;
 }
-.response .top{
-  border-bottom:2rpx solid gainsboro;
-}
-response .top>view{
-  height: 60rpx;
-  line-height:60rpx; 
-  display: inline-block;
-  vertical-align: middle;
-}
 .response .top .title{
-  padding: 20rpx 0;
+  width: 100%;
+  margin: 20rpx 0;
   font-size: 30rpx;
   line-height: 35rpx;
   height: 70rpx;
+
+  text-overflow:ellipsis;
+  white-space: pre-wrap;
+ display: -webkit-box;
+    word-break: break-all;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
 }
 
 .response .top .time{
@@ -73,6 +66,7 @@ response .top>view{
   line-height: 30rpx;
   height: 30rpx;
   color: dimgray;
+  padding: 15rpx 0;
 }
 .response .bottom{
   text-align: right;
@@ -124,4 +118,9 @@ response .top>view{
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+#del{
+  float: right;
+  color: #0767C8;
+  font-size: 30rpx;
 }

@@ -1,5 +1,6 @@
 // index.js
 var WxParse = require('../../../wxParse/wxParse.js');
+var openid = getApp().globalData.openid;
 Page({
   /**
    * 页面的初始数据
