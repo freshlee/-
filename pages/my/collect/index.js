@@ -18,16 +18,18 @@ Page({
     var THIS=this;
     var orderid=e.currentTarget.dataset.orderid;
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=cancel&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&orderid='+orderid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=cancel&uniacid=2&openid=' + getApp().globalData.openid+'&orderid='+orderid,
       success:function(res){
        THIS.renew();
       },
     })
   },
   pay:function(e){
-    var ordersn = e.currentTarget.dataset.index;
+    var orderid = e.currentTarget.dataset.orderid;
+    var goodsid = e.currentTarget.dataset.index;
     var title = e.currentTarget.dataset.title;
-    var newurl = "../../booklist/index?orderid=" + ordersn +"&coursename="+title;
+    var ordernum = e.currentTarget.dataset.ordernum; 
+    var newurl = "../../booklist/index?goodsid=" + goodsid +"&coursename="+title+"&ordernum="+ordernum+"&orderid="+orderid;
     wx.navigateTo({
       url: newurl,
     })
@@ -70,10 +72,10 @@ Page({
   renew:function(){
     var THIS = this;
     this.setData({
-      hidde: false,
+      hidden: false,
     })
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=list&uniacid=2&openid=' + getApp().globalData.openid,
       success: function (res) {
         console.log(res);
         var data = res.data.dat;

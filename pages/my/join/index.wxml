@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<form bindsubmit="submit">
+
 <view class="form">
 <view class="case">
 <view class="title">姓名</view>
@@ -8,7 +10,6 @@
 <view class="case">
 <view class="title">手机</view>
 <view class="input" > <input placeholder="请输入手机"/> </view>
-<view class="vertify" bindtap="vertify">获取验证码</view>
 </view>
 
 <view class="case">
@@ -34,5 +35,8 @@
 </view>
 
 <view class="submit">
-<view class="panel">确认</view>
+<button class="panel" form-type="submit">确认</button>
 </view>
+
+
+</form>

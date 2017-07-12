@@ -13,7 +13,7 @@
 <view class="date">{{item.createtime}}</view>
 <view class="praise" data-num="{{index}}" data-index="{{item.id}}" bindtap="praise"><image src="../../images/{{item.isgood==1?'praiseon':'praiseoff'}}.png"></image> <text>{{item.goodcount}}</text></view> 
 <view class="reply" bindtap="reply" data-id="{{item.id}}">回复</view>
-<view class="reply" bindtap="del" data-id="{{item.id}}">删除</view>
+<view class="reply" bindtap="del" data-id="{{item.id}}" wx:if="{{openid==item.openid}}">删除</view>
 </view>
 </view>
 

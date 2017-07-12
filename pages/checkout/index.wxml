@@ -22,13 +22,13 @@
 
 <view class="status case">
 <view class="total">订单总额
-<view class="num"> <text>800元</text> </view>
+<view class="num"> <text>{{goods.marketprice}}</text> </view>
 </view>
 <view class="vochour">订单优惠
-<view class="num">- <text>20元</text> </view>
+<view class="num">- <text>{{goods.marketprice-goods.costprice}}元</text> </view>
 </view>
 <view class="final">实付金额
-<view class="num"> <text>780元</text> </view>
+<view class="num"> <text>{{goods.costprice}}元</text> </view>
 </view>
 </view>
 </view>

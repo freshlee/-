@@ -14,30 +14,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
   topay:function(){
-    
+    var THIS=this;
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=pay&uniacid=2&openid=' + getApp().globalData.openid+"&orderid="+THIS.data.orderid,
+    })
   },
   onLoad: function (options) {
    var THIS=this;
     this.setData({
       coursename:options.coursename,
-      ordernum:options.orderid,
+      ordernum:options.ordernum,
       goodsid:options.goodsid,
+      price:options.marketprice,
+      orderid:options.orderid
     })
      doctype=options.doctype;
-     wx.request({
-       url: '',
-       success:function(res){
-
-       }
-     })
-     if (options.goodsid){
+     if (!options.orderid){
+       //生成订单好并获取信息
        wx.request({
-         url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=submit&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' + options.goodsid,
+         url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=submit&uniacid=2&openid=' + getApp().globalData.openid+'&goodsid=' + options.goodsid,
          success: function (res) {
            console.log(res);
            THIS.setData({
              ordernum: res.data.dd,
            })
+           wx.request({
+             url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=params&uniacid=2&openid=' + getApp().globalData.openid + '&orderid=' + res.data.orderid,
+             success:function(res){
+             }
+           })
+         }
+       })
+     }
+     else{
+       wx.request({
+         url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=params&uniacid=2&openid=' + getApp().globalData.openid + '&orderid=' + THIS.data.orderid,
+         success: function (res) {
          }
        })
      }
@@ -81,9 +93,6 @@ Page({
     // wx.redirectTo({
     //   url: '../' + doctypename + '/index',
     // })
-    wx.navigateBack({
-      delta: 1,
-    })
   },
 
   /**

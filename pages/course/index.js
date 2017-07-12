@@ -86,6 +86,13 @@ Page({
          originstatus = res.data.dat.isfavorite;
        }
      })
+     //留下足迹
+     wx.request({
+       url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=addfootstep&uniacid=2&openid=' + getApp().globalData.openid + '&goodsid=' + myId,
+       success: function (res) {
+         console.log("已经加入浏览记录")
+       }
+     })
   },
   purchase:function(){
     wx.navigateTo({

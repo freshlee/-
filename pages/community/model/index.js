@@ -125,6 +125,13 @@ Page({
          })
        }
      })
+    //  wx.request({
+    //      url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=2&openid=' + getApp().globalData.openid + '&bid=' + bid,
+    //      data: { images: logo},
+    //      success:function(res){
+             
+    //      }
+    //  })
   },
   agree: function (event) {
     this.setData({
@@ -230,7 +237,6 @@ Page({
         console.log(THIS.data.isconcern)
       }
     })
-
   },
 
   /**
@@ -247,8 +253,8 @@ Page({
            pic: pic,
          })
          wx.uploadFile({
-           url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=submit&uniacid=2&openid=' + getApp().globalData.openid+'&bid=12&pid=21',
-           filePath: logo[0],
+           url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=2&openid=' + getApp().globalData.openid+'&bid='+bid,
+           filePath: logo,
            name: 'images',
          })
        },

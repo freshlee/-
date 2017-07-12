@@ -306,7 +306,7 @@ video{
   width: 100%;
   line-height: 50rpx;
   overflow: hidden;
-  height: 330rpx;
+  height: 360rpx;
   position: relative;
   box-sizing: border-box;
 }

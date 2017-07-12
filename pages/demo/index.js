@@ -162,7 +162,7 @@ onReady:function(){
    })
    //机构接口
    wx.request({
-     url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=sy&uniacid=2&openid='+openid,
+     url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=sy&uniacid=2&openid=' + getApp().globalData.openid,
      success:function(res){
        console.log(res);
        var data=res.data.dat.sy;

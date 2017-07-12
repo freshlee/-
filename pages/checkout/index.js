@@ -42,7 +42,7 @@ Page({
     var THIS=this;
     //生成订单
     wx.navigateTo({
-      url: '../booklist/index?coursename=' + THIS.data.goods.title + "&goodsid=" + id + "&doctype=" + THIS.data.doctype,
+      url: '../booklist/index?coursename=' + THIS.data.goods.title + "&goodsid=" + id + "&doctype=" + THIS.data.doctype + "&marketprice=" + THIS.data.goods.marketprice,
     })
   },
   onLoad: function (options) {

@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/demo/index",
+    "pages/my/join/index",
     "pages/my/mytip/index",
     "pages/my/info/index",
     "pages/my/vip/index",
+    "pages/video/index",
     "pages/my/record/index",
     "pages/shedule/index",
     "pages/course/index", 
@@ -20,14 +22,12 @@
     "pages/community/square/index",
     "pages/organise/index",
     "pages/my/home/index",
-    "pages/my/join/index",
     "pages/community/tip/index",
     "pages/filter/index",
     "pages/article/read/index",
     "pages/paymenu/index",
     "pages/live/index",
-    "pages/live/show/index",
-    "pages/video/index"
+    "pages/live/show/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -24,9 +24,17 @@ Page({
   
 
 //搜索
-  dosearch:function(){
+  dosearch:function(e){
+    var title=e.detail.value;
+    var THIS=this;
     this.setData({
       status: this.data.status == "on" ? "off" : "on",
+    })
+    wx.request({
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=like&uniacid=2',
+      data:{
+        title:title,
+      }
     }) 
   },
   //搜索栏动态控制方法

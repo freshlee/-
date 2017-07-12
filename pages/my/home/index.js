@@ -8,14 +8,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    Logo: [{text:'个人资料',logo:'../../../images/person.png',url:'../info/index'},{ text: "浏览记录", logo: '../../../images/record.png', url: "../record/index" } , { text: "我的帖子", logo: '../../../images/mytip.png',url:"../mytip/index" }, { text: "我的订单", logo: '../../../images/mycourse.png',url:'../collect/index' },{text:"成为VIP",logo:"../../../images/vip.png",url:"../vip/index"},{text: "商家入驻", logo:'../../../images/join.png',url:"../join/index"}],
+    Logo: [{ text: '个人资料', logo: '../../../images/person.png', url: '../info/index' },
+    { text: "浏览记录", logo: '../../../images/record.png', url: "../record/index" },
+    { text: "我的社区", logo: '../../../images/mytip.png', url: "../mytip/index" },
+    { text: "我的订单", logo: '../../../images/order.png', url: '../collect/index' },
+    { text: "成为VIP", logo: "../../../images/vip.png", url: "../vip/index" },
+    { text: "商家入驻", logo: '../../../images/join.png', url: "../join/index" }],
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  jump:function(event){
+  jump: function (event) {
     var url = event.currentTarget.dataset.des;
     wx.navigateTo({
       url: url,
@@ -81,10 +86,10 @@ Page({
           length: res.screenWidth,
         })
       }
-      
+
     })
     wx.getUserInfo({
-      fail:function(){
+      fail: function () {
         console.log('用户数据调取失败');
       },
       success: function (res) {
@@ -97,7 +102,7 @@ Page({
         var city = userInfo.city
         var country = userInfo.country
         THIS.setData({
-          myprotrait:avatarUrl,
+          myprotrait: avatarUrl,
           username: nickName,
         })
         console.log(avatarUrl);

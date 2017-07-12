@@ -14,7 +14,6 @@ Page({
     write: 0,
     hidden: true,
     submiting: true,
-    openid: getApp().globalData.openid,
   },
   del:function(e){
     this.setData({
@@ -120,6 +119,7 @@ Page({
       success: function (res) {
         console.log(res);
         THIS.setData({
+          openid: getApp().globalData.openid,
           praiselist: res.data.dat.list,
         })
       }

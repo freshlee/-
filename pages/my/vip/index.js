@@ -14,6 +14,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   purchase:function(){
+    var THIS=this;
+    this.setData({
+      hidden:false,
+    })
     var timetype=this.data.time;
     var time = new Date();
     switch(timetype){
@@ -26,7 +30,14 @@ Page({
     wx.request({
       url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=payvip&uniacid=2&openid=' + getApp().globalData.openid+'&times=' + timestamp,
       success: function (res) {
-        console.log(res);
+        THIS.setData({
+          hidden:true,
+        })
+      },
+      fail:function(){
+        THIS.setData({
+          hidden: true,
+        })
       }
     })
   },
