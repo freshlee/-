@@ -156,8 +156,22 @@ Page({
       url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=spt&uniacid=2&openid=' + getApp().globalData.openid+'&goodsid=' +myid,
       success:function(res){
         var data=res.data.dat;
+        var teacher=data.teacher;
+        for(var key in teacher){
+            var coursecount;
+            var newcontent=teacher[key].content;
+            WxParse.wxParse('content['+key+']', 'html', newcontent, THIS, 5);
+            wx.request({
+                url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=tsp&uniacid=2&openid=' + getApp().globalData.openid + '&tid=' + teacher[key].id,
+                success:function(res){
+                    var data=res.data.dat.shop;
+                }
+            })
+            THIS.setData({
+            })
+        }
         THIS.setData({
-          teacher:data.teacher,
+          teacher:teacher,
         })
       },
     })

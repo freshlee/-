@@ -125,13 +125,13 @@ Page({
          })
        }
      })
-    //  wx.request({
-    //      url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=2&openid=' + getApp().globalData.openid + '&bid=' + bid,
-    //      data: { images: logo},
-    //      success:function(res){
+     wx.request({
+         url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=2&openid=' + getApp().globalData.openid + '&bid=' + bid,
+         data: { images: logo},
+         success:function(res){
              
-    //      }
-    //  })
+         }
+     })
   },
   agree: function (event) {
     this.setData({

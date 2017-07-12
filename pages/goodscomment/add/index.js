@@ -41,6 +41,12 @@ Page({
         })
       }
     })
+    wx.request({
+        url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=2&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
+        data:{
+            file:pic
+        }            
+    })
   },
 
   
@@ -52,6 +58,20 @@ chosepic:function(){
       THIS.setData({
         pic:pic,
       })
+      for (var key in pic) {
+          console.log(pic[key])
+          wx.uploadFile({
+              url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=2&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
+              filePath: pic[key],
+              name: 'images',
+              success: function (res) {
+                  console.log(res)
+              },
+              fail: function (res) {
+                  console.log("0")
+              }
+          })
+      }
     },
   })
 },

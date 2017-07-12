@@ -23,7 +23,7 @@
 <view class="reputation"> 好评度：<image src="../../images/star.png"  wx:for="{{goods.reputation}}"/> </view>
 <view class="amount">课程数:{{goods.coursenum}}</view>
 </view>
-<view class="bottom">{{item.content}}</view>
+<view class="bottom">  <template is="wxParse" data="{{wxParseData:content[index].nodes}}"/>  </view>
 </view>
 </view>
 <view class="teacher_arrow {{box[0]==0?'arrowon':''}}" bindtap="expension" data-case="0" style="display:{{teacher.length>=0?(box[0]==1?'block':'none'):'none'}}"> 
