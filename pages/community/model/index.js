@@ -6,6 +6,9 @@ var logo=[];
 var pic=[];
 var bid;
 var permission;
+var page;
+var max;
+var rest;
 Page({
 
   /**
@@ -165,28 +168,58 @@ Page({
   },
     //评论数据
   getcomment:function(){
-    var THIS = this;
-    wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
-      success: function (res) {
-        console.log(res)
-        var data = res.data.dat;
-        THIS.setData({
-          list: data.list,
-          hiddsen:true,
-        })
-      },
-      fail:function(){
-        this.setData({
-          hidden: true,
-        })
-        wx.showToast({
-          title: '加载失败',
-        })
+      var THIS=this;
+       if (page = 2) {
+          wx.request({
+              url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&page=1&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+              success: function (res) {
+                  max = Math.ceil(res.data.dat.total / res.data.dat.pagesize);
+                  rest = res.data.dat.tatal % res.data.dat.pagesize;
+                  console.log(res)
+                  var data = res.data.dat;
+                  THIS.setData({
+                      list: data.list,
+                      hidden: true,
+                  })
+              },
+              fail: function () {
+                  this.setData({
+                      hidden: true,
+                  })
+                  wx.showToast({
+                      title: '加载失败',
+                  })
+              }
+          }) 
+       }
+      else if(page = max){
+        wx.request({
+            url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&page=1&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+            success: function (res) {
+                var data = res.data.dat;
+                var anchor = (page - 1) * 10;
+                var newlist=[];
+                newlist = THIS.data.list;
+                newlist.splice(anchor, rest);
+                THIS.setData({
+                    list: THIS.data.list.concat(data.list),
+                    hidden: true,
+                })
+                console.log(THIS.data.list);
+            },
+            fail: function () {
+                this.setData({
+                    hidden: true,
+                })
+                wx.showToast({
+                    title: '加载失败',
+                })
+            }
+        }) 
       }
-    }) 
   },
   onLoad: function (options) {
+    page=2;
     var THIS=this;
     postid=options.id;
     bid = options.id;
@@ -305,14 +338,35 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+      if(page<=max){
+          //刷新评论数据
+          var THIS = this;
+          wx.request({
+              url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&page=' + page + '&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+              success: function (res) {
+                  var data = res.data.dat;
+                  THIS.setData({
+                      list: THIS.data.list.concat(data.list),
+                      hiddsen: true,
+                  })
+              },
+              fail: function () {
+                  this.setData({
+                      hidden: true,
+                  })
+                  wx.showToast({
+                      title: '加载失败',
+                  })
+              }
+          })
+          page += 1; 
+      }
   },
 
   /**

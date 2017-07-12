@@ -1,4 +1,5 @@
 <!--index.wxml-->
+
 <view class="body" bindtap="back">
 <view class="header case">
 <view class="title">{{board.title}}</view>
