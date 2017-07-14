@@ -1,50 +1,92 @@
-<!--index.wxml-->
-<import src="../../wxParse/wxParse.wxml"/> 
+<!--pages/video/index.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<scroll-view scroll-y style="height:{{myheight}}px" catchscroll="move">
 <view class="body">
-<view class="picture">
-<image src="{{goods.thumb}}"></image>
+<view class="video" style="height:190px">
+<image src="{{goods.thumb}}"></image></view>
+<view class="courseinfo {{teacher.length>=0?(box[0]==1?'tacherextended':'teachercompressed'):''}}">
+<view class="left">
+<view class="coursename">{{goods.title}}</view>
+<view class="detail">评分<image src="../../images/star.png"  wx:for="{{reputation}}"/> </view>
 </view>
-<view class="info">
-<view class="name">{{goods.title}}</view>
-</view>
-<view class="status">
-<view class="price">￥{{goods.marketprice}}</view>
-<view class="campaign">
-<view class="num">3402人已经购买</view>
+<view class="priceattr">￥{{goods.marketprice}}
 <view class="concern" bindtap="{{favor==1?'concern':'disconcern'}}">{{favor==1?'关注':'取消关注'}}</view>
 </view>
+<!--教师信息-->
+<view class="teacher" wx:for="{{teacher}}">
+<view class="teacherprotrait"> <image src="{{item.thumb+item.icon}}"/> </view>
+<view class="box">
+<view class="boxtop">
+<view class="name">{{item.videoname}}</view>
+<view class="amount" style="float:right;font-size:25rpx">课程数: {{item.courselist.length}}</view>
 </view>
-<view class="intro">
+<view class="bottom">  <template is="wxParse" data="{{wxParseData:content[index].nodes}}"/>  </view>
+</view>
+</view>
+<view class="teacher_arrow {{box[0]==0?'arrowon':''}}" bindtap="expension" data-case="0" style="display:{{teacher.length>=0?(box[0]==1?'block':'none'):'none'}}"> 
+<image src="../../images/arrow_down.png" style="display:{{box[0]==1?'inline-block':'none'}}"></image> </view>
+</view>
+
+<!--课程介绍-->
+<view class="intro" wx:if="{{goods.content}}">
 <view><text class="line">—</text> 课程简介 <text class="line">—</text></view>
-<view class="content">
-<template is="wxParse" data="{{wxParseData:article.nodes}}"/></view>
+<view class="content {{content.length>=90?(box[1]==1?'extended':'compressed'):''}}">
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 </view>
-<view class="organise">
+<view class="extend {{box[1]==0?'arrowon':''}}" bindtap="expension" data-case="1" style="display:{{content.length>=90?(box[1]==1?'inline-block':'none'):'none'}}"> 
+<image src="../../images/arrow_down.png" style="display:{{content.length>=90?(box[1]==1?'inline-block':'none'):''}}"></image> </view>
+</view>
+
+
+<view class="organise" wx:if="{{organise}}">
+
+
 <view>  <text class="line">—</text> 机构简介 <text class="line">—</text></view>
-<view class="content">{{organise}}</view>
+<view class="content {{content.length>=90?(box[2]==1?'extended':'compressed'):''}}">{{organise}}</view>
+<view class="extend {{box[2]==0?'arrowon':''}}" bindtap="expension" data-case="2" style="display:{{content.length>=90?(box[2]==1?'inline-block':'none'):'none'}}"> 
+<image src="../../images/arrow_down.png" style="display:{{box[2]==1?'inline-block':'none'}}"></image> </view>
 </view>
-<view class="comment">
+
+<view class="organise" wx:if="{{ralativecourse.length}}">
+<view>  <text class="line">—</text> 相关课程 <text class="line">—</text></view>
+<view class="scrollbox">
+<scroll-view scroll-x style="width:100%;white-space: nowrap" >
+<view class="coursebox" wx:for="{{ralativecourse}}" data-doctype="{{item.type}}" data-id="{{item.id}}" bindtap="jumptocourse">
+<image src="{{item.thumb}}"></image>
+<view>{{item.title}}</view>
+</view>
+</scroll-view>
+</view>
+</view>
+
+<view class="comment" wx:if="{{commentlist.length}}">
 <view class="commentheader">
 <view class="maintitle">最新评论</view>
  <view class="more" bindtap="{{commentnum?'more':''}}">{{commentnum?commentnum+'个评论>':'暂无评论'}}</view>
 </view>
 
 <view class="list" wx:for="{{commentlist}}">
-<view class="protrait"> <image src="../../images/protrait.jpg"></image> </view>
+<view class="protrait"> <image src="{{item.headimgurl}}"></image> </view>
 <view class="box">
 <view class="top">
 <view class="name">{{item.nickname}}</view>
 <view class="right">
 <!--<view class="praise"> <image src="../../images/praiseoff.png"/> {{item.praise}}</view>-->
-
 </view>
-
 </view>
 <view class="middle">{{item.time}}</view>
 <view class="bottom">{{item.content}}</view>
 </view>
 </view>
 </view>
-<view class="button" bindtap="purchase">立即购买</view>
 
 </view>
+
+</scroll-view>
+ 
+
+<navigator url="{{'../checkout/index?id='+myid}}"><view class="purchase" wx:if="{{!permission}}">立即购买</view></navigator>
+
+<loading hidden="{{hidden}}">加载中...</loading>
+
+ <view id="copyright">{{versioninfo}}</view> 

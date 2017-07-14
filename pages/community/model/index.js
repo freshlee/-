@@ -9,6 +9,7 @@ var permission;
 var page;
 var max;
 var rest;
+var sublogo=[];
 Page({
 
   /**
@@ -36,7 +37,7 @@ Page({
    var pid = e.currentTarget.dataset.pid;
    var index = e.currentTarget.dataset.index;
    wx.request({
-     url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=2&openid=' + getApp().globalData.openid+'&id=12&bid='+bid+"&pid="+pid,
+       url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&id=12&bid='+bid+"&pid="+pid,
      success:function(res){
        var newlist=THIS.data.list;
        newlist.splice(index, 1);
@@ -50,6 +51,7 @@ Page({
   del:function(e){
     var index= e.currentTarget.dataset.index;
     logo.splice(index,1);
+    sublogo.splice(index, 1);
     this.setData({
       logo:logo,
     })
@@ -77,7 +79,7 @@ Page({
   dochange:function(bid,pid){
     var THIS=this;
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=2&openid=' + getApp().globalData.openid+'&id=12&bid=' + bid + "&pid=" + pid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&id=12&bid=' + bid + "&pid=" + pid,
       success: function (res) {
         THIS.setData({
           shit:res.data.dat.good,
@@ -105,7 +107,7 @@ Page({
       submiting: false,
     })
      wx.request({
-       url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=submit&uniacid=2&openid=' + getApp().globalData.openid+'&images=' + logo[0]+"&bid="+bid,
+         url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&images=' + logo[0]+"&bid="+bid,
        data:{
          content:THIS.data.content,
        },
@@ -117,7 +119,7 @@ Page({
          wx.showToast({
            title: '上传成功',
          })
-         THIS.getcomment();
+         THIS.renewaddedcomment();
        },
        fail:function(){
          THIS.setData({
@@ -129,8 +131,8 @@ Page({
        }
      })
      wx.request({
-         url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=2&openid=' + getApp().globalData.openid + '&bid=' + bid,
-         data: { images: logo},
+         url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&bid=' + bid,
+         data: { images: sublogo},
          success:function(res){
              
          }
@@ -141,15 +143,26 @@ Page({
       hidden:false,
     })
     var indexnow = event.currentTarget.dataset.index;
+    var position = event.currentTarget.dataset.position+1;
+    var modifypage = Math.ceil(position/10);
+    console.log(11111111); 
+    console.log(modifypage);
+    var modifyorg = (modifypage-1)*10;
+    console.log(22222222);
+    console.log(modifyorg);
     var THIS=this;
     this.dochange(postid, indexnow);
       wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + postid,
+          url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page='+modifypage+'&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + postid,
         success: function (res) {
-          console.log(res);
+          var newlist = THIS.data.list;
+          var addlist = THIS.data.list;
           var data = res.data.dat;
+          addlist=addlist.splice(modifyorg + 10)
+          newlist.splice(modifyorg);
+          console.log(addlist);
           THIS.setData({
-            list: data.list,
+            list: newlist.concat(data.list).concat(addlist),
             hidden:true,
           })
         }
@@ -167,11 +180,34 @@ Page({
     })
   },
     //评论数据
+  renewaddedcomment:function(){
+      var THIS=this;
+      wx.request({
+          url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page=1&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+          success: function (res) {
+              var firstpage=THIS.data.list;
+              firstpage.splice(0,9);
+              var data = res.data.dat;
+              THIS.setData({
+                  list: data.list.concat(firstpage),
+                  hidden: true,
+              })
+          },
+          fail: function () {
+              this.setData({
+                  hidden: true,
+              })
+              wx.showToast({
+                  title: '加载失败',
+              })
+          }
+      }) 
+  },
   getcomment:function(){
       var THIS=this;
-       if (page = 2) {
+       if (page = 1) {
           wx.request({
-              url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&page=1&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+              url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page=1&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
               success: function (res) {
                   max = Math.ceil(res.data.dat.total / res.data.dat.pagesize);
                   rest = res.data.dat.tatal % res.data.dat.pagesize;
@@ -192,15 +228,11 @@ Page({
               }
           }) 
        }
-      else if(page = max){
+      else{
         wx.request({
-            url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&page=1&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+            url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page='+page+'&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
             success: function (res) {
                 var data = res.data.dat;
-                var anchor = (page - 1) * 10;
-                var newlist=[];
-                newlist = THIS.data.list;
-                newlist.splice(anchor, rest);
                 THIS.setData({
                     list: THIS.data.list.concat(data.list),
                     hidden: true,
@@ -217,16 +249,20 @@ Page({
             }
         }) 
       }
+      page+=1;
   },
   onLoad: function (options) {
-    page=2;
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
+    page=1;
     var THIS=this;
     postid=options.id;
     bid = options.id;
     console.log(options);
     //判断是不是版主
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=banzhu&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=banzhu&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
       success: function (res) {
        permission=res.data.dat;
        THIS.setData({
@@ -241,7 +277,7 @@ Page({
     this.getcomment();
     //头部数据
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=main&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769&id=' + bid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=main&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&id=' + bid,
       success: function (res) {
         console.log(res)
         var data=res.data.dat;
@@ -261,7 +297,7 @@ Page({
     })
     //获取关注状态
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=sfgz&uniacid=2&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=sfgz&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
       success:function(res){
         THIS.setData({
             concern:res.data.dat,
@@ -279,17 +315,26 @@ Page({
     var THIS=this;
      wx.chooseImage({
        success: function(res) {
-         logo.push(res.tempFilePaths[0])
+         var des=/tmp_.*/
+         var final=res.tempFilePaths[0].match(des)[0];
+         logo.push(res.tempFilePaths[0]);
+         sublogo.push(final)
          pic.push(res);
          THIS.setData({
            logo: logo,
            pic: pic,
          })
+     for(var key in logo){
+         console.log(logo[key]);
          wx.uploadFile({
-           url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=2&openid=' + getApp().globalData.openid+'&bid='+bid,
-           filePath: logo,
-           name: 'images',
+             url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&bid=' + bid,
+             filePath: logo[key],
+             name: 'images',
+             success:function(res){
+                 console.log(res);
+             }
          })
+     }
        },
      })
   },
@@ -327,7 +372,7 @@ Page({
     var latest = this.data.isconcern;
     if(old!=latest){
       wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=follow&uniacid=2&openid=' + getApp().globalData.openid  + "&bid=" + bid,
+          url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=follow&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid  + "&bid=" + bid,
         success: function () {
         }
       })
@@ -346,14 +391,17 @@ Page({
   onReachBottom: function () {
       if(page<=max){
           //刷新评论数据
+          this.setData({
+              hidden:false,
+          })
           var THIS = this;
           wx.request({
-              url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=2&page=' + page + '&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+              url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page=' + page + '&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
               success: function (res) {
                   var data = res.data.dat;
                   THIS.setData({
                       list: THIS.data.list.concat(data.list),
-                      hiddsen: true,
+                      hidden: true,
                   })
               },
               fail: function () {

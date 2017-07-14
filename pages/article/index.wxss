@@ -221,3 +221,7 @@
   padding:15rpx 0 ;
   font-size: 22rpx;
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

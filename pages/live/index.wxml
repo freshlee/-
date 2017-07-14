@@ -118,3 +118,5 @@
 </view>
 
 </scroll-view>
+
+ <view id="copyright">{{versioninfo}}</view> 

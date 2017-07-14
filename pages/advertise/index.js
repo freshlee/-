@@ -30,11 +30,14 @@ Page({
     })
   },
   onLoad: function (options) {
+    this.setData({
+        versioninfo:getApp().globalData.version,
+    })
     var THIS=this;
     myid=options.id;
     //获取基础信息
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=2&uid='+myid+"&openid="+openid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=' + getApp().globalData.acid+'&uid=' + myid + "&openid=" + getApp().globalData.openid,
       success:function(res){
         //标记坐标
         var data=res.data.dat.jg
@@ -49,7 +52,7 @@ Page({
     })
     //获取教师信息
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=teacher&uniacid=2&uid=' + myid + "&openid=" + openid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=teacher&uniacid=' + getApp().globalData.acid+'&uid=' + myid + "&openid=" + getApp().globalData.openid,
       success:function(res){
          console.log(res);
          THIS.setData({
@@ -59,7 +62,7 @@ Page({
     })
     //获取课程信息
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=shop&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&uid=' + myid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=shop&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&uid=' + myid,
       success: function (res) {
         console.log(res);
         THIS.setData({

@@ -25,3 +25,5 @@
 </view>
 
 <loading hidden="{{hidden1==1&&hidden2==1?true:false}}">加载中...</loading>
+
+ <view id="copyright">{{versioninfo}}</view> 

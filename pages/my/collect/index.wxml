@@ -23,7 +23,7 @@
 <view class="bottom"> 
 <button class="cancel" wx:if="{{item.status==0}}" bindtap="cancel" data-orderid="{{item.id}}">取消订单</button>
 <button class="pay" wx:if="{{item.status==0}}" data-index="{{item.goods.id}}" data-ordernum="{{item.ordersn}}" data-orderid="{{item.id}}" data-title="{{item.goods.title}}" bindtap="pay">支付订单</button>
-<button class="comment" wx:if="{{item.status!=0}}" bindtap="comment" data-index="{{item.goods.id}}" data-order="{{item.id}}">评论</button>
+<button class="comment" data-thumb="{{item.goods.thumb}}" data-name="{{item.good.title}}"  wx:if="{{item.status!=0&&item.iscomment=='0'}}" bindtap="comment" data-index="{{item.goods.id}}" data-order="{{item.id}}">评论</button>
 </view>
 </view>
 
@@ -57,7 +57,7 @@
 <view class="price">￥{{item.price}}</view>
 </view>
 <view class="bottom"> 
-<button class="comment" bindtap="comment" data-index="{{item.goods.id}}" data-order="{{item.id}}" >评论</button>
+<button class="comment" wx:if="{{item.iscomment=='0'}}" bindtap="comment" data-index="{{item.goods.id}}" data-order="{{item.id}}" >评论</button>
 </view>
 </view>
 
@@ -68,6 +68,8 @@
 
 
 <loading hidden="{{hidden}}"></loading>
+
+ <view id="copyright">{{versioninfo}}</view> 
 
 
 

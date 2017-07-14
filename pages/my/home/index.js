@@ -12,7 +12,7 @@ Page({
     { text: "浏览记录", logo: '../../../images/record.png', url: "../record/index" },
     { text: "我的社区", logo: '../../../images/mytip.png', url: "../mytip/index" },
     { text: "我的订单", logo: '../../../images/order.png', url: '../collect/index' },
-    { text: "成为VIP", logo: "../../../images/vip.png", url: "../vip/index" },
+    { text: "成为VIP", logo: '../../../images/VIP.png', url: "../vip/index" },
     { text: "商家入驻", logo: '../../../images/join.png', url: "../join/index" }],
 
   },
@@ -48,6 +48,9 @@ Page({
 
   onLoad: function (options) {
     var THIS = this;
+    this.setData({
+        versioninfo: getApp().globalData.version,
+    })
 
   },
   onStop: function () {
@@ -107,6 +110,35 @@ Page({
         })
         console.log(avatarUrl);
       }
+    })
+    //获取浏览条数,只显示数目
+    wx.request({
+        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=footstep&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+      success:function(res){
+        var record = res.data.dat.list.length;
+        THIS.setData({
+           record:record,
+        })
+      }
+    })
+    //获取收藏条数，只显示数目
+    wx.request({
+        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=gzlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+        success: function (res) {
+            console.log(res);
+            THIS.setData({
+                collection: res.data.dat.list.length,
+            })
+        }
+    })
+    //获取个人社区信息
+    wx.request({
+        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=main&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+        success: function (res) {
+           THIS.setData({
+               followcount:res.data.dat.followcount,
+           })
+        }
     })
   },
 

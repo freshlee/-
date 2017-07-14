@@ -154,4 +154,8 @@ view{
   float:left;
   width: 25%;
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
 

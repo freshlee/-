@@ -53,3 +53,5 @@
 <view class="cal">总计 <text>{{money}}</text>  元</view> 
 <view class="pay" bindtap="purchase" >确认支付</view>
 </view>
+
+ <view id="copyright">{{versioninfo}}</view> 

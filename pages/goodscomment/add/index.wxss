@@ -35,3 +35,7 @@ page{
   height: 120rpx;
   margin-left: 20rpx;
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

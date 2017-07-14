@@ -40,7 +40,7 @@ Page({
   renew:function(){
     var THIS = this;
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=selectuser&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0',
+        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=selectuser&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
       success: function (res) {
         console.log(res);
         var data = res.data.dat.member;
@@ -58,6 +58,7 @@ Page({
   },
   onLoad: function (options) {
     this.setData({
+      versioninfo: getApp().globalData.version,
       hidden: true,
     })
     this.renew();
@@ -73,7 +74,7 @@ Page({
     var day = times[2]
     var THIS=this;
      wx.request({
-       url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=userinfo&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0' + "&lat=" + THIS.data.lat + "&lng=" + THIS.data.lng + "&birthyear=" + year + "&birthmonth=" + month + "&birthday=" + day,
+         url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=userinfo&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + "&lat=" + THIS.data.lat + "&lng=" + THIS.data.lng + "&birthyear=" + year + "&birthmonth=" + month + "&birthday=" + day,
        data:e.detail.value,
        success:function(res){
          console.log(res);

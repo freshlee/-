@@ -50,3 +50,5 @@
 </swiper-item>
 </block>
 </swiper>
+
+ <view id="copyright">{{versioninfo}}</view> 

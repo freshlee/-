@@ -36,6 +36,7 @@ Page({
   onLoad: function (options) {
      this.setData({
        price:options.price,
+       versioninfo: getApp().globalData.version,
      })
   },
 

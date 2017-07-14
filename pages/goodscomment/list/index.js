@@ -49,9 +49,10 @@ Page({
     var THIS=this;
      myid = options.id;
      this.setData({
+       versioninfo: getApp().globalData.version,
        myid:myid,
      })
-     newurl='http://192.168.1.213/api/index.php?c=book&a=comment&op=list&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' + myid,
+     newurl = 'http://192.168.1.213/api/index.php?c=book&a=comment&op=list&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid=' + myid,
     console.log(newurl);
     this.getcomment();
   },

@@ -8,22 +8,22 @@
 }
 .header{
   background-color: white;
-  padding-bottom: 10%;
+  padding-bottom: 60rpx;
 }
 .list{
   border-radius: 50%;
-  width: 115rpx;
-  height: 110rpx;
+  width: 100rpx;
+  height: 100rpx;
   background: yellow;
   float: left;
-  margin-top: 40rpx;
-  margin-left:60rpx; 
+  margin-top: 20rpx;
+  margin-left:70rpx; 
 }
 .list text{
   text-align: center;
   transform: translateY(100rpx);
   display: block;
-  margin-top: 20rpx;
+  margin-top: 5rpx;
   font-size: 30rpx;
 }
 
@@ -198,6 +198,10 @@ navigator image{
 }
 .image{
   background-size:100% 100%; 
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
 }
 
 

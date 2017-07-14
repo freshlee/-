@@ -153,3 +153,7 @@ view{
   width: 100%;
   text-indent: -0.5em;
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

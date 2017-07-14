@@ -68,3 +68,7 @@ page{
 
   background:linear-gradient(90deg, RGBA(7,103,200,0.7) ,RGBA(7,103,200,0) 100% );
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

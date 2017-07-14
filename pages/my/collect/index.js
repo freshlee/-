@@ -18,7 +18,7 @@ Page({
     var THIS=this;
     var orderid=e.currentTarget.dataset.orderid;
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=cancel&uniacid=2&openid=' + getApp().globalData.openid+'&orderid='+orderid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=cancel&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&orderid='+orderid,
       success:function(res){
        THIS.renew();
       },
@@ -35,6 +35,8 @@ Page({
     })
   },
   comment:function(e){
+      var thumb = e.currentTarget.dataset.thumb;
+      var name = e.currentTarget.dataset.name;
     var orderid = e.currentTarget.dataset.order;
     var goodsid=e.currentTarget.dataset.index;
     var newurl="../../goodscomment/add/index?id="+goodsid+"&orderid="+orderid;
@@ -75,7 +77,7 @@ Page({
       hidden: false,
     })
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=list&uniacid=2&openid=' + getApp().globalData.openid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=list&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
       success: function (res) {
         console.log(res);
         var data = res.data.dat;
@@ -101,6 +103,9 @@ Page({
 
   },
   onLoad: function (options) {
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
     var THIS=this;
     this.renew();
     wx.getSystemInfo({

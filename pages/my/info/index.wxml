@@ -11,8 +11,8 @@
 <view class="title">性别：</view>
 <view class="content"> 
 <radio-group bindchange="genderchange" name="sex">  
-<label>男 <radio value="1" checked="{{sex=='1'?'true':'false'}}" /></label>
-<label>女 <radio value="0" checked="{{sex=='0'?'true':'false'}}" /></label>  
+<label>男 <radio value="1" checked="{{sex=='1'?true:false}}" /></label>
+<label>女 <radio value="0" checked="{{sex=='0'?true:false}}" /></label>  
 
 </radio-group> </view>
 </view>
@@ -58,13 +58,15 @@
 <view class="case">
 <view class="title">地址：</view>
 <view class="address" bindtap="getaddress"> <image src="../../../images/getaddress.png"></image> </view>
-<view class="content"> <input placeholder="请输地址" value="{{address}}" /> </view>
+<view class="content"> <input placeholder="请输地址" value="{{address}}" name="address"/> </view>
 </view>
 
 </view>
 <button class="panel" form-type="submit">确认</button>
 </form>
 <loading hidden="{{hidden}}"></loading>
+
+ <view id="copyright">{{versioninfo}}</view> 
 
 
 

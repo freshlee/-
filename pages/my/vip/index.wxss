@@ -75,6 +75,8 @@ page{
   color: #565656;
   text-align: center;
   line-height: 40rpx;
+  height: 100rpx;
+  box-sizing: border-box;
 }
 .chosen{
   border:2rpx solid #0174e5 !important ;
@@ -172,4 +174,8 @@ page{
   height: 75rpx;
   font-size:35rpx;
   color:green;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
 }

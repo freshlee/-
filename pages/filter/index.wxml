@@ -43,8 +43,8 @@
 <view class="list">
 <view class="typename">类型</view>
 <view class="{{types==1?'typeon':'type'}}" bindtap="chosetype" data-type="1" data-trans="视频">视频</view>
-<view class="{{types==2?'typeon':'type'}}" bindtap="chosetype" data-type="2" data-trans="文章">文章</view>
-<view class="{{types==3?'typeon':'type'}}" bindtap="chosetype" data-type="3" data-trans="线下">线下</view>
+<view class="{{types==2?'typeon':'type'}}" bindtap="chosetype" data-type="2" data-trans="线下">线下</view>
+<view class="{{types==3?'typeon':'type'}}" bindtap="chosetype" data-type="3" data-trans="文章">文章</view>
 <view class="{{types==0?'typeon':'type'}}" bindtap="chosetype" data-type="0" data-trans="全部">全部</view>
 </view>
 <view class="panel" bindtap="sure">
@@ -69,6 +69,9 @@
 </view>
 
 </view>
+<template name="0">
+<view class="limit">付费</view>
+</template>
 <template name="1">
 <view class="free">免费</view>
 </template>
@@ -80,4 +83,6 @@
 </template>
 
 <loading hidden="{{hidden}}">加载中...</loading>
+
+ <view id="copyright">{{versioninfo}}</view> 
 

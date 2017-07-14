@@ -34,17 +34,33 @@ Page({
     })
   },
   onLoad:function(option){
+      var THIS=this;
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
     var id=option.id;
+    //获取商品信息
     wx.request({
-      url: '',
-      data:{},
-      success:function(res){
-
-      }
+        url: "http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=" + getApp().globalData.acid + "&openid=" + getApp().globalData.openid + "&goodsid=" + myid,
+        success: function (res) {
+            console.log(res.data);
+            var data = res.data.dat;
+            var article = data.goods.description;
+            WxParse.wxParse('article', 'html', article, THIS, 5);
+            THIS.setData({
+                goods: data.goods,
+                hidden: true,
+            })
+        },
+        fail: function () {
+            THIS.setData({
+                hidden: true,
+            })
+            wx.showToast({
+                title: '加载失败',
+            })
+        }
     })
-    var article = "sss";
-    var that = this;
-    WxParse.wxParse('article', 'html', article, that, 5); 
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

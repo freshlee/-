@@ -5,3 +5,5 @@
 </view>
 <view class="bottom"></view>
 <button bindtap="topay">去支付</button>
+ <view id="copyright">©2017-2020 Sixth Sense Media Co. All rights reserved.</view>
+ <loading hidden="{{hidden}}"></loading> 

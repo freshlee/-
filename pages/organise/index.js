@@ -26,9 +26,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
     var THIS=this;
   wx.request({
-    url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=list&uniacid=2&openid=' + getApp().globalData.openid,
+      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=list&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
     success:function(res){
       console.log(res);
       var data=res.data.dat;
@@ -44,7 +47,7 @@ Page({
       lng=res.longitude;
       lat=res.latitude;
       wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=dw&uniacid=2&openid=' + getApp().globalData.openid,
+          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=dw&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
         data: {
           lat: lat,
           lng: lng,

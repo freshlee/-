@@ -1,7 +1,8 @@
 /* pages/my/hpme/index.wxss */
 page{
   padding: 0 20rpx;
-  background: #f4f4f4 ;
+  background: #f4f4f4;
+  box-sizing: border-box;
 }
 .bottom image{
   width:20rpx;
@@ -46,4 +47,8 @@ page{
   top: 30rpx;
   text-indent: -3.8rem;
   color:slategrey;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
 }

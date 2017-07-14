@@ -5,13 +5,12 @@
 }
 .case{
   padding: 0 20rpx;
-  margin: 0 0 20rpx;
   background: white;
 }
 .case>view{
   height: 100rpx;
   line-height: 100rpx;
-  font-size: 35rpx;
+  font-size: 30rpx;
 }
 
 .num{
@@ -30,7 +29,7 @@
   font-size: 30rpx;
 }
 .final .num text{
-  font-size: 40rpx;
+  font-size: 30rpx;
   color:orange;
 }
 .final{
@@ -53,7 +52,7 @@
   font-size: 25rpx;
 }
 .userinfo .list{
-  font-size:35rpx;
+  font-size:30rpx;
   line-height: 100rpx;
   height: 100rpx;
 }
@@ -61,7 +60,7 @@
   width:160rpx;
   display: inline-block;
   vertical-align: top;
-  font-size: 35rpx;
+  font-size: 30rpx;
 }
 .userinfo .list input{
   display: inline-block;
@@ -90,4 +89,17 @@
 }
 .coursename, .coursetype , .userinfotitle, .vochour, .realname{
   border-bottom: 2rpx solid #f4f4f4;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
+#warm{
+    color: red;
+    font-size: 30rpx;
+    margin-left: 20rpx;
+}
+.coursename,.userinfotitle,.orderinfo{
+    font-size: 35rpx;
+    padding: 15rpx 20rpx;
 }

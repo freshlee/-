@@ -57,9 +57,16 @@
 .tip .user{
   height: 80rpx;
   line-height: 80rpx;
+}
+.tip .user .username{
   font-size: 30rpx;
   color: dimgrey;
   font-weight: bold;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10rpx;
 }
 .tip .user text{
   color: dimgray;
@@ -278,4 +285,8 @@
 }
 .hide{
   display: none !important;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
 }

@@ -24,15 +24,15 @@
 <view class="intro case">
 <view class="info">
 <view>
-<view class="account">66</view>
+<view class="account">{{collection}}</view>
 <view class="title">收藏</view>
 </view>
 <view>
-<view class="account">3</view>
+<view class="account">{{record}}</view>
 <view class="title">历史</view>
 </view>
 <view>
-<view class="account">50</view>
+<view class="account">{{followcount}}</view>
 <view class="title">被赞</view>
 </view>
 </view>
@@ -56,6 +56,8 @@
 
 </view>
 
+
+ <view id="copyright">{{versioninfo}}</view> 
 
 
 

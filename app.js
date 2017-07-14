@@ -42,6 +42,12 @@ App({
         })
       }
     })
+    wx.request({
+        url: 'http://192.168.1.213/api/index.php?c=book&a=videoshop&op=bb',
+        success:function(res){
+            THIS.globalData.version = res.data.dat;
+        }
+    })
   },
   
   getUserInfo:function(cb){
@@ -69,6 +75,6 @@ App({
     }
   },
   globalData:{
-    userInfo:111,
+    acid:2,
   }
 })

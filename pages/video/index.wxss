@@ -2,8 +2,8 @@
 @import "../../wxParse/wxParse.wxss";
 .body{
   position: relative;
-  background: gainsboro;
-  padding-bottom:60rpx; 
+  background: #f4f4f4;
+  margin-bottom:80rpx; 
 }
 .line{
   color: lightgrey;
@@ -94,8 +94,9 @@ view{
   margin-top: 10rpx;
 }
 .detail image{
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
 }
 
 .courseinfo .priceattr{
@@ -167,6 +168,7 @@ view{
   padding: 0 30rpx 0rpx;
   background: white;
   margin-bottom: 10rpx;
+  padding-bottom: 10rpx;
 }
 .organise>view:first-of-type{
   text-align: center;
@@ -335,3 +337,11 @@ video{
 .arrowon>image{
   top:20rpx;
 }
+.coursebox{
+    display: inline-block;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
+

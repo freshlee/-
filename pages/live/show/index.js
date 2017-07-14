@@ -43,6 +43,9 @@ Page({
     })
   },
   onLoad: function (options) {
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
     var THIS = this;
     var article;
     var myid = options.id;

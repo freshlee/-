@@ -73,7 +73,7 @@ page{
 }
 .separate{
   position: relative;
-  width: 150rpx;
+  width: 170rpx;
   left: 0;
   right: 0;
   text-align: center;
@@ -123,4 +123,8 @@ page{
   float: right;
   color: #0767C8;
   font-size: 30rpx;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
 }

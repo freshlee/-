@@ -47,10 +47,14 @@ Page({
   },
   onLoad: function (options) {
      var THIS=this;
+     this.setData({
+         hidden:false,
+         versioninfo: getApp().globalData.version,
+     })
       id=options.id;
       //获取数据
       wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' + id,
+          url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=' + getApp().globalData.acid+'&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&goodsid=' + id,
         success:function(res){
           var data=res.data.dat;
           THIS.setData({

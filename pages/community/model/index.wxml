@@ -13,7 +13,7 @@
 
 
 <view class="case tip" wx:for="{{list}}">
-<view class="user"> <image src="{{item.avatar}}"></image> {{item.nickname}}  <text class="time">{{item.createtime}}</text> </view>
+<view class="user"> <image src="{{item.avatar}}"></image>  <text class="username">{{item.nickname}}</text>  <text class="time">{{item.createtime}}</text> </view>
 <view class="content">{{item.content}}</view>
 
 <!--评论板块-->
@@ -21,7 +21,7 @@
 
 <view class="comment {{permission?'':'hide'}}" bindtap="del" data-des="{{item.id}}"><image src="../../../images/del.png"></image>  <text style="color:#0767C8" bindtap="delcomment" data-index="{{index}}" data-pid="{{item.id}}">删除 </text> </view>
 <view class="comment" bindtap="tocomment" data-des="{{item.id}}"><image src="../../../images/comment.png"></image>  <text>({{item.postcount}}) </text> </view>
-<view class="collect" bindtap="agree" data-index="{{item.id}}"><image src="../../../images/praiseoff.png"></image>  <text>{{item.goodcount}}</text> </view>
+<view class="collect index" bindtap="agree"  data-position="{{index}}" data-index="{{item.id}}"><image src="../../../images/praiseoff.png"></image>  <text>{{item.goodcount}}</text> </view>
 
 
 
@@ -41,7 +41,7 @@
 <image src="{{item}}" wx:for="{{logo}}" data-index="{{index}}" bindtap="del"/> 
 <input  placeholder="说点什么吧"  name="content"  bindfocus="write" fixed="true" auto-height="true"  bindconfirm="submit"  />
 
-<image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>
+<!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image> -->
 
 </view>
 
@@ -52,3 +52,5 @@
 
 <loading hidden="{{hidden}}"></loading>
 <loading hidden="{{submiting}}">上传中...</loading>
+
+ <view id="copyright">{{versioninfo}}</view> 

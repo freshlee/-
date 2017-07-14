@@ -38,7 +38,9 @@ Page({
     },1000)
   },
   onLoad: function (options) {
-  
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
   },
 
   /**

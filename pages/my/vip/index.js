@@ -28,7 +28,7 @@ Page({
     console.log(time);
     var timestamp = Date.parse(time);
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=payvip&uniacid=2&openid=' + getApp().globalData.openid+'&times=' + timestamp,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=payvip&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&times=' + timestamp,
       success: function (res) {
         THIS.setData({
           hidden:true,
@@ -55,9 +55,12 @@ Page({
     })
   },
   onLoad: function (options) {
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
     var THIS=this;
      wx.request({
-       url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=vip&uniacid=2&openid=' + getApp().globalData.openid,
+         url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=vip&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
        success:function(res){
          for(var key in res.data.dat.level){
            res.data.dat.level[key].ordermoney = parseInt(res.data.dat.level[key].ordermoney);
@@ -70,7 +73,7 @@ Page({
      })
      //VIP课程
      wx.request({
-       url: 'http://192.168.1.213/api/index.php?c=book&a=category&op=filter&uniacid=2&priceattr=2',
+         url: 'http://192.168.1.213/api/index.php?c=book&a=category&op=filter&uniacid=' + getApp().globalData.acid+'&priceattr=2',
        success:function(res){
          console.log(res);
          THIS.setData({

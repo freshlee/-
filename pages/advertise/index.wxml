@@ -12,11 +12,11 @@
 <view class="address {{myindex==1?'bechosen':''}}" bindtap="address">课程</view>
 <view class="address {{myindex==2?'bechosen':''}}" bindtap="teacher">讲师</view>
 </view>
-<swiper current="{{index}}" style="height:{{myheight-255}}px" bindchange="onchange">
+<swiper current="{{index}}" style="height:770rpx" bindchange="onchange">
 <block>
 <swiper-item>
 
-<scroll-view scroll-y style="height:{{myheight-150}}px">
+<scroll-view scroll-y style="height:770rpx">
 <view class="describe">
 {{base.desc}}
 </view>
@@ -27,7 +27,7 @@
 </swiper-item>
 
 <swiper-item>
-<scroll-view scroll-y style="height:{{myheight-150}}px">
+<scroll-view scroll-y style="height:770rpx">
 
 <view class="course">
 <view class="list" wx:for="{{shop}}"> <image src="{{item.thumb}}"></image>  <view class="title">{{item.title}}</view> <view class="price">￥88</view> </view>
@@ -39,7 +39,7 @@
 </swiper-item>
 
 <swiper-item>
-<scroll-view scroll-y style="height:{{myheight-150}}px">
+<scroll-view scroll-y style="height:770rpx">
 <view class="teacher" wx:for="{{teacher}}">
 <view class="teacherprotrait"> <image src="{{item.icon}}"/> </view>
 <view class="box">

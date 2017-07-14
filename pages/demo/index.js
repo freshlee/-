@@ -32,51 +32,18 @@ onReady:function(){
   var hehe = getApp().globalData.userInfo;  
   console.log(hehe);  
   var THIS=this;
-  //获取用户信息，生成OPENID
-  wx.login({
-     success:function(res){
-       wx.request({
-         url: 'https://api.cnmmsc.org/takeout.php?c=takeout&a=login&op=getopenid',
-         data: {
-           code: res.code,
-           acid: 499,
-         },
-         header: {
-           'content-type': 'application/json'
-         },
-         success:function(response){
-           openid=response.data.openid;
-           wx.getUserInfo({
-             success: function (res) {
-               var info = res.userInfo;
-               wx.request({
-                 url: 'http://192.168.1.213/api/index.php?c=book&a=login&op=register',
-                 data: {
-                   'openid': openid,
-                   'avatarUrl': info.avatarUrl,
-                   'name': info.nickName,
-                   'gender': info.gender,
-                   'province': info.province,
-                   'city': info.city,
-                   'acid':2,
-                 },
 
-               })
-             },
-           })
-         },
-       })
-
-     },
-  })
   //获取用户信息
   
 },
  onLoad:function(){
+     this.setData({
+         versioninfo: getApp().globalData.version,
+     })
    var THIS=this;
    //商品接口
    wx.request({
-     url: 'http://192.168.1.213/api/index.php?c=book&a=videoshop&op=query_videoshop&uniacid=2',
+       url: 'http://192.168.1.213/api/index.php?c=book&a=videoshop&op=query_videoshop&uniacid=' + getApp().globalData.acid,
      data: {
      },
      header: {
@@ -120,7 +87,7 @@ onReady:function(){
 
    //展示接口
    wx.request({
-     url: 'http://192.168.1.213/api/index.php?c=book&a=videovad&op=videovad_nav&uniacid=2',
+       url: 'http://192.168.1.213/api/index.php?c=book&a=videovad&op=videovad_nav&uniacid=' + getApp().globalData.acid,
      data: {
      },
      header: {
@@ -150,7 +117,11 @@ onReady:function(){
          else { break; }
        }
        for (var key in nav) {
-         navs.push({ url: "../filter/index?cate=" + nav[key].id, thumb: nav[key].icon, name: nav[key].navname })
+           var probe = /cate=\d*/
+           var id= nav[key].url.match(probe)[0];
+           var id=id.substring(5);
+           console.log(id);
+         navs.push({ url: "../filter/index?cate=" + id, thumb: nav[key].icon, name: nav[key].navname })
        }
 
        THIS.setData({
@@ -162,7 +133,7 @@ onReady:function(){
    })
    //机构接口
    wx.request({
-     url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=sy&uniacid=2&openid=' + getApp().globalData.openid,
+       url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=sy&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
      success:function(res){
        console.log(res);
        var data=res.data.dat.sy;

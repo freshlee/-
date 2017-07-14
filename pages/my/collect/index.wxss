@@ -70,6 +70,10 @@ page{
  border-bottom: 6rpx solid rgb(7,103,200);
  color: #0767C8 !important;
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
 
 
 

@@ -7,14 +7,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+  hidden:true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  submit:function(){
-     
+  //提交注册内容
+  submit:function(e){
+     wx.showModal({
+         title: '提示',
+         content: '确定上传麽?',
+         success:function(){
+             wx.request({
+                 url: 'http://192.168.1.213/api/index.php?c=book&a=shopreg&op=reg&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+                 data: e.detail.value,
+             })
+         }
+     })
   },
   vertify:function(){
     
@@ -40,7 +50,9 @@ Page({
     })
   },
   onLoad: function (options) {
-  
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
   },
 
   /**

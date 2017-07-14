@@ -3,8 +3,8 @@
 }
 
 .header image{
-  height:120rpx;
-  width:120rpx;
+  height:100rpx;
+  width:100rpx;
   margin: auto;
   padding: auto;
   border-radius: 50%;
@@ -12,7 +12,7 @@
 .header{
   left: 50%;
   position: absolute;
-  margin-left:-60rpx; 
+  margin-left:-50rpx; 
 }
 .nav{
   padding:20rpx 20rpx;
@@ -37,18 +37,17 @@
 }
 .list .name{
   text-align: center;
-  line-height: 40rpx;
-  height: 40rpx;
-  font-size: 30rpx;
+  line-height: 30rpx;
+  height: 30rpx;
+  font-size: 25rpx;
 }
 .content{
   background: white;
   margin-top: 15rpx;
-  box-shadow: 0rpx 3rpx 2rpx #888888;
 }
 .content .case{
   margin: 25rpx 40rpx;
-  border-bottom:1rpx solid gainsboro;
+  border-bottom:1rpx solid #f4f4f4;
 }
 .content .case:last-of-type{
   margin: 25rpx 40rpx;
@@ -72,10 +71,14 @@
   margin:25rpx 40rpx;
   font-size:25rpx;
   color: grey;
-  border-bottom:1rpx solid gainsboro;
+  border-bottom:1rpx solid #f4f4f4;
 }
 .body{
-  background: gainsboro;
+  background: #f4f4f4;
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
 }
 
 

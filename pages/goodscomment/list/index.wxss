@@ -82,6 +82,10 @@ padding-bottom: 100rpx;
   font-size: 35rpx;
   margin-left: -70rpx;
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}
 
 
 

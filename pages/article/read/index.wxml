@@ -11,7 +11,7 @@
 
 <scroll-view scroll-y style="height:{{eqheight}}px;position:absolute;top:0">
 <view class="content" style="color:{{fontcolor}};font-size:{{fontsize}}rpx">
-asdkhfasljhgsliufd;ngsdlkfdslkfjglkjfdshgkjdfgfhfdskjlhdkjflhgdsfhkljdfhg
+<template is="wxParse" data="{{wxParseData:content[index].nodes}}"/>
 </view>
 </scroll-view>
 </view>

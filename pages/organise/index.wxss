@@ -87,3 +87,7 @@ page{
   height: 40rpx;
   vertical-align: top;
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

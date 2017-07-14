@@ -18,7 +18,7 @@ Page({
     })
     var level=this.data.indexnow+1;
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=submit&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0&orderid='+orderid+'&goodsid='+myid+"&images="+pic+"&level="+level,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&orderid='+orderid+'&goodsid='+myid+"&images="+pic+"&level="+level,
       data:e.detail.value,
       success:function(res){
         console.log(res)
@@ -42,7 +42,7 @@ Page({
       }
     })
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=2&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
         data:{
             file:pic
         }            
@@ -61,7 +61,7 @@ chosepic:function(){
       for (var key in pic) {
           console.log(pic[key])
           wx.uploadFile({
-              url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=2&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
+              url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=' + getApp().globalData.acid,
               filePath: pic[key],
               name: 'images',
               success: function (res) {
@@ -85,6 +85,12 @@ chosestar:function(e){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      
+      this.setData({
+          versioninfo: getApp().globalData.version,
+          thumb:options.thumb,
+          name:options.name,
+      })
     myid=options.id;
     orderid=options.orderid;
   },

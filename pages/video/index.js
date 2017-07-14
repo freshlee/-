@@ -6,11 +6,12 @@ var WxParse = require('../../wxParse/wxParse.js');
 var org;
 var lengths;
 var nowpos;
-var box=[1,1,1];
 var myid;
 var merchid;
 var concernstatus;
 var originstatus;
+var box;
+var ralativecourse=[];
 Page({
 
   /**
@@ -24,6 +25,19 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  jumptocourse:function(e){
+     var id=e.currentTarget.dataset.id;
+     var doctype = e.currentTarget.dataset.doctype;
+     var typename;
+     switch(doctype){
+         case "1": typename = "vidoe";
+         case "2": typename = "course";
+         case "3": typename = "article";
+     }
+     wx.navigateTo({
+         url: '../'+typename+"/index?id="+id,
+     })
+  },
   concern:function(){
      concernstatus=0;
      this.setData({
@@ -88,16 +102,20 @@ Page({
     console.log(this.data.toView);
   },
   onLoad: function (options) {
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
     var THIS = this;
     var article;
     myid=options.id;
+    box=[1,1,1];
     concernstatus=undefined;
     this.setData({
       myid:myid,
-      box:box,
+      box: [1, 1, 1],
     })
     //获取商品信息
-    var newurl = "http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=2&openid=" + getApp().globalData.openid+"&goodsid="+myid;
+    var newurl = "http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=" + getApp().globalData.acid+"&openid=" + getApp().globalData.openid+"&goodsid="+myid;
     wx.request({
       url: newurl,
       data: {
@@ -117,11 +135,12 @@ Page({
         })
         //获取机构信息
         wx.request({
-          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=2&openid=' + getApp().globalData.openid+'&uid=' + merchid,
+            url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&uid=' + merchid,
           success: function (res) {
             console.log(res);
             THIS.setData({
               organise: res.data.dat.zz.description,
+              organiseinfo:res.data.dat,
             })
           }
         })
@@ -137,7 +156,7 @@ Page({
     })
 //获取评论接口
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=list&uniacid=2&openid=' + getApp().globalData.openid+'&orderid=7317&goodsid='+myid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=list&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid='+myid,
       success:function(res){
         var data=res.data.dat
         THIS.setData({
@@ -147,13 +166,10 @@ Page({
         })
       }
     })
-  //获取机构接口
-    wx.request({
-      url: '',
-    })
+
     //获取教师信息
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=spt&uniacid=2&openid=' + getApp().globalData.openid+'&goodsid=' +myid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=spt&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid=' +myid,
       success:function(res){
         var data=res.data.dat;
         var teacher=data.teacher;
@@ -162,22 +178,22 @@ Page({
             var newcontent=teacher[key].content;
             WxParse.wxParse('content['+key+']', 'html', newcontent, THIS, 5);
             wx.request({
-                url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=tsp&uniacid=2&openid=' + getApp().globalData.openid + '&tid=' + teacher[key].id,
+                url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=tsp&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&tid=' + teacher[key].id,
                 success:function(res){
                     var data=res.data.dat.shop;
+                    teacher[key].courselist=data;
+                    THIS.setData({
+                        teacher: teacher,
+                        ralativecourse:ralativecourse.concat(data)
+                    })
                 }
             })
-            THIS.setData({
-            })
         }
-        THIS.setData({
-          teacher:teacher,
-        })
       },
     })
     //获取关注状态
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=gz&uniacid=2&openid=' + getApp().globalData.openid+'&goodsid='+myid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=gz&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid='+myid,
       success:function(res){
         console.log(res);
         THIS.setData({
@@ -188,7 +204,7 @@ Page({
     })
     //留下脚印
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=addfootstep&uniacid=2&openid=' + getApp().globalData.openid + '&goodsid=' + myid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=addfootstep&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&goodsid=' + myid,
       success:function(res){
         console.log("已经加入浏览记录")
       }
@@ -213,7 +229,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      var THIS=this;
+      this.setData({
+          hidden:false
+      })
+      //获取权限信息
+      wx.request({
+          url: "http://192.168.1.213/api/index.php?c=book&a=pay&op=gm&uniacid=" + getApp().globalData.acid+"&openid=" + getApp().globalData.openid + "&goodsid=" + myid,
+          success: function (res) {
+              THIS.setData({
+                  permission: res.data.dat,
+                  hidden:true
+              })
+          },
+          fail:function(){
+              THIS.setData({
+                  hidden: true
+              })
+          }
+      })
   },
 
   /**
@@ -228,17 +262,17 @@ Page({
    */
   onUnload: function () {
     //关注
-
+    console.log()
     if (concernstatus ===undefined){}
     else{
       if (concernstatus == 0 && originstatus==1){
         wx.request({
-          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=toggle&uniacid=2&openid='+getApp().globalData.openid+'&goodsid=' + myid + "&isfavorite=1",
+            url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=toggle&uniacid=' + getApp().globalData.acid+'&openid='+getApp().globalData.openid+'&goodsid=' + myid + "&isfavorite=1",
         })
       }
-      else if (concernstatus == 1&&originstatus==0){
+      else if (concernstatus == 1 && originstatus==0){
         wx.request({
-          url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=toggle&uniacid=2&openid=' + getApp().globalData.openid+'&goodsid=' + myid + "&isfavorite=0",
+            url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=toggle&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid=' + myid + "&isfavorite=0",
         }) 
       }
     }

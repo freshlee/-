@@ -16,40 +16,83 @@ Page({
   topay:function(){
     var THIS=this;
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=pay&uniacid=2&openid=' + getApp().globalData.openid+"&orderid="+THIS.data.orderid,
+        url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=pay&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+"&orderid="+THIS.data.orderid,
+        success:function(res){
+            var data=res.data.dat.wechat;
+            wx.requestPayment({
+                timeStamp: data.timeStamp,
+                nonceStr: data.nonceStr,
+                package: data.package,
+                signType: data.signType,
+                paySign: data.paySign,
+            })
+        }
     })
   },
   onLoad: function (options) {
    var THIS=this;
     this.setData({
+    versioninfo: getApp().globalData.version,
       coursename:options.coursename,
       ordernum:options.ordernum,
       goodsid:options.goodsid,
       price:options.marketprice,
-      orderid:options.orderid
+      orderid:options.orderid,
+      hidden:false,
     })
      doctype=options.doctype;
      if (!options.orderid){
        //生成订单好并获取信息
        wx.request({
-         url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=submit&uniacid=2&openid=' + getApp().globalData.openid+'&goodsid=' + options.goodsid,
+           url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid=' + options.goodsid,
          success: function (res) {
            console.log(res);
            THIS.setData({
              ordernum: res.data.dd,
+             orderid:res.data.orderid,
            })
            wx.request({
-             url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=params&uniacid=2&openid=' + getApp().globalData.openid + '&orderid=' + res.data.orderid,
+               url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=params&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&orderid=' + res.data.orderid,
              success:function(res){
+                 THIS.setData({
+                     hidden: true,
+                 })
+             },
+             fail:function(){
+                 THIS.setData({
+                     hidden: true,
+                 })
+                 wx.showToast({
+                     title: '订单获取失败',
+                 })
              }
            })
+         },
+         fail:function(){
+             THIS.setData({
+                 hidden: true,
+             })
+             wx.showToast({
+                 title: '订单生成失败',
+             })  
          }
        })
      }
      else{
        wx.request({
-         url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=params&uniacid=2&openid=' + getApp().globalData.openid + '&orderid=' + THIS.data.orderid,
+           url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=params&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&orderid=' + THIS.data.orderid,
          success: function (res) {
+             THIS.setData({
+                 hidden:true,
+             })
+         },
+         fail:function(){
+             THIS.setData({
+                 hidden: true,
+             })
+             wx.showToast({
+                 title: '订单获取失败',
+             })
          }
        })
      }

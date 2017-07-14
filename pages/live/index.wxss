@@ -67,3 +67,7 @@
   background: white;
   width: 100%;
 }
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
+}

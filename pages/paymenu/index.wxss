@@ -57,6 +57,9 @@
   box-sizing: border-box;
   font-size: 35rpx;
   font-weight: bold;
-
+}
+#copyright{
+    text-align: center;
+    margin:10rpx 0;
 }
 

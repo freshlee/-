@@ -3,17 +3,17 @@
 <view class="body">
 
 <view class="header case">
-<view class="picture list"> <image src="../../images/书.jpg" style="height:300rpx;width:220rpx"></image> </view>
+<view class="picture list"> <image src="{{goods.thumb}}" style="height:300rpx;width:220rpx"></image> </view>
 <view class="info list">
 <view class="name">{{goods.title}}</view>
-<view class="li">作者：杰克 韦尔奇等</view>
-<view class="li price">29.4</view>
-<view class="li">类型:商业</view>
-<view class="li">字数:约1.5万字</view>
+<view class="li">作者：{{teacher[0].videoname?teacher[0].videoname:'无'}}</view>
+<view class="li price">{{goods.marketprice}}</view>
+<!-- <view class="li">类型:商业</view>
+<view class="li">字数:约1.5万字</view> -->
 </view>
 <view class="panel">
 <view class="purchase" bindtap="concern" bindtap="{{favor==1?'concern':'disconcern'}}">{{favor==1?'关注':'取消关注'}}</view>
-<view class="try" bindtap="toRead">阅读</view>
+<view class="try" bindtap="{{permission?'toread':'purchase'}}"> {{permission?'阅读':'购买'}} </view>
 </view>
 <!--<view class="operate">
 <view class="menu"> <view class="classname"> <image src="../../images/demoimage/order_logo.png"></image> </view> 目录</view>
@@ -24,23 +24,27 @@
 
 
 
-<view class="content case">
+<view class="content case" wx:if="{{goods.description}}">
 <template is="wxParse" data="{{wxParseData:article.nodes}}"/></view>
+<!-- 模板 -->
+<template name="type0" ><text style="font-size:35rpx;color:red">付费</text></template>
+<template name="type1" ><text style="font-size:35rpx;color:green">免费</text></template>
+<template name="type2" ><text style="font-size:35rpx;color:purple">VIP免费</text></template>
+<template name="type3" ><text style="font-size:35rpx;color:orange">限时免费</text></template>
 
 <!--推荐-->
-<!--<view class="recomandBox case ">
-<view class="title">相关的课程</view>
+<view class="recomandBox case" wx:if="{{ralativecourse.length}}">
+<view class="title">推荐课程</view>
 <view class="recomand">
-<view class="title_case">
-<view class="picture list"> <image src="C:/Users/Administrator/Desktop/image/Case3-02.png"></image> </view>
+<view class="title_case" wx:for="{{ralativecourse}}">
+<view class="picture list"> <image src="{{item.thumb}}"></image> </view>
 <view class="info list">
-<view class="classname">MK-linux运维</view>
-<view class="classname">openstack-slatstack学习</view>
-<view class="priceattr">免费</view>
+<view class="classname">{{item.title}}</view>
+<view class="priceattr"> <template is="type{{item.type}}"></template> </view>
 </view>
 </view>
 </view>
-</view>-->
+</view>
 
 <!--评论板块-->
 <view class="comment">
@@ -50,7 +54,7 @@
 </view>
 
 <view class="list" wx:for="{{commentlist}}">
-<view class="protrait"> <image src="../../images/protrait.jpg"></image> </view>
+<view class="protrait"> <image src="{{item.headimgurl}}"></image> </view>
 <view class="box">
 <view class="top">
 <view class="name">{{item.nickname}}</view>
@@ -67,3 +71,4 @@
 
 
 <loading hidden="{{hidden}}"></loading>
+ <view id="copyright">{{versioninfo}}</view> 

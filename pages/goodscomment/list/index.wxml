@@ -26,3 +26,5 @@
 
 <loading hidden="{{hidden}}"></loading>
 <loading hidden="{{submiting}}">上传中...</loading>
+
+ <view id="copyright">{{versioninfo}}</view> 

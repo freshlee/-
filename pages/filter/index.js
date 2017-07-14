@@ -4,6 +4,8 @@ var openid = getApp().globalData.openid;
 var mycate=undefined;
 var mytype=undefined;
 var mypay=undefined;
+var page;
+var max;
 Page({
   /**
    * 页面的初始数据
@@ -17,7 +19,6 @@ Page({
   trans_mytype : "全部",
   trans_mypay : "全部",
   status:"off",
-  index:0,
   inputstatus:0,
   hidden:true,
   },
@@ -31,11 +32,18 @@ Page({
       status: this.data.status == "on" ? "off" : "on",
     })
     wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=like&uniacid=2',
+        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=likegoods&uniacid=' + getApp().globalData.acid,
       data:{
         title:title,
+      },
+      success:function(res){
+          THIS.setData({
+              cases:res.data.dat.goods,
+          })
       }
-    }) 
+    })
+    page=100;
+    max=1; 
   },
   //搜索栏动态控制方法
   input:function(){
@@ -51,6 +59,27 @@ Page({
     })
     if(index==1){
       this.statusChange();
+    }
+    else{
+        //查询最多评论的商品
+        var THIS=this;
+        this.setData({
+            hidden:false,
+        })
+        wx.request({
+            url: 'http://192.168.1.213/api/index.php?c=book&a=videoshop&op=rm&uniacid=' + getApp().globalData.acid,
+            success:function(res){
+                THIS.setData({
+                    cases: res.data.dat.rm,
+                    hidden: true,
+                })
+            },
+            fail:function(){
+                THIS.setData({
+                    hidden: true,
+                })
+            }
+        })
     }
   },
   statusChange:function(){
@@ -100,14 +129,15 @@ Page({
     })
   },
   sure: function () {
+      page=2;
     this.setData({
       hidden:false
     })
     var THIS = this;
-    var newcate = mycate == undefined || mycate ==0 ? "" : "&pcate=" + mycate;
+    var newcate = mycate == undefined || mycate ==0 ? "" : "&cates=" + mycate;
     var newtype = mytype == undefined || mytype ==0 ? "" : "&doctype=" + mytype;
     var newpay = mypay == undefined || mypay ==0 ? "" : "&priceattr=" + mypay;
-    var newurl = "http://192.168.1.213/api/index.php?c=book&a=category&op=filter&uniacid=2" + newcate + newtype + newpay;
+    var newurl = "http://192.168.1.213/api/index.php?c=book&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid+"&page=1" + newcate + newtype + newpay;
     console.log(newurl);
     this.setData({
       status: "off"
@@ -115,7 +145,8 @@ Page({
     wx.request({
       url: newurl,
       success: function (res) {
-        res = res.data;
+        max=Math.ceil(res.data.dat.total/res.data.dat.pagesize);
+        res = res.data.dat.goods;
         console.log(res);
         THIS.setData({
           cases: res,
@@ -131,11 +162,13 @@ Page({
     
   },
   onLoad: function (options) {
+      this.setData({
+          versioninfo: getApp().globalData.version,
+      })
+      page=2;
     //初始化数据
-    this.setData({
-      hidden:false,
-    })
     mytype = options.type;
+    mycate = options.cate;
     switch (gettype) {
       case "1":
         gettype = "视频";
@@ -149,11 +182,13 @@ Page({
     this.setData({
       types: mytype,
       trans_mytype: gettype,
+      hidden: false,
+      cates:mycate,
     })
-    var newcate = mycate == undefined ? "" : "&pcate=" + mycate;
+    var newcate = mycate == undefined ? "" : "&cates=" + mycate;
     var newtype = mytype == undefined ? "" : "&doctype=" + mytype;
     var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
-    var newurl = "http://192.168.1.213/api/index.php?c=book&a=category&op=filter&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0"+newcate+newtype+newpay;
+    var newurl = "http://192.168.1.213/api/index.php?c=book&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid+"&page=1"+newcate+newtype+newpay;
     var gettype = options.type;
     var cate = options.cate;
     var pay = options.pay;
@@ -162,7 +197,7 @@ Page({
     console.log(newurl);
     //获取分类
      wx.request({
-       url: "http://192.168.1.213/api/index.php?c=book&a=category&op=query_cate&uniacid=2&openid=otNFxuOh8MWAIewTiZ_tpLdiSKc0",
+       url: "http://192.168.1.213/api/index.php?c=book&a=category&op=query_cate&uniacid=2",
        success:function(res){
          console.log(res);
          var data=res.data;
@@ -175,7 +210,8 @@ Page({
      wx.request({
        url: newurl,
        success: function (res) {
-         res = res.data;
+         max = Math.ceil(res.data.dat.total / res.data.dat.pagesize);
+         res = res.data.dat.goods;
          console.log(res);
          THIS.setData({
            cases: res,
@@ -230,7 +266,24 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+      if(page<=max){
+          var THIS = this;
+          var newcate = mycate == undefined ? "" : "&cates=" + mycate;
+          var newtype = mytype == undefined ? "" : "&doctype=" + mytype;
+          var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
+          var newurl = "http://192.168.1.213/api/index.php?c=book&a=videoshop&op=fl&uniacid=2&page=" + page + newcate + newtype + newpay;
+          wx.request({
+              url: newurl,
+              success: function (res) {
+                  var res = res.data.dat.goods;
+                  var newcases = THIS.data.cases;
+                  THIS.setData({
+                      cases: newcases.concat(res),
+                  })
+              }
+          })
+          page += 1;
+      }
   },
 
   /**
