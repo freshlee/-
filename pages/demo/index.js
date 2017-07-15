@@ -43,7 +43,7 @@ onReady:function(){
    var THIS=this;
    //商品接口
    wx.request({
-       url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=query_videoshop&uniacid=' + getApp().globalData.acid,
+       url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=videoshop&op=query_videoshop&uniacid=' + getApp().globalData.acid,
      data: {
      },
      header: {
@@ -87,7 +87,7 @@ onReady:function(){
 
    //展示接口
    wx.request({
-       url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videovad&op=videovad_nav&uniacid=' + getApp().globalData.acid,
+       url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=videovad&op=videovad_nav&uniacid=' + getApp().globalData.acid,
      data: {
      },
      header: {
@@ -133,7 +133,7 @@ onReady:function(){
    })
    //机构接口
    wx.request({
-       url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=sy&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+       url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=merch&op=sy&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
      success:function(res){
        console.log(res);
        var data=res.data.dat.sy;

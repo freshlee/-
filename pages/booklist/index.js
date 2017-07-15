@@ -17,7 +17,7 @@ Page({
   topay:function(){
     var THIS=this;
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=pay&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+"&orderid="+THIS.data.orderid,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=pay&op=pay&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+"&orderid="+THIS.data.orderid,
         success:function(res){
             var data=res.data.dat.wechat;
             wx.requestPayment({
@@ -31,7 +31,7 @@ Page({
                         title: '您已经支付成功',
                     })
                     wx.request({
-                        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=payh&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + "&orderid=" + THIS.data.orderid,
+                        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=pay&op=payh&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + "&orderid=" + THIS.data.orderid,
                     })
                 }
             })
@@ -54,7 +54,7 @@ Page({
      if (!options.orderid){
        //生成订单好并获取信息
        wx.request({
-           url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid=' + options.goodsid,
+           url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=order&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid=' + options.goodsid,
          success: function (res) {
            console.log(res);
            THIS.setData({
@@ -62,7 +62,7 @@ Page({
              orderid:res.data.orderid,
            })
            wx.request({
-               url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=params&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&orderid=' + res.data.orderid,
+               url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=pay&op=params&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&orderid=' + res.data.orderid,
              success:function(res){
                  THIS.setData({
                      hidden: true,
@@ -90,7 +90,7 @@ Page({
      }
      else{
        wx.request({
-           url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=params&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&orderid=' + THIS.data.orderid,
+           url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=pay&op=params&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&orderid=' + THIS.data.orderid,
          success: function (res) {
              THIS.setData({
                  hidden:true,

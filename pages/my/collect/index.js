@@ -18,7 +18,7 @@ Page({
     var THIS=this;
     var orderid=e.currentTarget.dataset.orderid;
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=cancel&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&orderid='+orderid,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=order&op=cancel&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&orderid='+orderid,
       success:function(res){
        THIS.renew();
       },
@@ -77,7 +77,7 @@ Page({
       hidden: false,
     })
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=list&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=order&op=list&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
       success: function (res) {
         console.log(res);
         var data = res.data.dat;

@@ -24,7 +24,7 @@ Page({
     console.log(openid);
     var id = e.currentTarget.dataset.id;
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=deletereply&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&bid='+id,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=Usersq&op=deletereply&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&bid='+id,
       success:function(){
         THIS.getcomment();
         THIS.setData({
@@ -66,7 +66,7 @@ Page({
       hidden: false,
     })
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Post&op=like&uniacid=' + getApp().globalData.acid+'&pid=' + des + '&openid=' + getApp().globalData.openid,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=Post&op=like&uniacid=' + getApp().globalData.acid+'&pid=' + des + '&openid=' + getApp().globalData.openid,
       success:function(){
         var that=THIS;
         wx.request({
@@ -112,7 +112,7 @@ Page({
     var THIS=this;
      pid = options.pid;
      bid = options.bid;
-     newurl = 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Post&op=getlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&pid='+pid+"&bid="+bid;
+     newurl = 'http://192.168.1.213/api/index.php?c=eweivideo&a=Post&op=getlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&pid='+pid+"&bid="+bid;
     this.getcomment();
   },
   getcomment:function(){
@@ -142,7 +142,7 @@ Page({
       content:data,
     })
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Post&op=reply&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&pid='+pid+"&bid="+bid+"&rpid="+rpid,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=Post&op=reply&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&pid='+pid+"&bid="+bid+"&rpid="+rpid,
       data: {content:THIS.data.content},
       success: function (res) {
         THIS.setData({

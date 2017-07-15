@@ -52,7 +52,7 @@ Page({
        versioninfo: getApp().globalData.version,
        myid:myid,
      })
-     newurl = 'https://api.cnmmsc.org/index.php?c=eweivideo&a=comment&op=list&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid=' + myid,
+     newurl = 'http://192.168.1.213/api/index.php?c=eweivideo&a=comment&op=list&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid=' + myid,
     console.log(newurl);
     this.getcomment();
   },

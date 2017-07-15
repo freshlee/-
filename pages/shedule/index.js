@@ -22,7 +22,7 @@ Page({
     var id=e.currentTarget.dataset.index;
     //获取商品具体信息
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=create&uniacid=' + getApp().globalData.acid+'&goodsid=' + id + "&openid=" + getApp().globalData.openid,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=order&op=create&uniacid=' + getApp().globalData.acid+'&goodsid=' + id + "&openid=" + getApp().globalData.openid,
       success:function(res){
         console.log(res);
       var doctype=res.data.dat.goods.type;
@@ -95,7 +95,7 @@ Page({
   onShow: function () {
       var THIS = this;
       wx.request({
-          url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=gzlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+          url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=merch&op=gzlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
           success: function (res) {
               console.log(res);
               THIS.setData({
@@ -105,7 +105,7 @@ Page({
       })
       //已经购买课程
       wx.request({
-          url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=list&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+          url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=order&op=list&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
           success: function (res) {
               var data = res.data.dat;
               console.log(res);

@@ -20,7 +20,7 @@ Page({
     var THIS=this;
 
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=footstep&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=merch&op=footstep&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
       success:function(res){
         var test = /\d{4}-\d{2}-\d{2}/
         var data = res.data.dat.list

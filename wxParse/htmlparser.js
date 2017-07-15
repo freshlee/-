@@ -1,15 +1,15 @@
 /**
  * 
- * htmlParser改造自: httpss://github.com/blowsie/Pure-JavaScript-HTML5-Parser
+ * htmlParser改造自: https://github.com/blowsie/Pure-JavaScript-HTML5-Parser
  * 
  * author: Di (微信小程序开发工程师)
- * organization: WeAppDev(微信小程序开发论坛)(https://weappdev.com)
+ * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
  *               垂直微信小程序开发交流社区
  * 
- * github地址: httpss://github.com/icindy/wxParse
+ * github地址: https://github.com/icindy/wxParse
  * 
  * for: 微信小程序富文本解析
- * detail : https://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
  */
 // Regular Expressions for parsing tags and attributes
 var startTag = /^<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/,

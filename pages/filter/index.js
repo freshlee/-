@@ -32,7 +32,7 @@ Page({
       status: this.data.status == "on" ? "off" : "on",
     })
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=likegoods&uniacid=' + getApp().globalData.acid,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=merch&op=likegoods&uniacid=' + getApp().globalData.acid,
       data:{
         title:title,
       },
@@ -67,7 +67,7 @@ Page({
             hidden:false,
         })
         wx.request({
-            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=rm&uniacid=' + getApp().globalData.acid,
+            url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=videoshop&op=rm&uniacid=' + getApp().globalData.acid,
             success:function(res){
                 THIS.setData({
                     cases: res.data.dat.rm,
@@ -92,7 +92,7 @@ Page({
     var jumptype=event.currentTarget.dataset.nav;
     var typename;
     if(jumptype==1){typename="video"}
-    else if (jumptype == 3) { typename = "course"}
+    else if (jumptype == 2) { typename = "course"}
     else { typename = "article" }
     var newurl="../"+typename+"/index?&id="+id;
     console.log(newurl);
@@ -135,9 +135,9 @@ Page({
     })
     var THIS = this;
     var newcate = mycate == undefined || mycate ==0 ? "" : "&cates=" + mycate;
-    var newtype = mytype == undefined || mytype ==0 ? "" : "&doctype=" + mytype;
+    var newtype = mytype == undefined || mytype ==0 ? "" : "&type=" + mytype;
     var newpay = mypay == undefined || mypay ==0 ? "" : "&priceattr=" + mypay;
-    var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid+"&page=1" + newcate + newtype + newpay;
+    var newurl = "http://192.168.1.213/api/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid+"&page=1" + newcate + newtype + newpay;
     console.log(newurl);
     this.setData({
       status: "off"
@@ -186,9 +186,9 @@ Page({
       cates:mycate,
     })
     var newcate = mycate == undefined ? "" : "&cates=" + mycate;
-    var newtype = mytype == undefined ? "" : "&doctype=" + mytype;
+    var newtype = mytype == undefined ? "" : "&type=" + mytype;
     var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
-    var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid+"&page=1"+newcate+newtype+newpay;
+    var newurl = "http://192.168.1.213/api/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=" + getApp().globalData.acid+"&page=1"+newcate+newtype+newpay;
     var gettype = options.type;
     var cate = options.cate;
     var pay = options.pay;
@@ -197,7 +197,7 @@ Page({
     console.log(newurl);
     //获取分类
      wx.request({
-       url: "https://api.cnmmsc.org/index.php?c=eweivideo&a=category&op=query_cate&uniacid=2",
+       url: "http://192.168.1.213/api/index.php?c=eweivideo&a=category&op=query_cate&uniacid=2",
        success:function(res){
          console.log(res);
          var data=res.data;
@@ -271,7 +271,7 @@ Page({
           var newcate = mycate == undefined ? "" : "&cates=" + mycate;
           var newtype = mytype == undefined ? "" : "&doctype=" + mytype;
           var newpay = mypay == undefined ? "" : "&priceattr=" + mypay;
-          var newurl = "https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=2&page=" + page + newcate + newtype + newpay;
+          var newurl = "http://192.168.1.213/api/index.php?c=eweivideo&a=videoshop&op=fl&uniacid=2&page=" + page + newcate + newtype + newpay;
           wx.request({
               url: newurl,
               success: function (res) {

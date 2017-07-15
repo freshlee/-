@@ -26,7 +26,7 @@ Page({
       hidden2: 0,   
     })
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=boardlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769',
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=Board&op=boardlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769',
       data: {
         cid: chosen,
       },
@@ -69,7 +69,7 @@ Page({
     var THIS=this;
     //获得所有帖子
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=boardlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769',
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=Board&op=boardlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769',
       success:function(res){
         var data = res.data.dat;
         THIS.setData({
@@ -104,7 +104,7 @@ Page({
     var THIS=this;
     //左侧状态栏请求
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=lists&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&id=7',
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=Board&op=lists&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&id=7',
       success: function (res) {
         console.log(res.data.dat);
         var data = res.data.dat;

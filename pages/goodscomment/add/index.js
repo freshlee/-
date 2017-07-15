@@ -18,7 +18,7 @@ Page({
     })
     var level=this.data.indexnow+1;
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=comment&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&orderid='+orderid+'&goodsid='+myid+"&images="+pic+"&level="+level,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=comment&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&orderid='+orderid+'&goodsid='+myid+"&images="+pic+"&level="+level,
       data:e.detail.value,
       success:function(res){
         console.log(res)
@@ -42,7 +42,7 @@ Page({
       }
     })
     wx.request({
-        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=comment&op=upload&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
+        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=comment&op=upload&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + "&orderid=" + orderid,
         data:{
             file:pic
         }            
@@ -61,7 +61,7 @@ chosepic:function(){
       for (var key in pic) {
           console.log(pic[key])
           wx.uploadFile({
-              url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=comment&op=upload&uniacid=' + getApp().globalData.acid,
+              url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=comment&op=upload&uniacid=' + getApp().globalData.acid,
               filePath: pic[key],
               name: 'images',
               success: function (res) {

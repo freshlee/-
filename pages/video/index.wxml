@@ -2,7 +2,7 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <scroll-view scroll-y style="height:{{myheight}}px" catchscroll="move">
 <view class="body">
-<view class="video" style="height:190px">
+<view class="video" style="height:190px" src="{{goods.keywords}}">
 <view wx:if="{{!permission}}" class="{{status==1?'statuson':''}} cover"></view>
 <video class="{{status==1?'statuson':''}}" catchtouchmove="drag" style="right:0" src="{{goods.url}}"></video>
 </view>
