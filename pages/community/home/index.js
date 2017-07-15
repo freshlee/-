@@ -31,13 +31,13 @@ Page({
   onReady: function () {
   var THIS=this;
   wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=snsvad&uniacid=' + getApp().globalData.acid,
+      url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=snsvad&uniacid=' + getApp().globalData.acid,
     success:function(res){
         var data =res.data.dat;
         console.log(res);
           for(var key in data.SNSVAD){
             var mark=/www.ht.com/;
-            data.SNSVAD[key].thumb = data.SNSVAD[key].thumb.replace(mark,"192.168.1.213/api/ht");
+            data.SNSVAD[key].thumb = data.SNSVAD[key].thumb.replace(mark,"api.cnmmsc.org/ht");
           }
           console.log(data);
           THIS.setData({
@@ -47,7 +47,7 @@ Page({
     },
   })
   wx.request({
-      url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=blist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769',
+      url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=blist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769',
     success:function(res){
     var data=res.data.dat;
     console.log(data);

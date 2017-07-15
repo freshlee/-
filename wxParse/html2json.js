@@ -1,18 +1,18 @@
 /**
- * html2Json 改造来自: https://github.com/Jxck/html2json
+ * html2Json 改造来自: httpss://github.com/Jxck/html2json
  * 
  * 
  * author: Di (微信小程序开发工程师)
- * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+ * organization: WeAppDev(微信小程序开发论坛)(https://weappdev.com)
  *               垂直微信小程序开发交流社区
  * 
- * github地址: https://github.com/icindy/wxParse
+ * github地址: httpss://github.com/icindy/wxParse
  * 
  * for: 微信小程序富文本解析
- * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ * detail : https://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
  */
 
-var __placeImgeUrlHttps = "https";
+var __placeImgeUrlhttpss = "httpss";
 var __emojisReg = '';
 var __emojisBaseSrc = '';
 var __emojis = {};
@@ -127,7 +127,7 @@ function html2json(html, bindName) {
             if (node.tag === 'img') {
                 node.imgIndex = results.images.length;
                 var imgUrl = node.attr.src;
-                imgUrl = wxDiscode.urlToHttpUrl(imgUrl, __placeImgeUrlHttps);
+                imgUrl = wxDiscode.urlTohttpsUrl(imgUrl, __placeImgeUrlhttpss);
                 node.attr.src = imgUrl;
                 node.from = bindName;
                 results.images.push(node);

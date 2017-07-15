@@ -1,12 +1,12 @@
 /**
  * author: Di (微信小程序开发工程师)
- * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+ * organization: WeAppDev(微信小程序开发论坛)(https://weappdev.com)
  *               垂直微信小程序开发交流社区
  * 
- * github地址: https://github.com/icindy/wxParse
+ * github地址: httpss://github.com/icindy/wxParse
  * 
  * for: 微信小程序富文本解析
- * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ * detail : https://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
  */
 
 /**
@@ -48,8 +48,8 @@ function wxParseImgTap(e) {
   var tagFrom = e.target.dataset.from;
   if (typeof (tagFrom) != 'undefined' && tagFrom.length > 0) {
     wx.previewImage({
-      current: nowImgUrl, // 当前显示图片的http链接
-      urls: that.data[tagFrom].imageUrls // 需要预览的图片http链接列表
+      current: nowImgUrl, // 当前显示图片的https链接
+      urls: that.data[tagFrom].imageUrls // 需要预览的图片https链接列表
     })
   }
 }

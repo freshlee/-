@@ -113,7 +113,7 @@ Page({
     })
     //获取浏览条数,只显示数目
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=footstep&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=footstep&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
       success:function(res){
         var record = res.data.dat.list.length;
         THIS.setData({
@@ -123,7 +123,7 @@ Page({
     })
     //获取收藏条数，只显示数目
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=gzlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=gzlist&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
         success: function (res) {
             console.log(res);
             THIS.setData({
@@ -133,7 +133,7 @@ Page({
     })
     //获取个人社区信息
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=main&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=main&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
         success: function (res) {
            THIS.setData({
                followcount:res.data.dat.followcount,

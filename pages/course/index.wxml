@@ -42,7 +42,7 @@
 
 
 <view>  <text class="line">—</text> 机构简介 <text class="line">—</text></view>
-<view class="content {{content.length>=90?(box[2]==1?'extended':'compressed'):''}}">{{organise}}</view>
+<view bindtap="jumptoorganise"  class="content {{content.length>=90?(box[2]==1?'extended':'compressed'):''}}">{{organise}} </view>
 <view class="extend {{box[2]==0?'arrowon':''}}" bindtap="expension" data-case="2" style="display:{{content.length>=90?(box[2]==1?'inline-block':'none'):'none'}}"> 
 <image src="../../images/arrow_down.png" style="display:{{box[2]==1?'inline-block':'none'}}"></image> </view>
 </view>

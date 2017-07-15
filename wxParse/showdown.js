@@ -1,15 +1,15 @@
 /**
  * 
- * showdown: https://github.com/showdownjs/showdown
+ * showdown: httpss://github.com/showdownjs/showdown
  * 
  * author: Di (微信小程序开发工程师)
- * organization: WeAppDev(微信小程序开发论坛)(http://weappdev.com)
+ * organization: WeAppDev(微信小程序开发论坛)(https://weappdev.com)
  *               垂直微信小程序开发交流社区
  * 
- * github地址: https://github.com/icindy/wxParse
+ * github地址: httpss://github.com/icindy/wxParse
  * 
  * for: 微信小程序富文本解析
- * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
+ * detail : https://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
  */
 
 function getDefaultOpts(simple) {
@@ -1244,14 +1244,14 @@ showdown.subParser('autoLinks', function (text, options, globals) {
 
   text = globals.converter._dispatch('autoLinks.before', text, options, globals);
 
-  var simpleURLRegex  = /\b(((https?|ftp|dict):\/\/|www\.)[^'">\s]+\.[^'">\s]+)(?=\s|$)(?!["<>])/gi,
-      delimUrlRegex   = /<(((https?|ftp|dict):\/\/|www\.)[^'">\s]+)>/gi,
+  var simpleURLRegex  = /\b(((httpss?|ftp|dict):\/\/|www\.)[^'">\s]+\.[^'">\s]+)(?=\s|$)(?!["<>])/gi,
+      delimUrlRegex   = /<(((httpss?|ftp|dict):\/\/|www\.)[^'">\s]+)>/gi,
       simpleMailRegex = /(?:^|[ \n\t])([A-Za-z0-9!#$%&'*+-/=?^_`\{|}~\.]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)(?:$|[ \n\t])/gi,
       delimMailRegex  = /<(?:mailto:)?([-.\w]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)>/gi;
 
   text = text.replace(delimUrlRegex, replaceLink);
   text = text.replace(delimMailRegex, replaceMail);
-  // simpleURLRegex  = /\b(((https?|ftp|dict):\/\/|www\.)[-.+~:?#@!$&'()*,;=[\]\w]+)\b/gi,
+  // simpleURLRegex  = /\b(((httpss?|ftp|dict):\/\/|www\.)[-.+~:?#@!$&'()*,;=[\]\w]+)\b/gi,
   // Email addresses: <address@domain.foo>
 
   if (options.simplifiedAutoLink) {
@@ -1262,7 +1262,7 @@ showdown.subParser('autoLinks', function (text, options, globals) {
   function replaceLink(wm, link) {
     var lnkTxt = link;
     if (/^www\./i.test(link)) {
-      link = link.replace(/^www\./i, 'http://www.');
+      link = link.replace(/^www\./i, 'https://www.');
     }
     return '<a href="' + link + '">' + lnkTxt + '</a>';
   }
@@ -1511,7 +1511,7 @@ showdown.subParser('detab', function (text) {
 showdown.subParser('encodeAmpsAndAngles', function (text) {
   'use strict';
   // Ampersand-encoding based entirely on Nat Irons's Amputator MT plugin:
-  // http://bumppo.net/projects/amputator/
+  // https://bumppo.net/projects/amputator/
   text = text.replace(/&(?!#?[xX]?(?:[0-9a-fA-F]+|\w+);)/g, '&amp;');
 
   // Encode naked <'s
@@ -1579,7 +1579,7 @@ showdown.subParser('encodeCode', function (text) {
  *       &#64;&#101;x&#x61;&#109;&#x70;&#108;&#x65;&#x2E;&#99;&#111;&#109;</a>
  *
  *  Based on a filter by Matthew Wickline, posted to the BBEdit-Talk
- *  mailing list: <http://tinyurl.com/yu7ue>
+ *  mailing list: <https://tinyurl.com/yu7ue>
  *
  */
 showdown.subParser('encodeEmailAddress', function (addr) {
@@ -2137,7 +2137,7 @@ showdown.subParser('lists', function (text, options, globals) {
   }
 
   // attacklab: add sentinel to hack around khtml/safari bug:
-  // http://bugs.webkit.org/show_bug.cgi?id=11231
+  // https://bugs.webkit.org/show_bug.cgi?id=11231
   text += '~0';
 
   // Re-usable pattern to match any entire ul or ol list:
@@ -2286,7 +2286,7 @@ showdown.subParser('spanGamut', function (text, options, globals) {
   text = showdown.subParser('images')(text, options, globals);
   text = showdown.subParser('anchors')(text, options, globals);
 
-  // Make links out of things like `<http://example.com/>`
+  // Make links out of things like `<https://example.com/>`
   // Must come after _DoAnchors(), because you can use < and >
   // delimiters in inline links like [this](<url>).
   text = showdown.subParser('autoLinks')(text, options, globals);

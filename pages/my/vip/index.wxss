@@ -31,7 +31,6 @@ page{
 /*展开面板*/
 .expend{
   position: relative;
-  margin-top:-240rpx;
   transition-property: margin-top;
   transition-duration: 0.5s
 }

@@ -40,7 +40,7 @@ Page({
   renew:function(){
     var THIS = this;
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=selectuser&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=selectuser&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
       success: function (res) {
         console.log(res);
         var data = res.data.dat.member;
@@ -74,7 +74,7 @@ Page({
     var day = times[2]
     var THIS=this;
      wx.request({
-         url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=userinfo&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + "&lat=" + THIS.data.lat + "&lng=" + THIS.data.lng + "&birthyear=" + year + "&birthmonth=" + month + "&birthday=" + day,
+         url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=userinfo&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + "&lat=" + THIS.data.lat + "&lng=" + THIS.data.lng + "&birthyear=" + year + "&birthmonth=" + month + "&birthday=" + day,
        data:e.detail.value,
        success:function(res){
          console.log(res);

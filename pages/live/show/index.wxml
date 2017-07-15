@@ -1,6 +1,6 @@
 <!--pages/video/index.wxml-->
 <import src="../../../wxParse/wxParse.wxml"/> 
-<video src="http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8" style="width:100%;height:400rpx"></video>
+<video src="https://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8" style="width:100%;height:400rpx"></video>
 
 <view class="info">
 <view class="picture"> <image src="../../../images/protrait.jpg"></image> </view>

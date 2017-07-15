@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <import src="../../wxParse/wxParse.wxml"/> 
 <view class="banner">
-<view class="protrait"> <image src="{{base.logo}}"></image> <view class="organisename">{{base.merchname}}</view></view>
-<image src="{{base.logo}}" id="cover"></image>
+<view class="protrait"> <image src="{{base.jg.logo?base.jg.logo:base.zz.logo}}"></image> <view class="organisename">{{base.merchname}}</view></view>
+<image src="{{base.jg.logo?base.jg.logo:base.zz.logo}}" id="cover"></image>
 </view>
 
 
@@ -18,7 +18,7 @@
 
 <scroll-view scroll-y style="height:770rpx">
 <view class="describe">
-{{base.desc}}
+{{base.jg.desc?base.jg.desc:base.zz.description}}
 </view>
 
 <!--<view id="mapbox"><map id="map" longitude="{{base.lng}}" latitude="{{base.lat}}" scale="16" controls="{{controls}}"  markers="{{markers}}"  polyline="{{polyline}}"  show-location style="width: 100%; height: 400rpx;"/></view>-->
@@ -45,8 +45,8 @@
 <view class="box">
 <view class="boxtop">
 <view class="name">{{item.videoname}}</view>
-<view class="reputation"> 好评度：<image src="../../images/star.png"  wx:for="{{[1,2,3,4,5]}}"/> </view>
-<view class="amount">课程数:3500</view>
+<!-- <view class="reputation"> 好评度：<image src="../../images/star.png"  wx:for="{{[1,2,3,4,5]}}"/> </view>
+<view class="amount">课程数:3500</view> -->
 </view>
 <view class="bottom {{box[0]==1?'extended':'compressed'}}">{{item.content}}</view>
 </view>

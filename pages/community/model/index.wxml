@@ -41,7 +41,7 @@
 <image src="{{item}}" wx:for="{{logo}}" data-index="{{index}}" bindtap="del"/> 
 <input  placeholder="说点什么吧"  name="content"  bindfocus="write" fixed="true" auto-height="true"  bindconfirm="submit"  />
 
-<!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image> -->
+ <!-- <image  src="../../../images/add_pic.png" bindtap="insertpic" id="addpic"></image>  -->
 
 </view>
 

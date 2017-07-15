@@ -37,7 +37,7 @@ Page({
    var pid = e.currentTarget.dataset.pid;
    var index = e.currentTarget.dataset.index;
    wx.request({
-       url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&id=12&bid='+bid+"&pid="+pid,
+       url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Post&op=like&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&id=12&bid='+bid+"&pid="+pid,
      success:function(res){
        var newlist=THIS.data.list;
        newlist.splice(index, 1);
@@ -79,7 +79,7 @@ Page({
   dochange:function(bid,pid){
     var THIS=this;
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=like&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&id=12&bid=' + bid + "&pid=" + pid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Post&op=like&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&id=12&bid=' + bid + "&pid=" + pid,
       success: function (res) {
         THIS.setData({
           shit:res.data.dat.good,
@@ -107,7 +107,7 @@ Page({
       submiting: false,
     })
      wx.request({
-         url: 'http://192.168.1.213/api/index.php?c=book&a=Post&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&images=' + logo[0]+"&bid="+bid,
+         url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Post&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&images=' + logo[0]+"&bid="+bid,
        data:{
          content:THIS.data.content,
        },
@@ -131,7 +131,7 @@ Page({
        }
      })
      wx.request({
-         url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&bid=' + bid,
+         url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Post&op=upload&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&bid=' + bid,
          data: { images: sublogo},
          success:function(res){
              
@@ -153,7 +153,7 @@ Page({
     var THIS=this;
     this.dochange(postid, indexnow);
       wx.request({
-          url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page='+modifypage+'&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + postid,
+          url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page='+modifypage+'&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + postid,
         success: function (res) {
           var newlist = THIS.data.list;
           var addlist = THIS.data.list;
@@ -183,7 +183,7 @@ Page({
   renewaddedcomment:function(){
       var THIS=this;
       wx.request({
-          url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page=1&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+          url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page=1&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
           success: function (res) {
               var firstpage=THIS.data.list;
               firstpage.splice(0,9);
@@ -207,7 +207,7 @@ Page({
       var THIS=this;
        if (page = 1) {
           wx.request({
-              url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page=1&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+              url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page=1&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
               success: function (res) {
                   max = Math.ceil(res.data.dat.total / res.data.dat.pagesize);
                   rest = res.data.dat.tatal % res.data.dat.pagesize;
@@ -230,7 +230,7 @@ Page({
        }
       else{
         wx.request({
-            url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page='+page+'&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+            url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page='+page+'&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
             success: function (res) {
                 var data = res.data.dat;
                 THIS.setData({
@@ -262,7 +262,7 @@ Page({
     console.log(options);
     //判断是不是版主
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=banzhu&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=banzhu&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
       success: function (res) {
        permission=res.data.dat;
        THIS.setData({
@@ -277,7 +277,7 @@ Page({
     this.getcomment();
     //头部数据
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=main&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&id=' + bid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=main&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&id=' + bid,
       success: function (res) {
         console.log(res)
         var data=res.data.dat;
@@ -297,7 +297,7 @@ Page({
     })
     //获取关注状态
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=sfgz&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=sfgz&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&mid=25769&bid=' + bid,
       success:function(res){
         THIS.setData({
             concern:res.data.dat,
@@ -327,7 +327,7 @@ Page({
      for(var key in logo){
          console.log(logo[key]);
          wx.uploadFile({
-             url: 'http://192.168.1.213/api/index.php?c=book&a=comment&op=upload&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&bid=' + bid,
+             url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Post&op=upload&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&bid=' + bid,
              filePath: logo[key],
              name: 'images',
              success:function(res){
@@ -372,7 +372,7 @@ Page({
     var latest = this.data.isconcern;
     if(old!=latest){
       wx.request({
-          url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=follow&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid  + "&bid=" + bid,
+          url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=follow&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid  + "&bid=" + bid,
         success: function () {
         }
       })
@@ -396,7 +396,7 @@ Page({
           })
           var THIS = this;
           wx.request({
-              url: 'http://192.168.1.213/api/index.php?c=book&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page=' + page + '&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
+              url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Board&op=getlist&uniacid=' + getApp().globalData.acid+'&page=' + page + '&openid=' + getApp().globalData.openid + '&mid=25769&bid=' + bid,
               success: function (res) {
                   var data = res.data.dat;
                   THIS.setData({

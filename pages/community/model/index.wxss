@@ -101,7 +101,7 @@
   bottom:0;
   left: 0;
   background:#f4f4f4;
-  padding: 20rpx;
+  padding: 5rpx 20rpx;
   box-sizing: border-box;
   transition-property:height;
   transition-duration: 0.5s; 
@@ -111,11 +111,6 @@
 }
 .writeboard button{
   width: 40%;
-}
-.writeboard input{
-  font-size: 28rpx;
-  display: inline-block;
-  width:80%;
 }
 #addpic{
   width: 50rpx;
@@ -263,7 +258,7 @@
   padding: 20rpx;
 }
 .writeboard input{
-  width: 85%;
+  width: 100%;
   border-bottom: 2rpx solid gainsboro;
   padding: 20rpx 0;
 }

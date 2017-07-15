@@ -20,7 +20,7 @@ Page({
          content: '确定上传麽?',
          success:function(){
              wx.request({
-                 url: 'http://192.168.1.213/api/index.php?c=book&a=shopreg&op=reg&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+                 url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=shopreg&op=reg&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
                  data: e.detail.value,
              })
          }

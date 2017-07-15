@@ -30,6 +30,9 @@ Page({
     })
   },
   onLoad: function (options) {
+    if(options.merchid!=0){
+
+    }
     this.setData({
         versioninfo:getApp().globalData.version,
     })
@@ -37,13 +40,18 @@ Page({
     myid=options.id;
     //获取基础信息
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=id&uniacid=' + getApp().globalData.acid+'&uid=' + myid + "&openid=" + getApp().globalData.openid,
+      url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=id&uniacid=' + getApp().globalData.acid+'&uid=' + myid + "&openid=" + getApp().globalData.openid,
       success:function(res){
         //标记坐标
-        var data=res.data.dat.jg
-        lat=data.lat;
-        lng=data.lng;
-        tel=data.tel
+          var data = res.data.dat;
+        if(res.data.dat.jg){
+            lat = data.jg.lat;
+            lng = data.jg.lng;
+            tel = data.jg.tel;
+        }
+        else{
+            tel = data.zz.phone;
+        }
         console.log(res);
         THIS.setData({
           base:data,
@@ -52,7 +60,7 @@ Page({
     })
     //获取教师信息
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=teacher&uniacid=' + getApp().globalData.acid+'&uid=' + myid + "&openid=" + getApp().globalData.openid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=teacher&uniacid=' + getApp().globalData.acid+'&uid=' + myid + "&openid=" + getApp().globalData.openid,
       success:function(res){
          console.log(res);
          THIS.setData({
@@ -62,7 +70,7 @@ Page({
     })
     //获取课程信息
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=merch&op=shop&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&uid=' + myid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=merch&op=shop&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&uid=' + myid,
       success: function (res) {
         console.log(res);
         THIS.setData({

@@ -27,7 +27,7 @@ Page({
             hidden: false,
           })
           wx.request({
-              url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=deletereply&uniacid=' + getApp().globalData.acid+'&bid=' + id + "&openid=" + getApp().globalData.openid,
+              url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=deletereply&uniacid=' + getApp().globalData.acid+'&bid=' + id + "&openid=" + getApp().globalData.openid,
             success:function(res){
             var newlist = THIS.data.replys;
             newlist.splice(index,1);
@@ -53,7 +53,7 @@ Page({
         hidden: false,
       })
       wx.request({
-          url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=getreplys&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&page=' + page,
+          url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=getreplys&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&page=' + page,
         success: function (res) {
           THIS.setData({
             hidden:true
@@ -153,7 +153,7 @@ Page({
        hidden:false,
     })
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=main&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=main&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid,
       success:function(res){
         var data=res.data.dat;
         for(var key in data.posts){
@@ -173,7 +173,7 @@ Page({
     })
     //初次获取帖子信息
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=Usersq&op=getreplys&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&page=1',
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=Usersq&op=getreplys&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&page=1',
       success:function(res){
         THIS.setData({
           replys: res.data.dat.list,

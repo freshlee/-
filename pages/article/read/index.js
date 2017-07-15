@@ -41,7 +41,7 @@ Page({
     var id=option.id;
     //获取商品信息
     wx.request({
-        url: "http://192.168.1.213/api/index.php?c=book&a=order&op=create&uniacid=" + getApp().globalData.acid + "&openid=" + getApp().globalData.openid + "&goodsid=" + myid,
+        url: "https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=create&uniacid=" + getApp().globalData.acid + "&openid=" + getApp().globalData.openid + "&goodsid=" + id,
         success: function (res) {
             console.log(res.data);
             var data = res.data.dat;

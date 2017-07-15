@@ -49,9 +49,9 @@ Page({
     var THIS = this;
     var article;
     var myid = options.id;
-    var newurl = "http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&openid=1&id" + myid;
+    var newurl = "https://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&openid=1&id" + myid;
     wx.request({
-      url: 'http://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&id=1647&openid=1',
+      url: 'https://192.168.1.16/index.php?c=edu&a=detail&op=getgoods&id=1647&openid=1',
       data: {
       },
       header: {

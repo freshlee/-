@@ -1,6 +1,7 @@
 // index.js
 var doctype;
 var openid = getApp().globalData.openid;
+var orderid;
 Page({
 
   /**
@@ -16,7 +17,7 @@ Page({
   topay:function(){
     var THIS=this;
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=pay&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+"&orderid="+THIS.data.orderid,
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=pay&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+"&orderid="+THIS.data.orderid,
         success:function(res){
             var data=res.data.dat.wechat;
             wx.requestPayment({
@@ -25,11 +26,20 @@ Page({
                 package: data.package,
                 signType: data.signType,
                 paySign: data.paySign,
+                success:function(){
+                    wx.showToast({
+                        title: '您已经支付成功',
+                    })
+                    wx.request({
+                        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=payh&uniacid=' + getApp().globalData.acid + '&openid=' + getApp().globalData.openid + "&orderid=" + THIS.data.orderid,
+                    })
+                }
             })
         }
     })
   },
   onLoad: function (options) {
+      orderid = options.orderid;
    var THIS=this;
     this.setData({
     versioninfo: getApp().globalData.version,
@@ -44,7 +54,7 @@ Page({
      if (!options.orderid){
        //生成订单好并获取信息
        wx.request({
-           url: 'http://192.168.1.213/api/index.php?c=book&a=order&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid=' + options.goodsid,
+           url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=order&op=submit&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid+'&goodsid=' + options.goodsid,
          success: function (res) {
            console.log(res);
            THIS.setData({
@@ -52,7 +62,7 @@ Page({
              orderid:res.data.orderid,
            })
            wx.request({
-               url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=params&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&orderid=' + res.data.orderid,
+               url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=params&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&orderid=' + res.data.orderid,
              success:function(res){
                  THIS.setData({
                      hidden: true,
@@ -80,7 +90,7 @@ Page({
      }
      else{
        wx.request({
-           url: 'http://192.168.1.213/api/index.php?c=book&a=pay&op=params&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&orderid=' + THIS.data.orderid,
+           url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=pay&op=params&uniacid=' + getApp().globalData.acid+'&openid=' + getApp().globalData.openid + '&orderid=' + THIS.data.orderid,
          success: function (res) {
              THIS.setData({
                  hidden:true,
@@ -123,19 +133,11 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    // var doctypename;
-    // switch (doctype){
-    //   case "1": doctypename="video"
-    //    break;
-    //   case "2": doctypename = "course"
-    //     break;
-    //   case "3": doctypename = "article"
-    //     break;
-    // }
-    // console.log(doctypename)
-    // wx.redirectTo({
-    //   url: '../' + doctypename + '/index',
-    // })
+      if(!this.data.orderid){
+          wx.navigateBack({
+              delta: 2
+          })
+      }
   },
 
   /**

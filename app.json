@@ -25,7 +25,6 @@
     "pages/community/tip/index",
     "pages/filter/index",
     "pages/article/read/index",
-    "pages/paymenu/index",
     "pages/live/index",
     "pages/live/show/index"
   ],

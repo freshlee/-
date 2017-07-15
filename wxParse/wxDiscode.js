@@ -190,7 +190,7 @@ function strDiscode(str){
     str = strMoreDiscode(str);
     return str;
 }
-function urlToHttpUrl(url,rep){
+function urlTohttpsUrl(url,rep){
     
     var patt1 = new RegExp("^//");
     var result = patt1.test(url);
@@ -202,5 +202,5 @@ function urlToHttpUrl(url,rep){
 
 module.exports = {
     strDiscode:strDiscode,
-    urlToHttpUrl:urlToHttpUrl
+    urlTohttpsUrl:urlTohttpsUrl
 }

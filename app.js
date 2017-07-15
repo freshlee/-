@@ -9,7 +9,7 @@ App({
     wx.login({
       success: function (res) {
         wx.request({
-          url: 'https://api.cnmmsc.org/ljf_api.php?api=getopenid',
+            url: 'https://api.cnmmsc.org/ljf_api.php?api=getopenid',
           data: {
             code: res.code,
             acid: 499,
@@ -24,7 +24,7 @@ App({
               success: function (res) {
                 var info = res.userInfo;
                 wx.request({
-                  url: 'http://192.168.1.213/api/index.php?c=book&a=login&op=register',
+                  url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=login&op=register',
                   data: {
                     'openid': openid,
                     'avatarUrl': info.avatarUrl,
@@ -43,7 +43,7 @@ App({
       }
     })
     wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=book&a=videoshop&op=bb',
+        url: 'https://api.cnmmsc.org/index.php?c=eweivideo&a=videoshop&op=bb',
         success:function(res){
             THIS.globalData.version = res.data.dat;
         }
@@ -60,7 +60,7 @@ App({
         success: function (res) {
           var code=res.code;
           wx.request({
-            url: 'https://api.cnmmsc.org/ljf_api.php?api=getopenid&acid=499&code='+code,
+            url: 'httpss://192.168.1.213/ljf_api.php?api=getopenid&acid=499&code='+code,
             success
           })
           console.log(res);
@@ -75,6 +75,6 @@ App({
     }
   },
   globalData:{
-    acid:2,
+    acid:499,
   }
 })
