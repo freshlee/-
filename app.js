@@ -8,46 +8,63 @@ App({
     var THIS = this;
     wx.login({
       success: function (res) {
-        wx.request({
-            url: 'https://api.cnmmsc.org/ljf_api.php?api=getopenid',
-          data: {
-            code: res.code,
-            acid: 499,
-          },
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function (response) {
-            var openid = response.data.openid;
-            THIS.globalData.openid = openid;
-            wx.getUserInfo({
-              success: function (res) {
-                var info = res.userInfo;
+        wx.getStorage({
+            key: 'openid',
+            success: function(res) {
+                THIS.globalData.openid = res.data;
+            },
+            fail:function(){
                 wx.request({
-                  url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=login&op=register',
-                  data: {
-                    'openid': openid,
-                    'avatarUrl': info.avatarUrl,
-                    'name': info.nickName,
-                    'gender': info.gender,
-                    'province': info.province,
-                    'city': info.city,
-                    'uniacid': 2,
-                  },
-
+                    url: 'https://api.cnmmsc.org/ljf_api.php?api=getopenid',
+                    data: {
+                        code: res.code,
+                        acid: 499,
+                    },
+                    header: {
+                        'content-type': 'application/json'
+                    },
+                    success: function (response) {
+                        var openid = response.data.openid;
+                        THIS.globalData.openid = openid;
+                        wx.getUserInfo({
+                            success: function (res) {
+                                var info = res.userInfo;
+                                wx.request({
+                                    url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=login&op=register',
+                                    data: {
+                                        'openid': openid,
+                                        'avatarUrl': info.avatarUrl,
+                                        'name': info.nickName,
+                                        'gender': info.gender,
+                                        'province': info.province,
+                                        'city': info.city,
+                                        'uniacid': 2,
+                                    },
+                                })
+                                wx.setStorage({
+                                    key: 'openid',
+                                    data: openid,
+                                })
+                            },
+                        })
+                        wx.getStorage({
+                            key: 'openid',
+                            success: function(res) {
+                                THIS.onLaunch();
+                            },
+                        })
+                    },
                 })
-              },
-            })
-          },
+            }
+          })
+          wx.request({
+              url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=videoshop&op=bb',
+              success: function (res) {
+                  THIS.globalData.version = res.data.dat;
+              }
+          })
+            }
         })
-      }
-    })
-    wx.request({
-        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=videoshop&op=bb',
-        success:function(res){
-            THIS.globalData.version = res.data.dat;
-        }
-    })
   },
   
   getUserInfo:function(cb){
@@ -78,3 +95,6 @@ App({
     acid:2,
   }
 })
+
+
+

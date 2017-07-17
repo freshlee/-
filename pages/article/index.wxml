@@ -24,8 +24,8 @@
 
 
 
-<view class="content case" wx:if="{{goods.description}}">
-<template is="wxParse" data="{{wxParseData:article.nodes}}"/></view>
+<!-- <view class="content case" wx:if="{{goods.description}}">
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/></view> -->
 <!-- 模板 -->
 <template name="type0" ><text style="font-size:35rpx;color:red">付费</text></template>
 <template name="type1" ><text style="font-size:35rpx;color:green">免费</text></template>

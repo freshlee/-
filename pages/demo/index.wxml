@@ -30,9 +30,9 @@
 <view style="width:100%;height:100%;background:url({{video[0].thumb}});background-size:100% 100%"></view>
 </view>
 </navigator>
-<view class="subvideo"> <navigator url="{{video[1].url}}"><view class="video" style="width:330rpx;height:150rpx;background:url({{video[1].thumb}});background-size:100% 100% " ></view></navigator> <text>{{video[1].title}}</text></view>
+<view class="subvideo"> <navigator url="{{video[1].url}}"><view class="video" style="height:150rpx;background:url({{video[1].thumb}});background-size:100% 100% " ></view></navigator> <text>{{video[1].title}}</text></view>
 
-<view class="subvideo"> <navigator url="{{video[2].url}}"><view class="video" style="width:330rpx;height:150rpx;background:url({{video[2].thumb}});background-size:100% 100%" ></view></navigator> <text>{{video[2].title}}</text></view>
+<view class="subvideo"> <navigator url="{{video[2].url}}"><view class="video" style="height:150rpx;background:url({{video[2].thumb}});background-size:100% 100%" ></view></navigator> <text>{{video[2].title}}</text></view>
 </view>
 
 <view class="secondCase">

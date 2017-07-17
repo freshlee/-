@@ -41,6 +41,8 @@ onReady:function(){
          versioninfo: getApp().globalData.version,
      })
    var THIS=this;
+   //再次调起用户信息
+   
    //商品接口
    wx.request({
        url: 'http://192.168.1.213/api/index.php?c=eweivideo&a=videoshop&op=query_videoshop&uniacid=' + getApp().globalData.acid,
